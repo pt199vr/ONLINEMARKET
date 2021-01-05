@@ -7,6 +7,13 @@ public class Date implements Comparable<Date>{
 	
 	private final Integer year, month, day;
 	
+	public Date() {
+		LocalDateTime now =	java.time.LocalDateTime.now();
+		year = now.getYear();
+		month = now.getMonthValue();
+		day = now.getDayOfMonth();
+	}
+	
 	public Date(Integer year, Integer month, Integer day) {
 		this.year = year;
 		this.month = month;
