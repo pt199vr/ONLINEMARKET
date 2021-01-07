@@ -1,6 +1,6 @@
 package onlinemarket.stages;
 
-import onlinemarket.Main;
+import onlinemarket.*;
 import java.io.File;
 import java.io.IOException;
 import javafx.scene.Scene;
@@ -19,6 +19,12 @@ import javafx.fxml.FXMLLoader;
 public class LoadingStage extends Stage{
 	
 	public LoadingStage() {
+		
+		
+		//Main.threads.put(User.class, new Thread(() -> Main.user.read()));
+		
+		
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loading.fxml"));
 		AnchorPane pane = new AnchorPane();
 		fxmlLoader.setRoot(pane);

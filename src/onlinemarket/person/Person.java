@@ -44,7 +44,7 @@ public abstract class Person {
 	}
 	
 	
-	public abstract boolean equals(Person other);
+	public abstract boolean equals(Object other);
 	public abstract String toString();
 	public abstract int compareTo(Person other);
 }

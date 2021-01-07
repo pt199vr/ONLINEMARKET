@@ -3,18 +3,19 @@ package onlinemarket.person.user;
 import onlinemarket.person.*;
 import onlinemarket.fidelitycard.*;
 import onlinemarket.payment.*;
+import onlinemarket.calendar.*;
 
 public class User extends Person{
 	private Address address;
 	private FidelityCard fidelityCard;
 	private Payment payment;
-	private Cart cart;
+	//private Cart cart;
 	
 	public User(String name, String surname, Email email, Password password, long phoneNumber, Address address) {
 		super(name, surname, email, password, phoneNumber);
 		
 		this.address = address;
-		this.cart = new Cart();
+		//this.cart = new Cart();
 		this.fidelityCard = null;
 		this.payment = null;
 	}
@@ -44,9 +45,9 @@ public class User extends Person{
 	
 	
 	//CART
-	public Cart getCart() {
+	/*public Cart getCart() {
 		return cart;
-	}
+	}*/
 	
 	//EQUALS
 	public boolean equals(Object other) {
@@ -74,7 +75,9 @@ public class User extends Person{
 	
 	public void createFidelityCard() {
 		if(fidelityCard == null)
-			fidelityCard = new FidelityCard();
+			fidelityCard = new FidelityCard( email.hashCode(), new Date());
 	}
+	
+	
 	
 }
