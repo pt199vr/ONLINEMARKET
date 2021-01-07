@@ -18,10 +18,6 @@ import javafx.fxml.FXMLLoader;
 
 public class LoadingStage extends Stage{
 	
-	
-	
-	
-	
 	public LoadingStage() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loading.fxml"));
 		AnchorPane pane = new AnchorPane();
@@ -31,32 +27,20 @@ public class LoadingStage extends Stage{
 		
 		try {
 			fxmlLoader.load();
-		}/*catch(IOException e) {
+		}catch(IOException e) {
 			throw new RuntimeException(e);
-		}*/
+		}
 		
 		setScene(new Scene(pane));
 		initStyle(StageStyle.UNDECORATED);
 		
 		initStyle(StageStyle.TRANSPARENT);
 		getScene().setFill(Color.TRANSPARENT);
-		setTitle("Online-Market");
+		setTitle(Main.title);
+		
+		
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

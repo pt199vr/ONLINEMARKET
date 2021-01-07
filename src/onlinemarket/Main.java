@@ -9,15 +9,21 @@ import javafx.stage.Stage;
 import onlinemarket.login.*;
 
 
+
 public class Main extends Application{
-	public static Stage loadingstage;
-	
+	public static Stage loadingstage, loginstage;
+	public static String title = "Online-Market";
 	
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();
-
+		login();
 	}
+	
+	public static void login() {
+		loginstage = new LoginStage();
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
