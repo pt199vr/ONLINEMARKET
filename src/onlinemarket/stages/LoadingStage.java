@@ -1,4 +1,4 @@
-package onlinemarket.login;
+package onlinemarket.stages;
 
 import onlinemarket.Main;
 import java.io.File;

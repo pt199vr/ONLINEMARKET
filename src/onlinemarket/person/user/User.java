@@ -1,6 +1,8 @@
 package onlinemarket.person.user;
 
 import onlinemarket.person.*;
+import onlinemarket.fidelitycard.*;
+import onlinemarket.payment.*;
 
 public class User extends Person{
 	private Address address;
