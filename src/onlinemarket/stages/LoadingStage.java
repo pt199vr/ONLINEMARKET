@@ -25,7 +25,7 @@ public class LoadingStage extends Stage{
 		
 		
 		
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loading.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Loading.fxml"));
 		AnchorPane pane = new AnchorPane();
 		fxmlLoader.setRoot(pane);
 		fxmlLoader.setController(this);

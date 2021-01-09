@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="400.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" type = "AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="400.0" style="-fx-background-radius: 50; -fx-brder-radius: 50;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ProgressIndicator layoutX="174.0" layoutY="49.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" />
-      <Label layoutX="87.0" layoutY="21.0" text="Caricament in corso...">
+      <ProgressIndicator layoutX="174.0" layoutY="49.0" />
+      <Label layoutX="110.0" layoutY="14.0" text="Caricament in corso...">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
    </children>
-</fx:root>
+</AnchorPane>
