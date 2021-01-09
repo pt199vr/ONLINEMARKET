@@ -36,7 +36,7 @@ public class LoginStage extends Stage{
 			Platform.runLater(() ->{
 				setScene(new Scene(layout));
 				show();
-				Main.loadingstage.hide();
+				//Main.loadingstage.hide();
 				
 			});
 			
