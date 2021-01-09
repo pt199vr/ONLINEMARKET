@@ -26,7 +26,7 @@ public abstract class RnW<T> extends TreeSet<T>{
 		
 		try(ObjectInputStream objectIn = new ObjectInputStream(new FileInputStream(filepath))){
 			while(true)
-				add((T) ObjectInputStream.readObject());
+				add((T) objectIn.readObject());
 		}catch(EOFException e) {
 			return true;
 		}catch (ClassNotFoundException e) {
