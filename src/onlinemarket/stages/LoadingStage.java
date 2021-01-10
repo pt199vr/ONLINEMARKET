@@ -19,7 +19,7 @@ import javafx.fxml.FXMLLoader;
 public class LoadingStage extends Stage{
 	
 	public LoadingStage() {
-		
+		new ThreadExceptionHandler();
 		
 		//Main.threads.put(User.class, new Thread(() -> Main.user.read()));
 		
@@ -39,7 +39,7 @@ public class LoadingStage extends Stage{
 		
 		setScene(new Scene(pane));
 		initStyle(StageStyle.UNDECORATED);
-		
+		getIcons().add(Main.icon);
 		initStyle(StageStyle.TRANSPARENT);
 		getScene().setFill(Color.TRANSPARENT);
 		setTitle(Main.title);
@@ -48,5 +48,6 @@ public class LoadingStage extends Stage{
 		
 		
 	}
+	
 	
 }

@@ -16,6 +16,8 @@ public class Main extends Application{
 	public static Stage loadingstage, loginstage, mainstage;
 	public static String title = "Online Market";
 	
+	public static final Image icon = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
+	
 	public static Person person;
 	//public static final Person user = new User();
 	
