@@ -36,11 +36,8 @@ public abstract class RnW<T> extends TreeSet<T>{
 			errorReading();
 			write();
 			return false;
-		}
-				
-				
+		}	
 	}
-	
 	
 	public synchronized boolean write() {
 		try(ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(filepath, false))){
@@ -53,6 +50,4 @@ public abstract class RnW<T> extends TreeSet<T>{
 		}
 		return true;
 	}
-	
-
 }
