@@ -1,6 +1,9 @@
 package onlinemarket.person;
 
-public class Password implements Comparable<Password> {
+import java.io.Serializable;
+
+public class Password implements Comparable<Password>, Serializable {
+	private static final long serialVersionUID = 9L;
 	private final String password;
 	
 	public Password(String password) throws IllegalArgumentException{
@@ -10,6 +13,12 @@ public class Password implements Comparable<Password> {
 		this.password = password;
 	}
 	
+	@Override
+	public String toString() {
+		return password;
+	}
+	
+	
 	public int compareTo(Password other) {
 		return this.toString().compareTo(other.toString());
 	}
@@ -18,8 +27,5 @@ public class Password implements Comparable<Password> {
 		return other instanceof Password && other.toString().equals(this.toString());
 	}
 	
-	@Override
-	public String toString() {
-		return password;
-	}
+	
 }

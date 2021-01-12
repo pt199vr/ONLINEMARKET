@@ -78,6 +78,9 @@ public class User extends Person{
 			fidelityCard = new FidelityCard( email.hashCode(), new Date());
 	}
 	
-	
+	@Override
+	public void setGui() {
+		gui = new UserGui();
+	}
 	
 }

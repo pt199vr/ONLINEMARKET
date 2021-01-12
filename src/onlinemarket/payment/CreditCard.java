@@ -1,9 +1,10 @@
 package onlinemarket.payment;
 
+import java.io.Serializable;
 import onlinemarket.calendar.Date;
 
-public class CreditCard implements Payment{
-	
+public class CreditCard implements Payment, Serializable{
+	private static final long serialVersionUID = 7L;
 	private final String ownerCard;
 	private final Date expirationDate;
 	private final Integer CVV2, id;

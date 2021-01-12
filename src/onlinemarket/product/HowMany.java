@@ -1,7 +1,10 @@
 package onlinemarket.product;
 
-public class HowMany implements Comparable<HowMany>{
-	
+import java.io.Serializable;
+
+
+public class HowMany implements Comparable<HowMany>, Serializable{
+	private static final long serialVersionUID = 13L;
 	private final Float value;
 	private final String unit;
 	

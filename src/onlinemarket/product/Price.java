@@ -1,6 +1,10 @@
 package onlinemarket.product;
 
-public class Price implements Comparable<Price>{
+import java.io.Serializable;
+
+
+public class Price implements Comparable<Price>, Serializable{
+	private static final long serialVersionUID = 12L;
 	private final Float price;
 	
 	public Price(Float price) throws NumberFormatException{

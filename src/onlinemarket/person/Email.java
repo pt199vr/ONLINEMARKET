@@ -1,6 +1,10 @@
 package onlinemarket.person;
 
-public class Email implements Comparable<Email>{
+import java.io.Serializable;
+
+
+public class Email implements Comparable<Email>, Serializable{
+	private static final long serialVersionUID = 10L;
 	private final String email;
 	
 	public Email(String email) throws IllegalArgumentException{
@@ -19,6 +23,11 @@ public class Email implements Comparable<Email>{
 		this.email = email;
 	}
 	
+	@Override
+	public String toString() {
+		return email;
+	}
+	
 	public int compareTo(Email other) {
 		return toString().compareTo(other.toString());
 	}
@@ -27,9 +36,6 @@ public class Email implements Comparable<Email>{
 		return other instanceof Email && other.toString().equals(this.toString());
 	}
 	
-	@Override
-	public String toString() {
-		return email;
-	}
+	
 	
 }

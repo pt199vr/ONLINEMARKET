@@ -13,6 +13,8 @@ import onlinemarket.Main;
 public class LoginStage extends Stage{
 	
 	private BorderPane layout;
+	public LoginGui loginGui;
+	
 	
 	public LoginStage() {
 		Main.loadingstage.show();
@@ -23,6 +25,7 @@ public class LoginStage extends Stage{
 		
 		new Thread(() -> {
 			layout = new BorderPane();
+			loginGui = new LoginGui();
 			
 			setTitle(Main.title);
 			setHeight(768);

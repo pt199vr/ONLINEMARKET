@@ -1,9 +1,12 @@
 package onlinemarket.calendar;
 
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 
-public class Time implements Comparable<Time>{
+public class Time implements Comparable<Time>, Serializable{
+	private static final long serialVersionUID = 2L;
 	private final Integer hours, minutes;
 	
 	public Time() {

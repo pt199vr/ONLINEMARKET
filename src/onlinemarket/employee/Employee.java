@@ -47,4 +47,9 @@ public class Employee extends Person{
 	public boolean equals(Object other) {
 		return other instanceof Employee && ((Employee) other).id.equals(this.id);
 	}
+	
+	@Override
+	public void setGui() {
+		gui = new EmployeeGui();
+	}
 }

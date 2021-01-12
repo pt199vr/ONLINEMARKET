@@ -1,9 +1,11 @@
 package onlinemarket.payment;
 
+import java.io.Serializable;
 import onlinemarket.person.Email;
 import onlinemarket.person.Password;
 
-public class PayPal implements Payment{
+public class PayPal implements Payment, Serializable{
+	private static final long serialVersionUID = 6L;
 	
 	private final Email email;
 	private final Password password;

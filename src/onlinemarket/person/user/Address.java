@@ -1,7 +1,10 @@
 package onlinemarket.person.user;
 
-public class Address {
-	
+import java.io.Serializable;
+
+
+public class Address implements Serializable{
+	private static final long serialVersionUID = 11L;
 	private final String street, city;
 	private final Integer cap, addressNumber;
 	

@@ -1,9 +1,12 @@
 package onlinemarket.product;
 
 import java.util.TreeSet;
+import java.io.Serializable;
 
 
-public class Product {
+
+public class Product implements Serializable{
+	private static final long serialVersionUID = 14L;
 	
 	protected final String name, brand;
 	protected final HowMany howmany;

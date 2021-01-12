@@ -1,9 +1,10 @@
 package onlinemarket.fidelitycard;
 
+import java.io.Serializable;
 import onlinemarket.calendar.Date;
 
-public class FidelityCard {
-	
+public class FidelityCard implements Serializable{
+	private static final long serialVersionUID = 5L;
 	private final Integer id_number;
 	private Integer points;
 	private final Date date;

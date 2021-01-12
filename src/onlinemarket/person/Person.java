@@ -1,10 +1,16 @@
 package onlinemarket.person;
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Comparable<Person>, Serializable{
+	private static final long serialVersionUID = 4L;
 	protected String name, surname;
 	protected Email email;
 	protected Password password;
 	protected long phonenumber;
+	protected transient PersonGui gui;
+	
+	public abstract void setGui();
 	
 	
 	public Person(String name, String surname, Email email, Password password, long phonenumber) {
@@ -43,6 +49,13 @@ public abstract class Person {
 		this.phonenumber = phoneNumber;
 	}
 	
+	public PersonGui getGui() {
+		return gui;
+	}
+	
+	public boolean login(Person person) {
+		return person.getEmail().equals(this.email) && person.getPassword().equals(this.password);
+	}
 	
 	public abstract boolean equals(Object other);
 	public abstract String toString();

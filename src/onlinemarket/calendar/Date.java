@@ -1,10 +1,11 @@
 package onlinemarket.calendar;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 
-public class Date implements Comparable<Date>{
-	
+public class Date implements Comparable<Date>, Serializable{
+	private static final long serialVersionUID = 1L;
 	private final Integer year, month, day;
 	
 	public Date() {

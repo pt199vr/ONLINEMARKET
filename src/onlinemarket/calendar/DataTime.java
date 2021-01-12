@@ -1,21 +1,21 @@
 package onlinemarket.calendar;
 
+import java.io.Serializable;
 import onlinemarket.calendar.*;
 import java.time.LocalDateTime;
 import java.util.Calendar;
 
-public class DataTime implements Comparable<DataTime>{
+public class DataTime implements Comparable<DataTime>, Serializable{
+	private static final long serialVersionUID = 3L;
 	private final Date date;
 	private final Time time;
+	
+	
 	
 	public DataTime() {
 		date = new Date();
 		time = new Time();
 	}
-	
-	
-	
-	
 	
 	public DataTime(Integer day, Integer month, Integer year, Integer hour, Integer minute) {
 		date = new Date(year, month, day);
