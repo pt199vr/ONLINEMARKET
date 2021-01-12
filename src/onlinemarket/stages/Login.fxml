@@ -3,12 +3,12 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="320.0" type = "AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="320.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="143.0" layoutY="214.0" mnemonicParsing="false" text="Enter">
          <font>
@@ -19,11 +19,6 @@
          </cursor>
       </Button>
       <TextField layoutX="109.0" layoutY="90.0">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-      </TextField>
-      <TextField layoutX="109.0" layoutY="151.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -43,6 +38,7 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <PasswordField layoutX="110.0" layoutY="151.0" />
    </children>
    <cursor>
       <Cursor fx:constant="MOVE" />
