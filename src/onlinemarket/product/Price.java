@@ -14,6 +14,8 @@ public class Price implements Comparable<Price>, Serializable{
 		this.price = price;
 	}
 	
+	
+	
 	public Float getPrice() {
 		return price;
 	}
