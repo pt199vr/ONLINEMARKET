@@ -1,7 +1,10 @@
 package onlinemarket.employee;
 
-public class EmployeeGui {
+import onlinemarket.person.*;
 
+public class EmployeeGui extends PersonGui{
+
+	
 	public EmployeeGui() {
 		
 	}

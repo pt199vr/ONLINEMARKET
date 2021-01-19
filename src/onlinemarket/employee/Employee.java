@@ -3,8 +3,9 @@ package onlinemarket.employee;
 import java.util.ArrayList;
 import onlinemarket.person.*;
 
+
 public class Employee extends Person{
-	
+	private static final long serialVersionUID = 16L;
 	private final Integer id;
 	private ArrayList<String> role;
 	

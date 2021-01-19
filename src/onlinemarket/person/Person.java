@@ -2,6 +2,8 @@ package onlinemarket.person;
 
 import java.io.Serializable;
 
+import onlinemarket.employee.EmployeeGui;
+
 public abstract class Person implements Comparable<Person>, Serializable{
 	private static final long serialVersionUID = 4L;
 	protected String name, surname;
