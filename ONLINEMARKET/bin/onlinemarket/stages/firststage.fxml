@@ -6,16 +6,11 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="235.0" layoutY="63.0" text="ONLINEMARKET">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="103.0" layoutY="130.0" text="Sei già registrato?" />
-      <Label layoutX="442.0" layoutY="130.0" text="Registrati" />
-      <Button layoutX="125.0" layoutY="188.0" mnemonicParsing="false" text="Login" />
-      <Button layoutX="424.0" layoutY="188.0" mnemonicParsing="false" text="Crea account" />
+      <Label layoutX="103.0" layoutY="130.0" text="Login" />
+      <Label layoutX="442.0" layoutY="130.0" text="Register" />
+      <Button layoutX="125.0" layoutY="188.0" mnemonicParsing="false" text="To login" />
+      <Button layoutX="424.0" layoutY="188.0" mnemonicParsing="false" text="Create account" />
    </children>
-</AnchorPane>
+</fx:root>
