@@ -21,7 +21,7 @@ public class LoginStage extends Stage{
 		if(Main.loadingstage != null) {
 			System.gc();
 		}
-				
+		/*		
 		new Thread(() -> {
 			layout = new BorderPane();
 			loginGui = new LoginGui();
@@ -45,7 +45,7 @@ public class LoginStage extends Stage{
 			
 			
 		}).start();
-		
+		*/
 	}
 	
 	
