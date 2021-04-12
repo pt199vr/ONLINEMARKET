@@ -6,11 +6,11 @@
 <?import javafx.scene.text.Font?>
 
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="103.0" layoutY="130.0" text="Login" />
       <Label layoutX="442.0" layoutY="130.0" text="Register" />
-      <Button layoutX="125.0" layoutY="188.0" mnemonicParsing="false" text="tologin" />
-      <Button layoutX="424.0" layoutY="188.0" mnemonicParsing="false" text="Createaccount:" />
+      <Button fx:id="toLogin" layoutX="125.0" layoutY="188.0" mnemonicParsing="false" text="tologin" />
+      <Button fx:id="CreateAccount" layoutX="424.0" layoutY="188.0" mnemonicParsing="false" text="Createaccount:" />
    </children>
 </fx:root>
