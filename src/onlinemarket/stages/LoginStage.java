@@ -14,20 +14,18 @@ public class LoginStage extends Stage{
 	
 	private BorderPane layout;
 	public LoginGui loginGui;
-	
-	
+		
 	public LoginStage() {
-		
-		
+				
 		Main.loadingstage.show();
 		if(Main.loadingstage != null) {
 			System.gc();
 		}
-		
-		
+				
 		new Thread(() -> {
 			layout = new BorderPane();
 			loginGui = new LoginGui();
+			
 			
 			setTitle(Main.title);
 			setHeight(768);

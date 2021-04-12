@@ -8,39 +8,51 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="320.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="320.0" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button layoutX="143.0" layoutY="214.0" mnemonicParsing="false" text="Enter">
          <font>
             <Font size="15.0" />
          </font>
          <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
+            <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField layoutX="109.0" layoutY="90.0">
+      <TextField layoutX="109.0" layoutY="90.0" promptText="Insert your Email">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
       <Label layoutX="148.0" layoutY="32.0" text="Login">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </Label>
       <Label layoutX="50.0" layoutY="94.0" text="Email ">
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </Label>
       <Label layoutX="39.0" layoutY="155.0" text="Password">
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </Label>
-      <PasswordField layoutX="110.0" layoutY="151.0" />
+      <PasswordField layoutX="110.0" layoutY="151.0" promptText="Insert your Password">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></PasswordField>
    </children>
    <cursor>
-      <Cursor fx:constant="MOVE" />
+      <Cursor fx:constant="DEFAULT" />
    </cursor>
 </fx:root>
