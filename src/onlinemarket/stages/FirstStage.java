@@ -36,16 +36,16 @@ public class FirstStage extends Stage{
 			setHeight(400);
 			setWidth(600);
 			setResizable(false);
-			Platform.runLater(() -> {
-		        setScene(new Scene(layout));
-		        show();		
-		        Main.loadingstage.hide();
-			}); 
 			setOnCloseRequest(e -> {
 				Platform.exit();
 				System.exit(0);
 			});
-				 
+			
+			Platform.runLater(() -> {
+		        setScene(new Scene(layout));
+		        show();		
+		        Main.loadingstage.hide();
+			}); 	 
 			
 		}).start();
 		

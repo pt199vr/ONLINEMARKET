@@ -27,8 +27,8 @@ public class LoginStage extends Stage{
 			loginGui = new LoginGui();
 			layout.setCenter(loginGui);
 			
-			
 			setTitle(Main.title);
+			getIcons().add(Main.logo);
 			setHeight(768);
 			setWidth(1024);
 			setResizable(false);
@@ -37,14 +37,11 @@ public class LoginStage extends Stage{
 				System.exit(0);
 			});
 			
-			Platform.runLater(() ->{
-				setScene(new Scene(layout));
-				show();
-				Main.loadingstage.hide();
-				
-			});
-			
-			
+			Platform.runLater(() -> {
+		        setScene(new Scene(layout));
+		        show();		
+		        Main.loadingstage.hide();
+			}); 
 			
 			
 		}).start();
