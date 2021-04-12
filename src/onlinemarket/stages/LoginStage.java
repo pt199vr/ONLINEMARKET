@@ -25,6 +25,7 @@ public class LoginStage extends Stage{
 		new Thread(() -> {
 			layout = new BorderPane();
 			loginGui = new LoginGui();
+			layout.setCenter(loginGui);
 			
 			
 			setTitle(Main.title);

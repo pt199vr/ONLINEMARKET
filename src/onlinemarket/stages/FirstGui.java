@@ -23,7 +23,7 @@ public class FirstGui extends AnchorPane{
 	private Button toLogin, CreateAccount;
 	
 	public FirstGui() {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FirstStage.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("firststage.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
