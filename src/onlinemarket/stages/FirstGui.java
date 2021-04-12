@@ -32,7 +32,7 @@ public class FirstGui extends AnchorPane{
 			throw new RuntimeException(exception);
 		}
 		
-		Thread usersThread = new Thread(() -> {
+		Thread choose = new Thread(() -> {
 							
 			toLogin.setDisable(false);
     		toLogin.setOnAction(event -> Main.login());
@@ -41,11 +41,13 @@ public class FirstGui extends AnchorPane{
         	CreateAccount.setDisable(false);
         	CreateAccount.setOnAction(event -> Main.registration());
         	CreateAccount.setOnKeyPressed(event -> Main.registration());
-		usersThread.start();
 		
 		
+		});	choose.start();
 		
-	}
 	
-
+	
+	}
 }
+	
+	
