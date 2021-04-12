@@ -15,7 +15,7 @@ import onlinemarket.person.*;
 public class Main extends Application{
 	public static final Image logo = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
 	public static String title = "Online Market";	
-	public static Stage mainstage, loadingstage, firststage, loginstage;
+	public static Stage mainstage, loadingstage, firststage, loginstage, registrationstage;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -32,6 +32,10 @@ public class Main extends Application{
 		loginstage = new LoginStage();
 	}
 	
+	public static void registration() {
+		registrationstage = new RegistrationStage();
+	}
+	
 	public static void shop(Person person) {
 		mainstage = new MainStage();
 	}
@@ -39,5 +43,6 @@ public class Main extends Application{
 	public static void main(String[] args) {
 		launch(args);
 	}
+		
 
 }

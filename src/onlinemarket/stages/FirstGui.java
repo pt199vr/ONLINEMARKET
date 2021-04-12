@@ -32,7 +32,16 @@ public class FirstGui extends AnchorPane{
 			throw new RuntimeException(exception);
 		}
 		
-		
+		Thread usersThread = new Thread(() -> {
+							
+			toLogin.setDisable(false);
+    		toLogin.setOnAction(event -> Main.login());
+        	toLogin.setOnKeyPressed(event -> Main.login());
+        	
+        	CreateAccount.setDisable(false);
+        	CreateAccount.setOnAction(event -> Main.registration());
+        	CreateAccount.setOnKeyPressed(event -> Main.registration());
+		usersThread.start();
 		
 		
 		
