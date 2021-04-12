@@ -23,6 +23,8 @@ public class FirstStage extends Stage{
 	
 	public FirstStage() {
 		
+		Main.loadingstage.hide();
+		
 		new Thread(() -> {
 			layout = new BorderPane();
 			firstGui = new FirstGui();
@@ -31,20 +33,10 @@ public class FirstStage extends Stage{
 	    	
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
-			setHeight(420);
+			setHeight(500);
 			setWidth(800);
 			setResizable(false);
-			
-			setOnCloseRequest(e -> {
-				Platform.exit();
-				System.exit(0);
-			});
-			
-			Platform.runLater(() -> {
-		        setScene(new Scene(layout));
-		        show();		
-		        Main.loadingstage.hide();
-			}); 
+				 
 			
 		}).start();
 		

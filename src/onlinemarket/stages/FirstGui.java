@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
@@ -11,12 +12,14 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 
-public class FirstGui extends BorderPane{
+import onlinemarket.Main;
+
+public class FirstGui extends AnchorPane{
 	
 	private Label Login, Register;
-	private Button toLogin, createAccount;
+	private Button toLogin, CreateAccount;
 	
 	public FirstGui() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FirstStage.fxml"));
@@ -28,6 +31,9 @@ public class FirstGui extends BorderPane{
 		} catch (IOException exception) {
 			throw new RuntimeException(exception);
 		}
+		
+		
+		
 		
 		
 	}
