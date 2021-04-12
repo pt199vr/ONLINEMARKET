@@ -20,6 +20,7 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();
+		loadingstage.show();
 		first();
 	}
 	

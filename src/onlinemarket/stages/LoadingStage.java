@@ -21,10 +21,6 @@ public class LoadingStage extends Stage{
 	public LoadingStage() {
 		new ThreadExceptionHandler();
 		
-		//Main.threads.put(User.class, new Thread(() -> Main.user.read()));
-		
-		
-		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loading.fxml"));
 		AnchorPane pane = new AnchorPane();
 		fxmlLoader.setRoot(pane);

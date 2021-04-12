@@ -16,7 +16,9 @@ import javafx.fxml.FXMLLoader;
 
 
 public class FirstStage extends Stage{
-	
+	public FirstStage() {
+		Main.loadingstage.close();
+	}
 	
 	
 }
