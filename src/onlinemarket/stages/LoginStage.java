@@ -17,6 +17,8 @@ public class LoginStage extends Stage{
 	
 	
 	public LoginStage() {
+		
+		
 		Main.loadingstage.show();
 		if(Main.loadingstage != null) {
 			System.gc();

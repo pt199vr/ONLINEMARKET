@@ -17,8 +17,9 @@ import javafx.scene.layout.AnchorPane;
 import onlinemarket.Main;
 
 public class FirstGui extends AnchorPane{
-	
+	@FXML
 	private Label Login, Register;
+	@FXML
 	private Button toLogin, CreateAccount;
 	
 	public FirstGui() {
@@ -32,22 +33,22 @@ public class FirstGui extends AnchorPane{
 			throw new RuntimeException(exception);
 		}
 		
-		Thread choose = new Thread(() -> {
-							
-			toLogin.setDisable(false);
-    		toLogin.setOnAction(event -> Main.login());
-        	toLogin.setOnKeyPressed(event -> Main.login());
-        	
-        	CreateAccount.setDisable(false);
-        	CreateAccount.setOnAction(event -> Main.registration());
-        	CreateAccount.setOnKeyPressed(event -> Main.registration());
-		
-		
+		Thread choose = new Thread(() -> {			
+			
+			toLogin.setOnAction(event -> login());			
+			
+			CreateAccount.setOnAction(event -> registration());			
+			
 		});	choose.start();
-		
-	
-	
+			
 	}
+	
+	private void login() {
+		Main.login();
+	};
+	
+	private void registration() {
+		Main.registration();
+	};
+		
 }
-	
-	

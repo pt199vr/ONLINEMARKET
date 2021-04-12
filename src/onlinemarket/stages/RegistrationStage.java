@@ -10,9 +10,19 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import onlinemarket.Main;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 
 public class RegistrationStage extends Stage{
+	
+	public RegistrationStage() {
+		
+		Main.loadingstage.show();
+		if(Main.loadingstage != null) {
+			System.gc();
+		}
+		
+	}
 	
 }

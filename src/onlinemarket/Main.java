@@ -29,10 +29,12 @@ public class Main extends Application{
 	}
 	
 	public static void login() {
+		firststage.close();
 		loginstage = new LoginStage();
 	}
 	
 	public static void registration() {
+		firststage.close();
 		registrationstage = new RegistrationStage();
 	}
 	
