@@ -13,20 +13,18 @@ import onlinemarket.person.*;
 
 
 public class Main extends Application{
-	public static Stage loadingstage, loginstage, mainstage;
-	public static String title = "Online Market";
-	
-	public static final Image icon = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
-	
-	public static Person person;
-	//public static final Person user = new User();
-	
-	public static final HashMap<Object, Thread> threads = new HashMap<>(1);
+	public static final Image logo = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
+	public static String title = "Online Market";	
+	public static Stage mainstage, loadingstage, firststage, loginstage;
 	
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();
-		login();
+		first();
+	}
+	
+	public static void first() {
+		firststage = new FirstStage();
 	}
 	
 	public static void login() {
@@ -34,7 +32,6 @@ public class Main extends Application{
 	}
 	
 	public static void shop(Person person) {
-		Main.person = person;
 		mainstage = new MainStage();
 	}
 	

@@ -39,14 +39,11 @@ public class LoadingStage extends Stage{
 		
 		setScene(new Scene(pane));
 		initStyle(StageStyle.UNDECORATED);
-		getIcons().add(Main.icon);
+		getIcons().add(Main.logo);
 		initStyle(StageStyle.TRANSPARENT);
 		getScene().setFill(Color.TRANSPARENT);
 		setTitle(Main.title);
-		
-		
-		
-		
+			
 	}
 	
 	
