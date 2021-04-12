@@ -23,31 +23,30 @@ public class FirstStage extends Stage{
 	
 	public FirstStage() {
 		
-		
-			new Thread(() -> {
-				layout = new BorderPane();
-				firstGui = new FirstGui();
-		    	layout.setCenter(firstGui);
-				
-		    	
-				setTitle(Main.title);
-				getIcons().add(Main.logo);
-				setHeight(420);
-				setWidth(800);
-				setResizable(false);
-				
-				setOnCloseRequest(e -> {
-					Platform.exit();
-					System.exit(0);
-				});
-				
-				Platform.runLater(() -> {
-			        setScene(new Scene(layout));
-			        show();		
-			        Main.loadingstage.hide();
-				}); 
-				
-			}).start();
+		new Thread(() -> {
+			layout = new BorderPane();
+			firstGui = new FirstGui();
+	    	layout.setCenter(firstGui);
+			
+	    	
+			setTitle(Main.title);
+			getIcons().add(Main.logo);
+			setHeight(420);
+			setWidth(800);
+			setResizable(false);
+			
+			setOnCloseRequest(e -> {
+				Platform.exit();
+				System.exit(0);
+			});
+			
+			Platform.runLater(() -> {
+		        setScene(new Scene(layout));
+		        show();		
+		        Main.loadingstage.hide();
+			}); 
+			
+		}).start();
 		
 		
 	}

@@ -33,13 +33,13 @@ public class LoadingStage extends Stage{
 			throw new RuntimeException(e);
 		}
 		
-		setScene(new Scene(pane));
-		initStyle(StageStyle.UNDECORATED);
+		setScene(new Scene(pane));		
+		setTitle(Main.title);	
 		getIcons().add(Main.logo);
+		initStyle(StageStyle.UNDECORATED);
 		initStyle(StageStyle.TRANSPARENT);
 		getScene().setFill(Color.TRANSPARENT);
-		setTitle(Main.title);
-			
+				
 	}
 	
 	
