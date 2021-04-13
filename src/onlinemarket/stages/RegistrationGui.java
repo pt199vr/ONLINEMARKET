@@ -11,6 +11,14 @@ import onlinemarket.Main;
 
 public class RegistrationGui extends AnchorPane{
 	
+	@FXML 
+	private TextField NameT, MailT, CelT, CAPT, CityT, SurnameT, AddrT;
+	@FXML
+	private PasswordField PasswordF;
+	@FXML
+	private Button BackB, RegB;
+	@FXML
+	private Label NameL, SurnameL, CityL, MailL, CAPL, CelL, PasswordL, AddrL;
 	
 	public RegistrationGui() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registration.fxml"));

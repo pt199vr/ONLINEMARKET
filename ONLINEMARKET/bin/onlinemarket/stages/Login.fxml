@@ -11,7 +11,7 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="382.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="LogB" layoutX="155.0" layoutY="291.0" mnemonicParsing="false" text="Login">
+      <Button fx:id="LogB" layoutX="109.0" layoutY="295.0" mnemonicParsing="false" text="Login">
          <font>
             <Font size="15.0" />
          </font>
@@ -52,12 +52,17 @@
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></PasswordField>
-      <RadioButton fx:id="EmpRB" layoutX="127.0" layoutY="204.0" mnemonicParsing="false" text="Employee">
+      <RadioButton fx:id="EmpRB" layoutX="127.0" layoutY="204.0" mnemonicParsing="false" text="Editor">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </RadioButton>
-      <RadioButton fx:id="ClientRB" layoutX="127.0" layoutY="245.0" mnemonicParsing="false" text="Client">
+      <Button fx:id="BackB" layoutX="189.0" layoutY="295.0" mnemonicParsing="false" text="Go Back">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <RadioButton fx:id="ClientRB" layoutX="127.0" layoutY="245.0" mnemonicParsing="false" text="Customer">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

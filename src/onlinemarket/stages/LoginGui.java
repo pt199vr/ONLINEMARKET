@@ -11,7 +11,7 @@ import onlinemarket.Main;
 
 public class LoginGui extends AnchorPane{
 	@FXML
-	private Button LogB;
+	private Button LogB,BackB;
 	@FXML
 	private RadioButton ClientRB,EmpRB; 
 	@FXML

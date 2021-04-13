@@ -11,12 +11,12 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="381.0" prefWidth="619.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="224.0" layoutY="31.0" text="User Registration">
+      <Label alignment="CENTER" layoutX="224.0" layoutY="31.0" text="Registration">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <TextField layoutX="112.0" layoutY="85.0" promptText="Name">
+      <TextField fx:id="NameT" layoutX="112.0" layoutY="85.0" promptText="Name">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -24,7 +24,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <TextField layoutX="112.0" layoutY="130.0" prefHeight="25.0" prefWidth="149.0" promptText="Mail">
+      <TextField fx:id="MailT" layoutX="112.0" layoutY="130.0" prefHeight="25.0" prefWidth="149.0" promptText="Mail">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -32,7 +32,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <TextField layoutX="406.0" layoutY="130.0" promptText="Password">
+      <TextField fx:id="CelT" layoutX="113.0" layoutY="169.0" promptText="Telephone number">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -40,20 +40,12 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <TextField layoutX="112.0" layoutY="206.0" promptText="CAP">
+      <TextField fx:id="CAPT" layoutX="112.0" layoutY="206.0" promptText="CAP">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField layoutX="406.0" layoutY="206.0" promptText="City">
-         <cursor>
-            <Cursor fx:constant="TEXT" />
-         </cursor>
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField layoutX="406.0" layoutY="85.0" promptText="Surname">
+      <TextField fx:id="CityT" layoutX="406.0" layoutY="206.0" promptText="City">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -61,42 +53,50 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER" layoutX="56.0" layoutY="87.0" text="Nome">
+      <TextField fx:id="SurnameT" layoutX="406.0" layoutY="85.0" promptText="Surname">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <Label fx:id="NameL" alignment="CENTER" layoutX="56.0" layoutY="87.0" text="Nome">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="349.0" layoutY="208.0" text="Città">
+      <Label fx:id="CityL" alignment="CENTER" layoutX="349.0" layoutY="208.0" text="Città">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="332.0" layoutY="87.0" text="Cognome">
+      <Label fx:id="SurnameL" alignment="CENTER" layoutX="332.0" layoutY="87.0" text="Cognome">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="59.0" layoutY="132.0" text="Email">
+      <Label fx:id="MailL" alignment="CENTER" layoutX="59.0" layoutY="132.0" text="Email">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="63.0" layoutY="208.0" text="CAP">
+      <Label fx:id="CAPL" alignment="CENTER" layoutX="63.0" layoutY="208.0" text="CAP">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="58.0" layoutY="171.0" text="Tel.">
+      <Label fx:id="CelL" alignment="CENTER" layoutX="58.0" layoutY="171.0" text="Tel.">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="333.0" layoutY="132.0" text="Password">
+      <Label fx:id="PasswordL" alignment="CENTER" layoutX="333.0" layoutY="132.0" text="Password">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <PasswordField layoutX="112.0" layoutY="169.0" promptText="Telephone number">
+      <PasswordField fx:id="PasswordF" layoutX="406.0" layoutY="130.0" promptText="Password">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -104,7 +104,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </PasswordField>
-      <Button layoutX="208.0" layoutY="268.0" mnemonicParsing="false" text="Register">
+      <Button fx:id="RegB" layoutX="208.0" layoutY="268.0" mnemonicParsing="false" text="Register">
          <font>
             <Font size="15.0" />
          </font>
@@ -115,12 +115,12 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Label alignment="CENTER" layoutX="336.0" layoutY="171.0" text="Indirizzo">
+      <Label fx:id="AddrL" alignment="CENTER" layoutX="336.0" layoutY="171.0" text="Indirizzo">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="406.0" layoutY="169.0" promptText="Address">
+      <TextField fx:id="AddrT" layoutX="406.0" layoutY="169.0" promptText="Address">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -128,7 +128,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <Button layoutX="324.0" layoutY="268.0" mnemonicParsing="false" text="Back">
+      <Button fx:id="BackB" layoutX="324.0" layoutY="268.0" mnemonicParsing="false" text="Back">
          <font>
             <Font size="15.0" />
          </font>
