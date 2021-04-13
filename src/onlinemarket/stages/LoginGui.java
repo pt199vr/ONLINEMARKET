@@ -11,15 +11,17 @@ import onlinemarket.Main;
 
 public class LoginGui extends AnchorPane{
 	@FXML
-	private Button LogB,BackB;
-	@FXML
-	private RadioButton ClientRB,EmpRB; 
+	private Button LogB, BackB;
 	@FXML
 	private TextField EmailF;
 	@FXML
 	private PasswordField PasswordF;
 	@FXML
 	private Label LogL,MailL,PasswordL;
+	@FXML
+	private TabPane EditorTab, CustomerTab;
+
+
 	
 		
 	public LoginGui() {
