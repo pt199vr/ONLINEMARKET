@@ -14,11 +14,13 @@ import javafx.stage.StageStyle;
 import onlinemarket.Main;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import onlinemarket.account.*;
 
 public class RegistrationStage extends Stage{
 	
 	private BorderPane layout;
 	public RegistrationGui registrationgui;
+	public Account account;
 	
 	public RegistrationStage() {
 		
