@@ -24,6 +24,7 @@ public class RegistrationGui extends AnchorPane{
 	@FXML
 	private RadioButton EditorRB,CustomerRB;
 	
+	
 	public RegistrationGui() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registration.fxml"));
 		fxmlLoader.setRoot(this);
@@ -42,6 +43,12 @@ public class RegistrationGui extends AnchorPane{
 			RegB.setOnAction(e -> registerFunction());
 			
 		});back.start();
+		
+		ToggleGroup rbGroup= new ToggleGroup();
+		EditorRB.setToggleGroup(rbGroup);
+		CustomerRB.setToggleGroup(rbGroup);
+		CustomerRB.setSelected(true);
+		EditorRB.requestFocus();
 		
 	}
 	

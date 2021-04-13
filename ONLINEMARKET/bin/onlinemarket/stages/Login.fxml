@@ -18,7 +18,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="LogB" layoutX="300.0" layoutY="237.0" mnemonicParsing="false" text="Login">
+                        <Button fx:id="LogB" layoutX="212.0" layoutY="237.0" mnemonicParsing="false" text="Login">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -60,7 +60,7 @@
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </PasswordField>
-                        <Button fx:id="BackB" layoutX="200.0" layoutY="237.0" mnemonicParsing="false" text="Go Back">
+                        <Button fx:id="BackB" layoutX="300.0" layoutY="237.0" mnemonicParsing="false" text="Go Back">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -81,7 +81,7 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </Label>
-                        <Button fx:id="ELogB" layoutX="300.0" layoutY="236.0" mnemonicParsing="false" text="Login">
+                        <Button fx:id="ELogB" layoutX="212.0" layoutY="236.0" mnemonicParsing="false" text="Login">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -94,7 +94,7 @@
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <Label fx:id="Matricola" layoutX="164.0" layoutY="80.0" text="Matricola ">
+                        <Label fx:id="Matricola" layoutX="152.0" layoutY="80.0" text="Matricola ">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -115,7 +115,7 @@
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </PasswordField>
-                        <Button fx:id="EBackB" layoutX="201.0" layoutY="236.0" mnemonicParsing="false" text="Go Back">
+                        <Button fx:id="EBackB" layoutX="300.0" layoutY="236.0" mnemonicParsing="false" text="Go Back">
                            <font>
                               <Font size="15.0" />
                            </font>
