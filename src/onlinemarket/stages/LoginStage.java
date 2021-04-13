@@ -18,10 +18,8 @@ public class LoginStage extends Stage{
 	public LoginStage() {
 				
 		Main.loadingstage.show();
-		if(Main.loadingstage != null) {
-			System.gc();
-		}
-		/*		
+		System.gc();
+			
 		new Thread(() -> {
 			layout = new BorderPane();
 			loginGui = new LoginGui();
@@ -45,7 +43,7 @@ public class LoginStage extends Stage{
 			
 			
 		}).start();
-		*/
+		
 	}
 	
 	
