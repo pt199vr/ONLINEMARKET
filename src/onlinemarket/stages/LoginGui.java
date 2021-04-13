@@ -35,9 +35,15 @@ public class LoginGui extends AnchorPane{
 		
 		Thread buttons = new Thread( () -> {
 			
+			BackB.setOnAction(e -> backFunction());
 			
 		});buttons.start();
 				
+	}
+	
+	private void backFunction() {
+		Main.loginstage.hide();
+		Main.firststage.show();
 	}
 	
 }
