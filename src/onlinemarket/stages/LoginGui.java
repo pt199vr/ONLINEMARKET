@@ -13,6 +13,8 @@ public class LoginGui extends AnchorPane{
 	@FXML
 	private Button LogB;
 	@FXML
+	private RadioButton ClientRB,EmpRB; 
+	@FXML
 	private TextField EmailF;
 	@FXML
 	private PasswordField PasswordF;
