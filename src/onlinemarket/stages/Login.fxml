@@ -10,115 +10,121 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <tabs>
-    <Tab text="Customer">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="LogB" layoutX="313.0" layoutY="237.0" mnemonicParsing="false" text="Login">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <TextField fx:id="EmailF" layoutX="300.0" layoutY="75.0" promptText="Insert your Email">
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
-                  </TextField>
-                  <Label fx:id="LogL" layoutX="233.0" layoutY="20.0" text="Customer Login">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Label>
-                  <Label fx:id="MailL" layoutX="164.0" layoutY="78.0" text="Email ">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Label>
-                  <Label fx:id="PasswordL" layoutX="153.0" layoutY="160.0" text="Password">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Label>
-                  <PasswordField fx:id="PasswordF" layoutX="300.0" layoutY="157.0" promptText="Insert your Password">
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
-                  </PasswordField>
-                  <Button fx:id="BackB" layoutX="200.0" layoutY="237.0" mnemonicParsing="false" text="Go Back">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-               </children></AnchorPane>
-      </content>
-    </Tab>
-    <Tab text="Editor">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <Label fx:id="LogL1" layoutX="248.0" layoutY="24.0" text="Editor Login">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Label>
-                  <Button fx:id="LogB1" layoutX="300.0" layoutY="236.0" mnemonicParsing="false" text="Login">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <TextField fx:id="EmailF2" layoutX="276.0" layoutY="90.0" promptText="Insert your Email">
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
-                  </TextField>
-                  <Label fx:id="MailL1" layoutX="164.0" layoutY="93.0" text="Email ">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Label>
-                  <Label fx:id="PasswordL1" layoutX="153.0" layoutY="160.0" text="Password">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Label>
-                  <PasswordField fx:id="PasswordF1" layoutX="276.0" layoutY="157.0" promptText="Insert your Password">
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
-                  </PasswordField>
-                  <Button fx:id="BackB1" layoutX="201.0" layoutY="236.0" mnemonicParsing="false" text="Go Back">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-               </children></AnchorPane>
-      </content>
-    </Tab>
-  </tabs>
-</TabPane>
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane fx:id="LogMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab fx:id="CustomerTab" text="Customer">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="LogB" layoutX="300.0" layoutY="237.0" mnemonicParsing="false" text="Login">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <TextField fx:id="EmailF" layoutX="300.0" layoutY="75.0" promptText="Insert your Email">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <Label fx:id="LogL" layoutX="233.0" layoutY="20.0" text="Customer Login">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="MailL" layoutX="164.0" layoutY="78.0" text="Email ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="PasswordL" layoutX="153.0" layoutY="160.0" text="Password">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Label>
+                        <PasswordField fx:id="PasswordF" layoutX="300.0" layoutY="157.0" promptText="Insert your Password">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </PasswordField>
+                        <Button fx:id="BackB" layoutX="200.0" layoutY="237.0" mnemonicParsing="false" text="Go Back">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="EditorTab" text="Editor">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="LogL1" layoutX="248.0" layoutY="21.0" text="Editor Login">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Label>
+                        <Button fx:id="LogB1" layoutX="300.0" layoutY="236.0" mnemonicParsing="false" text="Login">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <TextField fx:id="EmailF2" layoutX="290.0" layoutY="77.0" promptText="Insert your Email">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <Label fx:id="MailL1" layoutX="164.0" layoutY="80.0" text="Email ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="PasswordL1" layoutX="153.0" layoutY="160.0" text="Password">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Label>
+                        <PasswordField fx:id="PasswordF1" layoutX="290.0" layoutY="157.0" promptText="Insert your Password">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </PasswordField>
+                        <Button fx:id="BackB1" layoutX="201.0" layoutY="236.0" mnemonicParsing="false" text="Go Back">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</fx:root>
