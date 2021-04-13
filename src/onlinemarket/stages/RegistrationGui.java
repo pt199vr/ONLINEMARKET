@@ -33,8 +33,16 @@ public class RegistrationGui extends AnchorPane{
 		
 		Thread back = new Thread(() -> {
 			
+			BackB.setOnAction(e -> backFunction());
+			
+			
 		});back.start();
 		
+	}
+	
+	private void backFunction() {
+		Main.registrationstage.hide();
+		Main.firststage.show();
 	}
 	
 }
