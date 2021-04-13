@@ -73,7 +73,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="LogL1" layoutX="248.0" layoutY="21.0" text="Editor Login">
+                        <Label fx:id="ELogL" layoutX="248.0" layoutY="21.0" text="Editor Login">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -81,7 +81,7 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </Label>
-                        <Button fx:id="LogB1" layoutX="300.0" layoutY="236.0" mnemonicParsing="false" text="Login">
+                        <Button fx:id="ELogB" layoutX="300.0" layoutY="236.0" mnemonicParsing="false" text="Login">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -89,12 +89,12 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <TextField fx:id="EmailF2" layoutX="290.0" layoutY="77.0" promptText="Insert your Email">
+                        <TextField fx:id="id" layoutX="290.0" layoutY="77.0" promptText="Insert your id">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <Label fx:id="MailL1" layoutX="164.0" layoutY="80.0" text="Email ">
+                        <Label fx:id="Matricola" layoutX="164.0" layoutY="80.0" text="Matricola ">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -102,7 +102,7 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </Label>
-                        <Label fx:id="PasswordL1" layoutX="153.0" layoutY="160.0" text="Password">
+                        <Label fx:id="EPasswordL" layoutX="153.0" layoutY="160.0" text="Password">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -110,12 +110,12 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </Label>
-                        <PasswordField fx:id="PasswordF1" layoutX="290.0" layoutY="157.0" promptText="Insert your Password">
+                        <PasswordField fx:id="EPasswordF" layoutX="290.0" layoutY="157.0" promptText="Insert your Password">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </PasswordField>
-                        <Button fx:id="BackB1" layoutX="201.0" layoutY="236.0" mnemonicParsing="false" text="Go Back">
+                        <Button fx:id="EBackB" layoutX="201.0" layoutY="236.0" mnemonicParsing="false" text="Go Back">
                            <font>
                               <Font size="15.0" />
                            </font>

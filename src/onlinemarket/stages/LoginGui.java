@@ -11,13 +11,13 @@ import onlinemarket.Main;
 
 public class LoginGui extends AnchorPane{
 	@FXML
-	private Button LogB, BackB;
+	private Button LogB, BackB, ELogB, EBackB;
 	@FXML
-	private TextField EmailF;
+	private TextField EmailF, id;
 	@FXML
-	private PasswordField PasswordF;
+	private PasswordField PasswordF, EPassword;
 	@FXML
-	private Label LogL,MailL,PasswordL;
+	private Label LogL,MailL,PasswordL, ELogL, Matricola, EPasswordL;
 	@FXML
 	private TabPane LogMenu;
 	@FXML
@@ -40,6 +40,7 @@ public class LoginGui extends AnchorPane{
 		Thread buttons = new Thread( () -> {
 			
 			BackB.setOnAction(e -> backFunction());
+			EBackB.setOnAction(e ->backFunction());
 			
 		});buttons.start();
 				
