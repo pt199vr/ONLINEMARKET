@@ -20,7 +20,7 @@ public class RegistrationStage extends Stage{
 	
 	private BorderPane layout;
 	public RegistrationGui registrationgui;
-	public Account account;
+	
 	
 	public RegistrationStage() {
 		

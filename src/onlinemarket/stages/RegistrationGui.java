@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import onlinemarket.Main;
+import onlinemarket.account.*;
 
 
 
@@ -48,7 +49,7 @@ public class RegistrationGui extends AnchorPane{
 		Main.registrationstage.hide();
 		Main.loadingstage.show();
 		
-		String name = NameT.getText(), surname = SurnameT.getText(), mail = MailT.getText(), city = CityT.getText(),  address = AddrT.getText();
+		String name = NameT.getText(), surname = SurnameT.getText(), mail = MailT.getText(), passoword = PasswordF.getText(), city = CityT.getText(),  address = AddrT.getText();
 		int phonenumber = Integer.parseInt(CelT.getText()), cap = Integer.parseInt(CAPT.getText());
 		
 		
