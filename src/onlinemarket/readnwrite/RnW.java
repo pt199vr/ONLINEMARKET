@@ -44,6 +44,7 @@ public abstract class RnW<T> extends TreeSet<T>{
 			for(T obj : this)
 				objectOut.writeObject(obj);
 			
+			objectOut.close();
 		}catch(IOException e) {
 			System.err.println(filepath + ": write failed");
 			return false;

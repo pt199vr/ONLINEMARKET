@@ -23,7 +23,9 @@ public class RegistrationGui extends AnchorPane{
 			throw new RuntimeException(e);
 		}
 		
-		
+		Thread back = new Thread(() -> {
+			
+		});back.start();
 		
 	}
 	
