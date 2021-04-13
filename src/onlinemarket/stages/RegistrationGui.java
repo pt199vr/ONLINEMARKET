@@ -20,6 +20,8 @@ public class RegistrationGui extends AnchorPane{
 	private Button BackB, RegB;
 	@FXML
 	private Label NameL, SurnameL, CityL, MailL, CAPL, CelL, PasswordL, AddrL;
+	@FXML
+	private RadioButton EditorRB,CustomerRB;
 	
 	public RegistrationGui() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registration.fxml"));
