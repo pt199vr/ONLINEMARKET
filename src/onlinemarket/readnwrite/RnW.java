@@ -1,5 +1,6 @@
 package onlinemarket.readnwrite;
 
+import java.util.TreeSet;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,19 +8,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.TreeSet;
+
 
 
 public abstract class RnW<T> extends TreeSet<T>{
 	private static final long serialVersionUID = 0L;
 	
 	protected final String filepath;
-	protected abstract void errorReading();
 	
 	public RnW(String filepath) {
 		this.filepath = filepath;
 	}
-	
 	
 	public synchronized boolean read() {
 		clear();
@@ -31,9 +30,10 @@ public abstract class RnW<T> extends TreeSet<T>{
 			return true;
 		}catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
-		}catch(IOException e) {
-			System.err.println(filepath +": " + ((e instanceof FileNotFoundException)? "file not found!" : "read failed"));
-			errorReading();
+		}
+		catch(IOException e) {
+			System.err.println("Filepath problem! " + ((e instanceof FileNotFoundException)? "file not found!\n" : "read failed\n"));
+			Error();
 			write();
 			return false;
 		}	
@@ -45,9 +45,11 @@ public abstract class RnW<T> extends TreeSet<T>{
 				objectOut.writeObject(obj);
 			
 		}catch(IOException e) {
-			System.err.println(filepath + ": wwrite failed");
+			System.err.println(filepath + ": write failed");
 			return false;
 		}
 		return true;
 	}
+	
+	protected abstract void Error();
 }

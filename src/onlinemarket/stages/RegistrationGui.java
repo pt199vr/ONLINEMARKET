@@ -11,6 +11,7 @@ import onlinemarket.person.user.User;
 
 public class RegistrationGui extends AnchorPane{
 	
+	
 	public RegistrationGui() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Registration.fxml"));
 		fxmlLoader.setRoot(this);
@@ -22,7 +23,8 @@ public class RegistrationGui extends AnchorPane{
 			throw new RuntimeException(e);
 		}
 		
-			
+		
+		
 	}
 	
 }
