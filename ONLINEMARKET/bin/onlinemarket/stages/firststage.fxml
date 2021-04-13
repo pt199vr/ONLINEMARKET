@@ -8,11 +8,11 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="63.0" layoutY="79.0" text="Login">
+      <Label fx:id="Login" layoutX="63.0" layoutY="79.0" text="Login">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Label layoutX="202.0" layoutY="79.0" text="Register">
+      <Label fx:id="Register" layoutX="202.0" layoutY="79.0" text="Register">
          <font>
             <Font name="System Bold" size="18.0" />
          </font></Label>

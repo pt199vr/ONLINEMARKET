@@ -10,7 +10,7 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="320.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="143.0" layoutY="214.0" mnemonicParsing="false" text="Enter">
+      <Button fx:id="LogB" layoutX="143.0" layoutY="214.0" mnemonicParsing="false" text="Login">
          <font>
             <Font size="15.0" />
          </font>
@@ -18,12 +18,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField layoutX="109.0" layoutY="90.0" promptText="Insert your Email">
+      <TextField fx:id="EmailF" layoutX="109.0" layoutY="90.0" promptText="Insert your Email">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label layoutX="148.0" layoutY="32.0" text="Login">
+      <Label fx:id="LogL" layoutX="148.0" layoutY="32.0" text="Login">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -31,7 +31,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Label>
-      <Label layoutX="50.0" layoutY="94.0" text="Email ">
+      <Label fx:id="MailL" layoutX="50.0" layoutY="94.0" text="Email ">
          <font>
             <Font size="14.0" />
          </font>
@@ -39,7 +39,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Label>
-      <Label layoutX="39.0" layoutY="155.0" text="Password">
+      <Label fx:id="PasswordL" layoutX="39.0" layoutY="155.0" text="Password">
          <font>
             <Font size="14.0" />
          </font>
@@ -47,7 +47,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Label>
-      <PasswordField layoutX="110.0" layoutY="151.0" promptText="Insert your Password">
+      <PasswordField fx:id="PasswordF" layoutX="110.0" layoutY="151.0" promptText="Insert your Password">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></PasswordField>

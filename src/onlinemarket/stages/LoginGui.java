@@ -10,7 +10,14 @@ import onlinemarket.person.user.User;
 
 
 public class LoginGui extends AnchorPane{
-	
+	@FXML
+	private Button LogB;
+	@FXML
+	private TextField EmailF;
+	@FXML
+	private PasswordField PasswordF;
+	@FXML
+	private Label LogL,MailL,PasswordL;
 	
 	
 	public LoginGui() {
