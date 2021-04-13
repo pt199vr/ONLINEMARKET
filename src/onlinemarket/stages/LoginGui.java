@@ -40,16 +40,4 @@ public class LoginGui extends AnchorPane{
 				
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

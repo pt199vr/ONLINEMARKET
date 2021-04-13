@@ -8,43 +8,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class ThreadExceptionHandler {
-	private final AtomicBoolean exception;
 	
-	public ThreadExceptionHandler() {
-		exception = new AtomicBoolean(false);
-		
-		Thread.setDefaultUncaughtExceptionHandler((t, e) -> Platform.runLater(() -> showAlert(t, e)));;
-		Thread.currentThread().setUncaughtExceptionHandler(this::showAlert);
+	
+	public ThreadExceptionHandler() {		
+		Thread.setDefaultUncaughtExceptionHandler((t, e) -> Platform.runLater(() -> Handler(t, e)));;
+		Thread.currentThread().setUncaughtExceptionHandler(this::Handler);
 	}
 	
-	private void showAlert(Thread t, Throwable e) {
-		if(exception.get() == true)
-			return;
-		
-		exception.set(true);
+	private void Handler(Thread t, Throwable e) {
+			
 		e.printStackTrace();
 		
-		Alert alert = new Alert(Alert.AlertType.NONE, "Execution Error\n" + e.toString() + "\n Do you want to close the program?", ButtonType.YES, ButtonType.NO);
-		
-		try {
-			
-			alert.initOwner(Main.loginstage);
-			
-			
-			Main.loginstage.hide();
-		}catch(NullPointerException f) {}
-		
-		if(alert.showAndWait().orElse(ButtonType.NO) == ButtonType.YES) {
-			Platform.exit();
-			System.exit(0);
-		}
-		
-		try {
-			
-			Main.loginstage.show();
-		}catch(NullPointerException f) {}
-		
-		exception.set(false);
-		
+		Alert alert = new Alert(Alert.AlertType.NONE, "Error in program execution:\n" + e.toString());
+		alert.initModality(Modality.APPLICATION_MODAL);
+				
 	}
 }

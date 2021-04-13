@@ -24,13 +24,9 @@ public class Main extends Application{
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();
 		loadingstage.show();
-		first();
-	}
-	
-	public static void first() {
 		firststage = new FirstStage();
 	}
-	
+		
 	public static void login() {
 		firststage.close();
 		loginstage = new LoginStage();
