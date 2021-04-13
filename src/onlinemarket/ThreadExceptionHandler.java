@@ -27,10 +27,10 @@ public class ThreadExceptionHandler {
 		Alert alert = new Alert(Alert.AlertType.NONE, "Execution Error\n" + e.toString() + "\n Do you want to close the program?", ButtonType.YES, ButtonType.NO);
 		
 		try {
-			alert.initOwner(Main.mainstage);
+			
 			alert.initOwner(Main.loginstage);
 			
-			Main.mainstage.hide();
+			
 			Main.loginstage.hide();
 		}catch(NullPointerException f) {}
 		
@@ -40,7 +40,7 @@ public class ThreadExceptionHandler {
 		}
 		
 		try {
-			Main.mainstage.show();
+			
 			Main.loginstage.show();
 		}catch(NullPointerException f) {}
 		

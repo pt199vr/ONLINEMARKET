@@ -21,9 +21,9 @@ public class LoginGui extends AnchorPane{
 	@FXML
 	private Label LogL,MailL,PasswordL;
 	
-	
+		
 	public LoginGui() {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fmxl"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
@@ -33,7 +33,10 @@ public class LoginGui extends AnchorPane{
 			throw new RuntimeException(e);
 		}
 		
-		
+		Thread buttons = new Thread( () -> {
+			
+			
+		});buttons.start();
 				
 	}
 	
