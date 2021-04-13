@@ -3,7 +3,7 @@ package onlinemarket.account;
 import java.io.Serializable;
 
 public class Password implements Comparable<Password>, Serializable {
-	private static final long serialVersionUID = 9L;
+	private static final long serialVersionUID = 3L;
 	private final String password;
 	
 	public Password(String password) throws IllegalArgumentException{

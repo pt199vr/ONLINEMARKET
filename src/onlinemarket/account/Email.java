@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 
 public class Email implements Comparable<Email>, Serializable{
-	private static final long serialVersionUID = 10L;
+	private static final long serialVersionUID = 2L;
 	private final String email;
 	
 	public Email(String email) throws IllegalArgumentException{
