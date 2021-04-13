@@ -23,7 +23,7 @@ public class FirstStage extends Stage{
 	
 	public FirstStage() {
 		
-		
+		pathcontrol();	
 		
 		new Thread(() -> {
 			layout = new BorderPane();
@@ -52,5 +52,22 @@ public class FirstStage extends Stage{
 		
 	}
 	
+	private void pathcontrol() {
+		File f = new File(Main.path), g = new File(Main.mediapath);
+		if(!f.exists() && !f.mkdir())
+			FirstError(f);
+		if(!g.exists() && !g.mkdir())
+			FirstError(g);
+	}
 	
+	private void FirstError(File p) {
+		Alert a = new Alert(Alert.AlertType.NONE, "Folder Creation Failed " + p.getName(), ButtonType.OK);
+		a.initModality(Modality.APPLICATION_MODAL);
+		a.initOwner(this);
+		
+		if(a.showAndWait().orElse(ButtonType.OK) != null) {
+			Platform.exit();
+			System.exit(0);
+		}
+	}
 }

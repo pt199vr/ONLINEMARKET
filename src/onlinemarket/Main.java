@@ -17,6 +17,9 @@ public class Main extends Application{
 	public static String title = "Online Market";	
 	public static Stage mainstage, loadingstage, firststage, loginstage, registrationstage;
 	
+	public static final String path = System.getProperty("user.dir") + "Accounts";
+	public static final String mediapath = System.getProperty("user.dir") + "Media";
+	
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();
