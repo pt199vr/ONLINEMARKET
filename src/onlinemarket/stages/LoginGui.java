@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import onlinemarket.Main;
-import onlinemarket.person.user.User;
+
 
 
 public class LoginGui extends AnchorPane{

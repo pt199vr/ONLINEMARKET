@@ -1,4 +1,4 @@
-package onlinemarket.person;
+package onlinemarket.account;
 
 import java.io.Serializable;
 
