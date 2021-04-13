@@ -35,9 +35,16 @@ public class RegistrationGui extends AnchorPane{
 			
 			BackB.setOnAction(e -> backFunction());
 			
+			RegB.setOnAction(e -> registerFunction());
 			
 		});back.start();
 		
+	}
+	
+	private void registerFunction() {
+		
+		String name = NameT.getText(), surname = SurnameT.getText(), mail = MailT.getText(), city = CityT.getText(),  address = AddrT.getText();
+		int phonenumber = Integer.parseInt(CelT.getText()), cap = Integer.parseInt(CAPT.getText());
 	}
 	
 	private void backFunction() {
