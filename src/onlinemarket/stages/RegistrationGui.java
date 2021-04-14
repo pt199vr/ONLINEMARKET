@@ -83,9 +83,9 @@ public class RegistrationGui extends AnchorPane{
 			
 			Account account = new Account(name, surname, email, password, phonenumber);
 			
-			if(Main.account.add(account))
+			if(Main.account.add(account)) {				
 				Main.account.write();
-			else {
+			}else {
 				Alert c = new Alert(Alert.AlertType.NONE, "Impossible to register your account!", ButtonType.CLOSE);
 				Main.loadingstage.hide();
 				c.showAndWait();
@@ -99,8 +99,11 @@ public class RegistrationGui extends AnchorPane{
 			Main.registrationstage.show();
 			return;
 		}	
+		
 		Main.account.read();
+		
 		System.out.println(Main.account.toString());
+		
 	}
 		
 	private void backFunction() {
