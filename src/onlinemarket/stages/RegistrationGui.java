@@ -69,6 +69,7 @@ public class RegistrationGui extends AnchorPane{
 		
 		if(NameT.getText() == "" || SurnameT.getText() == "" || CityT.getText() == "" || AddrT.getText() == "" || MailT.getText() == "" ||  PasswordF.getText() == "" || CelT.getText() == "" || CAPT.getText() == "") {
 			Alert a = new Alert(Alert.AlertType.NONE, "Fill all fields", ButtonType.OK);
+			Main.loadingstage.hide();
 			a.showAndWait();
 			Main.registrationstage.show();
 			return;
@@ -86,12 +87,14 @@ public class RegistrationGui extends AnchorPane{
 				Main.account.write();
 			else {
 				Alert c = new Alert(Alert.AlertType.NONE, "Impossible to register your account!", ButtonType.CLOSE);
+				Main.loadingstage.hide();
 				c.showAndWait();
 				Main.registrationstage.show();
 			}
 				
 		}catch(IllegalArgumentException e) {
 			Alert b = new Alert(Alert.AlertType.NONE, e.toString(), ButtonType.OK);
+			Main.loadingstage.hide();
 			b.showAndWait();
 			Main.registrationstage.show();
 			return;
