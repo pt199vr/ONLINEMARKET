@@ -19,8 +19,12 @@ public class ThreadExceptionHandler {
 			
 		e.printStackTrace();
 		
-		Alert alert = new Alert(Alert.AlertType.NONE, "Error in program execution:\n" + e.toString());
+		Alert alert = new Alert(Alert.AlertType.NONE, "Error in program execution:\n" + e.toString(), ButtonType.CLOSE);
 		alert.initModality(Modality.APPLICATION_MODAL);
-				
+		alert.showAndWait();
+		Platform.exit();
+		System.exit(0);
+		
+		
 	}
 }
