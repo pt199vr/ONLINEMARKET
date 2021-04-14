@@ -39,6 +39,8 @@ public class LoadingStage extends Stage{
 		initStyle(StageStyle.UNDECORATED);
 		initStyle(StageStyle.TRANSPARENT);
 		getScene().setFill(Color.TRANSPARENT);
+		
+		
 				
 	}
 	

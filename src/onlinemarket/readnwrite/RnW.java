@@ -20,6 +20,8 @@ public abstract class RnW<T> extends TreeSet<T>{
 		this.filepath = filepath;
 	}
 	
+	public void start() {clear();}
+	
 	public synchronized boolean read() {
 		clear();
 		
@@ -33,7 +35,7 @@ public abstract class RnW<T> extends TreeSet<T>{
 		}
 		catch(IOException e) {
 			System.err.println("Filepath problem! " + ((e instanceof FileNotFoundException)? "file not found!\n" : "read failed\n"));
-			Error();
+			errorReading();
 			write();
 			return false;
 		}	
@@ -52,5 +54,5 @@ public abstract class RnW<T> extends TreeSet<T>{
 		return true;
 	}
 	
-	protected abstract void Error();
+	public abstract void errorReading();
 }

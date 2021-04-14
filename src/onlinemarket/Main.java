@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.util.HashMap;
 
 import onlinemarket.stages.*;
+import onlinemarket.readnwrite.*;
 
 
 
@@ -15,15 +16,21 @@ import onlinemarket.stages.*;
 public class Main extends Application{
 	public static final Image logo = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
 	public static String title = "Online Market";	
-	public static Stage loadingstage, firststage, loginstage, registrationstage;
+	public static Stage loadingstage, firststage, loginstage, registrationstage, startingstage;
 	
-	public static final String path = System.getProperty("user.dir") + "Accounts";
-	public static final String mediapath = System.getProperty("user.dir") + "Media";
+	public static final String path = System.getProperty("user.dir") + "/Accounts";
+	public static final String mediapath = System.getProperty("user.dir") + "/Media";
+	
+	public static final HashMap<Object, Thread> threads = new HashMap<>(1);
+	
+	
+	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
 	
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();
-		loadingstage.show();
+		startingstage = new StartingStage();
+		startingstage = null;
 		firststage = new FirstStage();
 	}
 		

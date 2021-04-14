@@ -5,6 +5,16 @@ import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.VBox;
 import onlinemarket.Main;
 import onlinemarket.account.*;
 
@@ -53,16 +63,42 @@ public class RegistrationGui extends AnchorPane{
 	}
 	
 	private void registerFunction() {
+		
 		Main.registrationstage.hide();
 		Main.loadingstage.show();
 		
-		String name = NameT.getText(), surname = SurnameT.getText(), mail = MailT.getText(), passoword = PasswordF.getText(), city = CityT.getText(),  address = AddrT.getText();
-		int phonenumber = Integer.parseInt(CelT.getText()), cap = Integer.parseInt(CAPT.getText());
+		if(NameT.getText() == "" || SurnameT.getText() == "" || CityT.getText() == "" || AddrT.getText() == "" || MailT.getText() == "" ||  PasswordF.getText() == "" || CelT.getText() == "" || CAPT.getText() == "") {
+			Alert a = new Alert(Alert.AlertType.NONE, "Fill all fields", ButtonType.OK);
+			a.showAndWait();
+			Main.registrationstage.show();
+			return;
+		}
 		
-		
+		try {
+			String name = NameT.getText(), surname = SurnameT.getText(), city = CityT.getText(),  address = AddrT.getText();
+			Email email = new Email(MailT.getText()); 
+			Password password = new Password(PasswordF.getText());
+			Long phonenumber = Long.parseLong(CelT.getText()), cap = Long.parseLong(CAPT.getText());
+			
+			Account account = new Account(name, surname, email, password, phonenumber);
+			
+			if(Main.account.add(account))
+				Main.account.write();
+			else {
+				Alert c = new Alert(Alert.AlertType.NONE, "Impossible to register your account!", ButtonType.CLOSE);
+				c.showAndWait();
+				Main.registrationstage.show();
+			}
+				
+		}catch(IllegalArgumentException e) {
+			Alert b = new Alert(Alert.AlertType.NONE, e.toString(), ButtonType.OK);
+			b.showAndWait();
+			Main.registrationstage.show();
+			return;
+		}	
 		
 	}
-	
+		
 	private void backFunction() {
 		Main.registrationstage.hide();
 		Main.firststage.show();

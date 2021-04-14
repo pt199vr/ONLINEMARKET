@@ -2,7 +2,7 @@ package onlinemarket.account;
 
 import java.io.Serializable;
 
-public abstract class Account implements Serializable, Comparable<Account>{
+public class Account implements Serializable, Comparable<Account>{
 	private static final long serialVerisonUID = 1L;
 	
 	protected String name, surname;
@@ -42,8 +42,13 @@ public abstract class Account implements Serializable, Comparable<Account>{
 		return equals(logger) && logger.getPassword().equals(password);
 	}
 	
-	public abstract boolean equals(Object other);
-	public abstract String toString();
-	public abstract int compareTo(Account other);
+	public String toString() {
+		String s = getName()+ " " + getSurname() + " " + getEmail().toString() + " " + getPassword().toString() + " " + getPhoneNumber();
+		return s; 
+	}
 	
+	public int compareTo(Account other) {
+		int a = (this.phoneNumber.intValue() - other.phoneNumber.intValue());
+		return a;
+	}
 }
