@@ -22,6 +22,7 @@ public abstract class RnW<T> extends TreeSet<T>{
 	
 	public void start() {clear();}
 	
+	
 	public synchronized boolean read() {
 		clear();
 		
@@ -41,8 +42,10 @@ public abstract class RnW<T> extends TreeSet<T>{
 		}	
 	}
 	
-	public synchronized boolean write() {
-		read();
+	public synchronized boolean write(){
+		if(!read())
+			start();
+		
 		try(ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(filepath, false))){
 			for(T obj : this)
 				objectOut.writeObject(obj);
