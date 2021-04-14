@@ -42,6 +42,7 @@ public abstract class RnW<T> extends TreeSet<T>{
 	}
 	
 	public synchronized boolean write() {
+		read();
 		try(ObjectOutputStream objectOut = new ObjectOutputStream(new FileOutputStream(filepath, false))){
 			for(T obj : this)
 				objectOut.writeObject(obj);
