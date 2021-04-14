@@ -99,7 +99,8 @@ public class RegistrationGui extends AnchorPane{
 			Main.registrationstage.show();
 			return;
 		}	
-		
+		Main.account.read();
+		System.out.println(Main.account.toString());
 	}
 		
 	private void backFunction() {
