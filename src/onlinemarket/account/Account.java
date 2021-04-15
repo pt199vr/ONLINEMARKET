@@ -11,24 +11,92 @@ public class Account implements Serializable, Comparable<Account>{
 	protected Password password;
 	protected Long phoneNumber;
 	
-	public Account(String name, String surname, Email email, Password password, Long phoneNumber, Integer cap, String city, String address) {
+	public Account(String name, String surname, Email email, Password password, Long phonenumber, Integer cap, String city, String address) {
+		checkAll(name, surname, phonenumber, cap, city, address);
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
-		if(checkCap(cap))
-			this.cap = cap;
+		this.cap = cap;
 		this.city = city;
 		this.address = address;
 		
 	}
 	
-	private boolean checkCap(Integer cap) throws IllegalArgumentException{
-		String s = cap.toString();
-		if(s.length() != 5) {
-			throw new IllegalArgumentException("CAP is made up of 5 numbers");
+	private void checkAll(String name, String surname, Long phonenumber, Integer cap, String city, String address) throws IllegalArgumentException{
+		if(checkName(name))
+			throw new IllegalArgumentException("Name field can be filled by only letters from a to z (Low Case)");
+		if(checkSurname(surname))
+			throw new IllegalArgumentException("Surname field can be filled by only letters from a to z (Low Case)");
+		if(checkPhoneNumber(phonenumber))
+			throw new IllegalArgumentException("Phone number field can be filled by only numbers from 0 to 9");
+		if(checkCap(cap))
+			throw new IllegalArgumentException("CAP field can be filled by only numbers from 0 to 9");
+		if(checkCity(city))
+			throw new IllegalArgumentException("City field can be filled by only letters from a to z (Low Case)");
+		if(checkAddress(address))
+			throw new IllegalArgumentException("Address field can be filled by only letters from a to z (Low Case) and numbers from 0 to 9");
+	}
+	
+	private boolean checkAddress(String address) {
+		for(int i = 0; i < address.length(); i++) {
+			if((address.charAt(i) >= 97 && address.charAt(i) <= 122) || address.charAt(i) == ' ' || (city.charAt(i) >= 97 && city.charAt(i) <= 122))
+				return false;
 		}
+		
+		return true;
+	}
+	
+	private boolean checkCity(String city) {
+		for(int i = 0; i < city.length(); i++) {
+			if(!(city.charAt(i) >= 97 && city.charAt(i) <= 122))
+				return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean checkCap(Integer cap) {
+		String s = cap.toString();
+		
+		if(s.length() != 5)
+			return false;
+		
+		for(int i = 0; i < s.length(); i++) {
+			if(!(s.charAt(i) >= 48 && s.charAt(i) <= 57))
+				return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean checkPhoneNumber(Long phonenumber) {
+		String s = phonenumber.toString();
+		
+		for(int i = 0; i < s.length(); i++) {
+			if(!(s.charAt(i) >= 48 && s.charAt(i) <= 57))
+				return false;
+		}
+		
+		return true;		
+	}
+	
+	private boolean checkSurname(String surname) {
+		for(int i = 0; i < surname.length(); i++) {
+			if(!(surname.charAt(i) >= 97 && surname.charAt(i) <= 122))
+				return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean checkName(String name) {
+		for(int i = 0; i < name.length(); i++) {
+			if(!(name.charAt(i) >= 97 && name.charAt(i) <= 122))
+				return false;
+		}
+		
 		return true;
 	}
 	
