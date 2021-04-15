@@ -31,8 +31,6 @@ public class RegistrationGui extends AnchorPane{
 	private Button BackB, RegB;
 	@FXML
 	private Label NameL, SurnameL, CityL, MailL, CAPL, CelL, PasswordL, AddrL;
-	@FXML
-	private RadioButton EditorRB,CustomerRB;
 	
 	
 	public RegistrationGui() {
@@ -53,12 +51,6 @@ public class RegistrationGui extends AnchorPane{
 			RegB.setOnAction(e -> registerFunction());
 			
 		});back.start();
-		
-		ToggleGroup rbGroup= new ToggleGroup();
-		EditorRB.setToggleGroup(rbGroup);
-		CustomerRB.setToggleGroup(rbGroup);
-		CustomerRB.setSelected(true);
-		EditorRB.requestFocus();
 		
 	}
 	
