@@ -22,7 +22,7 @@ public class StartingStage extends Stage{
 	public StartingStage() {
 		 new Thread(() -> {				
 			 checkPath();
-			 Main.threads.put(RnW_Account.class, new Thread(() -> Main.account.start()));
+			 Main.threads.put(RnW_Account.class, new Thread(() -> Main.account.start()));			 
 			 Main.threads.values().forEach(thread -> thread.start());
 		 }).start();
 		 Main.loadingstage.show();	

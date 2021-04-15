@@ -79,9 +79,10 @@ public class RegistrationGui extends AnchorPane{
 			String name = NameT.getText(), surname = SurnameT.getText(), city = CityT.getText(),  address = AddrT.getText();
 			Email email = new Email(MailT.getText()); 
 			Password password = new Password(PasswordF.getText());
-			Long phonenumber = Long.parseLong(CelT.getText()), cap = Long.parseLong(CAPT.getText());
+			Long phonenumber = Long.parseLong(CelT.getText());
+			Integer cap = Integer.parseInt(CAPT.getText());
 			
-			Account account = new Account(name, surname, email, password, phonenumber);
+			Account account = new Account(name, surname, email, password, phonenumber, cap, city, address);
 			
 			if(Main.account.add(account)) {				
 				Main.account.write();
@@ -94,21 +95,17 @@ public class RegistrationGui extends AnchorPane{
 				
 		}catch(IllegalArgumentException e) {
 			Alert b = new Alert(Alert.AlertType.NONE, e.toString(), ButtonType.OK);
+			b.setHeight(0);
+			b.setWidth(0);			
 			Main.loadingstage.hide();
 			b.showAndWait();
 			Main.registrationstage.show();
 			return;
-		}	
-		
-		Main.account.read();
-		
-		System.out.println(Main.account.toString());
-		
+		}
 	}
 		
 	private void backFunction() {
 		Main.registrationstage.hide();
 		Main.firststage.show();
 	}
-	
 }

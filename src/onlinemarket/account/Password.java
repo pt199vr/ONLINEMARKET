@@ -8,7 +8,7 @@ public class Password implements Comparable<Password>, Serializable {
 	
 	public Password(String password) throws IllegalArgumentException{
 		if(password.length() < 6)
-			throw new IllegalArgumentException("Password must be minimum 6 characters");
+			throw new IllegalArgumentException("Password longer than 5 characters");
 		
 		this.password = password;
 	}
