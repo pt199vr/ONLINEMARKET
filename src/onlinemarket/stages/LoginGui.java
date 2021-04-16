@@ -22,8 +22,6 @@ public class LoginGui extends AnchorPane{
 	@FXML
 	private Label LogL,MailL,PasswordL, ELogL, Matricola, EPasswordL;
 	@FXML
-	private TabPane LogMenu;
-	@FXML
 	private Tab EditorTab, CustomerTab;
 
 
