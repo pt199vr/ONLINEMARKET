@@ -12,7 +12,7 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TabPane fx:id="LogMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
             <Tab fx:id="CustomerTab" text="Customer">
                <content>
@@ -94,7 +94,7 @@
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <Label fx:id="Matricola" layoutX="152.0" layoutY="80.0" text="Matricola ">
+                        <Label fx:id="Matricola" layoutX="152.0" layoutY="80.0" text="Id number">
                            <font>
                               <Font size="14.0" />
                            </font>
