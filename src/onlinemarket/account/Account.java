@@ -12,36 +12,37 @@ public class Account implements Serializable, Comparable<Account>{
 	protected Long phoneNumber;
 	
 	public Account(String name, String surname, Email email, Password password, Long phonenumber, Integer cap, String city, String address) {
-		checkAll(name, surname, phonenumber, cap, city, address);
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
-		this.phoneNumber = phoneNumber;
+		this.phoneNumber = phonenumber;
 		this.cap = cap;
 		this.city = city;
 		this.address = address;
+		checkAll(name, surname, phonenumber, cap, city, address);
+
 		
 	}
 	
 	private void checkAll(String name, String surname, Long phonenumber, Integer cap, String city, String address) throws IllegalArgumentException{
 		if(checkName(name))
-			throw new IllegalArgumentException("Name field can be filled by only letters from a to z (Low Case)");
+			throw new IllegalArgumentException("Name field can be filled only by letters from a to z (low and high case)");
 		if(checkSurname(surname))
-			throw new IllegalArgumentException("Surname field can be filled by only letters from a to z (Low Case)");
+			throw new IllegalArgumentException("Surname field can be filled only by letters from a to z (low and high case)");
 		if(checkPhoneNumber(phonenumber))
-			throw new IllegalArgumentException("Phone number field can be filled by only numbers from 0 to 9");
+			throw new IllegalArgumentException("Phone number field can be filled only by numbers from 0 to 9");
 		if(checkCap(cap))
-			throw new IllegalArgumentException("CAP field can be filled by only numbers from 0 to 9");
+			throw new IllegalArgumentException("CAP field can be filled only by numbers from 0 to 9");
 		if(checkCity(city))
-			throw new IllegalArgumentException("City field can be filled by only letters from a to z (Low Case)");
+			throw new IllegalArgumentException("City field can be filled only by letters from a to z (low and high case)");
 		if(checkAddress(address))
-			throw new IllegalArgumentException("Address field can be filled by only letters from a to z (Low Case) and numbers from 0 to 9");
+			throw new IllegalArgumentException("Address field can be filled only by letters from a to z (low and high case) and numbers from 0 to 9");
 	}
 	
 	private boolean checkAddress(String address) {
 		for(int i = 0; i < address.length(); i++) {
-			if(!(((char)address.charAt(i) >= 'a' && (char)address.charAt(i) <= 'z') || (char)address.charAt(i) == ' ' || ((char)city.charAt(i) >= '0' && (char)city.charAt(i) <= '9')))
+			if(!(((char)address.charAt(i) >= 'a' && (char)address.charAt(i) <= 'z') || ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z') || (char)address.charAt(i) == ' ' || ((char)city.charAt(i) >= '0' && (char)city.charAt(i) <= '9')))
 				return true;
 		}
 		
@@ -50,7 +51,7 @@ public class Account implements Serializable, Comparable<Account>{
 	
 	private boolean checkCity(String city) {
 		for(int i = 0; i < city.length(); i++) {
-			if(!((char)city.charAt(i) >= 'a' && (char)city.charAt(i) <= 'z'))
+			if(!((char)city.charAt(i) >= 'a' && (char)city.charAt(i) <= 'z') || ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z'))
 				return true;
 		}
 		
@@ -84,7 +85,7 @@ public class Account implements Serializable, Comparable<Account>{
 	
 	private boolean checkSurname(String surname) {
 		for(int i = 0; i < surname.length(); i++) {
-			if(!((char)surname.charAt(i) >= 'a' && (char)surname.charAt(i) <= 'z'))
+			if(!((char)surname.charAt(i) >= 'a' && (char)surname.charAt(i) <= 'z') || ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z'))
 				return true;
 		}
 		
@@ -93,7 +94,7 @@ public class Account implements Serializable, Comparable<Account>{
 	
 	private boolean checkName(String name) {
 		for(int i = 0; i < name.length(); i++) {
-			if(!((char) name.charAt(i) >= 'a' && (char)name.charAt(i) <= 'z'))
+			if(!((char) name.charAt(i) >= 'a' && (char)name.charAt(i) <= 'z') || ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z'))
 				return true;
 		}
 		
