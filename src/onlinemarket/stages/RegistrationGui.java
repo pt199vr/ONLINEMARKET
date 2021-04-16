@@ -21,6 +21,7 @@ import onlinemarket.account.*;
 
 
 
+
 public class RegistrationGui extends AnchorPane{
 	
 	@FXML 

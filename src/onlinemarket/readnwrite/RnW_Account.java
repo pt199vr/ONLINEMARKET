@@ -1,5 +1,6 @@
 package onlinemarket.readnwrite;
 
+
 import onlinemarket.account.*;
 import onlinemarket.readnwrite.*;
 import javafx.application.Platform;
@@ -8,7 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class RnW_Account extends RnW<Account>{
+public class RnW_Account extends RnW<Account> {
 	private static final long serialVersionUID = 0L;
 
 	public RnW_Account(String filepath) {
