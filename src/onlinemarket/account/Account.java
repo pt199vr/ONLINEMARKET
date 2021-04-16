@@ -41,63 +41,63 @@ public class Account implements Serializable, Comparable<Account>{
 	
 	private boolean checkAddress(String address) {
 		for(int i = 0; i < address.length(); i++) {
-			if((address.charAt(i) >= 97 && address.charAt(i) <= 122) || address.charAt(i) == ' ' || (city.charAt(i) >= 97 && city.charAt(i) <= 122))
-				return false;
+			if(!(((char)address.charAt(i) >= 'a' && (char)address.charAt(i) <= 'z') || (char)address.charAt(i) == ' ' || ((char)city.charAt(i) >= '0' && (char)city.charAt(i) <= '9')))
+				return true;
 		}
 		
-		return true;
+		return false;
 	}
 	
 	private boolean checkCity(String city) {
 		for(int i = 0; i < city.length(); i++) {
-			if(!(city.charAt(i) >= 97 && city.charAt(i) <= 122))
-				return false;
+			if(!((char)city.charAt(i) >= 'a' && (char)city.charAt(i) <= 'z'))
+				return true;
 		}
 		
-		return true;
+		return false;
 	}
 	
 	private boolean checkCap(Integer cap) {
 		String s = cap.toString();
 		
 		if(s.length() != 5)
-			return false;
+			return true;
 		
 		for(int i = 0; i < s.length(); i++) {
-			if(!(s.charAt(i) >= 48 && s.charAt(i) <= 57))
-				return false;
+			if(!((char) s.charAt(i) >= '0' && (char) s.charAt(i) <= '9'))
+				return true;
 		}
 		
-		return true;
+		return false;
 	}
 	
 	private boolean checkPhoneNumber(Long phonenumber) {
 		String s = phonenumber.toString();
 		
 		for(int i = 0; i < s.length(); i++) {
-			if(!(s.charAt(i) >= 48 && s.charAt(i) <= 57))
-				return false;
+			if(!((char) s.charAt(i) >= '0' && (char) s.charAt(i) <= '9'))
+				return true;
 		}
 		
-		return true;		
+		return false;		
 	}
 	
 	private boolean checkSurname(String surname) {
 		for(int i = 0; i < surname.length(); i++) {
-			if(!(surname.charAt(i) >= 97 && surname.charAt(i) <= 122))
-				return false;
+			if(!((char)surname.charAt(i) >= 'a' && (char)surname.charAt(i) <= 'z'))
+				return true;
 		}
 		
-		return true;
+		return false;
 	}
 	
 	private boolean checkName(String name) {
 		for(int i = 0; i < name.length(); i++) {
-			if(!(name.charAt(i) >= 97 && name.charAt(i) <= 122))
-				return false;
+			if(!((char) name.charAt(i) >= 'a' && (char)name.charAt(i) <= 'z'))
+				return true;
 		}
 		
-		return true;
+		return false;
 	}
 	
 	public String getName() {

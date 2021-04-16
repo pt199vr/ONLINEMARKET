@@ -75,7 +75,7 @@ private void login() {
 			Password password = new Password(PasswordF.getText());
 			
 			if(Main.account.read()) {
-				for(Account t : Main.account.iterator()) {
+				for(Account t : Main.account) {
 					if(t.getEmail() == email && t.getPassword() == password)
 						nextStep(t);
 				}
