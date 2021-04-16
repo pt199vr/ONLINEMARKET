@@ -46,6 +46,7 @@ public class LoginGui extends AnchorPane{
 			EBackB.setOnAction(e ->backFunction());
 			
 			LogB.setOnAction(e -> login());
+			ELogB.setOnAction(e -> login());
 			
 		});buttons.start();
 		
