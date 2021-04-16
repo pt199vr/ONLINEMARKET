@@ -21,9 +21,7 @@ public class Account implements Serializable, Comparable<Account>{
 		this.city = city;
 		this.address = address;
 		checkAll(name, surname, phonenumber, cap, city, address);
-
-		
-	}
+		}
 	
 	private void checkAll(String name, String surname, Long phonenumber, Integer cap, String city, String address) throws IllegalArgumentException{
 		if(checkName(name))
@@ -42,7 +40,12 @@ public class Account implements Serializable, Comparable<Account>{
 	
 	private boolean checkAddress(String address) {
 		for(int i = 0; i < address.length(); i++) {
-			if(!(((char)address.charAt(i) >= 'a' && (char)address.charAt(i) <= 'z') || ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z') || (char)address.charAt(i) == ' ' || ((char)city.charAt(i) >= '0' && (char)city.charAt(i) <= '9')))
+			if(!(
+					   ((char)address.charAt(i) >= 'a' && (char)address.charAt(i) <= 'z') 
+					|| ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z') 
+					|| ((char)address.charAt(i) == Character.MIN_VALUE) 
+					|| ((char)address.charAt(i) >= '0' && (char)city.charAt(i) <= '9')
+					))
 				return true;
 		}
 		
@@ -51,7 +54,7 @@ public class Account implements Serializable, Comparable<Account>{
 	
 	private boolean checkCity(String city) {
 		for(int i = 0; i < city.length(); i++) {
-			if(!((char)city.charAt(i) >= 'a' && (char)city.charAt(i) <= 'z') || ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z'))
+			if(!(((char)city.charAt(i) >= 'a' && (char)city.charAt(i) <= 'z') || ((char)city.charAt(i) >= 'A' && (char)city.charAt(i) <= 'Z')))
 				return true;
 		}
 		
@@ -85,7 +88,7 @@ public class Account implements Serializable, Comparable<Account>{
 	
 	private boolean checkSurname(String surname) {
 		for(int i = 0; i < surname.length(); i++) {
-			if(!((char)surname.charAt(i) >= 'a' && (char)surname.charAt(i) <= 'z') || ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z'))
+			if(!(((char)surname.charAt(i) >= 'a' && (char)surname.charAt(i) <= 'z') || ((char)surname.charAt(i) >= 'A' && (char)surname.charAt(i) <= 'Z')))
 				return true;
 		}
 		
@@ -94,7 +97,7 @@ public class Account implements Serializable, Comparable<Account>{
 	
 	private boolean checkName(String name) {
 		for(int i = 0; i < name.length(); i++) {
-			if(!((char) name.charAt(i) >= 'a' && (char)name.charAt(i) <= 'z') || ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z'))
+			if(!(((char) name.charAt(i) >= 'a' && (char)name.charAt(i) <= 'z') || ((char)name.charAt(i) >= 'A' && (char)name.charAt(i) <= 'Z')))
 				return true;
 		}
 		
