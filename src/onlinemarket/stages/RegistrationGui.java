@@ -50,9 +50,18 @@ public class RegistrationGui extends AnchorPane{
 			BackB.setOnAction(e -> backFunction());
 			
 			RegB.setOnAction(e -> registerFunction());
+			RegB.setOnKeyPressed(keyEvent->{
+				if(keyEvent.getCode()==KeyCode.ENTER)
+					registerFunction();
+			});
 			
 		});back.start();
 		
+	}
+
+	private void backFunction() {
+		Main.registrationstage.hide();
+		Main.firststage.show();
 	}
 	
 	private void registerFunction() {
@@ -77,6 +86,20 @@ public class RegistrationGui extends AnchorPane{
 			
 			Account account = new Account(name, surname, email, password, phonenumber, cap, city, address);
 			
+			try {
+				checkAll(name, surname, phonenumber, cap, city, address);
+			}catch(IllegalArgumentException e) {
+				Alert d=new Alert(Alert.AlertType.NONE,e.toString(),ButtonType.CLOSE);
+				d.showAndWait();
+				Main.registrationstage.show();
+				return;
+			}
+			
+			try {
+				Main.account.read();
+			}catch(IllegalArgumentException e) {
+			};
+			
 			if(Main.account.add(account)) {				
 				Main.account.write();
 			}else {
@@ -96,9 +119,86 @@ public class RegistrationGui extends AnchorPane{
 			return;
 		}
 	}
-		
-	private void backFunction() {
-		Main.registrationstage.hide();
-		Main.firststage.show();
+	
+	private void checkAll(String name, String surname, Long phonenumber, Integer cap, String city, String address) throws IllegalArgumentException{
+		if(checkName(name))
+			throw new IllegalArgumentException("Name field can be filled only by letters from a to z (low and high case)");
+		if(checkSurname(surname))
+			throw new IllegalArgumentException("Surname field can be filled only by letters from a to z (low and high case)");
+		if(checkPhoneNumber(phonenumber))
+			throw new IllegalArgumentException("Phone number field can be filled only by numbers from 0 to 9");
+		if(checkCap(cap))
+			throw new IllegalArgumentException("CAP field can be filled only by numbers from 0 to 9");
+		if(checkCity(city))
+			throw new IllegalArgumentException("City field can be filled only by letters from a to z (low and high case)");
+		if(checkAddress(address))
+			throw new IllegalArgumentException("Address field can be filled only by letters from a to z (low and high case) and numbers from 0 to 9");
 	}
+	
+	
+	private boolean checkCity(String city) {
+		for(int i = 0; i < city.length(); i++) {
+			if(!(((char)city.charAt(i) >= 'a' && (char)city.charAt(i) <= 'z') || ((char)city.charAt(i) >= 'A' && (char)city.charAt(i) <= 'Z')|| ((char)city.charAt(i) == ' ')))
+				return true;
+		}
+		
+		return false;
+	}
+	
+	private boolean checkCap(Integer cap) {
+		String s = cap.toString();
+		
+		if(s.length() != 5)
+			return true;
+		
+		for(int i = 0; i < s.length(); i++) {
+			if(!((char) s.charAt(i) >= '0' && (char) s.charAt(i) <= '9'))
+				return true;
+		}
+		
+		return false;
+	}
+	
+	private boolean checkPhoneNumber(Long phonenumber) {
+		String s = phonenumber.toString();
+		
+		for(int i = 0; i < s.length(); i++) {
+			if(!((char) s.charAt(i) >= '0' && (char) s.charAt(i) <= '9'))
+				return true;
+		}
+		
+		return false;		
+	}
+	
+	private boolean checkSurname(String surname) {
+		for(int i = 0; i < surname.length(); i++) {
+			if(!(((char)surname.charAt(i) >= 'a' && (char)surname.charAt(i) <= 'z') || ((char)surname.charAt(i) >= 'A' && (char)surname.charAt(i) <= 'Z')|| ((char)surname.charAt(i) == ' ')))
+				return true;
+		}
+		
+		return false;
+	}
+	private boolean checkAddress(String address) {
+		for(int i = 0; i < address.length(); i++) {
+			if(!(
+					   ((char)address.charAt(i) >= 'a' && (char)address.charAt(i) <= 'z') 
+					|| ((char)address.charAt(i) >= 'A' && (char)address.charAt(i) <= 'Z') 
+					|| ((char)address.charAt(i) == ' ') 
+					|| ((char)address.charAt(i) >= '0' && (char)address.charAt(i) <= '9')
+					))
+				return true;
+		}
+		
+		return false;
+	}
+	
+	private boolean checkName(String name) {
+		for(int i = 0; i < name.length(); i++) {
+			if(!(((char) name.charAt(i) >= 'a' && (char)name.charAt(i) <= 'z') || ((char)name.charAt(i) >= 'A' && (char)name.charAt(i) <= 'Z')))
+				return true;
+		}
+		
+		return false;
+	}
+	
 }

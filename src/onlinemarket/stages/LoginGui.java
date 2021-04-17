@@ -1,6 +1,7 @@
 package onlinemarket.stages;
 
 import java.io.IOException;
+import java.util.Iterator;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
@@ -46,6 +47,15 @@ public class LoginGui extends AnchorPane{
 			LogB.setOnAction(e -> login());
 			ELogB.setOnAction(e -> login());
 			
+			LogB.setOnKeyPressed(keyEvent->{
+				if(keyEvent.getCode() ==KeyCode.ENTER)
+					login();
+			});
+			ELogB.setOnKeyPressed(keyEvent->{
+				if(keyEvent.getCode() ==KeyCode.ENTER)
+					login();
+			});
+			
 		});buttons.start();
 		
 				
@@ -57,14 +67,14 @@ private void nextStep(Account t) {
 	
 private void login() {
 		
-		Main.registrationstage.hide();
+		Main.loginstage.hide();
 		Main.loadingstage.show();
 		
 		if(EmailF.getText() == "" || PasswordF.getText() == "") {
 			Alert a = new Alert(Alert.AlertType.NONE, "Fill all fields", ButtonType.OK);
 			Main.loadingstage.hide();
 			a.showAndWait();
-			Main.registrationstage.show();
+			Main.loginstage.show();
 			return;
 		}
 		
@@ -74,16 +84,21 @@ private void login() {
 			
 			if(Main.account.read()) {
 				for(Account t : Main.account) {
-					if(t.getEmail() == email && t.getPassword() == password)
+					System.out.println(email.toString() + " " + password.toString());
+					System.out.println(t.toString() +"\n------");
+					if(t.getEmail().toString().equals(email.toString()) && t.getPassword().toString().equals(password.toString())) {
+						
+						System.out.println("/*/*/*/*/*/*/*/*/*");
+						
 						nextStep(t);
-				}
 					
-			
+					}
+				}
 			}else {
 				Alert c = new Alert(Alert.AlertType.NONE, "Wrongs Credentials", ButtonType.CLOSE);
 				Main.loadingstage.hide();
 				c.showAndWait();
-				Main.registrationstage.show();
+				Main.loginstage.show();
 			}
 				
 		}catch(IllegalArgumentException e) {
@@ -92,7 +107,7 @@ private void login() {
 			b.setWidth(0);			
 			Main.loadingstage.hide();
 			b.showAndWait();
-			Main.registrationstage.show();
+			Main.loginstage.show();
 			return;
 		}
 	}
