@@ -21,7 +21,7 @@ public class RnW_Account extends RnW<Account>{
 		int j = 0;
 		for(Account i : this) {
 			j++;
-			r += j+ ") " + i.toString() + "\n";
+			r += j + ") " + i.toString() + "\n";
 		}
 		
 		return r + "\n";
