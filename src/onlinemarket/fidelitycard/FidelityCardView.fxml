@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -8,8 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="61.0" layoutY="48.0" text="Your OnlineMarket Card">
          <font>
@@ -47,6 +47,9 @@
             <Label GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <ImageView fitHeight="264.0" fitWidth="517.0" layoutX="42.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="264.0" fitWidth="517.0" layoutX="42.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@fidelitycard.png" />
+         </image></ImageView>
    </children>
-</AnchorPane>
+</fx:root>
