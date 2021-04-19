@@ -5,20 +5,19 @@ import java.io.Serializable;
 public class Account implements Serializable, Comparable<Account>{
 	private static final long serialVerisonUID = 1L;
 	
-	protected String name, surname, city, address;
+	protected String name, surname, city;
+	protected Address address;
 	protected Integer cap;
 	protected Email email;
 	protected Password password;
 	protected Long phoneNumber;
 	
-	public Account(String name, String surname, Email email, Password password, Long phonenumber, Integer cap, String city, String address) {
+	public Account(String name, String surname, Email email, Password password, Long phonenumber, Address address) {
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
 		this.password = password;
 		this.phoneNumber = phonenumber;
-		this.cap = cap;
-		this.city = city;
 		this.address = address;
 		}	
 
@@ -52,7 +51,7 @@ public class Account implements Serializable, Comparable<Account>{
 	}
 	
 	public String getAddress() {
-		return address;
+		return address.toString();
 	}
 
 	public boolean login(Account logger) {
@@ -60,7 +59,7 @@ public class Account implements Serializable, Comparable<Account>{
 	}
 	
 	public String toString() {
-		String s = getName()+ "||" + getSurname() + "||" + getEmail().toString() + "||" + getPassword().toString() + "||" + getPhoneNumber() + "||" + cap.toString() + "||" + city + "||" + address;
+		String s = getName()+ "||" + getSurname() + "||" + getEmail().toString() + "||" + getPassword().toString() + "||" + getPhoneNumber() + "||" + address.toString();
 		return s; 
 	}
 	

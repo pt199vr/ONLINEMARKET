@@ -84,14 +84,8 @@ private void login() {
 			
 			if(Main.account.read()) {
 				for(Account t : Main.account) {
-					System.out.println(email.toString() + " " + password.toString());
-					System.out.println(t.toString() +"\n------");
-					if(t.getEmail().toString().equals(email.toString()) && t.getPassword().toString().equals(password.toString())) {
-						
-						System.out.println("/*/*/*/*/*/*/*/*/*");
-						
-						nextStep(t);
-					
+					if(t.getEmail().toString().equals(email.toString()) && t.getPassword().toString().equals(password.toString())) {						
+						nextStep(t);					
 					}
 				}
 			}else {

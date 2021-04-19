@@ -84,8 +84,6 @@ public class RegistrationGui extends AnchorPane{
 			Long phonenumber = Long.parseLong(CelT.getText());
 			Integer cap = Integer.parseInt(CAPT.getText());
 			
-			Account account = new Account(name, surname, email, password, phonenumber, cap, city, address);
-			
 			try {
 				checkAll(name, surname, phonenumber, cap, city, address);
 			}catch(IllegalArgumentException e) {
@@ -94,6 +92,16 @@ public class RegistrationGui extends AnchorPane{
 				Main.registrationstage.show();
 				return;
 			}
+			
+			Address where = new Address(address, city, cap);
+			if(where.getNumber() == "" || where.getStreet() == "") {
+				Alert d=new Alert(Alert.AlertType.NONE,"Compilare il campo indirizzo con Via Nomedellavia Numcivico",ButtonType.CLOSE);
+				d.showAndWait();
+				Main.registrationstage.show();
+				return;
+			}
+			Account account = new Account(name, surname, email, password, phonenumber, where);
+			
 			
 			try {
 				Main.account.read();
