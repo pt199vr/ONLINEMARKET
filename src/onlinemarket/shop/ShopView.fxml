@@ -14,12 +14,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<fx:root maxHeight="1.7976931348623157E308" type="VBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="VBox" maxHeight="1.7976931348623157E308" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane fx:id="searchGridPane" prefHeight="42.0" prefWidth="557.0">
+      <GridPane fx:id="searchGridPane" prefHeight="43.0" prefWidth="557.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="114.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="137.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="88.0" />
         </columnConstraints>
         <rowConstraints>
@@ -36,37 +37,22 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <AnchorPane prefHeight="33.0" prefWidth="179.0" GridPane.columnIndex="2">
+            <AnchorPane GridPane.columnIndex="2">
                <children>
-                  <GridPane fx:id="ButtonGridPane" layoutX="7.0" layoutY="5.0" prefHeight="30.0" prefWidth="159.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="78.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="122.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <AnchorPane prefHeight="30.0" prefWidth="60.0">
-                           <children>
-                              <Button fx:id="searchButton" layoutX="6.0" layoutY="1.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="61.0" text="Search">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="30.0" prefWidth="65.0" GridPane.columnIndex="1">
-                           <children>
-                              <Button fx:id="cancelButton" layoutX="21.0" layoutY="1.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="61.0" text="Cancel">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </GridPane>
+                  <Button fx:id="searchButton" layoutX="34.0" layoutY="6.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="61.0" text="Search">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane GridPane.columnIndex="3">
+               <children>
+                  <Button fx:id="cancelButton" layoutX="28.0" layoutY="7.0" mnemonicParsing="false" text="Cancel">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
@@ -78,7 +64,7 @@
                   <VBox SplitPane.resizableWithParent="false">
                      <children>
                         <Region fx:id="scrollR" maxHeight="-Infinity" minHeight="-Infinity" />
-                        <VBox prefHeight="336.0" prefWidth="147.0">
+                        <VBox fx:id="filterVB" prefHeight="336.0" prefWidth="147.0">
                            <children>
                               <AnchorPane prefHeight="340.0" prefWidth="147.0" VBox.vgrow="NEVER">
                                  <children>

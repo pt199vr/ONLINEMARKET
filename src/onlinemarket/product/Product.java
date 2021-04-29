@@ -26,6 +26,14 @@ public class Product implements Serializable{
 		}else
 			this.features = null;
 	}
+	public Product(String name,String brand,Double price,Double quantity,TypeofQuantity type, TreeSet<String> features) {
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.quantity = quantity;
+		this.type = type;
+		this.features=features;
+	}
 	
 	public String getName() {
 		return name;

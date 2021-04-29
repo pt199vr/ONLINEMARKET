@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root type="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="501.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="24.0" layoutY="14.0" text="New product">
          <font>
@@ -29,11 +30,16 @@
       <Label layoutX="29.0" layoutY="261.0" text="Quantity per piece:" />
       <TextField fx:id="QuantityPPieceT" layoutX="146.0" layoutY="257.0" prefHeight="25.0" prefWidth="92.0" />
       <Label layoutX="31.0" layoutY="209.0" text="Features:" />
-      <ChoiceBox fx:id="FeatureChoiceB" layoutX="84.0" layoutY="205.0" prefWidth="150.0" />
       <Label layoutX="30.0" layoutY="162.0" text="Quantity:" />
       <TextField fx:id="QuantityT" layoutX="84.0" layoutY="158.0" />
       <Button fx:id="addB" layoutX="209.0" layoutY="317.0" mnemonicParsing="false" text="Add product" />
       <ImageView fx:id="ProdImg" fitHeight="140.0" fitWidth="161.0" layoutX="297.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="ImgB" layoutX="331.0" layoutY="205.0" mnemonicParsing="false" text="Choose image" />
+      <MenuButton fx:id="featuresMB" layoutX="84.0" layoutY="205.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
    </children>
 </fx:root>
