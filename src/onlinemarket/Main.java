@@ -1,7 +1,5 @@
 package onlinemarket;
 
-
-
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -10,13 +8,10 @@ import java.util.HashMap;
 import onlinemarket.stages.*;
 import onlinemarket.readnwrite.*;
 
-
-
-
 public class Main extends Application{
 	public static final Image logo = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
 	public static String title = "Online Market";	
-	public static Stage loadingstage, firststage, loginstage, registrationstage, startingstage;
+	public static Stage loadingstage, firststage, loginstage, registrationstage, startingstage, shopstage;
 	
 	public static final String path = System.getProperty("user.dir") + "/Accounts";
 	public static final String mediapath = System.getProperty("user.dir") + "/Media";
@@ -47,6 +42,4 @@ public class Main extends Application{
 	public static void main(String[] args) {
 		launch(args);
 	}
-		
-
 }

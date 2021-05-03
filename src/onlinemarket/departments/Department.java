@@ -6,7 +6,7 @@ import java.util.Comparator;
 import onlinemarket.Main;
 import onlinemarket.product.ProdComp;
 public class Department implements Comparable<Department>, Comparator<Department>, Serializable{
-	//Serial ID
+	private static final long serialVersionUID = 7L;
 	
 	private String name;
 	public final ProdComp prod;

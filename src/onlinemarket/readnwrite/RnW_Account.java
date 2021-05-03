@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class RnW_Account extends RnW<Account>{
-	private static final long serialVersionUID = 0L;
+	private static final long serialVersionUID = 4L;
 
 	public RnW_Account(String filepath) {
 		super(filepath);
