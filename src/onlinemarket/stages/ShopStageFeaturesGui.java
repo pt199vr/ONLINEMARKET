@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
-import onlinemarket.departments.Department;
-import onlinemarket.departments.DepartmentGui;
 
 public class ShopStageFeaturesGui extends ShopStageGui{
 

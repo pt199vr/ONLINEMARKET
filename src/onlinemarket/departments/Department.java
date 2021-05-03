@@ -8,6 +8,8 @@ import onlinemarket.product.ProdComp;
 public class Department implements Comparable<Department>, Comparator<Department>, Serializable{
 	private static final long serialVersionUID = 7L;
 	
+	transient private DepartmentGui gui = null;
+	
 	private String name;
 	public final ProdComp prod;
 	
@@ -26,6 +28,10 @@ public class Department implements Comparable<Department>, Comparator<Department
 	
 	public void setName(String newName) {
 		name = newName;
+	}
+	
+	public DepartmentGui getGui() {
+		return gui;
 	}
 	
 	@Override

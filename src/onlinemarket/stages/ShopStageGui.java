@@ -104,20 +104,21 @@ public class ShopStageGui extends VBox{
 	
 	private TreeSet<Product> find(String s) {
 		TreeSet<Product> p = new TreeSet<Product>();
-		for(Product prods : products) {
+		/*for(Product prods : products) {
 			if(prods.getName().equals(s) || prods.getBrand().equals(s)) {
 				p.add(prods);
 				}
-		}
+		}*/
 		
 		if(p.isEmpty()) {
 			Alert b = new Alert(Alert.AlertType.NONE,"I couldn't find any product",ButtonType.OK);
 			b.showAndWait();
 			Main.loadingstage.hide();
 		}
-		else {
-			return p;
-		}
+		
+		return p;
+		
+		
 	}
 
 }
