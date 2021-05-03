@@ -2,11 +2,12 @@ package onlinemarket.shop;
 
 import onlinemarket.departments.Department;
 import onlinemarket.product.ProdComp;
-import onlinemarket.readnwrite.RnW_Department;
+import onlinemarket.readnwrite.RnW;
+import onlinemarket.stages.ShopStageFeaturesGui;
 import onlinemarket.stages.ShopStageGui;
 import onlinemarket.product.*;
 
-public class Shop extends RnW_Department{
+public class Shop extends RnW<Department>{
 	private static final long serialVersionUID = 8L;
 	
 	transient private ShopStageGui gui;
@@ -28,7 +29,7 @@ public class Shop extends RnW_Department{
 		return null;
 	}
 	public void setGui() {
-		gui = new ShopStageGui();
+		gui = new ShopStageFeaturesGui();
 	}
 	
 	public ShopStageGui getGui() {

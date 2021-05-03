@@ -6,7 +6,9 @@ import javafx.stage.Stage;
 import java.util.HashMap;
 
 import onlinemarket.stages.*;
+import onlinemarket.departments.Department;
 import onlinemarket.readnwrite.*;
+import onlinemarket.shop.Shop;
 
 public class Main extends Application{
 	public static final Image logo = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
@@ -21,7 +23,7 @@ public class Main extends Application{
 	
 	
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
-	public static final RnW_Department departments= new RnW_Department(store + "/departments.txt");
+	public static final RnW<Department> departments= new Shop(store + "/departments.txt");
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();

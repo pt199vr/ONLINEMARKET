@@ -13,12 +13,13 @@ import onlinemarket.product.Product;
 public class DepartmentGui extends TitledPane {
 	@FXML
 	private VBox productsVB;
-	
 	protected TreeSet<Product> sortProd;
 	private Department department;
+	
 	public boolean sort(Comparator<Product> comp, TreeSet<String> feature,String s) {
 		if(department.getName().contains(s))
 			s=null;
+		
 		sortProd= department.prod.get(comp,feature,s);
 		
 		return (sortProd.size() == 0)? false:true;

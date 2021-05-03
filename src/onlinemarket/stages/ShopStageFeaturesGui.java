@@ -6,6 +6,8 @@ import java.util.TreeSet;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.VBox;
 import onlinemarket.Main;
@@ -36,20 +38,38 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 
 	@Override
 	protected void sort() {
+		Main.loadingstage.show();
 		mainVB.getChildren().clear();
 		DepartmentsVB.getChildren().clear();
-		Dep.clear();
 		
-		boolean Vuoto = true, NotVuoto;
-		ArrayList<RadioButton> buttons= new ArrayList<>();
-		for(Department d : Main.store) {
-			NotVuoto = d.getGui().sort(comp, feat, search);
-			
-			if(NotVuoto) {
-				mainVB.getChildren().add(d.getGui());
+		boolean Vuoto = true, NonVuoto;
+		ArrayList<RadioButton> buttons = new ArrayList<>();
+		for(Department d: Main.departments) {
+			NonVuoto = true;
+			if(NonVuoto) {
+			mainVB.getChildren().add(d.getGui());
+			RadioButton depRB = new RadioButton(d.getName());
+			buttons.add(depRB);
+			depRB.setOnMouseClicked(e ->{
+				Dep.clear();
+				buttons.forEach(b->b.setSelected(false));
+				depRB.setSelected(true);
+				Dep.add(d.getGui());
+				});
+			DepartmentsVB.getChildren().add(depRB);
+			}
+			if(NonVuoto) {
+				Dep.add(d.getGui());
+				Vuoto = false;
 			}
 		}
-		// TODO Auto-generated method stub
+		if(Vuoto) {
+			Main.loadingstage.hide();
+			Alert a = new Alert(Alert.AlertType.NONE,"Not Found", ButtonType.OK);
+			a.showAndWait();
+			
+		}
+		Main.loadingstage.hide();
 		
 	}
 }

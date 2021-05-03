@@ -85,7 +85,6 @@ public abstract class ShopStageGui extends VBox{
 	
 	private void searchFunction() {
 		
-		Main.loadingstage.show();
 		
 		if(searchBar.getText().equals("")) {
 			Alert a = new Alert(Alert.AlertType.NONE,"Search bar is empty", ButtonType.OK);
