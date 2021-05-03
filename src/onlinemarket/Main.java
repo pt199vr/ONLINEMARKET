@@ -27,7 +27,8 @@ public class Main extends Application{
 		startingstage = new StartingStage();
 		startingstage = null;
 		firststage = new FirstStage();
-	}
+		
+		}
 		
 	public static void login() {
 		firststage.close();
@@ -38,7 +39,12 @@ public class Main extends Application{
 		firststage.close();
 		registrationstage = new RegistrationStage();
 	}
-		
+	
+	public static void shopping() {
+		loadingstage.hide();
+		shopstage = new ShopStage();
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -48,11 +48,11 @@ public class LoginGui extends AnchorPane{
 			ELogB.setOnAction(e -> login());
 			
 			LogB.setOnKeyPressed(keyEvent->{
-				if(keyEvent.getCode() ==KeyCode.ENTER)
+				if(keyEvent.getCode() == KeyCode.ENTER)
 					login();
 			});
 			ELogB.setOnKeyPressed(keyEvent->{
-				if(keyEvent.getCode() ==KeyCode.ENTER)
+				if(keyEvent.getCode() == KeyCode.ENTER)
 					login();
 			});
 			
@@ -104,9 +104,12 @@ private void login() {
 			Main.loginstage.show();
 			return;
 		}
+		shopping();
 	}
 	
-	
+	private void shopping() {
+		Main.shopping();
+	}
 	
 	private void backFunction() {
 		Main.loginstage.hide();

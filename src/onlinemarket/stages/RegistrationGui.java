@@ -18,10 +18,6 @@ import javafx.scene.layout.VBox;
 import onlinemarket.Main;
 import onlinemarket.account.*;
 
-
-
-
-
 public class RegistrationGui extends AnchorPane{
 	
 	@FXML 
@@ -51,7 +47,7 @@ public class RegistrationGui extends AnchorPane{
 			
 			RegB.setOnAction(e -> registerFunction());
 			RegB.setOnKeyPressed(keyEvent->{
-				if(keyEvent.getCode()==KeyCode.ENTER)
+				if(keyEvent.getCode() == KeyCode.ENTER)
 					registerFunction();
 			});
 			
