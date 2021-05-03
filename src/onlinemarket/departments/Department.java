@@ -30,13 +30,11 @@ public class Department implements Comparable<Department>, Comparator<Department
 	
 	@Override
 	public int compare(Department o1, Department o2) {
-		// TODO Auto-generated method stub
 		return o1.compareTo(o2);
 	}
 
 	@Override
 	public int compareTo(Department o) {
-		// TODO Auto-generated method stub
 		return name.compareToIgnoreCase(o.name);
 	}
 	@Override

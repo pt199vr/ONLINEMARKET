@@ -38,7 +38,7 @@ public class ShopStageGui extends VBox{
 	@FXML
 	private GridPane searchGridPane;
 	@FXML
-	private VBox filterVB, mainVB;
+	protected VBox filterVB,mainVB;
 	
 	private ToggleGroup sort;
 	
@@ -92,7 +92,7 @@ public class ShopStageGui extends VBox{
 		}
 		else {
 			String search = searchBar.getText();
-			//find(search);
+			find(search);
 		}
 		
 	}
@@ -102,8 +102,8 @@ public class ShopStageGui extends VBox{
 			searchBar.setText("");	
 	}
 	
-	/*private TreeSet<Product> find(String s) {
-		TreeSet<Product> p = new TreeSet<Product>();;
+	private TreeSet<Product> find(String s) {
+		TreeSet<Product> p = new TreeSet<Product>();
 		for(Product prods : products) {
 			if(prods.getName().equals(s) || prods.getBrand().equals(s)) {
 				p.add(prods);
@@ -118,6 +118,6 @@ public class ShopStageGui extends VBox{
 		else {
 			return p;
 		}
-	}*/
+	}
 
 }
