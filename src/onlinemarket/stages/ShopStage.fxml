@@ -14,41 +14,41 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<fx:root type="VBox" maxHeight="1.7976931348623157E308" prefHeight="373.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="VBox" maxHeight="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane fx:id="searchGridPane">
+      <GridPane fx:id="searchGridPane" prefHeight="43.0" prefWidth="557.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="114.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="137.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="88.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="37.0" prefWidth="63.0">
                <children>
-                  <Label layoutX="31.0" layoutY="6.0" text="Find your Products:" />
+                  <Label alignment="CENTER" layoutX="32.0" layoutY="11.0" prefHeight="17.0" prefWidth="112.0" text="Find your products :" />
                </children>
             </AnchorPane>
-            <TextField fx:id="searchBar" GridPane.columnIndex="1">
+            <TextField fx:id="searchBar" prefHeight="25.0" prefWidth="135.0" GridPane.columnIndex="1">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+            <AnchorPane GridPane.columnIndex="2">
                <children>
-                  <Button fx:id="searchButton" layoutX="49.0" layoutY="4.0" mnemonicParsing="false" text="Search">
+                  <Button fx:id="searchButton" layoutX="34.0" layoutY="6.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="61.0" text="Search">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+            <AnchorPane GridPane.columnIndex="3">
                <children>
-                  <Button fx:id="cancelButton" layoutX="49.0" layoutY="2.0" mnemonicParsing="false" text="Cancel">
+                  <Button fx:id="cancelButton" layoutX="28.0" layoutY="7.0" mnemonicParsing="false" text="Cancel">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -57,54 +57,37 @@
             </AnchorPane>
          </children>
       </GridPane>
-      <ScrollPane fx:id="scrollP" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+      <ScrollPane fx:id="scrollP" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
          <content>
-            <SplitPane fx:id="splitP" dividerPositions="0.6291739894551845" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="571.0">
-               <items>
-                  <VBox fx:id="mainVB" prefHeight="339.0" prefWidth="181.0" />
+            <SplitPane fx:id="splitP" dividerPositions="0.2508361204013378" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+              <items>
                   <VBox SplitPane.resizableWithParent="false">
                      <children>
                         <Region fx:id="scrollR" maxHeight="-Infinity" minHeight="-Infinity" />
-                        <VBox fx:id="filterVB" prefHeight="339.0" prefWidth="200.0">
+                        <VBox fx:id="filterVB" prefHeight="336.0" prefWidth="147.0">
                            <children>
-                              <AnchorPane prefHeight="349.0" prefWidth="200.0" VBox.vgrow="NEVER">
+                              <AnchorPane prefHeight="340.0" prefWidth="147.0" VBox.vgrow="NEVER">
                                  <children>
-                                    <Label layoutX="46.0" layoutY="25.0" text="View Products by:" />
-                                    <GridPane layoutX="29.0" layoutY="54.0" prefHeight="180.0" prefWidth="143.0">
+                                    <Label layoutX="14.0" layoutY="27.0" text="View product by:" />
+                                    <GridPane layoutX="21.0" layoutY="64.0" prefHeight="220.0" prefWidth="98.0">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
                                       <rowConstraints>
-                                        <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
-                                        <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Label text="Alphabetical Order:" />
-                                          <RadioButton fx:id="AscendingBrandRB" mnemonicParsing="false" text="Ascending Brand" GridPane.rowIndex="1">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </RadioButton>
-                                          <RadioButton fx:id="DescendingBrandRB" mnemonicParsing="false" text="Descending Brand" GridPane.rowIndex="2">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </RadioButton>
-                                          <Label text="Price Order:" GridPane.rowIndex="3" />
-                                          <RadioButton fx:id="AscendingPriceRB" mnemonicParsing="false" text="Ascending Price" GridPane.rowIndex="4">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </RadioButton>
-                                          <RadioButton fx:id="DescendingPriceRB" mnemonicParsing="false" text="Descending Price" GridPane.rowIndex="5">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </RadioButton>
+                                          <Label prefHeight="17.0" prefWidth="117.0" text="Alfabetical Order:" />
+                                          <RadioButton fx:id="AscendingBrandRB" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Ascending" GridPane.rowIndex="1" />
+                                          <RadioButton fx:id="DescendingBrandRB" mnemonicParsing="false" text="Descending" GridPane.rowIndex="2" />
+                                          <Label prefHeight="17.0" prefWidth="107.0" text="Price Order:" GridPane.rowIndex="3" />
+                                          <RadioButton fx:id="AscendingPriceRB" mnemonicParsing="false" text="Ascending" GridPane.rowIndex="4" />
+                                          <RadioButton fx:id="DescendingPriceRB" mnemonicParsing="false" text="Descending" GridPane.rowIndex="5" />
                                        </children>
                                     </GridPane>
                                  </children>
@@ -113,7 +96,8 @@
                         </VBox>
                      </children>
                   </VBox>
-               </items>
+                  <VBox fx:id="mainVB" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="400.0" SplitPane.resizableWithParent="false" />
+              </items>
             </SplitPane>
          </content>
       </ScrollPane>
