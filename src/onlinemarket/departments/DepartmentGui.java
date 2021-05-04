@@ -37,8 +37,6 @@ public class DepartmentGui extends TitledPane {
 			throw new RuntimeException(e);
 		}
 		
-		setText(department.getName());
-		
 	}
 	
 

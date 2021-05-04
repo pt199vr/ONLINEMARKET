@@ -16,6 +16,8 @@ import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.shop.Shop;
 
+import onlinemarket.departments.*;
+
 public class ShopStageFeaturesGui extends ShopStageGui{
 
 	@FXML
@@ -24,6 +26,7 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 	private ArrayList<DepartmentGui> Dep;
 	
 	public TreeSet<String> feat;
+
 	
 	public ShopStageFeaturesGui(){
 		
@@ -37,6 +40,7 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+<<<<<<< HEAD
 		filterVB.getChildren().add(featuresB);
 		
 		for(Department d: deps) {
@@ -47,6 +51,11 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 		feat = new TreeSet<>();
 		
 		sort();
+=======
+		
+		
+		
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 	}
 		
 
