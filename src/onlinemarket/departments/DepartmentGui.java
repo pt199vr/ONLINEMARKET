@@ -22,6 +22,11 @@ public class DepartmentGui extends BorderPane {
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+		
+		
+		
+		
+		
 	}
 
 }

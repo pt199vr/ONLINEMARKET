@@ -7,10 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.VBox;
 
+import onlinemarket.departments.*;
+
 public class ShopStageFeaturesGui extends ShopStageGui{
 
 	@FXML
 	private VBox featureVB, DepartmentsVB;
+	
+	private ArrayList<DepartmentGui> departments;
 	
 	public ShopStageFeaturesGui(){
 		VBox featuresB = new VBox();
@@ -23,5 +27,8 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+		
+		
+		
 	}
 }
