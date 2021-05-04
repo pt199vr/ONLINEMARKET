@@ -8,11 +8,11 @@ import java.util.HashMap;
 import onlinemarket.stages.*;
 import onlinemarket.departments.Department;
 import onlinemarket.readnwrite.*;
-<<<<<<< HEAD
+
 import onlinemarket.shop.Shop;
-=======
+
 import onlinemarket.account.*;
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
+
 
 public class Main extends Application{
 	public static final Image logo = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));

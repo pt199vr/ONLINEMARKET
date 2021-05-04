@@ -40,7 +40,7 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-<<<<<<< HEAD
+
 		filterVB.getChildren().add(featuresB);
 		
 		for(Department d: deps) {
@@ -51,11 +51,11 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 		feat = new TreeSet<>();
 		
 		sort();
-=======
+
 		
 		
 		
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
+
 	}
 		
 
