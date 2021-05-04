@@ -15,12 +15,13 @@ public class Main extends Application{
 	
 	public static final String path = System.getProperty("user.dir") + "/Accounts";
 	public static final String mediapath = System.getProperty("user.dir") + "/Media";
+	public static final String store = System.getProperty("user.dir")+"/Store";
 	
 	public static final HashMap<Object, Thread> threads = new HashMap<>(1);
 	
 	
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
-	
+	public static final RnW_Department departments= new RnW_Department(store + "/departments.txt");
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();

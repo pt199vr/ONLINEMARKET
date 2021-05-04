@@ -1,6 +1,7 @@
 package onlinemarket.stages;
 
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -22,7 +23,7 @@ import javafx.scene.layout.VBox;
 import onlinemarket.Main;
 import onlinemarket.product.Product;
 
-public class ShopStageGui extends VBox{
+public abstract class ShopStageGui extends VBox{
 	@FXML
 	private Button searchButton, cancelButton;
 	@FXML
@@ -42,6 +43,8 @@ public class ShopStageGui extends VBox{
 	
 	private ToggleGroup sort;
 	
+	protected Comparator<Product> comp;
+	protected String search;
 	
 	public ShopStageGui() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopStage.fxml"));
@@ -91,34 +94,19 @@ public class ShopStageGui extends VBox{
 			return;
 		}
 		else {
-			String search = searchBar.getText();
-			find(search);
+			search = searchBar.getText().toLowerCase();
+			sort();
 		}
 		
 	}
+	
+	protected abstract void sort();
 	
 	private void cancelFunction() {
 		if( !(searchBar.getText().equals(""))) 
 			searchBar.setText("");	
 	}
 	
-	private TreeSet<Product> find(String s) {
-		TreeSet<Product> p = new TreeSet<Product>();
-		/*for(Product prods : products) {
-			if(prods.getName().equals(s) || prods.getBrand().equals(s)) {
-				p.add(prods);
-				}
-		}*/
-		
-		if(p.isEmpty()) {
-			Alert b = new Alert(Alert.AlertType.NONE,"I couldn't find any product",ButtonType.OK);
-			b.showAndWait();
-			Main.loadingstage.hide();
-		}
-		
-		return p;
-		
-		
-	}
+	
 
 }

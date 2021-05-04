@@ -81,13 +81,16 @@ public class ProdComp {
 			}
 		};
 	}
-	//ritornare prodotti ordinati
-	//public SortedSet<Product> get
+
 		
 	public Double TotalPrice() {
 		Double res = 0D;
 		/*for(Product prod : )
 			res += prod.getPrice();*/
 		return res;
+	}
+	public TreeSet<Product> get(Comparator<Product> comp, TreeSet<String> feature, String s) {
+		TreeSet<Product> sortProd= new TreeSet<>(comp);
+		return sortProd;
 	}
 }
