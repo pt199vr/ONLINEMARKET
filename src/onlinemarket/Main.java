@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import onlinemarket.stages.*;
 import onlinemarket.readnwrite.*;
+import onlinemarket.account.*;
 
 public class Main extends Application{
 	public static final Image logo = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
@@ -41,9 +42,9 @@ public class Main extends Application{
 		registrationstage = new RegistrationStage();
 	}
 	
-	public static void shopping() {
+	public static void shopping(Account t) {
 		loadingstage.hide();
-		shopstage = new ShopStage();
+		shopstage = new ShopStage(t);
 	}
 	
 	public static void main(String[] args) {

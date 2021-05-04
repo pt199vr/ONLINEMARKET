@@ -61,10 +61,6 @@ public class LoginGui extends AnchorPane{
 				
 	}
 	
-private void nextStep(Account t) {
-	
-}	
-	
 private void login() {
 		
 		Main.loginstage.hide();
@@ -85,15 +81,17 @@ private void login() {
 			if(Main.account.read()) {
 				for(Account t : Main.account) {
 					if(t.getEmail().toString().equals(email.toString()) && t.getPassword().toString().equals(password.toString())) {						
-						nextStep(t);					
+						shopping(t);	
 					}
 				}
-			}else {
-				Alert c = new Alert(Alert.AlertType.NONE, "Wrongs Credentials", ButtonType.CLOSE);
-				Main.loadingstage.hide();
-				c.showAndWait();
-				Main.loginstage.show();
 			}
+			
+			
+			Alert c = new Alert(Alert.AlertType.NONE, "Wrongs Credentials", ButtonType.CLOSE);
+			Main.loadingstage.hide();
+			c.showAndWait();
+			Main.loginstage.show();
+			
 				
 		}catch(IllegalArgumentException e) {
 			Alert b = new Alert(Alert.AlertType.NONE, e.toString(), ButtonType.OK);
@@ -104,11 +102,11 @@ private void login() {
 			Main.loginstage.show();
 			return;
 		}
-		shopping();
+		
 	}
 	
-	private void shopping() {
-		Main.shopping();
+	private void shopping(Account t) {
+		Main.shopping(t);
 	}
 	
 	private void backFunction() {
