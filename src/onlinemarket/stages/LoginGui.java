@@ -77,21 +77,22 @@ private void login() {
 		try {
 			Email email = new Email(EmailF.getText()); 
 			Password password = new Password(PasswordF.getText());
-			
+			boolean bo = false;
 			if(Main.account.read()) {
 				for(Account t : Main.account) {
 					if(t.getEmail().toString().equals(email.toString()) && t.getPassword().toString().equals(password.toString())) {						
+						bo = true;
 						shopping(t);	
 					}
 				}
 			}
 			
-			
-			Alert c = new Alert(Alert.AlertType.NONE, "Wrongs Credentials", ButtonType.CLOSE);
-			Main.loadingstage.hide();
-			c.showAndWait();
-			Main.loginstage.show();
-			
+			if(!bo) {
+				Alert c = new Alert(Alert.AlertType.NONE, "Wrongs Credentials", ButtonType.CLOSE);
+				Main.loadingstage.hide();
+				c.showAndWait();
+				Main.loginstage.show();
+			}
 				
 		}catch(IllegalArgumentException e) {
 			Alert b = new Alert(Alert.AlertType.NONE, e.toString(), ButtonType.OK);

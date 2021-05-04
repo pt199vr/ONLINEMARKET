@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<fx:root type="VBox" maxHeight="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="VBox" maxHeight="1.7976931348623157E308" prefHeight="373.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane fx:id="searchGridPane">
         <columnConstraints>
@@ -60,8 +59,9 @@
       </GridPane>
       <ScrollPane fx:id="scrollP" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
          <content>
-            <SplitPane fx:id="splitP" dividerPositions="0.3249581239530988" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+            <SplitPane fx:id="splitP" dividerPositions="0.6291739894551845" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="571.0">
                <items>
+                  <VBox fx:id="mainVB" prefHeight="339.0" prefWidth="181.0" />
                   <VBox SplitPane.resizableWithParent="false">
                      <children>
                         <Region fx:id="scrollR" maxHeight="-Infinity" minHeight="-Infinity" />
@@ -113,7 +113,6 @@
                         </VBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="mainVB" prefHeight="200.0" prefWidth="100.0" />
                </items>
             </SplitPane>
          </content>

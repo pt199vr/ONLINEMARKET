@@ -42,7 +42,7 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 		
 		
 		sort();
-		
+
 		
 		
 

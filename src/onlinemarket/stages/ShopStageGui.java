@@ -61,6 +61,14 @@ public class ShopStageGui extends VBox{
 		deps.add(new Department("Meat"));
 		deps.add(new Department("Vegetables"));
 		
+		ArrayList<Thread> threads = new ArrayList<>(deps.size());
+		
+		deps.forEach(d->{
+			Thread thread = new Thread(() -> d.setGui());
+			thread.start();
+			threads.add(thread);
+		});
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopStage.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
@@ -69,6 +77,10 @@ public class ShopStageGui extends VBox{
 			fxmlLoader.load();
 		}catch(IOException e) {
 			throw new RuntimeException(e);
+		}
+		
+		for(Department d: deps) {
+			mainVB.getChildren().add(d.getGui());
 		}
 		
 		searchButton.setOnAction(e ->{ 
@@ -92,8 +104,13 @@ public class ShopStageGui extends VBox{
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
 		
-		for(Department d: deps) {
-			mainVB.getChildren().add(d.getGui());
+		
+		
+		try {
+			for(Thread thread: threads)
+					thread.join();
+		}catch(InterruptedException e) {
+			throw new RuntimeException(e);
 		}
 	}
 	
