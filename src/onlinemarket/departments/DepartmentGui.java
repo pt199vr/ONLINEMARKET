@@ -36,14 +36,6 @@ public class DepartmentGui extends TitledPane {
 			throw new RuntimeException(e);
 		}
 		
-<<<<<<< HEAD
-		
-		
-		
-=======
-		setText(department.getName());
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
-		
 	}
 	
 

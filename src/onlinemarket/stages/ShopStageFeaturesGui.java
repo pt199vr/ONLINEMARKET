@@ -19,13 +19,10 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 	@FXML
 	private VBox featureVB, DepartmentsVB;
 	
-<<<<<<< HEAD
-	private ArrayList<DepartmentGui> departments;
-=======
 	private ArrayList<DepartmentGui> Dep;
 	
 	public TreeSet<String> feat;
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
+
 	
 	public ShopStageFeaturesGui(){
 		VBox featuresB = new VBox();
