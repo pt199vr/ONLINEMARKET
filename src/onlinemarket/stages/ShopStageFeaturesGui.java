@@ -22,10 +22,6 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 
 	@FXML
 	private VBox featureVB, DepartmentsVB;
-	
-	private ArrayList<DepartmentGui> Dep;
-	
-	public TreeSet<String> feat;
 
 	
 	public ShopStageFeaturesGui(){
@@ -40,22 +36,16 @@ public class ShopStageFeaturesGui extends ShopStageGui{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-<<<<<<< HEAD
+
 		filterVB.getChildren().add(featuresB);
 		
-		for(Department d: deps) {
-			mainVB.getChildren().add(d.getGui());
-		}
 		
-		Dep = new ArrayList<>();
-		feat = new TreeSet<>();
 		
 		sort();
-=======
 		
 		
 		
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
+
 	}
 		
 

@@ -22,17 +22,17 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
-import onlinemarket.Main;
+
 import onlinemarket.departments.Department;
 import onlinemarket.product.Product;
 
-public abstract class ShopStageGui extends VBox{
+public class ShopStageGui extends VBox{
 	@FXML
 	private Button searchButton, cancelButton;
 	@FXML
 	private TextField searchBar;
 	@FXML 
-	private RadioButton BrandAscendingRB,BrandDescendingRB, AscendingPriceRB,DescendingPriceRB;
+	private RadioButton AscendingBrandRB,DescendingBrandRB, AscendingPriceRB,DescendingPriceRB;
 	@FXML
 	private ScrollPane scrollP;
 	@FXML
@@ -55,13 +55,11 @@ public abstract class ShopStageGui extends VBox{
 	
 	public ShopStageGui() {
 		
-		deps =new ArrayList<>();
+		deps = new ArrayList<>();
 		
 		deps.add(new Department("Fruits"));
 		deps.add(new Department("Meat"));
 		deps.add(new Department("Vegetables"));
-		
-		
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopStage.fxml"));
 		fxmlLoader.setRoot(this);
@@ -88,17 +86,22 @@ public abstract class ShopStageGui extends VBox{
 		cancelButton.setOnAction(e -> cancelFunction());
 		
 		sort = new ToggleGroup();
-		BrandAscendingRB.setToggleGroup(sort);
-		BrandDescendingRB.setToggleGroup(sort);
+		AscendingBrandRB.setToggleGroup(sort);
+		DescendingBrandRB.setToggleGroup(sort);
 		AscendingPriceRB.setToggleGroup(sort);
 		DescendingPriceRB.setToggleGroup(sort);
-		BrandAscendingRB.setSelected(true);
-	
+		AscendingBrandRB.setSelected(true);
+		
+		for(Department d: deps) {
+			mainVB.getChildren().add(d.getGui());
+		}
 	}
 	
 	
 	
-	protected abstract void sort();
+	protected void sort() {
+		return;
+	}
 	
 	private void cancelFunction() {
 		if( !(searchBar.getText().equals(""))) 
