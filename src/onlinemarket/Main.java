@@ -23,7 +23,7 @@ public class Main extends Application{
 	
 	
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
-	public static final RnW<Department> departments= new Shop(store + "/departments.txt");
+	public static final RnW_Department departments = new Shop(store + "/departments.txt");
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();

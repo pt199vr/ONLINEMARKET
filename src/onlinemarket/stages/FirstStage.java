@@ -53,11 +53,13 @@ public class FirstStage extends Stage{
 	}
 	
 	private void pathcontrol() {
-		File f = new File(Main.path), g = new File(Main.mediapath);
+		File f = new File(Main.path), g = new File(Main.mediapath), s = new File(Main.store); 
 		if(!f.exists() && !f.mkdir())
 			FirstError(f);
 		if(!g.exists() && !g.mkdir())
 			FirstError(g);
+		if(!s.exists() && !s.mkdir())
+			FirstError(s);
 	}
 	
 	private void FirstError(File p) {

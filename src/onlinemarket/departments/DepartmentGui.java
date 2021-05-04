@@ -12,7 +12,7 @@ import onlinemarket.product.Product;
 
 public class DepartmentGui extends TitledPane {
 	@FXML
-	private VBox productsVB;
+	private VBox prodVB;
 	protected TreeSet<Product> sortProd;
 	private Department department;
 	
@@ -25,9 +25,9 @@ public class DepartmentGui extends TitledPane {
 		return (sortProd.size() == 0)? false:true;
 		
 	}
-	public DepartmentGui() {
+	public DepartmentGui(Department department) {
 		
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DepView.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(DepartmentGui.class.getResource("DepView.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
