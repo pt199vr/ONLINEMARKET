@@ -13,8 +13,9 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<fx:root type="VBox" maxHeight="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="1.7976931348623157E308" prefHeight="540.0" prefWidth="675.0" type="VBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane fx:id="searchGridPane" prefHeight="43.0" prefWidth="557.0">
         <columnConstraints>
@@ -68,8 +69,8 @@
                            <children>
                               <AnchorPane prefHeight="340.0" prefWidth="147.0" VBox.vgrow="NEVER">
                                  <children>
-                                    <Label layoutX="14.0" layoutY="27.0" text="View product by:" />
-                                    <GridPane layoutX="21.0" layoutY="64.0" prefHeight="220.0" prefWidth="98.0">
+                                    <Label layoutX="25.0" layoutY="14.0" text="View product by:" />
+                                    <GridPane layoutX="21.0" layoutY="38.0" prefHeight="220.0" prefWidth="98.0">
                                       <columnConstraints>
                                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                       </columnConstraints>
@@ -90,13 +91,67 @@
                                           <RadioButton fx:id="DescendingPriceRB" mnemonicParsing="false" text="Descending" GridPane.rowIndex="5" />
                                        </children>
                                     </GridPane>
+                                    <VBox layoutY="253.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="165.0" prefWidth="217.0">
+                                       <children>
+                                          <AnchorPane prefHeight="120.0" prefWidth="218.0">
+                                             <children>
+                                                <GridPane layoutX="16.0" prefHeight="97.0" prefWidth="186.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Label text="Features :">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <AnchorPane prefHeight="75.0" prefWidth="189.0" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <VBox fx:id="featuresVB" layoutX="3.0" layoutY="14.0" prefHeight="62.0" prefWidth="186.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="116.0" prefWidth="218.0">
+                                             <children>
+                                                <GridPane layoutX="16.0" layoutY="14.0" prefHeight="93.0" prefWidth="186.0">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <Label text="Departments :">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <AnchorPane prefHeight="91.0" prefWidth="226.0" GridPane.rowIndex="1">
+                                                         <children>
+                                                            <VBox fx:id="DepartmentsVB" layoutY="-6.0" prefHeight="83.0" prefWidth="186.0" />
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </VBox>
                                  </children>
                               </AnchorPane>
                            </children>
                         </VBox>
                      </children>
                   </VBox>
-                  <VBox fx:id="mainVB" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="400.0" SplitPane.resizableWithParent="false" />
+                  <VBox fx:id="mainVB" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="461.0" SplitPane.resizableWithParent="false" />
               </items>
             </SplitPane>
          </content>

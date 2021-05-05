@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
+
 import onlinemarket.product.Product;
 
 public class DepartmentGui extends TitledPane {
@@ -16,15 +17,19 @@ public class DepartmentGui extends TitledPane {
 	protected TreeSet<Product> sortProd;
 	private Department department;
 	
-	public boolean sort(Comparator<Product> comp, TreeSet<String> feature,String s) {
-		if(department.getName().contains(s))
-			s=null;
+	public boolean sort(Comparator<Product> comp, TreeSet<String> feature, String search) {
+		if(department.getName().toLowerCase().contains(search))
+			search = null;
 		
-		sortProd= department.prod.get(comp,feature,s);
-		
-		return (sortProd.size() == 0)? false:true;
+		sortProd= department.prod.get(comp,feature,search);
+		show();
+		return (sortProd.size() == 0)? false : true;
 		
 	}
+	public void show() {
+		
+	}
+	
 	public DepartmentGui(Department department) {
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(DepartmentGui.class.getResource("DepView.fxml"));
@@ -36,6 +41,9 @@ public class DepartmentGui extends TitledPane {
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+		
+		setText(department.getName());
+		this.department = department;
 		
 	}
 	

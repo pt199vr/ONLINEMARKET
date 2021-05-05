@@ -12,7 +12,7 @@ public class Shop extends RnW_Department{
 	
 	transient private ShopStageFeaturesGui gui;
 	
-	public final static String[] features = {"Gluten Free","Biological","Milk Free"};
+	public final static String[] features = {"Gluten Free","Bio","Milk Free","Vegan"};
 	
 	public Shop(String filepath) {
 		super(filepath);

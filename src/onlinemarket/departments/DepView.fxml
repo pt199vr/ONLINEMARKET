@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.VBox?>
 
-<fx:root type="TitledPane" animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Departmanet" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Department" type="TitledPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <content>
       <VBox fx:id="prodVB" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
    </content>
