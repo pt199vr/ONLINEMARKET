@@ -57,14 +57,13 @@ public class ShopStageGui extends VBox{
 	protected TreeSet<String> feat;
 	
 	public ShopStageGui() {
-		
+		search="";
 		deps = new ArrayList<>();
 		deps.add(new Department("Fruits"));
 		deps.add(new Department("Meat"));
 		deps.add(new Department("Vegetables"));
 		
 		ArrayList<Thread> threads = new ArrayList<>(deps.size());
-		
 		deps.forEach(d->{
 			Thread thread = new Thread(() -> d.setGui());
 			thread.start();
@@ -80,11 +79,10 @@ public class ShopStageGui extends VBox{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-		search="";
+		
 		for(Department d: deps) {
 			mainVB.getChildren().add(d.getGui());
 		}
-		search = "";
 		
 		searchButton.setOnAction(e ->{ 
 			search = searchBar.getText().toLowerCase();
@@ -133,7 +131,7 @@ public class ShopStageGui extends VBox{
 	
 	
 	private void sort() {
-		
+		/*
 		mainVB.getChildren().clear();
 		DepartmentsVB.getChildren().clear();
 		
@@ -148,7 +146,6 @@ public class ShopStageGui extends VBox{
 				depRB.setOnMouseClicked(e->{
 					bs.forEach(b->b.setSelected(false));
 					depRB.setSelected(true);
-					mainVB.getChildren().add(d.getGui());
 				});
 			DepartmentsVB.getChildren().add(depRB);	
 			}
@@ -162,7 +159,7 @@ public class ShopStageGui extends VBox{
 			Alert a= new Alert(Alert.AlertType.NONE,"Product not found!",ButtonType.OK);
 			a.showAndWait();
 			
-		}
+		}*/
 	}
 	
 	

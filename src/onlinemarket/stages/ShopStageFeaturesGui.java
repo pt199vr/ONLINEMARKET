@@ -21,37 +21,12 @@ import onlinemarket.departments.*;
 public class ShopStageFeaturesGui extends ShopStageGui{
 
 	@FXML
-	private VBox featureVB, DepartmentsVB;
-
+	private VBox DepartmentsVB;
 	
 	public ShopStageFeaturesGui(){
-		ArrayList<Thread> t = new ArrayList<>(deps.size());
-		deps.forEach(d ->{
-			Thread thread= new Thread(()->d.setGui());
-			thread.start();
-			t.add(thread);
-		});
-		VBox featuresB = new VBox();
-		FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("ShopFeatures.fxml"));
-		fxmlLoader2.setRoot(featuresB);
-		fxmlLoader2.setController(this);
-				
-		try {
-			fxmlLoader2.load();
-		}catch(IOException e) {
-			throw new RuntimeException(e);
-		}
-		filterVB.getChildren().add(featuresB);
-				
-		for(String f: Shop.features) {
-			CheckBox cb= new CheckBox(f);
-			cb.selectedProperty().addListener((o,ov,nv)->{
-				if(nv)
-					feat.add(cb.getText());
-				else
-					feat.remove(cb.getText());	
-				});
-			featureVB.getChildren().add(cb);
-		}
+	
 	}
+
+
+	
 }

@@ -22,13 +22,11 @@ public class DepartmentGui extends TitledPane {
 			search = null;
 		
 		sortProd= department.prod.get(comp,feature,search);
-		show();
+
 		return (sortProd.size() == 0)? false : true;
 		
 	}
-	public void show() {
-		
-	}
+	
 	
 	public DepartmentGui(Department department) {
 		
