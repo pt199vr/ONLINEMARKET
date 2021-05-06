@@ -59,13 +59,17 @@ public class ShopStageGui extends VBox{
 	protected ArrayList<Department> deps;
 	private ArrayList<DepartmentGui> selD;
 	protected TreeSet<String> feat;
-	
+	private ArrayList<RadioButton> bs = new ArrayList<>();
 	public ShopStageGui() {
 		search="";
 		deps = new ArrayList<>();
 		deps.add(new Department("Fruits"));
 		deps.add(new Department("Meat"));
 		deps.add(new Department("Vegetables"));
+		
+		feat = new TreeSet<>();
+		selD = new ArrayList<>();
+		bs = new ArrayList<>();
 		
 		ArrayList<Thread> threads = new ArrayList<>(deps.size());
 		deps.forEach(d->{
@@ -86,7 +90,6 @@ public class ShopStageGui extends VBox{
 		
 		for(Department d: deps) {
 			mainVB.getChildren().add(d.getGui());
-			ArrayList<RadioButton> bs= new ArrayList<>();
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setOnMouseClicked(e->{
@@ -120,8 +123,6 @@ public class ShopStageGui extends VBox{
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
 		
-		feat = new TreeSet<>();
-		selD = new ArrayList<>();
 		for(String f: Shop.features) {
 			CheckBox cb= new CheckBox(f);
 			cb.selectedProperty().addListener((o,ov,nv)->{
@@ -145,20 +146,30 @@ public class ShopStageGui extends VBox{
 	
 	
 	private void sort() {
-	
+
 		mainVB.getChildren().clear();
-		DepartmentsVB.getChildren().clear();
-		selD.clear();
-	
-		boolean Found,notFound = true;
+		selD.clear();	
+		boolean notFound = true, Found;
+		
 		for(Department d:deps) {
 			Found = d.getGui().sort(comp, feat, search);
 			if(Found) {
+				bs.clear();
 				mainVB.getChildren().add(d.getGui());
+				RadioButton depRB= new RadioButton(d.getName());
+				bs.add(depRB);
+				depRB.setOnMouseClicked(e->{
+					selD.clear();
+					bs.forEach(b->b.setSelected(false));
+					depRB.setSelected(true);
+					selD.add(d.getGui());
+				});
+				
+				
 			}
 			if(Found) {
 				selD.add(d.getGui());
-				notFound=false;
+				notFound = false;
 			}
 			
 		}
@@ -167,16 +178,17 @@ public class ShopStageGui extends VBox{
 			Label l= new Label("Not a product has been found");
 			p.getChildren().add(l);
 			mainVB.getChildren().add(p);
-			
 		}
 	}
 	
 	
 	private void cancelFunction() { 
 		searchBar.setText("");
-		search="";
+		search = "";
 		
 		featuresVB.getChildren().forEach(f ->((CheckBox)f).setSelected(false));
+		
+		sort();
 	}
 	
 	
