@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
@@ -21,10 +22,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import onlinemarket.Main;
 import onlinemarket.departments.Department;
+import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
 import onlinemarket.shop.Shop;
 
@@ -54,6 +57,7 @@ public class ShopStageGui extends VBox{
 	protected String search;
 	
 	protected ArrayList<Department> deps;
+	private ArrayList<DepartmentGui> selD;
 	protected TreeSet<String> feat;
 	
 	public ShopStageGui() {
@@ -82,6 +86,16 @@ public class ShopStageGui extends VBox{
 		
 		for(Department d: deps) {
 			mainVB.getChildren().add(d.getGui());
+			ArrayList<RadioButton> bs= new ArrayList<>();
+				RadioButton depRB= new RadioButton(d.getName());
+				bs.add(depRB);
+				depRB.setOnMouseClicked(e->{
+					selD.clear();
+					bs.forEach(b->b.setSelected(false));
+					depRB.setSelected(true);
+					selD.add(d.getGui());
+				});
+				DepartmentsVB.getChildren().add(depRB);	
 		}
 		
 		searchButton.setOnAction(e ->{ 
@@ -107,6 +121,7 @@ public class ShopStageGui extends VBox{
 		AscendingBrandRB.setSelected(true);
 		
 		feat = new TreeSet<>();
+		selD = new ArrayList<>();
 		for(String f: Shop.features) {
 			CheckBox cb= new CheckBox(f);
 			cb.selectedProperty().addListener((o,ov,nv)->{
@@ -118,7 +133,6 @@ public class ShopStageGui extends VBox{
 			});
 			featuresVB.getChildren().add(cb);
 		}
-			
 		try {
 			for(Thread thread: threads)
 					thread.join();
@@ -131,35 +145,30 @@ public class ShopStageGui extends VBox{
 	
 	
 	private void sort() {
-		/*
+	
 		mainVB.getChildren().clear();
 		DepartmentsVB.getChildren().clear();
-		
-		ArrayList<RadioButton> bs= new ArrayList<>();
+		selD.clear();
+	
 		boolean Found,notFound = true;
 		for(Department d:deps) {
 			Found = d.getGui().sort(comp, feat, search);
 			if(Found) {
 				mainVB.getChildren().add(d.getGui());
-				RadioButton depRB= new RadioButton(d.getName());
-				bs.add(depRB);
-				depRB.setOnMouseClicked(e->{
-					bs.forEach(b->b.setSelected(false));
-					depRB.setSelected(true);
-				});
-			DepartmentsVB.getChildren().add(depRB);	
 			}
 			if(Found) {
-				mainVB.getChildren().add(d.getGui());
+				selD.add(d.getGui());
 				notFound=false;
 			}
 			
 		}
 		if(notFound) {
-			Alert a= new Alert(Alert.AlertType.NONE,"Product not found!",ButtonType.OK);
-			a.showAndWait();
+			Pane p = new Pane();
+			Label l= new Label("Not a product has been found");
+			p.getChildren().add(l);
+			mainVB.getChildren().add(p);
 			
-		}*/
+		}
 	}
 	
 	
