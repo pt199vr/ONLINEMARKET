@@ -60,6 +60,8 @@ public class ShopStageGui extends VBox{
 	private ArrayList<DepartmentGui> selD;
 	protected TreeSet<String> feat;
 	private ArrayList<RadioButton> bs = new ArrayList<>();
+	
+	
 	public ShopStageGui() {
 		search="";
 		deps = new ArrayList<>();
@@ -145,7 +147,7 @@ public class ShopStageGui extends VBox{
 	}
 	
 	
-	private void sort() {
+	public void sort() {
 
 		mainVB.getChildren().clear();
 		selD.clear();	
@@ -182,13 +184,21 @@ public class ShopStageGui extends VBox{
 	}
 	
 	
-	private void cancelFunction() { 
+	public void cancelFunction() { 
 		searchBar.setText("");
 		search = "";
 		
 		featuresVB.getChildren().forEach(f ->((CheckBox)f).setSelected(false));
 		
 		sort();
+	}
+	
+	public void rfct(Department dep) {
+		dep.setGui();
+		
+		cancelFunction();
+		selD.clear();
+		selD.add(dep.getGui());
 	}
 	
 	
