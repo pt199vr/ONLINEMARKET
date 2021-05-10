@@ -49,19 +49,19 @@ public class EditorCreateDepGui {
 			return;
 		}
 		
-		for(Department d: Main.departments)
+		for(Department d: Main.department)
 			if(name.equalsIgnoreCase(d.getName())) {
 				wL.setText("This name has been given to another Department previously");
 				return;
 			}
 		
 		Department d= new Department(name);
-		Main.departments.add(d);
-		Main.departments.getGui().rfct(d);
+		Main.department.add(d);
+		Main.department.getGui().rfct(d);
 		DepNameT.setText("");
 		wL.setText("Finished!");
 		
-		new Thread(() -> Main.departments.write()).start();
+		new Thread(() -> Main.department.write()).start();
 	}
 
 }

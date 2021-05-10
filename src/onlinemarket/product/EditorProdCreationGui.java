@@ -22,8 +22,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import onlinemarket.Main;
 import onlinemarket.departments.Department;
-import onlinemarket.shop.Shop;
-
 
 public class EditorProdCreationGui extends AnchorPane {
 	@FXML
@@ -124,8 +122,8 @@ public class EditorProdCreationGui extends AnchorPane {
 		
 		
 		product.setGui();
-		Main.departments.getGui().sort();
-		Main.departments.write();
+		Main.department.getGui().sort();
+		Main.product.write();
 		
 		
 	}

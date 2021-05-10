@@ -34,7 +34,7 @@ public class EditorDeleteDepGui {
 		init();
 		
 		DepDelete.setOnAction(e -> delete());
-		DepDelete.setDisable(Main.departments.size() == 1);
+		DepDelete.setDisable(Main.department.size() == 1);
 		DepDelete.setOnKeyPressed(keyEvent -> {
 			if(keyEvent.getCode() == KeyCode.ENTER)
 				delete();
@@ -43,7 +43,7 @@ public class EditorDeleteDepGui {
 	
 	private void init() {
 		DepChoice.getItems().clear();
-		for(Department d: Main.departments)
+		for(Department d: Main.department)
 			DepChoice.getItems().add(d.getName());
 		
 		DepChoice.getSelectionModel().selectFirst();
@@ -57,21 +57,21 @@ public class EditorDeleteDepGui {
 		
 		String delDep = DepChoice.getValue();
 		
-		if(!Main.departments.remove(Main.departments.get(delDep))) {
+		if(!Main.department.remove(Main.department.get(delDep))) {
 			wL.setText("Error");
 			return;
 		}
 		
 		init();
 		
-		DepDelete.setDisable(Main.departments.size() == 1);
+		DepDelete.setDisable(Main.department.size() == 1);
 		wL.setText("Finished!");
 		new Alert(Alert.AlertType.NONE, String.format("Department %s has been deleted", delDep),ButtonType.OK).showAndWait().orElse(ButtonType.OK);
 		
 		new Thread(new Runnable(){
 			@Override
 			public void run() {
-				Main.departments.write();
+				Main.department.write();
 			}
 		}).start();
 	}

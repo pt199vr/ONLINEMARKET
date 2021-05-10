@@ -29,7 +29,7 @@ import onlinemarket.Main;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
-import onlinemarket.shop.Shop;
+import onlinemarket.readnwrite.RnW_Product;
 
 public class ShopStageGui extends VBox{
 	@FXML
@@ -60,6 +60,7 @@ public class ShopStageGui extends VBox{
 	private ArrayList<DepartmentGui> selD;
 	protected TreeSet<String> feat;
 	private ArrayList<RadioButton> bs = new ArrayList<>();
+	
 	
 	
 	public ShopStageGui() {
@@ -129,7 +130,7 @@ public class ShopStageGui extends VBox{
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
 		
-		for(String f: Shop.features) {
+		for(String f: RnW_Product.features) {
 			CheckBox cb= new CheckBox(f);
 			cb.selectedProperty().addListener((o,ov,nv)->{
 				if(nv)
