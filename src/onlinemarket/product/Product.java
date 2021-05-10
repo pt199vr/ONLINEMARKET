@@ -8,6 +8,8 @@ import java.util.TreeSet;
 public class Product implements Serializable{
 	private static final long serialVersionUID = 6L;
 	
+	transient ProductGui gui = null;
+	
 	protected final String name, brand;
 	protected Double price, quantity;
 	protected TypeofQuantity type;
@@ -53,6 +55,14 @@ public class Product implements Serializable{
 	
 	public TypeofQuantity getType() {
 		return type;
+	}
+	
+	public void setGui() {
+		gui= new ProductGui(null, null, price); // da modificare 
+	}
+	
+	public ProductGui getGui() {
+		return gui;
 	}
 	
 	public boolean equals(Object other) {
