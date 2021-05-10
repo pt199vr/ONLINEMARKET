@@ -64,7 +64,7 @@ public class Main extends Application{
 	
 	public String createId() {
 		boolean b = true;
-		String s = "VR";
+		String s = "OM";
 		
 		if(editoraccount.read()) {
 			

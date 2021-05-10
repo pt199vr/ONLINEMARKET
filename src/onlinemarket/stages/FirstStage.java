@@ -67,7 +67,7 @@ public class FirstStage extends Stage{
 							return;
 					System.out.println("no");
 				}
-				EditorAccount host = new EditorAccount("VR429676", "Pietro", "Turco", new Email("pietro.turco_01@studenti.univr.it"),
+				EditorAccount host = new EditorAccount("OM429676", "Pietro", "Turco", new Email("pietro.turco_01@studenti.univr.it"),
 						new Password("Ciccio99"), Long.parseLong("3665228025"), new Address("Via Trota", "Verona", 9));
 				Main.editoraccount.add(host);
 				Main.editoraccount.write();
