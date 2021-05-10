@@ -69,11 +69,11 @@ public class ShopStageGui extends VBox{
 		deps.add(new Department("Meat"));
 		deps.add(new Department("Vegetables"));
 		
-<<<<<<< HEAD
+
 	
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopStage.fxml"));
-=======
+
 		feat = new TreeSet<>();
 		selD = new ArrayList<>();
 		bs = new ArrayList<>();
@@ -85,13 +85,13 @@ public class ShopStageGui extends VBox{
 			threads.add(thread);
 		});
 		// if che determini se è entrato un customer o un editor
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CustomerShopStage.fxml"));
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
-		fxmlLoader.setRoot(this);
-		fxmlLoader.setController(this);
+		FXMLLoader fxml = new FXMLLoader(getClass().getResource("CustomerShopStage.fxml"));
+
+		fxml.setRoot(this);
+		fxml.setController(this);
 		
 		try {
-			fxmlLoader.load();
+			fxml.load();
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
