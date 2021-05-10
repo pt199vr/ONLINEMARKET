@@ -12,7 +12,7 @@ public class RnW_EditorAccount extends RnW<EditorAccount>{
 	}
 	
 	public String toString() {
-		String r = "Customers Accounts:\n";
+		String r = "Editors Accounts:\n";
 		int j = 0;
 		for(EditorAccount i : this) {
 			j++;

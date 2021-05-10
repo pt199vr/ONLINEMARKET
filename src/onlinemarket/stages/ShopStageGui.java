@@ -83,7 +83,7 @@ public class ShopStageGui extends VBox{
 			threads.add(thread);
 		});
 		
-		// if che determini se è entrato un customer o un editor
+		//if()
 		FXMLLoader fxml = new FXMLLoader(getClass().getResource("CustomerShopStage.fxml"));
 		fxml.setRoot(this);
 		fxml.setController(this);
@@ -183,6 +183,8 @@ public class ShopStageGui extends VBox{
 			Pane p = new Pane();
 			Label l= new Label("Not a product has been found");
 			p.getChildren().add(l);
+			l.layoutXProperty().bind(p.widthProperty().subtract(l.widthProperty()).divide(2));
+			l.layoutYProperty().bind(p.heightProperty().subtract(l.heightProperty()).divide(2));
 			mainVB.getChildren().add(p);
 		}
 	}
