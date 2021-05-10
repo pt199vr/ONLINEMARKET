@@ -27,8 +27,8 @@ public class LoginStage extends Stage{
 			
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
-			setHeight(768);
-			setWidth(1024);
+			setHeight(480);
+			setWidth(600);
 			setResizable(false);			
 			Platform.runLater(() -> {
 		        setScene(new Scene(layout));

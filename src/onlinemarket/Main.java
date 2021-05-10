@@ -7,6 +7,10 @@ import java.util.HashMap;
 
 import onlinemarket.stages.*;
 import onlinemarket.departments.Department;
+
+import onlinemarket.readnwrite.*;
+import onlinemarket.shop.Shop;
+
 import onlinemarket.readnwrite.*;
 
 import onlinemarket.shop.Shop;
@@ -27,7 +31,7 @@ public class Main extends Application{
 	
 	
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
-	public static final RnW_Department departments = new Shop(store + "/departments.txt");
+	public static final Shop departments = new Shop(store + "/departments.txt");
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();

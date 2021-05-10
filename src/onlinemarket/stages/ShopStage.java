@@ -23,7 +23,7 @@ public class ShopStage extends Stage {
 		
 		new Thread(() -> {
 			layout = new BorderPane();
-			shopgui = new ShopStageFeaturesGui();
+			shopgui = new ShopStageGui();
 			layout.setCenter(shopgui);
 			
 			setTitle(Main.title);

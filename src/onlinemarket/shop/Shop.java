@@ -2,17 +2,17 @@ package onlinemarket.shop;
 
 import onlinemarket.departments.Department;
 import onlinemarket.product.ProdComp;
-import onlinemarket.readnwrite.RnW;
 import onlinemarket.readnwrite.RnW_Department;
-import onlinemarket.stages.ShopStageFeaturesGui;
+import onlinemarket.stages.ShopStageGui;
 
 
 public class Shop extends RnW_Department{
+	
 	private static final long serialVersionUID = 8L;
 	
-	transient private ShopStageFeaturesGui gui;
+	transient private ShopStageGui gui;
 	
-	public final static String[] features = {"Gluten Free","Biological","Milk Free"};
+	public final static String[] features = {"Gluten Free","Bio","Milk Free","Vegan"};
 	
 	public Shop(String filepath) {
 		super(filepath);
@@ -30,10 +30,10 @@ public class Shop extends RnW_Department{
 	}
 	
 	public void setGui() {
-		gui = new ShopStageFeaturesGui();
+		gui = new ShopStageGui();
 	}
 	
-	public ShopStageFeaturesGui getGui() {
+	public ShopStageGui getGui() {
 		return gui;
 	}
 	public void create() {

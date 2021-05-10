@@ -6,11 +6,14 @@ import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
@@ -19,20 +22,22 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-
 import onlinemarket.Main;
 import onlinemarket.departments.Department;
+import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
+import onlinemarket.shop.Shop;
 
-public abstract class ShopStageGui extends VBox{
+public class ShopStageGui extends VBox{
 	@FXML
 	private Button searchButton, cancelButton;
 	@FXML
 	private TextField searchBar;
 	@FXML 
-	private RadioButton BrandAscendingRB,BrandDescendingRB, AscendingPriceRB,DescendingPriceRB;
+	private RadioButton AscendingBrandRB,DescendingBrandRB, AscendingPriceRB,DescendingPriceRB;
 	@FXML
 	private ScrollPane scrollP;
 	@FXML
@@ -42,9 +47,9 @@ public abstract class ShopStageGui extends VBox{
 	@FXML
 	private GridPane searchGridPane;
 	@FXML
-	protected VBox filterVB,mainVB;
+	private VBox filterVB,mainVB, featuresVB, DepartmentsVB;
 	@FXML
-	protected MenuBar MenuB;
+	private MenuBar MenuB;
 	
 	private ToggleGroup sort;
 	
@@ -52,18 +57,36 @@ public abstract class ShopStageGui extends VBox{
 	protected String search;
 	
 	protected ArrayList<Department> deps;
+	private ArrayList<DepartmentGui> selD;
+	protected TreeSet<String> feat;
+	private ArrayList<RadioButton> bs = new ArrayList<>();
+	
 	
 	public ShopStageGui() {
-		
-		deps =new ArrayList<>();
-		
+		search="";
+		deps = new ArrayList<>();
 		deps.add(new Department("Fruits"));
 		deps.add(new Department("Meat"));
 		deps.add(new Department("Vegetables"));
 		
+<<<<<<< HEAD
 	
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopStage.fxml"));
+=======
+		feat = new TreeSet<>();
+		selD = new ArrayList<>();
+		bs = new ArrayList<>();
+		
+		ArrayList<Thread> threads = new ArrayList<>(deps.size());
+		deps.forEach(d->{
+			Thread thread = new Thread(() -> d.setGui());
+			thread.start();
+			threads.add(thread);
+		});
+		// if che determini se è entrato un customer o un editor
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CustomerShopStage.fxml"));
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
@@ -73,10 +96,24 @@ public abstract class ShopStageGui extends VBox{
 			throw new RuntimeException(e);
 		}
 		
+		for(Department d: deps) {
+			mainVB.getChildren().add(d.getGui());
+				RadioButton depRB= new RadioButton(d.getName());
+				bs.add(depRB);
+				depRB.setOnMouseClicked(e->{
+					selD.clear();
+					bs.forEach(b->b.setSelected(false));
+					depRB.setSelected(true);
+					selD.add(d.getGui());
+				});
+				DepartmentsVB.getChildren().add(depRB);	
+		}
+		
 		searchButton.setOnAction(e ->{ 
 			search = searchBar.getText().toLowerCase();
 			sort();
 			});
+		
 		searchButton.setOnKeyPressed(keyEvent -> {
 			if (keyEvent.getCode() == KeyCode.ENTER) {
 				search = searchBar.getText().toLowerCase();
@@ -88,21 +125,86 @@ public abstract class ShopStageGui extends VBox{
 		cancelButton.setOnAction(e -> cancelFunction());
 		
 		sort = new ToggleGroup();
-		BrandAscendingRB.setToggleGroup(sort);
-		BrandDescendingRB.setToggleGroup(sort);
+		AscendingBrandRB.setToggleGroup(sort);
+		DescendingBrandRB.setToggleGroup(sort);
 		AscendingPriceRB.setToggleGroup(sort);
 		DescendingPriceRB.setToggleGroup(sort);
-		BrandAscendingRB.setSelected(true);
-	
+		AscendingBrandRB.setSelected(true);
+		
+		for(String f: Shop.features) {
+			CheckBox cb= new CheckBox(f);
+			cb.selectedProperty().addListener((o,ov,nv)->{
+				if(nv)
+					feat.add(cb.getText());
+				else
+					feat.remove(cb.getText());
+				sort();
+			});
+			featuresVB.getChildren().add(cb);
+		}
+		try {
+			for(Thread thread: threads)
+					thread.join();
+		}catch(InterruptedException e) {
+			throw new RuntimeException(e);
+		}
+		
+			sort();
 	}
 	
 	
+	public void sort() {
+
+		mainVB.getChildren().clear();
+		selD.clear();	
+		boolean notFound = true, Found;
+		
+		for(Department d:deps) {
+			Found = d.getGui().sort(comp, feat, search);
+			if(Found) {
+				bs.clear();
+				mainVB.getChildren().add(d.getGui());
+				RadioButton depRB= new RadioButton(d.getName());
+				bs.add(depRB);
+				depRB.setOnMouseClicked(e->{
+					selD.clear();
+					bs.forEach(b->b.setSelected(false));
+					depRB.setSelected(true);
+					selD.add(d.getGui());
+				});
+				
+				
+			}
+			if(Found) {
+				selD.add(d.getGui());
+				notFound = false;
+			}
+			
+		}
+		if(notFound) {
+			Pane p = new Pane();
+			Label l= new Label("Not a product has been found");
+			p.getChildren().add(l);
+			mainVB.getChildren().add(p);
+		}
+	}
 	
-	protected abstract void sort();
 	
-	private void cancelFunction() {
-		if( !(searchBar.getText().equals(""))) 
-			searchBar.setText("");
+	public void cancelFunction() { 
+		searchBar.setText("");
+		search = "";
+		
+		featuresVB.getChildren().forEach(f ->((CheckBox)f).setSelected(false));
+		
+		sort();
+	}
+	
+	public void rfct(Department dep) {
+		dep.setGui();
+		
+		cancelFunction();
+		selD.clear();
+		selD.add(dep.getGui());
 	}
 	
 	
