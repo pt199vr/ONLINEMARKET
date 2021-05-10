@@ -47,9 +47,9 @@ public class ShopStageGui extends VBox{
 	@FXML
 	private GridPane searchGridPane;
 	@FXML
-	protected VBox filterVB,mainVB, featuresVB, DepartmentsVB;
+	private VBox filterVB,mainVB, featuresVB, DepartmentsVB;
 	@FXML
-	protected MenuBar MenuB;
+	private MenuBar MenuB;
 	
 	private ToggleGroup sort;
 	
@@ -79,8 +79,8 @@ public class ShopStageGui extends VBox{
 			thread.start();
 			threads.add(thread);
 		});
-		
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopStage.fxml"));
+		// if che determini se è entrato un customer o un editor
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CustomerShopStage.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
