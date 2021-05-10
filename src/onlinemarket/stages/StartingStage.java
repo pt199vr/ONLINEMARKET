@@ -26,6 +26,7 @@ public class StartingStage extends Stage{
 			 Main.threads.values().forEach(thread -> thread.start());
 		 }).start();
 		 Main.loadingstage.show();	
+		 
 	}
 	
 	private void checkPath() {

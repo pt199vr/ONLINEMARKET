@@ -30,7 +30,9 @@ public class Main extends Application{
 	public static final HashMap<Object, Thread> threads = new HashMap<>(1);
 	
 	
+	public static final RnW_EditorAccount editoraccount = new RnW_EditorAccount(path + "/Editors.txt");
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
+	public static final RnW_Department department = new RnW_Department(store + "/Departments.txt");
 	public static final Shop departments = new Shop(store + "/departments.txt");
 	@Override
 	public void start(Stage primaryStage) {
@@ -58,5 +60,25 @@ public class Main extends Application{
 	
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public String createId() {
+		boolean b = true;
+		String s = "VR";
+		
+		if(editoraccount.read()) {
+			
+			while(b) {
+				b = false;
+				double random = (int)(Math.random() * 1000000);
+				s += random;
+				for(EditorAccount a : editoraccount) {
+					if(a.getId().equals(s))
+						b = true;
+				}
+			}
+		}
+		
+		return s;
 	}
 }

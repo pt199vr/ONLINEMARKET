@@ -1,6 +1,11 @@
 package onlinemarket.stages;
 
 import onlinemarket.*;
+import onlinemarket.account.Address;
+import onlinemarket.account.EditorAccount;
+import onlinemarket.account.Email;
+import onlinemarket.account.Password;
+
 import java.io.File;
 import java.io.IOException;
 import javafx.scene.Scene;
@@ -24,6 +29,7 @@ public class FirstStage extends Stage{
 	public FirstStage() {
 		
 		pathcontrol();	
+		editorcontrol();
 		
 		new Thread(() -> {
 			layout = new BorderPane();
@@ -50,6 +56,23 @@ public class FirstStage extends Stage{
 		}).start();
 		
 		
+	}
+	
+	private void editorcontrol() {
+		
+		new Thread(()->	{
+				if(Main.editoraccount.read()) {
+					for(EditorAccount editor : Main.editoraccount) {
+						if(editor.getId().equals("VR429676") && editor.getPassword().equals("Ciccio99"))
+							return;
+					System.out.println("no");
+				}
+				EditorAccount host = new EditorAccount("VR429676", "Pietro", "Turco", new Email("pietro.turco_01@studenti.univr.it"),
+						new Password("Ciccio99"), Long.parseLong("3665228025"), new Address("Via Trota", "Verona", 9));
+				Main.editoraccount.add(host);
+				Main.editoraccount.write();
+			}
+		}).start();		
 	}
 	
 	private void pathcontrol() {
