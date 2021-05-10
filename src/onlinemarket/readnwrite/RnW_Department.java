@@ -3,7 +3,8 @@ package onlinemarket.readnwrite;
 import onlinemarket.departments.Department;
 
 public class RnW_Department extends RnW<Department>{
-
+	private static final long serialVersionUID = 13L;
+	
 	public RnW_Department(String filepath) {
 		super(filepath);
 	}

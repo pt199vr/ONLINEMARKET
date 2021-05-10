@@ -33,6 +33,7 @@ public class Main extends Application{
 	public static final RnW_EditorAccount editoraccount = new RnW_EditorAccount(path + "/Editors.txt");
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
 	public static final RnW_Department department = new RnW_Department(store + "/Departments.txt");
+	public static final RnW_Product product = new RnW_Product(store + "/Products.txt");
 	public static final Shop departments = new Shop(store + "/departments.txt");
 	@Override
 	public void start(Stage primaryStage) {
