@@ -61,7 +61,7 @@ public abstract class ShopStageGui extends VBox{
 		deps.add(new Department("Meat"));
 		deps.add(new Department("Vegetables"));
 		
-		
+	
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopStage.fxml"));
 		fxmlLoader.setRoot(this);
