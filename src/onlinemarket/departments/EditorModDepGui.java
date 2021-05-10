@@ -50,9 +50,9 @@ public class EditorModDepGui {
 	private void init(){
 		DepChoiceB.getItems().clear();
 		
-		for(Department d: Main.departments)
+		for(Department d: Main.department)
 			DepChoiceB.getItems().add(d.getName());
-		DepChoiceB.setValue(Main.departments.first().getName());
+		DepChoiceB.setValue(Main.department.first().getName());
 	}
 	
 	@FXML
@@ -68,15 +68,15 @@ public class EditorModDepGui {
 			return;
 		}
 		
-		for(Department d: Main.departments) 
+		for(Department d: Main.department) 
 			if(name.equalsIgnoreCase(d.getName())) {
 				wL.setText("This name has been given to another department already");
 				return;
 				}
-		Department dep = Main.departments.get(DepChoiceB.getValue());
+		Department dep = Main.department.get(DepChoiceB.getValue());
 		dep.setName(name);
-		Main.departments.getGui().rfct(dep);
-		new Thread(()-> Main.departments.write()).start();
+		Main.department.getGui().rfct(dep);
+		new Thread(()-> Main.department.write()).start();
 		
 		init();
 		
