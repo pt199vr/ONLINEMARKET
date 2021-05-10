@@ -53,7 +53,7 @@ public class LoginGui extends AnchorPane{
 			});
 			ELogB.setOnKeyPressed(keyEvent->{
 				if(keyEvent.getCode() == KeyCode.ENTER)
-					login();
+					loginEditor();
 			});
 			
 		});buttons.start();
@@ -158,7 +158,7 @@ private void login() {
 	}
 	
 	private void shoppingEditor(EditorAccount t) {
-		
+		Main.EditorShopping(t);
 	}
 	
 	private void backFunction() {

@@ -1,6 +1,7 @@
 package onlinemarket.readnwrite;
 
 import onlinemarket.departments.Department;
+import onlinemarket.product.ProdComp;
 import onlinemarket.stages.ShopStageGui;
 
 public class RnW_Department extends RnW<Department>{
@@ -25,8 +26,9 @@ public class RnW_Department extends RnW<Department>{
 
 	@Override
 	public void errorReading() {
+		create();
 	}
-	
+
 	public void setGui() {
 		gui = new ShopStageGui();
 	}
@@ -41,5 +43,14 @@ public class RnW_Department extends RnW<Department>{
 				return dep;
 		return null;
 	}
-
+	
+	private void create() {
+		Department dep = new Department("Fruits",new ProdComp());
+		add(dep);
+		dep = new Department("Meat",new ProdComp());
+		add(dep);
+		dep = new Department("Vegetables",new ProdComp());
+		add(dep);
+	}
+	
 }
