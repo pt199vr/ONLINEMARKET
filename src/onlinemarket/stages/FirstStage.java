@@ -65,7 +65,6 @@ public class FirstStage extends Stage{
 					for(EditorAccount editor : Main.editoraccount) {
 						if(editor.getId().equals("VR429676") && editor.getPassword().equals("Ciccio99"))
 							return;
-					System.out.println("no");
 				}
 				EditorAccount host = new EditorAccount("OM429676", "Pietro", "Turco", new Email("pietro.turco_01@studenti.univr.it"),
 						new Password("Ciccio99"), Long.parseLong("3665228025"), new Address("Via Trota", "Verona", 9));

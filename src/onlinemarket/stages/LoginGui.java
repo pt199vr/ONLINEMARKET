@@ -7,9 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import onlinemarket.Main;
-import onlinemarket.account.Account;
-import onlinemarket.account.Email;
-import onlinemarket.account.Password;
+import onlinemarket.account.*;
 
 
 
@@ -19,7 +17,7 @@ public class LoginGui extends AnchorPane{
 	@FXML
 	private TextField EmailF, id;
 	@FXML
-	private PasswordField PasswordF, EPassword;
+	private PasswordField PasswordF, EPasswordF;
 	@FXML
 	private Label LogL,MailL,PasswordL, ELogL, Matricola, EPasswordL;
 	@FXML
@@ -39,13 +37,15 @@ public class LoginGui extends AnchorPane{
 			throw new RuntimeException(e);
 		}
 		
+		
+		
 		Thread buttons = new Thread( () -> {
 			
 			BackB.setOnAction(e -> backFunction());
 			EBackB.setOnAction(e ->backFunction());
 			
 			LogB.setOnAction(e -> login());
-			ELogB.setOnAction(e -> login());
+			ELogB.setOnAction(e -> loginEditor());
 			
 			LogB.setOnKeyPressed(keyEvent->{
 				if(keyEvent.getCode() == KeyCode.ENTER)
@@ -60,6 +60,52 @@ public class LoginGui extends AnchorPane{
 		
 				
 	}
+	
+private void loginEditor() {
+	Main.loginstage.hide();
+	Main.loadingstage.show();
+	
+	
+	if(id.getText() == "" || EPasswordF.getText() == ""){
+		Alert a = new Alert(Alert.AlertType.NONE, "Fill all fields", ButtonType.OK);
+		Main.loadingstage.hide();
+		a.showAndWait();
+		Main.loginstage.show();
+		return;
+	}
+	
+	try {
+		String a = id.getText(), b = EPasswordF.getText();
+		boolean bo = false;
+		if(Main.editoraccount.read()) {
+			for(EditorAccount e : Main.editoraccount) {
+				if(a.equals(e.getId()) && b.equals(e.getPassword().toString())) {	
+					bo = true;
+					shoppingEditor(e);	
+				}
+			}
+		}
+		
+		
+		if(!bo) {
+			Alert c = new Alert(Alert.AlertType.NONE, "Wrongs Credentials", ButtonType.CLOSE);
+			Main.loadingstage.hide();
+			c.showAndWait();
+			Main.loginstage.show();
+		}
+			
+	}catch(IllegalArgumentException e) {
+		Alert b = new Alert(Alert.AlertType.NONE, e.toString(), ButtonType.OK);
+		b.setHeight(0);
+		b.setWidth(0);			
+		Main.loadingstage.hide();
+		b.showAndWait();
+		Main.loginstage.show();
+		return;
+	}
+		
+	
+}
 	
 private void login() {
 		
@@ -109,6 +155,10 @@ private void login() {
 	
 	private void shopping(Account t) {
 		Main.shopping(t);
+	}
+	
+	private void shoppingEditor(EditorAccount t) {
+		
 	}
 	
 	private void backFunction() {
