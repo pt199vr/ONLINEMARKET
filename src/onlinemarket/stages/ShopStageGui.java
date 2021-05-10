@@ -63,17 +63,15 @@ public class ShopStageGui extends VBox{
 	
 	
 	public ShopStageGui() {
+		
 		search="";
+		
 		deps = new ArrayList<>();
 		deps.add(new Department("Fruits"));
 		deps.add(new Department("Meat"));
 		deps.add(new Department("Vegetables"));
 		
-
-	
 		
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShopStage.fxml"));
-
 		feat = new TreeSet<>();
 		selD = new ArrayList<>();
 		bs = new ArrayList<>();
@@ -84,9 +82,9 @@ public class ShopStageGui extends VBox{
 			thread.start();
 			threads.add(thread);
 		});
+		
 		// if che determini se è entrato un customer o un editor
 		FXMLLoader fxml = new FXMLLoader(getClass().getResource("CustomerShopStage.fxml"));
-
 		fxml.setRoot(this);
 		fxml.setController(this);
 		
