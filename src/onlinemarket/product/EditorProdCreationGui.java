@@ -2,11 +2,13 @@ package onlinemarket.product;
 
 
 import java.io.File;
-
+import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
@@ -22,7 +24,7 @@ import onlinemarket.shop.Shop;
 
 public class EditorProdCreationGui extends AnchorPane {
 	@FXML
-	private Label warningL;
+	private Label wL;
 	@FXML
 	private ImageView ProdImg;
 	@FXML
@@ -32,6 +34,26 @@ public class EditorProdCreationGui extends AnchorPane {
 	@FXML
 	private MenuButton featuresMB;
 	
-	private File SelFile;
+	public EditorProdCreationGui() {
+		
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("productCreation.fxml"));
+		fxmlLoader.setRoot(this);
+		fxmlLoader.setController(this);
+		
+		try {
+			fxmlLoader.load();
+		}catch(IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	private boolean check() { 
+		if(ProdNameT.getText().equals("") || ProdBrandT.getText().equals("") || PriceT.getText().equals("") || QuantityT.getText().equals("") || QuantityPPieceT.getText().equals("")) {
+			Alert a = new Alert(Alert.AlertType.NONE,"Fill all the fields",ButtonType.OK);
+			a.showAndWait();
+			return true;
+		}
+		return false;
+	}
 }
 	
