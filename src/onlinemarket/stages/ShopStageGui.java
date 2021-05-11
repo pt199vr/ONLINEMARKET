@@ -3,18 +3,15 @@ package onlinemarket.stages;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
@@ -26,7 +23,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import onlinemarket.Main;
-import onlinemarket.account.EditorAccount;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
@@ -50,14 +46,15 @@ public class ShopStageGui extends VBox{
 	@FXML
 	private VBox filterVB,mainVB, featuresVB, DepartmentsVB;
 	@FXML
-	private MenuBar MenuB;
+	private Menu Purchases, Cart;
+	@FXML
+	private MenuItem profile,FDC,Orders,payment,logout;
 	
 	private ToggleGroup sort;
 	
 	protected Comparator<Product> comp;
 	protected String search;
 	
-	protected ArrayList<Department> deps;
 	private ArrayList<DepartmentGui> selD;
 	protected TreeSet<String> feat;
 	private ArrayList<RadioButton> bs = new ArrayList<>();
@@ -67,19 +64,12 @@ public class ShopStageGui extends VBox{
 	public ShopStageGui() {
 		
 		search="";
-		
-		deps = new ArrayList<>();
-		deps.add(new Department("Fruits"));
-		deps.add(new Department("Meat"));
-		deps.add(new Department("Vegetables"));
-		
-		
 		feat = new TreeSet<>();
 		selD = new ArrayList<>();
 		bs = new ArrayList<>();
 		
-		ArrayList<Thread> threads = new ArrayList<>(deps.size());
-		deps.forEach(d->{
+		ArrayList<Thread> threads = new ArrayList<>(Main.department.size());
+		Main.department.forEach(d->{
 			Thread thread = new Thread(() -> d.setGui());
 			thread.start();
 			threads.add(thread);
@@ -140,6 +130,15 @@ public class ShopStageGui extends VBox{
 			});
 			featuresVB.getChildren().add(cb);
 		}
+		
+		//Purchases.setOnAction(e -> showPurchases());
+		//Cart.setOnAction(e -> showCart());
+		//profile.setOnAction(e -> showAcc());
+		//ciao
+		//FDC.setOnAction(e -> showFC());
+		//Orders.setOnAction(e -> showOrders());
+		//payment.setOnAction(e -> setPayment());
+		logout.setOnAction(e -> logout());
 		try {
 			for(Thread thread: threads)
 					thread.join();
@@ -207,6 +206,12 @@ public class ShopStageGui extends VBox{
 		selD.add(dep.getGui());
 	}
 	
+	@FXML
+	public void logout() {
+		Main.login();
+	}
 	
-
 }
+
+
+

@@ -18,24 +18,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root type="VBox" maxHeight="1.7976931348623157E308" prefHeight="567.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="1.7976931348623157E308" prefHeight="567.0" prefWidth="735.0" type="VBox" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar>
          <menus>
-            <Menu mnemonicParsing="false" text="Products" />
+            <Menu fx:id="Products" mnemonicParsing="false" text="Products" />
             <Menu mnemonicParsing="false" text="Departments">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Create" />
-                  <MenuItem mnemonicParsing="false" text="Modify" />
-                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem fx:id="create" mnemonicParsing="false" text="Create" />
+                  <MenuItem fx:id="modify" mnemonicParsing="false" text="Modify" />
+                  <MenuItem fx:id="delete" mnemonicParsing="false" text="Delete" />
                </items></Menu>
-            <Menu mnemonicParsing="false" text="Orders" />
+            <Menu fx:id="Orders" mnemonicParsing="false" text="Orders" />
             <Menu mnemonicParsing="false" text="My Account">
                <items>
-                  <MenuItem mnemonicParsing="false" text="My profile" />
-                  <MenuItem mnemonicParsing="false" text="Show Editors Accounts" />
-                  <MenuItem mnemonicParsing="false" text="Show Customers Accounts" />
-                  <MenuItem mnemonicParsing="false" text="Logout" />
+                  <MenuItem fx:id="profile" mnemonicParsing="false" text="My profile" />
+                  <MenuItem fx:id="editorsAcc" mnemonicParsing="false" text="Show Editors Accounts" />
+                  <MenuItem fx:id="customersAcc" mnemonicParsing="false" text="Show Customers Accounts" />
+                  <MenuItem fx:id="logout" mnemonicParsing="false" text="Logout" />
                </items>
             </Menu>
          </menus>
