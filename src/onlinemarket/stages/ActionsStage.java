@@ -11,7 +11,7 @@ public class ActionsStage extends Stage{
 	private BorderPane layout;
 	private CreateDepGui create;
 	private ModifyDepGui modify;
-	//private DeleteDepGui delete;
+	private DeleteDepGui delete;
 	
 	
 	public ActionsStage(String s) {
@@ -21,14 +21,32 @@ public class ActionsStage extends Stage{
 			
 			create = new CreateDepGui();
 			modify = new ModifyDepGui();
-			
+			delete = new DeleteDepGui();
 			new Thread(() -> {
+				
 				layout = new BorderPane();
-				if("create".equals(s)) 
+				
+				if("create".equals(s)) {					
 					layout.setCenter(create);
-				if("modify".equals(s))
+				}
+				if("modify".equals(s)) {
 					layout.setCenter(modify);
-		
+				}
+				if("delete".equals(s)) {
+					layout.setCenter(delete);
+				}
+				if("showaccount".equals(s)) {					
+					layout.setCenter(modify);
+				}
+				if("showeditors".equals(s)) {					
+					layout.setCenter(modify);
+				}
+				if("showcustomers".equals(s)) {					
+					layout.setCenter(modify);
+				}
+				if("showorders".equals(s)) {					
+					layout.setCenter(modify);
+				}
 				
 				
 				setTitle(Main.title);
@@ -43,7 +61,7 @@ public class ActionsStage extends Stage{
 				});
 				
 				setOnCloseRequest(e -> {
-					Main.shopstage.show();
+					Main.shopstage.show();					
 				});
 				
 			}).start();

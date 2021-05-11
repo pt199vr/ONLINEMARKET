@@ -34,9 +34,7 @@ public class ModifyDepGui extends AnchorPane {
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-		
-		init();
-		
+			
 		modifyDepB.setOnAction(e -> modify());
 		
 		modifyDepB.setOnKeyPressed(k ->{

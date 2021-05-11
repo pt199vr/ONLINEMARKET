@@ -28,6 +28,7 @@ public class CreateDepGui extends AnchorPane{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+		
 		CreateDepB.setOnAction(e -> create());
 		CreateDepB.setOnKeyPressed(k-> {
 			if(k.getCode() == KeyCode.ENTER)

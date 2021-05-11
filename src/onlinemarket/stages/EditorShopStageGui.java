@@ -134,13 +134,13 @@ public class EditorShopStageGui extends VBox{
 		
 		create.setOnAction(e -> creation());
 		modify.setOnAction(e -> modification());
-		//delete.setOnAction(e -> delete());
-		//profile.setOnAction(e -> showAcc());
-		//editorsAcc.setOnAction(e -> editors());
-		//customersAcc.setOnAction(e->customers());
+		delete.setOnAction(e -> delete());
+		profile.setOnAction(e -> showAcc());
+		editorsAcc.setOnAction(e -> showEd());
+		customersAcc.setOnAction(e->customers());
 		logout.setOnAction(e -> logout());
-		//Orders.setOnAction(e -> showOrders());
-		//Products.setOnAction(e-> showProducts());
+		Orders.setOnAction(e -> showOrders());
+		
 		
 		
 		try {
@@ -235,6 +235,35 @@ public class EditorShopStageGui extends VBox{
 		Main.shopstage.hide();
 		Main.loadingstage.show();
 		new ActionsStage("delete");
+		Main.loadingstage.hide();
+	}
+	
+	private void showAcc() {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("showaccount");
+		Main.loadingstage.hide();
+	}
+	
+	private void showEd() {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("showeditors");
+		Main.loadingstage.hide();
+		
+	}
+	
+	private void customers() {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("showcustomers");
+		Main.loadingstage.hide();
+	}
+	
+	private void showOrders(){
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("showorders");
 		Main.loadingstage.hide();
 	}
 }
