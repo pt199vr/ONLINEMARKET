@@ -60,6 +60,7 @@ public class EditorShopStageGui extends VBox{
 	private ArrayList<DepartmentGui> selD;
 	protected TreeSet<String> feat;
 	private ArrayList<RadioButton> bs = new ArrayList<>();
+	private ArrayList<Thread> threads = new ArrayList<Thread>();
 	
 	public EditorShopStageGui() {
 		
@@ -69,12 +70,7 @@ public class EditorShopStageGui extends VBox{
 		selD = new ArrayList<>();
 		bs = new ArrayList<>();
 		
-		ArrayList<Thread> threads = new ArrayList<>(Main.department.size());
-		Main.department.forEach(d->{
-			Thread thread = new Thread(() -> d.setGui());
-			thread.start();
-			threads.add(thread);
-		});
+		tt();
 		
 		FXMLLoader fxml = new FXMLLoader(getClass().getResource("EditorShopStage.fxml"));
 		fxml.setRoot(this);
@@ -85,18 +81,7 @@ public class EditorShopStageGui extends VBox{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-		for(Department d: Main.department) {
-			mainVB.getChildren().add(d.getGui());
-				RadioButton depRB= new RadioButton(d.getName());
-				bs.add(depRB);
-				depRB.setOnMouseClicked(e->{
-					selD.clear();
-					bs.forEach(b->b.setSelected(false));
-					depRB.setSelected(true);
-					selD.add(d.getGui());
-				});
-				DepartmentsVB.getChildren().add(depRB);	
-		}
+		tfxml();
 		
 		searchButton.setOnAction(e ->{ 
 			search = searchBar.getText().toLowerCase();
@@ -132,14 +117,14 @@ public class EditorShopStageGui extends VBox{
 			featuresVB.getChildren().add(cb);
 		}
 		
-		create.setOnAction(e -> creation());
-		modify.setOnAction(e -> modification());
-		delete.setOnAction(e -> delete());
-		profile.setOnAction(e -> showAcc());
-		editorsAcc.setOnAction(e -> showEd());
-		customersAcc.setOnAction(e->customers());
+		create.setOnAction(e -> creation(this));
+		modify.setOnAction(e -> modification(this));
+		delete.setOnAction(e -> delete(this));
+		profile.setOnAction(e -> showAcc(this));
+		editorsAcc.setOnAction(e -> showEd(this));
+		customersAcc.setOnAction(e->customers(this));
 		logout.setOnAction(e -> logout());
-		Orders.setOnAction(e -> showOrders());
+		Orders.setOnAction(e -> showOrders(this));
 		
 		
 		
@@ -151,6 +136,29 @@ public class EditorShopStageGui extends VBox{
 		}
 		
 			sort();
+	}
+	
+	private void tt() {
+		Main.department.forEach(d->{
+			Thread thread = new Thread(() -> d.setGui());
+			thread.start();
+			threads.add(thread);
+		});
+	}
+	
+	private void tfxml() {
+		for(Department d: Main.department) {
+			mainVB.getChildren().add(d.getGui());
+				RadioButton depRB= new RadioButton(d.getName());
+				bs.add(depRB);
+				depRB.setOnMouseClicked(e->{
+					selD.clear();
+					bs.forEach(b->b.setSelected(false));
+					depRB.setSelected(true);
+					selD.add(d.getGui());
+				});
+				DepartmentsVB.getChildren().add(depRB);	
+		}
 	}
 	
 	
@@ -217,54 +225,61 @@ public class EditorShopStageGui extends VBox{
 		Main.login();
 	}
 	
-	private void creation() {
+	private void creation(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("create");
+		new ActionsStage("create", f);
 		Main.loadingstage.hide();
 	}
 	
-	private void modification() {
+	private void modification(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("modify");
-		Main.loadingstage.hide();
-	}
-	
-	private void delete() {
-		Main.shopstage.hide();
-		Main.loadingstage.show();
-		new ActionsStage("delete");
-		Main.loadingstage.hide();
-	}
-	
-	private void showAcc() {
-		Main.shopstage.hide();
-		Main.loadingstage.show();
-		new ActionsStage("showaccount");
-		Main.loadingstage.hide();
-	}
-	
-	private void showEd() {
-		Main.shopstage.hide();
-		Main.loadingstage.show();
-		new ActionsStage("showeditors");
+		new ActionsStage("modify", f);
 		Main.loadingstage.hide();
 		
 	}
 	
-	private void customers() {
+	private void delete(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("showcustomers");
+		new ActionsStage("delete", f);
 		Main.loadingstage.hide();
 	}
 	
-	private void showOrders(){
+	private void showAcc(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("showorders");
+		new ActionsStage("showaccount", f);
 		Main.loadingstage.hide();
+	}
+	
+	private void showEd(EditorShopStageGui f) {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("showeditors", f);
+		Main.loadingstage.hide();
+		
+	}
+	
+	private void customers(EditorShopStageGui f) {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("showcustomers", f);
+		Main.loadingstage.hide();
+	}
+	
+	private void showOrders(EditorShopStageGui f){
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("showorders", f);
+		Main.loadingstage.hide();
+	}
+	
+	public void checking() {
+		Main.department.read();
+		tt();
+		tfxml();		
 	}
 }
 

@@ -14,12 +14,12 @@ public class ActionsStage extends Stage{
 	private DeleteDepGui delete;
 	
 	
-	public ActionsStage(String s) {
-					
+	public ActionsStage(String s, EditorShopStageGui f) {
+			
 			Main.loadingstage.show();
 			System.gc();
 			
-			create = new CreateDepGui();
+			create = new CreateDepGui(f);
 			modify = new ModifyDepGui();
 			delete = new DeleteDepGui();
 			new Thread(() -> {
