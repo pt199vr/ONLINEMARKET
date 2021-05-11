@@ -28,6 +28,7 @@ import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
 import onlinemarket.readnwrite.RnW_Product;
 
+
 public class EditorShopStageGui extends VBox{
 	@FXML
 	private Button searchButton, cancelButton;
@@ -132,9 +133,8 @@ public class EditorShopStageGui extends VBox{
 		}
 		
 		create.setOnAction(e -> creation());
-		//modify.setOnAction(e -> modifyDep());
-		//delete.setOnAction(e -> deleteDep());
-		
+		modify.setOnAction(e -> modification());
+		//delete.setOnAction(e -> delete());
 		//profile.setOnAction(e -> showAcc());
 		//editorsAcc.setOnAction(e -> editors());
 		//customersAcc.setOnAction(e->customers());
@@ -222,8 +222,20 @@ public class EditorShopStageGui extends VBox{
 		Main.loadingstage.show();
 		new ActionsStage("create");
 		Main.loadingstage.hide();
-		
-		
+	}
+	
+	private void modification() {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("modify");
+		Main.loadingstage.hide();
+	}
+	
+	private void delete() {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("delete");
+		Main.loadingstage.hide();
 	}
 }
 

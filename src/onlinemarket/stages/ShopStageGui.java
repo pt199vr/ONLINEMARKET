@@ -134,11 +134,11 @@ public class ShopStageGui extends VBox{
 		//Purchases.setOnAction(e -> showPurchases());
 		//Cart.setOnAction(e -> showCart());
 		//profile.setOnAction(e -> showAcc());
-		//ciao
 		//FDC.setOnAction(e -> showFC());
 		//Orders.setOnAction(e -> showOrders());
 		//payment.setOnAction(e -> setPayment());
 		logout.setOnAction(e -> logout());
+		
 		try {
 			for(Thread thread: threads)
 					thread.join();

@@ -5,12 +5,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import onlinemarket.Main;
-import onlinemarket.account.EditorAccount;
 import onlinemarket.actionsgui.*;
 
 public class ActionsStage extends Stage{
 	private BorderPane layout;
-	private CreateGui create;
+	private CreateDepGui create;
+	private ModifyDepGui modify;
+	//private DeleteDepGui delete;
 	
 	
 	public ActionsStage(String s) {
@@ -18,12 +19,17 @@ public class ActionsStage extends Stage{
 			Main.loadingstage.show();
 			System.gc();
 			
+			create = new CreateDepGui();
+			modify = new ModifyDepGui();
 			
 			new Thread(() -> {
 				layout = new BorderPane();
-				create = new CreateGui();
-				if("create".equals(s))
+				if("create".equals(s)) 
 					layout.setCenter(create);
+				if("modify".equals(s))
+					layout.setCenter(modify);
+		
+				
 				
 				setTitle(Main.title);
 				getIcons().add(Main.logo);
