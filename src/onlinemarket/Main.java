@@ -36,7 +36,6 @@ public class Main extends Application{
 		startingstage = new StartingStage();
 		startingstage = null;
 		firststage = new FirstStage();
-		
 		}
 		
 	public static void login() {
