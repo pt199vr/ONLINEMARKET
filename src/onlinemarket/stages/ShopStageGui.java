@@ -208,6 +208,7 @@ public class ShopStageGui extends VBox{
 	
 	@FXML
 	public void logout() {
+		Main.shopstage.close();
 		Main.login();
 	}
 	

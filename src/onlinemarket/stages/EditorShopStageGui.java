@@ -211,6 +211,9 @@ public class EditorShopStageGui extends VBox{
 	}
 	@FXML
 	public void logout() {
+		Main.department.write();
+		Main.product.write();
+		Main.shopstage.close();
 		Main.login();
 	}
 }
