@@ -4,7 +4,7 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import onlinemarket.Main;
+import onlinemarket.Main; 
 import onlinemarket.account.EditorAccount;
 
 public class EditorShopStage extends Stage {

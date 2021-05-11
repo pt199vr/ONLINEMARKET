@@ -131,10 +131,10 @@ public class EditorShopStageGui extends VBox{
 			featuresVB.getChildren().add(cb);
 		}
 		
-		//create.setOnAction(e -> createDep());
+		create.setOnAction(e -> creation());
 		//modify.setOnAction(e -> modifyDep());
 		//delete.setOnAction(e -> deleteDep());
-		//ciao
+		
 		//profile.setOnAction(e -> showAcc());
 		//editorsAcc.setOnAction(e -> editors());
 		//customersAcc.setOnAction(e->customers());
@@ -215,6 +215,15 @@ public class EditorShopStageGui extends VBox{
 		Main.product.write();
 		Main.shopstage.close();
 		Main.login();
+	}
+	
+	private void creation() {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		new ActionsStage("create");
+		Main.loadingstage.hide();
+		
+		
 	}
 }
 
