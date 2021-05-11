@@ -3,15 +3,11 @@ package onlinemarket.stages;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
@@ -26,13 +22,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import onlinemarket.Main;
-import onlinemarket.account.EditorAccount;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
 import onlinemarket.readnwrite.RnW_Product;
 
-public class ShopStageGui extends VBox{
+public class EditorShopStageGui extends VBox{
 	@FXML
 	private Button searchButton, cancelButton;
 	@FXML
@@ -64,7 +59,7 @@ public class ShopStageGui extends VBox{
 	
 	
 	
-	public ShopStageGui() {
+	public EditorShopStageGui() {
 		
 		search="";
 		
@@ -85,7 +80,7 @@ public class ShopStageGui extends VBox{
 			threads.add(thread);
 		});
 		
-		FXMLLoader fxml = new FXMLLoader(getClass().getResource("CustomerShopStage.fxml"));
+		FXMLLoader fxml = new FXMLLoader(getClass().getResource("EditorShopStage.fxml"));
 		fxml.setRoot(this);
 		fxml.setController(this);
 			
@@ -157,7 +152,7 @@ public class ShopStageGui extends VBox{
 		selD.clear();	
 		boolean notFound = true, Found;
 		
-		for(Department d: Main.department) {
+		for(Department d:Main.department) {
 			Found = d.getGui().sort(comp, feat, search);
 			if(Found) {
 				bs.clear();
@@ -210,3 +205,4 @@ public class ShopStageGui extends VBox{
 	
 
 }
+

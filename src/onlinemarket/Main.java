@@ -7,14 +7,23 @@ import java.util.HashMap;
 
 import onlinemarket.stages.*;
 
+<<<<<<< HEAD
 import onlinemarket.departments.Department;
 
+=======
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 import onlinemarket.departments.Department;
+<<<<<<< HEAD
 
 import onlinemarket.readnwrite.*;
 
+=======
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 import onlinemarket.readnwrite.*;
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 import onlinemarket.account.*;
 
 
@@ -57,6 +66,11 @@ public class Main extends Application{
 	public static void shopping(Account t) {
 		loadingstage.hide();
 		shopstage = new ShopStage(t);
+	}
+	public static void EditorShopping(EditorAccount t) {
+		loadingstage.hide();
+		shopstage= new EditorShopStage(t);
+		
 	}
 	
 	public static void main(String[] args) {
