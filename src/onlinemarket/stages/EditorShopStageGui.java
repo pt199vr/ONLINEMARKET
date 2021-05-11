@@ -10,7 +10,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
@@ -45,7 +46,9 @@ public class EditorShopStageGui extends VBox{
 	@FXML
 	private VBox filterVB,mainVB, featuresVB, DepartmentsVB;
 	@FXML
-	private MenuBar MenuB;
+	private Menu Orders,Products;
+	@FXML
+	private MenuItem create,modify,delete,profile,editorsAcc,customersAcc,logout;
 	
 	private ToggleGroup sort;
 	
@@ -57,24 +60,16 @@ public class EditorShopStageGui extends VBox{
 	protected TreeSet<String> feat;
 	private ArrayList<RadioButton> bs = new ArrayList<>();
 	
-	
-	
 	public EditorShopStageGui() {
 		
 		search="";
-		
-		deps = new ArrayList<>();
-		deps.add(new Department("Fruits"));
-		deps.add(new Department("Meat"));
-		deps.add(new Department("Vegetables"));
-		
 		
 		feat = new TreeSet<>();
 		selD = new ArrayList<>();
 		bs = new ArrayList<>();
 		
-		ArrayList<Thread> threads = new ArrayList<>(deps.size());
-		deps.forEach(d->{
+		ArrayList<Thread> threads = new ArrayList<>(Main.department.size());
+		Main.department.forEach(d->{
 			Thread thread = new Thread(() -> d.setGui());
 			thread.start();
 			threads.add(thread);
@@ -135,6 +130,19 @@ public class EditorShopStageGui extends VBox{
 			});
 			featuresVB.getChildren().add(cb);
 		}
+		
+		//create.setOnAction(e -> createDep());
+		//modify.setOnAction(e -> modifyDep());
+		//delete.setOnAction(e -> deleteDep());
+		//ciao
+		//profile.setOnAction(e -> showAcc());
+		//editorsAcc.setOnAction(e -> editors());
+		//customersAcc.setOnAction(e->customers());
+		logout.setOnAction(e -> logout());
+		//Orders.setOnAction(e -> showOrders());
+		//Products.setOnAction(e-> showProducts());
+		
+		
 		try {
 			for(Thread thread: threads)
 					thread.join();
@@ -201,8 +209,10 @@ public class EditorShopStageGui extends VBox{
 		selD.clear();
 		selD.add(dep.getGui());
 	}
-	
-	
-
+	@FXML
+	public void logout() {
+		Main.login();
+	}
 }
+
 

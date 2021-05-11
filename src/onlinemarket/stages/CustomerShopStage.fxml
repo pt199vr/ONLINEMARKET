@@ -22,15 +22,15 @@
    <children>
       <MenuBar>
          <menus>
-            <Menu mnemonicParsing="false" text="Go Buy" />
-            <Menu mnemonicParsing="false" text="Cart" />
+            <Menu fx:id="Purchases" mnemonicParsing="false" text="Purchases" />
+            <Menu fx:id="Cart" mnemonicParsing="false" text="Cart" />
             <Menu mnemonicParsing="false" text="My Account">
                <items>
-                  <MenuItem mnemonicParsing="false" text="My profile" />
-                  <MenuItem mnemonicParsing="false" text="Fidelity Card" />
-                  <MenuItem mnemonicParsing="false" text="My Orders" />
-                  <MenuItem mnemonicParsing="false" text="Payment Method" />
-                  <MenuItem mnemonicParsing="false" text="Logout" />
+                  <MenuItem fx:id="profile" mnemonicParsing="false" text="My profile" />
+                  <MenuItem fx:id="FDC" mnemonicParsing="false" text="Fidelity Card" />
+                  <MenuItem fx:id="Orders" mnemonicParsing="false" text="My Orders" />
+                  <MenuItem fx:id="payment" mnemonicParsing="false" text="Payment Method" />
+                  <MenuItem fx:id="logout" mnemonicParsing="false" text="Logout" />
                </items>
             </Menu>
          </menus>
