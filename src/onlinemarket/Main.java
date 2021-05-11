@@ -36,7 +36,7 @@ public class Main extends Application{
 		startingstage = new StartingStage();
 		startingstage = null;
 		firststage = new FirstStage();
-		}
+	}
 		
 	public static void login() {
 		firststage.close();
@@ -69,12 +69,12 @@ public class Main extends Application{
 		if(editoraccount.read()) {
 			
 			while(b) {
-				b = false;
-				double random = (int)(Math.random() * 1000000);
+				b = true;
+				int random = (int)(Math.random() * 1000000);
 				s += random;
 				for(EditorAccount a : editoraccount) {
 					if(a.getId().equals(s))
-						b = true;
+						b = false;
 				}
 			}
 		}
