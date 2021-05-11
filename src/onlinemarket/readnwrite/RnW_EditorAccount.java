@@ -22,7 +22,7 @@ public class RnW_EditorAccount extends RnW<EditorAccount>{
 		return r + "\n";
 	}
 	
-	public void errorReading() {
-		
+	public void Object() {
+		System.out.println("Editor");
 	}
 }

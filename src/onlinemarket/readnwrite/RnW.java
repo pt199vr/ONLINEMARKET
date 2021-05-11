@@ -39,7 +39,7 @@ public abstract class RnW<T> extends TreeSet<T>{
 		}
 		catch(IOException e) {
 			System.err.println("Filepath problem! " + ((e instanceof FileNotFoundException)? "file not found!\n" : "read failed\n"));
-			errorReading();
+			Object();
 			write();
 			return false;
 		}	
@@ -59,5 +59,7 @@ public abstract class RnW<T> extends TreeSet<T>{
 		return true;
 	}
 	
-	public abstract void errorReading();
+	public abstract void Object();
+	
+	
 }

@@ -27,15 +27,8 @@ public class RnW_Product extends RnW<Product>{
 		return r + "\n";
 	}
 	
-	public void errorReading() {
-		
+	public void Object() {
+		System.out.println("Product");
 	}
 	
-	public void setGui() {
-		gui= new ProductGui(null, null, null);
-	}
-	public ProductGui getGui() {
-		return gui;
-	}
-
 }

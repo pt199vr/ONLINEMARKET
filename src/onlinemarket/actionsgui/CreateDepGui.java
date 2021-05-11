@@ -44,23 +44,29 @@ public class CreateDepGui extends AnchorPane{
 	
 	@FXML
 	private void create() {
-		String name = DepNameT.getText();
-		if(name.isEmpty()) {
+		
+		if(DepNameT.getText().equals("")) {
+			Alert a = new Alert(Alert.AlertType.NONE, "Fill the field", ButtonType.OK);
+			Main.actionstage.hide();
+			a.showAndWait();
+			Main.actionstage.show();
 			return;
 		}
+		String name = DepNameT.getText();
 		
-		for(Department d: Main.department)
-			if(name.equalsIgnoreCase(d.getName())) {
-				
-				return;
+		if(Main.department.read()) {
+			for(Department d : Main.department) {
+				if(name.equalsIgnoreCase(d.getName())) {
+					Alert a = new Alert(Alert.AlertType.NONE, "This departmente already exists", ButtonType.OK);
+					Main.actionstage.hide();
+					a.showAndWait();
+					Main.actionstage.show();
+					return;
+				}
 			}
-		
-		Department d= new Department(name);
-		Main.department.add(d);
-		Main.department.getGui().rfct(d);
-		DepNameT.setText("");
-		
-		new Thread(() -> Main.department.write()).start();
+			Main.department.add(new Department(name));
+			Main.department.write();
+		}		
 	}
 	
 }

@@ -122,7 +122,7 @@ public class EditorProdCreationGui extends AnchorPane {
 		
 		
 		product.setGui();
-		Main.department.getGui().sort();
+		
 		Main.product.write();
 		
 		

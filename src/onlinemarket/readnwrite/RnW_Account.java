@@ -27,8 +27,8 @@ public class RnW_Account extends RnW<Account>{
 		return r + "\n";
 	}
 	
-	public void errorReading() {
-		
+	public void Object() {
+		System.out.println("Account");
 	}
 		
 }

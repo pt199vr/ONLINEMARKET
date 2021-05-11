@@ -56,12 +56,12 @@ public class EditorDeleteDepGui {
 			return;
 		
 		String delDep = DepChoice.getValue();
-		
+		/*
 		if(!Main.department.remove(Main.department.get(delDep))) {
 			wL.setText("Error");
 			return;
 		}
-		
+		*/
 		init();
 		
 		DepDelete.setDisable(Main.department.size() == 1);

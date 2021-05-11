@@ -75,9 +75,9 @@ public class ModifyDepGui extends AnchorPane {
 				wL.setText("This name has been given to another department already");
 				return;
 				}
-		Department dep = Main.department.get(DepChoiceB.getValue());
-		dep.setName(name);
-		Main.department.getGui().rfct(dep);
+		//Department dep = Main.department.get(DepChoiceB.getValue());
+		//dep.setName(name);
+		
 		new Thread(()-> Main.department.write()).start();
 		
 		init();
