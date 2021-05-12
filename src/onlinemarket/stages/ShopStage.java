@@ -9,6 +9,8 @@ import onlinemarket.Main;
 import onlinemarket.account.*;
 import onlinemarket.departments.*;
 
+import onlinemarket.Main;
+
 public class ShopStage extends Stage {
 	
 	private BorderPane layout;
@@ -18,7 +20,7 @@ public class ShopStage extends Stage {
 	public ShopStage(Account t) {
 		
 		for(Department s : Main.department) {
-				s.setGui();
+			Main.depmap.put(s, new DepartmentGui(s));
 		}
 		
 		

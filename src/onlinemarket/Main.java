@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import onlinemarket.stages.*;
 import onlinemarket.departments.Department;
-import onlinemarket.departments.Department;
+import onlinemarket.departments.DepartmentGui;
 import onlinemarket.readnwrite.*;
 import onlinemarket.readnwrite.*;
 import onlinemarket.account.*;
@@ -22,7 +22,8 @@ public class Main extends Application{
 	public static final String mediapath = System.getProperty("user.dir") + "/Media";
 	public static final String store = System.getProperty("user.dir")+"/Store";
 	
-		
+	public static HashMap<Department, DepartmentGui> depmap = new HashMap<>();
+	
 	public static final RnW_EditorAccount editoraccount = new RnW_EditorAccount(path + "/Editors.txt");
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
 	public static final RnW_Department department = new RnW_Department(store + "/Departments.txt");
@@ -31,15 +32,12 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) {
 		loadingstage = new LoadingStage();
-		startingstage = new StartingStage();		
+		startingstage = new StartingStage();
 		firststage = new FirstStage();
-		
 	}
 		
 	public static void login() {
 		firststage.close();
-		startingstage = null;
-		firststage = null;
 		loginstage = new LoginStage();
 	}
 	
@@ -54,7 +52,8 @@ public class Main extends Application{
 	}
 	public static void EditorShopping(EditorAccount t) {
 		loadingstage.hide();
-		shopstage= new EditorShopStage(t);		
+		shopstage= new EditorShopStage(t);
+		
 	}
 	
 	public static void main(String[] args) {

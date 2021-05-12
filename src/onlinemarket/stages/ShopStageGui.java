@@ -70,7 +70,7 @@ public class ShopStageGui extends VBox{
 		
 		ArrayList<Thread> threads = new ArrayList<>(Main.department.size());
 		Main.department.forEach(d->{
-			Thread thread = new Thread(() -> d.setGui());
+			Thread thread = new Thread(() -> Main.depmap.put(d, new DepartmentGui(d)));
 			thread.start();
 			threads.add(thread);
 		});
@@ -85,14 +85,14 @@ public class ShopStageGui extends VBox{
 			throw new RuntimeException(e);
 		}
 		for(Department d: Main.department) {
-			mainVB.getChildren().add(d.getGui());
+			mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setOnMouseClicked(e->{
 					selD.clear();
 					bs.forEach(b->b.setSelected(false));
 					depRB.setSelected(true);
-					selD.add(d.getGui());
+					selD.add(Main.depmap.get(d));
 				});
 				DepartmentsVB.getChildren().add(depRB);	
 		}
@@ -157,23 +157,23 @@ public class ShopStageGui extends VBox{
 		boolean notFound = true, Found;
 		
 		for(Department d: Main.department) {
-			Found = d.getGui().sort(comp, feat, search);
+			Found = Main.depmap.get(d).sort(comp, feat, search);
 			if(Found) {
 				bs.clear();
-				mainVB.getChildren().add(d.getGui());
+				mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setOnMouseClicked(e->{
 					selD.clear();
 					bs.forEach(b->b.setSelected(false));
 					depRB.setSelected(true);
-					selD.add(d.getGui());
+					selD.add(Main.depmap.get(d));
 				});
 				
 				
 			}
 			if(Found) {
-				selD.add(d.getGui());
+				selD.add(Main.depmap.get(d));
 				notFound = false;
 			}
 			
@@ -198,12 +198,11 @@ public class ShopStageGui extends VBox{
 		sort();
 	}
 	
-	public void rfct(Department dep) {
-		dep.setGui();
-		
+	public void rfct(Department d) {
+				
 		cancelFunction();
 		selD.clear();
-		selD.add(dep.getGui());
+		selD.add(Main.depmap.get(d));
 	}
 	
 	@FXML

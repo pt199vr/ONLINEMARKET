@@ -141,7 +141,7 @@ public class EditorShopStageGui extends VBox{
 	private void tt() {
 		Main.department.read();
 		Main.department.forEach(d->{
-			Thread thread = new Thread(() -> d.setGui());
+			Thread thread = new Thread(() -> Main.depmap.put(d, new DepartmentGui(d)));
 			thread.start();
 			threads.add(thread);
 		});
@@ -149,14 +149,14 @@ public class EditorShopStageGui extends VBox{
 	
 	private void tfxml() {
 		for(Department d: Main.department) {
-			mainVB.getChildren().add(d.getGui());
+			mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setOnMouseClicked(e->{
 					selD.clear();
 					bs.forEach(b->b.setSelected(false));
 					depRB.setSelected(true);
-					selD.add(d.getGui());
+					selD.add(Main.depmap.get(d));
 				});
 				DepartmentsVB.getChildren().add(depRB);	
 		}
@@ -170,23 +170,23 @@ public class EditorShopStageGui extends VBox{
 		boolean notFound = true, Found;
 		
 		for(Department d:Main.department) {
-			Found = d.getGui().sort(comp, feat, search);
+			Found = Main.depmap.get(d).sort(comp, feat, search);
 			if(Found) {
 				bs.clear();
-				mainVB.getChildren().add(d.getGui());
+				mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setOnMouseClicked(e->{
 					selD.clear();
 					bs.forEach(b->b.setSelected(false));
 					depRB.setSelected(true);
-					selD.add(d.getGui());
+					selD.add(Main.depmap.get(d));
 				});
 				
 				
 			}
 			if(Found) {
-				selD.add(d.getGui());
+				selD.add(Main.depmap.get(d));
 				notFound = false;
 			}
 			
@@ -212,11 +212,9 @@ public class EditorShopStageGui extends VBox{
 	}
 	
 	public void rfct(Department dep) {
-		dep.setGui();
-		
 		cancelFunction();
 		selD.clear();
-		selD.add(dep.getGui());
+		selD.add(Main.depmap.get(dep));
 	}
 	@FXML
 	public void logout() {
@@ -280,9 +278,8 @@ public class EditorShopStageGui extends VBox{
 	public void checking() {
 		Main.department.read();
 		tt();
-		for(Department s : Main.department) {
-			if(s.getGui() != null)
-				s.setGui();
+		for(Department d : Main.department) {
+			Main.depmap.put(d, new DepartmentGui(d));		
 		}
 		tfxml();
 		
