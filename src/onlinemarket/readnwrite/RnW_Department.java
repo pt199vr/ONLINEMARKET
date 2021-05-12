@@ -1,13 +1,10 @@
 package onlinemarket.readnwrite;
 
 import onlinemarket.departments.Department;
-import onlinemarket.product.ProdComp;
-import onlinemarket.stages.ShopStageGui;
+
 
 public class RnW_Department extends RnW<Department>{
 	private static final long serialVersionUID = 13L;
-	
-	transient private ShopStageGui gui;
 	
 	public RnW_Department(String filepath) {
 		super(filepath);

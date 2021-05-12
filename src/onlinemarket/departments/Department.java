@@ -9,17 +9,11 @@ public class Department implements Comparable<Department>, Comparator<Department
 	private static final long serialVersionUID = 7L;
 	
 	private String name;
-	public final ProdComp prod;
-	
+		
 	public Department(String name) {
-		this(name,new ProdComp());
+		this.name = name;
 	}
-	
-	public Department(String name, ProdComp prod) {
-		this.name=name;
-		this.prod=prod;
-	}
-	
+		
 	public String getName() {
 		return name;
 	}
@@ -49,6 +43,6 @@ public class Department implements Comparable<Department>, Comparator<Department
 	
 	@Override
 	public String toString() {
-		return String.format("%s : %s",name,prod);
+		return String.format("%s",name);
 	}
 }
