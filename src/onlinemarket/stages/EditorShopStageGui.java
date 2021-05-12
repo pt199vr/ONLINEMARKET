@@ -279,9 +279,8 @@ public class EditorShopStageGui extends VBox{
 	public void checking() {
 		tt();
 		for(Department d : Main.department) {
-			Main.depmap.put(d, new DepartmentGui(d));		
+			Main.depmap.put(d, new DepartmentGui(d));	
 		}
-				
 		mainVB.getChildren().clear();
 		tfxml();
 		

@@ -11,8 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import onlinemarket.Main;
-import onlinemarket.departments.Department;
+import onlinemarket.departments.*;
 import onlinemarket.stages.EditorShopStageGui;
+import onlinemarket.product.*;
 
 public class ModifyDepGui extends AnchorPane {
 
@@ -36,16 +37,17 @@ public class ModifyDepGui extends AnchorPane {
 			throw new RuntimeException(e);
 		}
 			
-		modifyDepB.setOnAction(e -> modify());
+		init();
+		modifyDepB.setOnAction(e -> modify(f));
 		
 		modifyDepB.setOnKeyPressed(k ->{
 			if(k.getCode() == KeyCode.ENTER)
-				modify();
+				modify(f);
 		});
 		
 		NewDepNameT.setOnKeyPressed(k->{
 			if(k.getCode() == KeyCode.ENTER)
-				modify();
+				modify(f);
 		});
 	}
 	
@@ -59,7 +61,7 @@ public class ModifyDepGui extends AnchorPane {
 	}
 	
 	@FXML
-	private void modify() {
+	private void modify(EditorShopStageGui f) {
 		String name = NewDepNameT.getText();
 		if(name.isEmpty()) {
 			wL.setText("Fill the new name field");
@@ -76,16 +78,23 @@ public class ModifyDepGui extends AnchorPane {
 				wL.setText("This name has been given to another department already");
 				return;
 				}
-		//Department dep = Main.department.get(DepChoiceB.getValue());
-		//dep.setName(name);
-		
-		new Thread(()-> Main.department.write()).start();
-		
-		init();
-		
-		NewDepNameT.setText("");
-		wL.setText("Finished");
-		
+		Department x = null;
+		for(Department d : Main.department) 
+			if(DepChoiceB.getValue().equalsIgnoreCase(d.getName())) {
+				x = d;
+				d.setName(name);
+				Main.depmap.remove(x);
+				Main.depmap.put(d, new DepartmentGui(d));
+				for(Product p : Main.product) {
+					if(x.equals(Main.prodepmap.get(p))) {
+						Main.prodepmap.put(p, d);
+					}
+				}
+				
+			}
+		Main.department.write();	
+		f.checking();
+		Main.actionstage.hide();		
 	}
 
 }

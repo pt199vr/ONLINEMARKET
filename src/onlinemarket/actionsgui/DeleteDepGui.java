@@ -9,6 +9,8 @@ import javafx.scene.layout.*;
 import onlinemarket.Main;
 import onlinemarket.departments.Department;
 import onlinemarket.stages.EditorShopStageGui;
+import onlinemarket.product.*;
+import java.util.TreeSet;
 
 public class DeleteDepGui extends AnchorPane {
 	
@@ -55,12 +57,24 @@ public class DeleteDepGui extends AnchorPane {
 		String delDep = DepChoice.getValue();
 		
 		Department x = null;
-		
 		for(Department d : Main.department) 
 			if(d.getName().equalsIgnoreCase(delDep)) 
 				x = d;
 		Main.department.remove(x);
-				
+		Main.depmap.remove(x);
+		
+		TreeSet<Product> tree = new TreeSet<Product>();
+		for(Product p : Main.product) {
+			if(x.equals(Main.prodepmap.get(p))) {
+				Main.prodepmap.remove(p);
+				Main.prodmap.remove(p);
+				tree.add(p);
+			}
+		}
+		for(Product c : tree) {
+			Main.product.remove(c);
+		}
+		Main.product.write();
 		Main.department.write();	
 		f.checking();
 		Main.actionstage.hide();
