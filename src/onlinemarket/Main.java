@@ -58,7 +58,7 @@ public class Main extends Application{
 		shopstage= new EditorShopStage(t);
 		
 	}
-	
+		
 	public static void main(String[] args) {
 		launch(args);
 	}

@@ -148,6 +148,7 @@ public class EditorShopStageGui extends VBox{
 	}
 	
 	private void tfxml() {
+		DepartmentsVB.getChildren().clear(); 
 		for(Department d: Main.department) {
 			mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB= new RadioButton(d.getName());
@@ -165,7 +166,7 @@ public class EditorShopStageGui extends VBox{
 	
 	public void sort() {
 
-		mainVB.getChildren().clear();
+	
 		selD.clear();	
 		boolean notFound = true, Found;
 		
@@ -227,14 +228,14 @@ public class EditorShopStageGui extends VBox{
 	private void creation(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("create", f);
+		Main.actionstage = new ActionsStage("create", f);
 		Main.loadingstage.hide();
 	}
 	
 	private void modification(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("modify", f);
+		Main.actionstage = new ActionsStage("modify", f);
 		Main.loadingstage.hide();
 		
 	}
@@ -242,21 +243,21 @@ public class EditorShopStageGui extends VBox{
 	private void delete(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("delete", f);
+		Main.actionstage = new ActionsStage("delete", f);
 		Main.loadingstage.hide();
 	}
 	
 	private void showAcc(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("showaccount", f);
+		Main.actionstage = new ActionsStage("showaccount", f);
 		Main.loadingstage.hide();
 	}
 	
 	private void showEd(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("showeditors", f);
+		Main.actionstage = new ActionsStage("showeditors", f);
 		Main.loadingstage.hide();
 		
 	}
@@ -264,25 +265,27 @@ public class EditorShopStageGui extends VBox{
 	private void customers(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("showcustomers", f);
+		Main.actionstage = new ActionsStage("showcustomers", f);
 		Main.loadingstage.hide();
 	}
 	
 	private void showOrders(EditorShopStageGui f){
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		new ActionsStage("showorders", f);
+		Main.actionstage = new ActionsStage("showorders", f);
 		Main.loadingstage.hide();
 	}
 	
 	public void checking() {
-		Main.department.read();
 		tt();
 		for(Department d : Main.department) {
 			Main.depmap.put(d, new DepartmentGui(d));		
 		}
+				
+		mainVB.getChildren().clear();
 		tfxml();
 		
+		Main.shopstage.show();
 	}
 }
 

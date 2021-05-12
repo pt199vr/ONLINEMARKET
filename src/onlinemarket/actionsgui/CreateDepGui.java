@@ -71,6 +71,7 @@ public class CreateDepGui extends AnchorPane{
 			
 		}		
 		f.checking();
+		Main.actionstage.hide();
 	}
 	
 }

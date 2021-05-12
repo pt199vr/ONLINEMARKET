@@ -20,8 +20,8 @@ public class ActionsStage extends Stage{
 			System.gc();
 			
 			create = new CreateDepGui(f);
-			modify = new ModifyDepGui();
-			delete = new DeleteDepGui();
+			modify = new ModifyDepGui(f);
+			delete = new DeleteDepGui(f);
 			new Thread(() -> {
 				
 				layout = new BorderPane();

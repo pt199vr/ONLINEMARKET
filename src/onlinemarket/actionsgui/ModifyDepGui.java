@@ -12,6 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import onlinemarket.Main;
 import onlinemarket.departments.Department;
+import onlinemarket.stages.EditorShopStageGui;
 
 public class ModifyDepGui extends AnchorPane {
 
@@ -24,7 +25,7 @@ public class ModifyDepGui extends AnchorPane {
 	@FXML
 	private TextField NewDepNameT;
 	
-	public ModifyDepGui() {
+	public ModifyDepGui(EditorShopStageGui f) {
 		
 		FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("DepModify.fxml"));
 		fxmlLoader.setRoot(this);
