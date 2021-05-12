@@ -11,6 +11,7 @@ import onlinemarket.departments.DepartmentGui;
 import onlinemarket.readnwrite.*;
 import onlinemarket.readnwrite.*;
 import onlinemarket.account.*;
+import onlinemarket.product.*;
 
 
 public class Main extends Application{
@@ -23,6 +24,8 @@ public class Main extends Application{
 	public static final String store = System.getProperty("user.dir")+"/Store";
 	
 	public static HashMap<Department, DepartmentGui> depmap = new HashMap<>();
+	public static HashMap<Product, ProductGui> prodmap = new HashMap<>();
+	public static HashMap<Product, Department> prodepmap = new HashMap<>();
 	
 	public static final RnW_EditorAccount editoraccount = new RnW_EditorAccount(path + "/Editors.txt");
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
