@@ -31,7 +31,7 @@ public class Department implements Comparable<Department>, Comparator<Department
 	}
 	
 	public void setGui() {
-		gui = new DepartmentGui(new Department(name));
+		gui = new DepartmentGui(this);
 	}
 
 	public DepartmentGui getGui() {

@@ -139,6 +139,7 @@ public class EditorShopStageGui extends VBox{
 	}
 	
 	private void tt() {
+		Main.department.read();
 		Main.department.forEach(d->{
 			Thread thread = new Thread(() -> d.setGui());
 			thread.start();
@@ -279,7 +280,12 @@ public class EditorShopStageGui extends VBox{
 	public void checking() {
 		Main.department.read();
 		tt();
-		tfxml();		
+		for(Department s : Main.department) {
+			if(s.getGui() != null)
+				s.setGui();
+		}
+		tfxml();
+		
 	}
 }
 
