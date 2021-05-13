@@ -134,9 +134,9 @@ public class ShopStageGui extends VBox{
 		//Purchases.setOnAction(e -> showPurchases());
 		//Cart.setOnAction(e -> showCart());
 		//profile.setOnAction(e -> showAcc());
-		//FDC.setOnAction(e -> showFC());
+		FDC.setOnAction(e -> showFC(this));
 		//Orders.setOnAction(e -> showOrders());
-		//payment.setOnAction(e -> setPayment());
+		payment.setOnAction(e -> setPayment(this));
 		logout.setOnAction(e -> logout());
 		
 		try {
@@ -210,6 +210,20 @@ public class ShopStageGui extends VBox{
 	public void logout() {
 		Main.shopstage.close();
 		Main.login();
+	}
+	
+	public void showFC(ShopStageGui f) {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		Main.actionstage = new ActionsStage("fidelity",f);
+		Main.loadingstage.hide();
+	}
+	
+	public void setPayment(ShopStageGui f) {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		Main.actionstage = new ActionsStage("payment",f);
+		Main.loadingstage.hide();
 	}
 	
 }

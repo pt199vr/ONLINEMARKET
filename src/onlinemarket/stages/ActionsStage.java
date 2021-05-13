@@ -6,12 +6,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import onlinemarket.Main;
 import onlinemarket.actionsgui.*;
+import onlinemarket.fidelitycard.FDCViewGui;
+import onlinemarket.payment.PaymentMethodGui;
 
 public class ActionsStage extends Stage{
 	private BorderPane layout;
 	private CreateDepGui create;
 	private ModifyDepGui modify;
 	private DeleteDepGui delete;
+	private FDCViewGui fdc;
+	private PaymentMethodGui payment;
 	
 	
 	public ActionsStage(String s, EditorShopStageGui f) {
@@ -51,8 +55,8 @@ public class ActionsStage extends Stage{
 				
 				setTitle(Main.title);
 				getIcons().add(Main.logo);
-				setHeight(768);
-				setWidth(1024);
+				setHeight(400);
+				setWidth(600);
 				setResizable(true);
 				Platform.runLater(()->{
 					setScene(new Scene(layout));
@@ -67,5 +71,38 @@ public class ActionsStage extends Stage{
 			}).start();
 		
 
+	}
+	
+	public ActionsStage(String s, ShopStageGui f) {
+		
+		Main.loadingstage.show();
+		System.gc();
+		fdc = new FDCViewGui(f);
+		payment = new PaymentMethodGui(f);
+		
+		new Thread(()->{
+			layout = new BorderPane();
+			if("fidelity".equals(s))
+				layout.setCenter(fdc);
+			if("payment".equals(s))
+				layout.setCenter(payment);
+		
+			setTitle(Main.title);
+			getIcons().add(Main.logo);
+			setHeight(400);
+			setWidth(600);
+			setResizable(true);
+			Platform.runLater(()->{
+				setScene(new Scene(layout));
+				show();
+				Main.loadingstage.hide();
+			});
+			
+			setOnCloseRequest(e -> {
+				Main.shopstage.show();					
+			});
+		
+		}).start();
+	
 	}
 }
