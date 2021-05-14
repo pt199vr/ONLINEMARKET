@@ -153,6 +153,7 @@ public class EditorShopStageGui extends VBox{
 			mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
+				depRB.setMinHeight(20);
 				depRB.setOnMouseClicked(e->{
 					selD.clear();
 					bs.forEach(b->b.setSelected(false));
