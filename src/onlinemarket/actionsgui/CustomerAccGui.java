@@ -38,17 +38,17 @@ public class CustomerAccGui extends AnchorPane{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-		NameT.setText(f.getAccount().getName());
-		SurnameT.setText(f.getAccount().getSurname());
-		MailT.setText(f.getAccount().getEmail().toString());
-		PasswordT.setText(f.getAccount().getPassword().toString());
-		CityT.setText(f.getAccount().getAddress().getCity());
-		StreetT.setText(f.getAccount().getAddress().getStreet());
-		NrT.setText(f.getAccount().getAddress().getNumber());
-		CAPT.setText(f.getAccount().getAddress().getCap().toString());
-		CelT.setText(f.getAccount().getPhoneNumber().toString());
-		
 		Account acc = f.getAccount();
+		
+		NameT.setText(acc.getName());
+		SurnameT.setText(acc.getSurname());
+		MailT.setText(acc.getEmail().toString());
+		PasswordT.setText(acc.getPassword().toString());
+		CityT.setText(acc.getAddress().getCity());
+		StreetT.setText(acc.getAddress().getStreet());
+		NrT.setText(acc.getAddress().getNumber());
+		CAPT.setText(acc.getAddress().getCap().toString());
+		CelT.setText(acc.getPhoneNumber().toString());
 
 		DeleteB.setOnAction(e -> delete());
 		DeleteB.setOnKeyPressed(e->{
@@ -75,10 +75,10 @@ public class CustomerAccGui extends AnchorPane{
 			if(mail.equals(x.getEmail().toString()) && pass.equals(x.getPassword().toString()))
 				t = x;
 		}
-		
 		Main.account.remove(t);
 		Main.account.write();
 		
+		Main.actionstage.close();
 		Main.login();
 		
 	}
@@ -100,13 +100,22 @@ public class CustomerAccGui extends AnchorPane{
 		
 		Address addr = new Address(street,CityT.getText(),CAP);
 		Account newAcc = new Account(name,surname,mail,pass,cel,addr);
+		Account oldAcc = null;
 		for(Account x :Main.account) {
-			if(x.equals(acc))
-				acc = newAcc;
+			if(x.equals(acc)) {
+				oldAcc = acc;
+			}
 		}
 		
+		
+		Main.account.remove(oldAcc);
+		Main.account.add(newAcc);
 		Main.account.write();
 		
+		
+		
+		Main.actionstage.hide();
+		Main.shopstage.show();
 		
 	}
 	private Integer checkCAP() {

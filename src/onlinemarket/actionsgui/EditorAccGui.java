@@ -47,11 +47,19 @@ public class EditorAccGui extends AnchorPane{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-		EditorAccount Acc = f.getAccount();
-		ConfirmB.setOnAction(e -> mod(Acc));
+		
+		EditorAccount acc = f.getAccount();
+
+		NameT.setText(acc.getName());
+		SurnameT.setText(acc.getSurname());
+		MailT.setText(acc.getEmail().toString());
+		PasswordT.setText(acc.getPassword().toString());
+		CelT.setText(acc.getPhoneNumber().toString());
+		
+		ConfirmB.setOnAction(e -> mod(acc));
 		ConfirmB.setOnKeyPressed(e->{
 			if(e.getCode() == KeyCode.ENTER)
-				mod(Acc);
+				mod(acc);
 		});
 		
 	}
@@ -88,6 +96,8 @@ public class EditorAccGui extends AnchorPane{
 		}
 		
 		Main.editoraccount.write();
+		Main.actionstage.hide();
+		Main.shopstage.show();
 		
 		
 		

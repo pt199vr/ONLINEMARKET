@@ -73,6 +73,8 @@ public class RegistrationGui extends AnchorPane{
 			return;
 		}
 		
+		Account account;
+		
 		try {
 			String name = NameT.getText(), surname = SurnameT.getText(), city = CityT.getText(),  address = AddrT.getText();
 			Email email = new Email(MailT.getText()); 
@@ -96,7 +98,7 @@ public class RegistrationGui extends AnchorPane{
 				Main.registrationstage.show();
 				return;
 			}
-			Account account = new Account(name, surname, email, password, phonenumber, where);
+			account = new Account(name, surname, email, password, phonenumber, where);
 			
 			
 			try {
@@ -122,6 +124,7 @@ public class RegistrationGui extends AnchorPane{
 			Main.registrationstage.show();
 			return;
 		}
+		Main.shopping(account);
 	}
 	
 	private void checkAll(String name, String surname, Long phonenumber, Integer cap, String city, String address) throws IllegalArgumentException{

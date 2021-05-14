@@ -10,19 +10,19 @@
    <children>
       <MenuBar>
         <menus>
-          <Menu fx:id="createEditor" mnemonicParsing="false" text="Create" />
-          <Menu fx:id="ModifyEditor" mnemonicParsing="false" text="Modify" />
-          <Menu fx:id="DeleteEditor" mnemonicParsing="false" text="Delete" />
+          <Menu fx:id="CreateEditor" mnemonicParsing="false" text="Create" />
+          <Menu fx:id="ModifyEditor" disable="true" mnemonicParsing="false" text="Modify" />
+          <Menu fx:id="DeleteEditor" disable="true" mnemonicParsing="false" text="Delete" />
         </menus>
       </MenuBar>
       <TableView layoutY="22.0" prefHeight="410.0" prefWidth="532.0">
          <columns>
-            <TableColumn prefWidth="73.0" text="Nome" />
-            <TableColumn prefWidth="77.0" text="Cognome" />
-            <TableColumn prefWidth="113.0" text="Email" />
-            <TableColumn prefWidth="72.0" text="ID" />
-            <TableColumn prefWidth="65.0" text="Role" />
-            <TableColumn prefWidth="130.0" text="Telephone" />
+            <TableColumn fx:id="nameCol" prefWidth="73.0" text="Name" />
+            <TableColumn fx:id="surnameCol" prefWidth="77.0" text="Surname" />
+            <TableColumn fx:id="mailCol" prefWidth="113.0" text="Email" />
+            <TableColumn fx:id="IDCol" prefWidth="72.0" text="ID" />
+            <TableColumn fx:id="RoleCol" prefWidth="65.0" text="Role" />
+            <TableColumn fx:id="CelCol" prefWidth="130.0" text="Telephone" />
          </columns>
       </TableView>
    </children>
