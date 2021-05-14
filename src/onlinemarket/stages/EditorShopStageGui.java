@@ -260,7 +260,6 @@ public class EditorShopStageGui extends VBox{
 		Main.loadingstage.show();
 		Main.actionstage = new ActionsStage("showeditors", f);
 		Main.loadingstage.hide();
-		
 	}
 	
 	private void customers(EditorShopStageGui f) {
