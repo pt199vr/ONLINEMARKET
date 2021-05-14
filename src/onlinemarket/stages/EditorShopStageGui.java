@@ -55,7 +55,7 @@ public class EditorShopStageGui extends VBox{
 	
 	protected Comparator<Product> comp;
 	protected String search;
-	
+	//
 	protected ArrayList<Department> deps;
 	private ArrayList<DepartmentGui> selD;
 	protected TreeSet<String> feat;
