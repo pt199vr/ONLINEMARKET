@@ -10,10 +10,17 @@ import onlinemarket.fidelitycard.FDCViewGui;
 import onlinemarket.payment.PaymentMethodGui;
 
 public class ActionsStage extends Stage{
+	
 	private BorderPane layout;
+	
 	private CreateDepGui create;
 	private ModifyDepGui modify;
 	private DeleteDepGui delete;
+	private EditorAccGui editor;
+	private EditorsTableGui editorsAcc;
+	private CustomersTableGui customersAcc;
+	
+	private CustomerAccGui customer;
 	private FDCViewGui fdc;
 	private PaymentMethodGui payment;
 	
@@ -26,6 +33,11 @@ public class ActionsStage extends Stage{
 			create = new CreateDepGui(f);
 			modify = new ModifyDepGui(f);
 			delete = new DeleteDepGui(f);
+			editor = new EditorAccGui(f); 
+			editorsAcc = new EditorsTableGui(f);
+			customersAcc = new CustomersTableGui(f);
+			
+			
 			new Thread(() -> {
 				
 				layout = new BorderPane();
@@ -40,13 +52,13 @@ public class ActionsStage extends Stage{
 					layout.setCenter(delete);
 				}
 				if("showaccount".equals(s)) {					
-					layout.setCenter(modify);
+					layout.setCenter(editor);
 				}
 				if("showeditors".equals(s)) {					
-					layout.setCenter(modify);
+					layout.setCenter(editorsAcc);
 				}
 				if("showcustomers".equals(s)) {					
-					layout.setCenter(modify);
+					layout.setCenter(customersAcc);
 				}
 				if("showorders".equals(s)) {					
 					layout.setCenter(modify);
@@ -77,8 +89,10 @@ public class ActionsStage extends Stage{
 		
 		Main.loadingstage.show();
 		System.gc();
+		
 		fdc = new FDCViewGui(f);
 		payment = new PaymentMethodGui(f);
+		customer = new CustomerAccGui(f);
 		
 		new Thread(()->{
 			layout = new BorderPane();
@@ -86,6 +100,8 @@ public class ActionsStage extends Stage{
 				layout.setCenter(fdc);
 			if("payment".equals(s))
 				layout.setCenter(payment);
+			if("showaccount".equals(s))
+				layout.setCenter(customer);
 		
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
