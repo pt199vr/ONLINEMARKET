@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.TreeSet;
 
 import onlinemarket.Main;
-
+import onlinemarket.account.Account;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -60,9 +60,11 @@ public class ShopStageGui extends VBox{
 	protected TreeSet<String> feat;
 	private ArrayList<RadioButton> bs = new ArrayList<>();
 	
+	private Account t;
 	
-	
-	public ShopStageGui() {
+	public ShopStageGui(Account t) {
+		
+		this.t = t;
 		
 		search="";
 		feat = new TreeSet<>();
@@ -232,6 +234,11 @@ public class ShopStageGui extends VBox{
 		Main.loadingstage.show();
 		Main.actionstage = new ActionsStage("showaccount",f);
 		Main.loadingstage.hide();
+	}
+
+
+	public Account getAccount() {
+		return t ;
 	}
 	
 }

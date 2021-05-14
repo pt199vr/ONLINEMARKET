@@ -18,13 +18,12 @@ public class EditorShopStage extends Stage {
 		
 		Main.loadingstage.show();
 		System.gc();
-		this.t = t;
 		
 		listFiles(new File(Main.mediapath));
 				
 		new Thread(() -> {
 			layout = new BorderPane();
-			shopgui = new EditorShopStageGui();
+			shopgui = new EditorShopStageGui(t);
 			layout.setCenter(shopgui);
 			
 			setTitle(Main.title);

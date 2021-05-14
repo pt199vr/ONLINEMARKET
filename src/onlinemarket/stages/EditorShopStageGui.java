@@ -23,6 +23,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import onlinemarket.Main;
+import onlinemarket.account.EditorAccount;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
@@ -62,8 +63,11 @@ public class EditorShopStageGui extends VBox{
 	private ArrayList<RadioButton> bs = new ArrayList<>();
 	private ArrayList<Thread> threads = new ArrayList<Thread>();
 	
-	public EditorShopStageGui() {
+	private EditorAccount t;
+	
+	public EditorShopStageGui(EditorAccount t) {
 		
+		this.t = t;
 		search="";
 		
 		feat = new TreeSet<>();
@@ -285,6 +289,10 @@ public class EditorShopStageGui extends VBox{
 		tfxml();
 		
 		Main.shopstage.show();
+	}
+
+	public EditorAccount getAccount() {
+		return t;
 	}
 }
 

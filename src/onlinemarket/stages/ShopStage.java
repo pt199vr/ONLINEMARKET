@@ -31,7 +31,7 @@ public class ShopStage extends Stage {
 		
 		new Thread(() -> {
 			layout = new BorderPane();
-			shopgui = new ShopStageGui();
+			shopgui = new ShopStageGui(t);
 			layout.setCenter(shopgui);
 			
 			setTitle(Main.title);
@@ -52,8 +52,4 @@ public class ShopStage extends Stage {
 			
 		}).start();
 	}
-	
-
-	
-
 }
