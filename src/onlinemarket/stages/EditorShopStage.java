@@ -51,5 +51,5 @@ public class EditorShopStage extends Stage {
 			Main.pictures.add(fileEntry.getName());
 		}
 	}
-
+//
 }
