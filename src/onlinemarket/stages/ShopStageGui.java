@@ -133,7 +133,7 @@ public class ShopStageGui extends VBox{
 		
 		//Purchases.setOnAction(e -> showPurchases());
 		//Cart.setOnAction(e -> showCart());
-		//profile.setOnAction(e -> showAcc());
+		profile.setOnAction(e -> showAcc(this));
 		FDC.setOnAction(e -> showFC(this));
 		//Orders.setOnAction(e -> showOrders());
 		payment.setOnAction(e -> setPayment(this));
@@ -223,6 +223,13 @@ public class ShopStageGui extends VBox{
 		Main.shopstage.hide();
 		Main.loadingstage.show();
 		Main.actionstage = new ActionsStage("payment",f);
+		Main.loadingstage.hide();
+	}
+	
+	public void showAcc(ShopStageGui f) {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		Main.actionstage = new ActionsStage("showaccount",f);
 		Main.loadingstage.hide();
 	}
 	
