@@ -49,7 +49,6 @@ public class EditorShopStage extends Stage {
 	public void listFiles(final File folder) {
 		for(File fileEntry : folder.listFiles()) {
 			Main.pictures.add(fileEntry.getName());
-			//
 		}
 	}
 
