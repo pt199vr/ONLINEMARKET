@@ -58,7 +58,6 @@ public class Main extends Application{
 	public static void EditorShopping(EditorAccount t) {
 		loadingstage.hide();
 		shopstage= new EditorShopStage(t);
-		
 	}
 		
 	public static void main(String[] args) {
