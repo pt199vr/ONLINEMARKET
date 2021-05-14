@@ -1,5 +1,6 @@
 package onlinemarket.stages;
-
+import java.io.File;
+import java.nio.file.Files;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -22,8 +23,7 @@ public class ShopStage extends Stage {
 		for(Department s : Main.department) {
 			Main.depmap.put(s, new DepartmentGui(s));
 		}
-		
-		
+			
 		Main.loadingstage.show();
 		System.gc();
 		this.t = t;
@@ -51,5 +51,8 @@ public class ShopStage extends Stage {
 			
 		}).start();
 	}
+	
+
+	
 
 }

@@ -1,5 +1,7 @@
 package onlinemarket.stages;
 
+import java.io.File;
+
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -18,6 +20,8 @@ public class EditorShopStage extends Stage {
 		System.gc();
 		this.t = t;
 		
+		listFiles(new File(Main.mediapath));
+				
 		new Thread(() -> {
 			layout = new BorderPane();
 			shopgui = new EditorShopStageGui();
@@ -42,5 +46,10 @@ public class EditorShopStage extends Stage {
 		}).start();
 	}
 
+	public void listFiles(final File folder) {
+		for(File fileEntry : folder.listFiles()) {
+			Main.pictures.add(fileEntry.getName());
+		}
+	}
 
 }

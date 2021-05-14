@@ -25,7 +25,7 @@ public class StartingStage extends Stage{
 		 Main.department.read();
 		 Main.product.read();
 		 checkPath();
-		 Main.loadingstage.show();	
+		 Main.loadingstage.show();
 		 
 	}
 	
