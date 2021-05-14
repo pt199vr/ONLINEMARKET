@@ -38,6 +38,15 @@ public class CustomerAccGui extends AnchorPane{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+		NameT.setText(f.getAccount().getName());
+		SurnameT.setText(f.getAccount().getSurname());
+		MailT.setText(f.getAccount().getEmail().toString());
+		PasswordT.setText(f.getAccount().getPassword().toString());
+		CityT.setText(f.getAccount().getAddress().getCity());
+		StreetT.setText(f.getAccount().getAddress().getStreet());
+		NrT.setText(f.getAccount().getAddress().getNumber());
+		CAPT.setText(f.getAccount().getAddress().getCap().toString());
+		CelT.setText(f.getAccount().getPhoneNumber().toString());
 		
 		Account acc = f.getAccount();
 

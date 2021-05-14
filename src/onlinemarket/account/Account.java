@@ -46,12 +46,8 @@ public class Account implements Serializable, Comparable<Account>{
 		return cap;
 	}
 	
-	public String getCity() {
-		return city;
-	}
-	
-	public String getAddress() {
-		return address.toString();
+	public Address getAddress() {
+		return address;
 	}
 
 	public boolean login(Account logger) {
