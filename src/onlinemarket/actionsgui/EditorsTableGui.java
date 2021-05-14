@@ -1,9 +1,10 @@
 package onlinemarket.actionsgui;
 
 import java.io.IOException;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import javafx.scene.input.*;
+import javafx.scene.layout.*;
 import onlinemarket.stages.EditorShopStageGui;
 
 public class EditorsTableGui extends AnchorPane{
