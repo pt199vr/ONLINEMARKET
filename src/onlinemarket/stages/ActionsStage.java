@@ -33,9 +33,9 @@ public class ActionsStage extends Stage{
 			create = new CreateDepGui(f);
 			modify = new ModifyDepGui(f);
 			delete = new DeleteDepGui(f);
-			editor = new EditorAccGui(); 
-			editorsAcc = new EditorsTableGui();
-			customersAcc = new CustomersTableGui();
+			editor = new EditorAccGui(f); 
+			editorsAcc = new EditorsTableGui(f);
+			customersAcc = new CustomersTableGui(f);
 			
 			
 			new Thread(() -> {
@@ -92,7 +92,7 @@ public class ActionsStage extends Stage{
 		
 		fdc = new FDCViewGui(f);
 		payment = new PaymentMethodGui(f);
-		customer = new CustomerAccGui();
+		customer = new CustomerAccGui(f);
 		
 		new Thread(()->{
 			layout = new BorderPane();

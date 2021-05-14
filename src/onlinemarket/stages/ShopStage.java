@@ -7,6 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import onlinemarket.Main;
+
 import onlinemarket.account.*;
 import onlinemarket.departments.*;
 

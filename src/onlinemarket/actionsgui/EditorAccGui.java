@@ -4,10 +4,11 @@ import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import onlinemarket.stages.EditorShopStageGui;
 
 public class EditorAccGui extends AnchorPane{
 	
-	public EditorAccGui() {
+	public EditorAccGui(EditorShopStageGui f) {
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditorAccountView.fxml"));
 		fxmlLoader.setRoot(this);
