@@ -15,12 +15,12 @@
       </MenuBar>
       <TableView layoutY="23.0" prefHeight="409.0" prefWidth="532.0">
         <columns>
-          <TableColumn prefWidth="73.0" text="Nome" />
-            <TableColumn prefWidth="77.0" text="Cognome" />
-            <TableColumn prefWidth="113.0" text="Email" />
-            <TableColumn prefWidth="72.0" text="Card Date" />
-            <TableColumn prefWidth="65.0" text="Points" />
-            <TableColumn prefWidth="130.0" text="Telephone" />
+          <TableColumn fx:id= "nameCol" prefWidth="73.0" text="Nome" />
+            <TableColumn fx:id= "surnameCol" prefWidth="77.0" text="Cognome" />
+            <TableColumn fx:id= "mailCol" prefWidth="113.0" text="Email" />
+            <TableColumn fx:id= "CardCol" prefWidth="72.0" text="Card Date" />
+            <TableColumn fx:id= "pointsCol" prefWidth="65.0" text="Points" />
+            <TableColumn fx:id= "CelCol" prefWidth="130.0" text="Telephone" />
         </columns>
       </TableView>
    </children>

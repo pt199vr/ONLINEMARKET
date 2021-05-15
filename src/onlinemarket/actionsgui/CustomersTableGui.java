@@ -29,9 +29,9 @@ public class CustomersTableGui extends AnchorPane{
 	private TableColumn<Account,Long> CelCol;
 	
 	@FXML
-	private MenuItem CreateEditor, ModifyEditor,DeleteEditor;
+	private MenuItem DeleteEditor;
 	
-	public CustomersTableGui(EditorShopStageGui f) {
+	public CustomersTableGui() {
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CustomersAccounts.fxml"));
 		fxmlLoader.setRoot(this);
@@ -45,18 +45,17 @@ public class CustomersTableGui extends AnchorPane{
 		
 		customers = new TableView<Account>();
 		Main.account.read();
-			/*
-			mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-			nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-			surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
-			CelCol.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
-			*/
-		init();
-			
-		customers.setItems(FXCollections.observableArrayList(Main.account));
-		customers.getColumns().forEach(c ->{
-				c.setEditable(false);
-		});
+		//
+	
+		mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+		nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+		surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
+		CelCol.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+		
+		ObservableList<Account> data = FXCollections.observableArrayList();	
+		for(Account a : Main.account)
+			data.add(a);
+		customers.setItems(data);
 			
 		customers.getSelectionModel().getSelectedItems().addListener(
 				(ListChangeListener.Change<? extends Account> change)-> select(change.getList()));

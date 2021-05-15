@@ -35,7 +35,7 @@ public class ActionsStage extends Stage{
 			delete = new DeleteDepGui(f);
 			editor = new EditorAccGui(f); 
 			editorsAcc = new EditorsTableGui(f);
-			customersAcc = new CustomersTableGui(f);
+			customersAcc = new CustomersTableGui();
 			
 			
 			new Thread(() -> {

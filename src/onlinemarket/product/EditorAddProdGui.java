@@ -17,6 +17,9 @@ public class EditorAddProdGui {
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+		
+		
+		
 	}
 
 }
