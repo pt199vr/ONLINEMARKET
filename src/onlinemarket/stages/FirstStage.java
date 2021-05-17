@@ -5,6 +5,7 @@ import onlinemarket.account.Address;
 import onlinemarket.account.EditorAccount;
 import onlinemarket.account.Email;
 import onlinemarket.account.Password;
+import onlinemarket.account.Role;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,7 +68,7 @@ public class FirstStage extends Stage{
 							return;
 				}
 				EditorAccount host = new EditorAccount("OM429676", "Pietro", "Turco", new Email("pietro.turco_01@studenti.univr.it"),
-						new Password("Ciccio99"), Long.parseLong("3665228025"), new Address("Via Trota", "Verona", 9));
+						new Password("Ciccio99"), Long.parseLong("3665228025"), new Address("Via Trota", "Verona", 9), Role.ADMIN);
 				Main.editoraccount.add(host);
 				Main.editoraccount.write();
 			}

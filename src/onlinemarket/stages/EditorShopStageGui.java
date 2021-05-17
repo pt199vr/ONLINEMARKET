@@ -7,7 +7,9 @@ import java.util.TreeSet;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -22,8 +24,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import onlinemarket.Main;
 import onlinemarket.account.EditorAccount;
+import onlinemarket.account.Role;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
@@ -262,7 +266,13 @@ public class EditorShopStageGui extends VBox{
 	private void showEd(EditorShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		Main.actionstage = new ActionsStage("showeditors", f);
+		if(f.t.getRole() == Role.ADMIN)
+			Main.actionstage = new ActionsStage("showeditors", f);
+		else {
+			Alert a = new Alert(Alert.AlertType.NONE, "You must be an admin to access to this part", ButtonType.OK);
+			a.initModality(Modality.APPLICATION_MODAL);
+			a.showAndWait();		
+		}
 		Main.loadingstage.hide();
 	}
 	

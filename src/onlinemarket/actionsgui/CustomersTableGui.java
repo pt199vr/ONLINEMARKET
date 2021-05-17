@@ -45,7 +45,7 @@ public class CustomersTableGui extends AnchorPane{
 		
 		customers = new TableView<Account>();
 		Main.account.read();
-		//
+		
 	
 		mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
 		nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));

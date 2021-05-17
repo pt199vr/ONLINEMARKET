@@ -23,6 +23,7 @@ import onlinemarket.account.EditorAccount;
 import onlinemarket.account.Email;
 import onlinemarket.account.Password;
 import onlinemarket.stages.EditorShopStageGui;
+import onlinemarket.account.Role;
 
 public class EditorAccGui extends AnchorPane{
 	@FXML
@@ -89,7 +90,7 @@ public class EditorAccGui extends AnchorPane{
 			return;
 		}
 		Address addr= new Address("", "", 1);
-		EditorAccount newAcc = new EditorAccount(id,name,surname,mail,pass,cel,addr);
+		EditorAccount newAcc = new EditorAccount(id,name,surname,mail,pass,cel,addr, Role.EDITOR);
 		for(Account x :Main.editoraccount) {
 			if(x.equals(Acc))
 				Acc = newAcc;
