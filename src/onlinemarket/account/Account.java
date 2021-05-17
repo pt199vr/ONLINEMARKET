@@ -19,7 +19,7 @@ public class Account implements Serializable, Comparable<Account>{
 		this.password = password;
 		this.phoneNumber = phonenumber;
 		this.address = address;
-		}	
+	}	
 
 	
 	public String getName() {

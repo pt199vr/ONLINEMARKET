@@ -20,7 +20,7 @@ public class EditorAccount extends Account{
 	}
 	
 	public String toString() {
-		String s = getId() + "||" + getName()+ "||" + getSurname() + "||" + getEmail().toString() + "||" + getPassword().toString() + "||" + getPhoneNumber() + "||" + address.toString();
+		String s = role.toString() + " " + getId() + "||" + getName()+ "||" + getSurname() + "||" + getEmail().toString() + "||" + getPassword().toString() + "||" + getPhoneNumber() + "||" + address.toString();
 		return s; 
 	}
 	

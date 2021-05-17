@@ -10,7 +10,7 @@ import onlinemarket.Main;
 
 import onlinemarket.account.*;
 import onlinemarket.departments.*;
-
+import onlinemarket.fidelitycard.*;
 import onlinemarket.Main;
 
 public class ShopStage extends Stage {
@@ -28,6 +28,7 @@ public class ShopStage extends Stage {
 		Main.loadingstage.show();
 		System.gc();
 		this.t = t;
+		fidelityCard();
 		
 		new Thread(() -> {
 			layout = new BorderPane();
@@ -51,5 +52,20 @@ public class ShopStage extends Stage {
 			});
 			
 		}).start();
+	}
+	
+	private void fidelityCard() {
+	
+		for(FidelityCard f : Main.fidelitycard) {
+			if(f.getAccount().equals(t.toString())) {
+				return;
+			}
+		}
+		Main.fidelitycard.add(new FidelityCard(t));
+		System.out.println(Main.fidelitycard.toString());
+		Main.fidelitycard.write();
+		
+		
+	
 	}
 }

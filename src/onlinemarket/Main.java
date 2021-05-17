@@ -13,6 +13,7 @@ import onlinemarket.readnwrite.*;
 import onlinemarket.readnwrite.*;
 import onlinemarket.account.*;
 import onlinemarket.product.*;
+import onlinemarket.fidelitycard.*;;
 
 
 public class Main extends Application{
@@ -32,6 +33,7 @@ public class Main extends Application{
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");
 	public static final RnW_Department department = new RnW_Department(store + "/Departments.txt");
 	public static final RnW_Product product = new RnW_Product(store + "/Products.txt");
+	public static final RnW_FidelityCard fidelitycard = new RnW_FidelityCard(store + "/FC.txt");
 	public static final TreeSet<String> pictures = new TreeSet<>();
 
 	@Override
@@ -64,6 +66,27 @@ public class Main extends Application{
 		launch(args);
 	}
 	
+	public static String createFidelityId() {
+		boolean b = true;
+		String s ="";
+		
+		
+		if(fidelitycard.read()) {
+			
+			while(b) {
+				b = false;
+				s += (int)(Math.random() * 100000000);
+				for(FidelityCard a : fidelitycard) {
+					if(a.getCardId().equals(s)) {
+						s = "";
+						b = true;
+					}
+				}
+			}
+		}
+		return s;
+	}
+	
 	public String createId() {
 		boolean b = true;
 		String s = "OM";
@@ -71,12 +94,15 @@ public class Main extends Application{
 		if(editoraccount.read()) {
 			
 			while(b) {
-				b = true;
+				b = false;
 				int random = (int)(Math.random() * 1000000);
 				s += random;
 				for(EditorAccount a : editoraccount) {
-					if(a.getId().equals(s))
-						b = false;
+					if(a.getId().equals(s)) {
+						s = "OM";
+						b = true;
+					}
+						
 				}
 			}
 		}

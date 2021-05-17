@@ -1,8 +1,7 @@
 package onlinemarket.readnwrite;
 
-import onlinemarket.Main;
-import onlinemarket.account.*;
 
+import onlinemarket.account.*;
 
 public class RnW_EditorAccount extends RnW<EditorAccount>{
 	private static final long serialVersionUID = 12L;

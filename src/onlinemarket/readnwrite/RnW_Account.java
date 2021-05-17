@@ -3,8 +3,6 @@ package onlinemarket.readnwrite;
 
 import onlinemarket.account.*;
 
-
-
 public class RnW_Account extends RnW<Account>{
 	private static final long serialVersionUID = 4L;
 

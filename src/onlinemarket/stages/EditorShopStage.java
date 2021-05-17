@@ -8,6 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import onlinemarket.Main; 
 import onlinemarket.account.EditorAccount;
+import onlinemarket.fidelitycard.FidelityCard;
 
 public class EditorShopStage extends Stage {
 	private BorderPane layout;
@@ -18,6 +19,7 @@ public class EditorShopStage extends Stage {
 		
 		Main.loadingstage.show();
 		System.gc();
+		this.t = t;
 		
 		listFiles(new File(Main.mediapath));
 				
@@ -50,5 +52,7 @@ public class EditorShopStage extends Stage {
 			Main.pictures.add(fileEntry.getName());
 		}
 	}
-//
+	
+	
+
 }

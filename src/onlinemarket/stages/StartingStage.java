@@ -15,7 +15,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import onlinemarket.*;
+import onlinemarket.fidelitycard.FidelityCard;
+
 
 public class StartingStage extends Stage{
 
@@ -24,6 +25,8 @@ public class StartingStage extends Stage{
 		 Main.editoraccount.read();
 		 Main.department.read();
 		 Main.product.read();
+		 Main.fidelitycard.read();
+		 
 		 checkPath();
 		 Main.loadingstage.show();
 		 

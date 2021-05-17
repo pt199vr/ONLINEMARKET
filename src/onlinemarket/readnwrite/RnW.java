@@ -2,8 +2,6 @@ package onlinemarket.readnwrite;
 
 import java.util.TreeSet;
 
-import onlinemarket.account.Account;
-
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
