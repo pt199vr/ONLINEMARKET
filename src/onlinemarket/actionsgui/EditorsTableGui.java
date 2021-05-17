@@ -13,6 +13,7 @@ import javafx.scene.layout.*;
 import onlinemarket.Main;
 import onlinemarket.account.EditorAccount;
 import onlinemarket.account.Email;
+import onlinemarket.stages.ActionsStage;
 import onlinemarket.stages.EditorShopStageGui;
 
 public class EditorsTableGui extends AnchorPane{
@@ -46,14 +47,17 @@ public class EditorsTableGui extends AnchorPane{
 		
 		editors = new TableView<EditorAccount>();
 		Main.editoraccount.read();
-		/*	
+		
 		mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
 		nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 		surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
 		CelCol.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
 		IDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-			*/
-		init();
+		
+		
+		CreateEditor.setOnMenuValidation(e-> openCreation(f));
+		
+		
 		editors.setItems(FXCollections.observableArrayList(Main.editoraccount));
 		editors.getColumns().forEach(c ->{
 			c.setEditable(false);
@@ -65,15 +69,15 @@ public class EditorsTableGui extends AnchorPane{
 	}
 
 	private void select(ObservableList<? extends EditorAccount> list) {
-		/*SelEditor = list.get(0);
+		SelEditor = list.get(0);
 		ModifyEditor.setDisable(false);
 		if(Main.editoraccount.size() > 1)
-			DeleteEditor.setDisable(false);*/
+			DeleteEditor.setDisable(false);
 	}
 
-	private void init() {
-
-		
+	private void openCreation(EditorShopStageGui f) {
+		Main.loadingstage.show();
+		Main.actionstage = new ActionsStage("EditorCreate",f);
+		Main.loadingstage.hide();
 	}
-
 }

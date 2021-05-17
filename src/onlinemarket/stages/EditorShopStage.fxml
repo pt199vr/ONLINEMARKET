@@ -22,7 +22,10 @@
    <children>
       <MenuBar>
          <menus>
-            <Menu fx:id="Products" mnemonicParsing="false" text="Products" />
+            <Menu mnemonicParsing="false" text="Products">
+               <items>
+                  <MenuItem fx:id="createProd" mnemonicParsing="false" text="Create a new Product" />
+               </items></Menu>
             <Menu mnemonicParsing="false" text="Departments">
                <items>
                   <MenuItem fx:id="create" mnemonicParsing="false" text="Create" />

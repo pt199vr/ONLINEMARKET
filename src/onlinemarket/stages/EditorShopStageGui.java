@@ -52,9 +52,9 @@ public class EditorShopStageGui extends VBox{
 	@FXML
 	private VBox filterVB,mainVB, featuresVB, DepartmentsVB;
 	@FXML
-	private Menu Orders,Products;
+	private Menu Orders;
 	@FXML
-	private MenuItem create,modify,delete,profile,editorsAcc,customersAcc,logout;
+	private MenuItem create,modify,delete,createProd,profile,editorsAcc,customersAcc,logout;
 	
 	private ToggleGroup sort;
 	
@@ -128,6 +128,7 @@ public class EditorShopStageGui extends VBox{
 		create.setOnAction(e -> creation(this));
 		modify.setOnAction(e -> modification(this));
 		delete.setOnAction(e -> delete(this));
+		createProd.setOnAction(e -> createprod(this));
 		profile.setOnAction(e -> showAcc(this));
 		editorsAcc.setOnAction(e -> showEd(this));
 		customersAcc.setOnAction(e->customers(this));
@@ -253,6 +254,13 @@ public class EditorShopStageGui extends VBox{
 		Main.shopstage.hide();
 		Main.loadingstage.show();
 		Main.actionstage = new ActionsStage("delete", f);
+		Main.loadingstage.hide();
+	}
+	
+	private void createprod(EditorShopStageGui f) {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		Main.actionstage = new ActionsStage("prodCreation",f);
 		Main.loadingstage.hide();
 	}
 	

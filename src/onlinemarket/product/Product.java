@@ -56,9 +56,12 @@ public class Product implements Serializable{
 	public TypeofQuantity getType() {
 		return type;
 	}
+	public TreeSet<String> getFeatures() {
+		return features;
+	}
 	
 	public void setGui() {
-		gui= new ProductGui(null, null, price); // da modificare 
+		gui = new ProductGui(null, null, price);
 	}
 	
 	public ProductGui getGui() {

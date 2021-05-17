@@ -1,4 +1,4 @@
-package onlinemarket.product;
+package onlinemarket.actionsgui;
 
 import java.io.IOException;
 

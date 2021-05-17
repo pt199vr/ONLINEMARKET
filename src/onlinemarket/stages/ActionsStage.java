@@ -16,7 +16,9 @@ public class ActionsStage extends Stage{
 	private CreateDepGui create;
 	private ModifyDepGui modify;
 	private DeleteDepGui delete;
+	private EditorProdCreationGui createProd;
 	private EditorAccGui editor;
+	private CreateEditorGui EdCreation;
 	private EditorsTableGui editorsAcc;
 	private CustomersTableGui customersAcc;
 	
@@ -33,7 +35,9 @@ public class ActionsStage extends Stage{
 			create = new CreateDepGui(f);
 			modify = new ModifyDepGui(f);
 			delete = new DeleteDepGui(f);
-			editor = new EditorAccGui(f); 
+			createProd = new EditorProdCreationGui(f);
+			editor = new EditorAccGui(f);
+			EdCreation = new CreateEditorGui(f);
 			editorsAcc = new EditorsTableGui(f);
 			customersAcc = new CustomersTableGui();
 			
@@ -51,8 +55,14 @@ public class ActionsStage extends Stage{
 				if("delete".equals(s)) {
 					layout.setCenter(delete);
 				}
+				if("prodCreation".equals(s)) {
+					layout.setCenter(createProd);
+				}
 				if("showaccount".equals(s)) {					
 					layout.setCenter(editor);
+				}
+				if("EditorCreate".equals(s)) {
+					layout.setCenter(EdCreation);
 				}
 				if("showeditors".equals(s)) {					
 					layout.setCenter(editorsAcc);

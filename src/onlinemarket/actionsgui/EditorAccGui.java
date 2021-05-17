@@ -99,9 +99,7 @@ public class EditorAccGui extends AnchorPane{
 		Main.editoraccount.write();
 		Main.actionstage.hide();
 		Main.shopstage.show();
-		
-		
-		
 	}
+	
 }
 

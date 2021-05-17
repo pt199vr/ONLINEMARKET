@@ -15,7 +15,7 @@
           <Menu fx:id="DeleteEditor" disable="true" mnemonicParsing="false" text="Delete" />
         </menus>
       </MenuBar>
-      <TableView layoutY="22.0" prefHeight="410.0" prefWidth="532.0">
+      <TableView fx:id="editors" layoutY="22.0" prefHeight="410.0" prefWidth="532.0">
          <columns>
             <TableColumn fx:id="nameCol" prefWidth="73.0" text="Name" />
             <TableColumn fx:id="surnameCol" prefWidth="77.0" text="Surname" />

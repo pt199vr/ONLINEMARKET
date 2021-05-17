@@ -10,7 +10,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import onlinemarket.Main;
-import onlinemarket.departments.Department;
+
 
 public class ProductGui {
 	@FXML
@@ -19,7 +19,7 @@ public class ProductGui {
 	private Product product;
 	
 	private Double quantity;
-	public final static Image defaultIMG= new Image(ProductGui.class.getResourceAsStream("   .png"));
+	public final static Image defaultIMG = new Image(ProductGui.class.getResourceAsStream("defaultIMG.png"));
 	
 	public ProductGui(FXMLLoader fxmlLoader, Product product, Double quantity) {
 		
@@ -53,3 +53,6 @@ public class ProductGui {
 	}
 	
 }
+	
+	
+	
