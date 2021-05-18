@@ -44,21 +44,22 @@ public class CustomersTableGui extends AnchorPane{
 			throw new RuntimeException(e);
 		}
 		
-		customers = new TableView<Account>();
+		
 		Main.account.read();		
 	
-		mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-		nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-		surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
-		CelCol.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+		mailCol.setCellValueFactory(new PropertyValueFactory<Account, Email>("email"));
+		nameCol.setCellValueFactory(new PropertyValueFactory<Account, String>("name"));
+		surnameCol.setCellValueFactory(new PropertyValueFactory<Account, String>("surname"));
+		CelCol.setCellValueFactory(new PropertyValueFactory<Account, Long>("phoneNumber"));
+		
+		customers.getColumns().setAll(mailCol, nameCol, surnameCol, CelCol);
+		
 		
 		ObservableList<Account> data = FXCollections.observableArrayList();	
 		for(Account a : Main.account)
 			data.add(a);
 		customers.setItems(data);
-		
-		
-		
+				
 		customers.getSelectionModel().getSelectedItems().addListener(
 				(ListChangeListener.Change<? extends Account> change)-> select(change.getList()));
 		if(SelCustomer != null)
