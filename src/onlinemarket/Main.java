@@ -87,7 +87,7 @@ public class Main extends Application{
 		return s;
 	}
 	
-	public String createId() {
+	public static String createId() {
 		boolean b = true;
 		String s = "OM";
 		
