@@ -33,6 +33,7 @@ public class Main extends Application{
 	public static final RnW_Department department = new RnW_Department(store + "/Departments.txt");
 	public static final RnW_Product product = new RnW_Product(store + "/Products.txt");
 	public static final RnW_FidelityCard fidelitycard = new RnW_FidelityCard(store + "/FC.txt");
+	public static final RnW_Payment payment = new RnW_Payment(store + "/Payments.txt");
 	public static final TreeSet<String> pictures = new TreeSet<>();
 
 	@Override

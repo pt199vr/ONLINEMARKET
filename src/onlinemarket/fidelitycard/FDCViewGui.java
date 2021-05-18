@@ -29,7 +29,7 @@ public class FDCViewGui extends AnchorPane{
 			if(acc.equals(x.getAccount())) {
 				IDL.setText(x.getCardId());
 				HolderL.setText(f.getAccount().getName() +" "+f.getAccount().getSurname() );
-				DateL.setText(x.getDate());
+				DateL.setText(x.getDate().toString());
 				pointsL.setText("" + x.getPoints());
 			}
 		

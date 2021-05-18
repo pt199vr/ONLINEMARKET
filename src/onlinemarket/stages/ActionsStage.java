@@ -86,8 +86,8 @@ public class ActionsStage extends Stage{
 				
 				setTitle(Main.title);
 				getIcons().add(Main.logo);
-				setHeight(400);
-				setWidth(600);
+				setHeight(600);
+				setWidth(800);
 				setResizable(true);
 				Platform.runLater(()->{
 					setScene(new Scene(layout));

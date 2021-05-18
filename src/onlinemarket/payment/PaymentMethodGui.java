@@ -4,13 +4,17 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import onlinemarket.Main;
 import onlinemarket.stages.ShopStageGui;
+import onlinemarket.account.*;
 
 public class PaymentMethodGui extends AnchorPane {
 	
@@ -36,42 +40,55 @@ public class PaymentMethodGui extends AnchorPane {
 			throw new RuntimeException(e);
 		}
 		
-		if(PayPalTab.isSelected()) {
-			PayPalConfirmB.setOnAction(e ->paypal());
-			PayPalConfirmB.setOnKeyPressed(keyEvent ->{
-				if(keyEvent.getCode() == KeyCode.ENTER)
-					paypal();
-			});
-		}
-		if(CreditCardTab.isSelected()) {
-			CCConfirmB.setOnAction(e -> CreditCard());
-			CCConfirmB.setOnKeyPressed(keyEvent -> {
-				if(keyEvent.getCode()== KeyCode.ENTER)
-					CreditCard();
-			});
-		}
-		if(CashTab.isSelected()) {
-			ConfirmCashB.setOnAction(e -> cash());
-			ConfirmCashB.setOnKeyPressed(keyEvent -> {
-				if(keyEvent.getCode()==KeyCode.ENTER)
-					cash();
-			});
-			
-		}
-		
+		Thread buttons = new Thread( () -> {
+			PayPalConfirmB.setOnAction(e ->paypal(f));
+			CCConfirmB.setOnAction(e -> CreditCard(f));
+			ConfirmCashB.setOnAction(e -> cash(f));
+		});buttons.start();
 		
 	}
 	
-	private void paypal() {
-		
+	private void cash(ShopStageGui f) {
+		Payment tmp = new Payment(f.getAccount().toString());
+		if(Main.payment.add(tmp))	
+			System.out.println(Main.payment.toString());
+		Main.payment.write();
+		Main.actionstage.hide();
+		Main.shopstage.show();
 	}
 	
-	private void CreditCard() {
+	private void CreditCard(ShopStageGui f) {
 		
+		if(CVVT.getText().length() != 3 || CardIdT.getText().length() != 16 ||
+					java.time.LocalDateTime.now().getYear() < YearChoiceB.getSelectionModel().getSelectedIndex() || 
+					(java.time.LocalDateTime.now().getYear() == YearChoiceB.getSelectionModel().getSelectedIndex() 
+					&& java.time.LocalDateTime.now().getMonth().getValue() < MonthChoiceB.getSelectionModel().getSelectedIndex())) {
+			Main.actionstage.hide();
+			Main.loadingstage.show();
+			Alert a = new Alert(Alert.AlertType.NONE, "CVV must be 3 characters\nCardNumber 16\nyou have to type a valide date", ButtonType.OK);
+			Main.loadingstage.hide();
+			a.showAndWait();
+			Main.actionstage.show();
+		}
+		
+		Payment tmp = new Payment( CardIdT.getText(), CreditHolderT.getText(), YearChoiceB.getSelectionModel().getSelectedIndex(), MonthChoiceB.getSelectionModel().getSelectedIndex(), CVVT.getText(),f.getAccount().toString());
+		Main.payment.add(tmp);
+		Main.payment.write();
 	}
 	
-	private void cash() {
+	private void paypal(ShopStageGui f) {
 		
+		try {
+			Payment tmp = new Payment(PayPalMailT.getText(), PayPalPassT.getText(),f.getAccount().toString());
+			Main.payment.add(tmp);
+			Main.payment.write();
+		}catch(IllegalArgumentException e) {
+			Main.actionstage.hide();
+			Main.loadingstage.show();
+			Alert a = new Alert(Alert.AlertType.NONE, "Wrongs email or password", ButtonType.OK);
+			Main.loadingstage.hide();
+			a.showAndWait();
+			Main.actionstage.show();
+		}
 	}
-
 }

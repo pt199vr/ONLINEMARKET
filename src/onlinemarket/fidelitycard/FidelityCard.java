@@ -4,6 +4,7 @@ package onlinemarket.fidelitycard;
 import onlinemarket.account.*;
 import onlinemarket.Main;
 import java.io.Serializable;
+import onlinemarket.datentime.*;
 
 public class FidelityCard implements Serializable, Comparable<FidelityCard>{
 	private static final long serialVerisonUID = 16L;
@@ -11,15 +12,16 @@ public class FidelityCard implements Serializable, Comparable<FidelityCard>{
 	private int points;
 	private String cardId;
 	private String account;
-	private Integer year, month, day;
+	private Date date;
 	
 	public FidelityCard(Account account) {
 		this.account = account.toString();
 		this.points = 0;
 		this.cardId = Main.createFidelityId();
-		this.year = java.time.LocalDateTime.now().getYear();
-		this.month = java.time.LocalDateTime.now().getMonthValue();
-		this.day = java.time.LocalDateTime.now().getDayOfMonth();
+		int year = java.time.LocalDateTime.now().getYear();
+		int month = java.time.LocalDateTime.now().getMonthValue();
+		int day = java.time.LocalDateTime.now().getDayOfMonth();
+		this.date = new Date(year,month,day);
 		
 	}
 	
@@ -34,8 +36,8 @@ public class FidelityCard implements Serializable, Comparable<FidelityCard>{
 	public String getCardId() {
 		return cardId;
 	}
-	public String getDate() {
-		return String.format("%02d/%02d/%d", day, month, year);
+	public Date getDate() {
+		return date;
 	}
 	
 	public int compareTo(FidelityCard t) {
@@ -47,7 +49,7 @@ public class FidelityCard implements Serializable, Comparable<FidelityCard>{
 	}
 	
 	public String toString() {
-		return points + " " + String.format("%02d/%02d/%d", day, month, year) +  " " + cardId;
+		return points + " " + date.toString() +  " " + cardId;
 	}
 	
 }

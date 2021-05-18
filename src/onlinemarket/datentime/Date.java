@@ -2,7 +2,7 @@ package onlinemarket.datentime;
 
 import java.io.Serializable;
 
-public class Date {
+public class Date implements Serializable{
 	private static final long serialVersionUID = 10L;
 	private final Integer year, month, day;
 	
