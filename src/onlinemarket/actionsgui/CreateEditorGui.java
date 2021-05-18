@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import onlinemarket.stages.EditorShopStageGui;
 
+
 public class CreateEditorGui extends AnchorPane{
 
 	public CreateEditorGui(EditorShopStageGui f) {

@@ -33,6 +33,7 @@ public class CustomersTableGui extends AnchorPane{
 	
 	public CustomersTableGui() {
 		
+		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CustomersAccounts.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
@@ -44,8 +45,7 @@ public class CustomersTableGui extends AnchorPane{
 		}
 		
 		customers = new TableView<Account>();
-		Main.account.read();
-		
+		Main.account.read();		
 	
 		mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
 		nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -56,7 +56,9 @@ public class CustomersTableGui extends AnchorPane{
 		for(Account a : Main.account)
 			data.add(a);
 		customers.setItems(data);
-			
+		
+		
+		
 		customers.getSelectionModel().getSelectedItems().addListener(
 				(ListChangeListener.Change<? extends Account> change)-> select(change.getList()));
 		if(SelCustomer != null)
