@@ -73,6 +73,7 @@ public class DeleteDepGui extends AnchorPane {
 		for(Product c : tree) {
 			Main.product.remove(c);
 		}
+		
 		Main.product.write();
 		Main.department.write();	
 		f.checking();

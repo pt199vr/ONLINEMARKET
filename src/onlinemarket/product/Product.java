@@ -3,7 +3,7 @@ package onlinemarket.product;
 import java.io.Serializable;
 import java.util.TreeSet;
 
-
+import onlinemarket.actionsgui.EditorProdModifyGui;
 
 public class Product implements Serializable{
 	private static final long serialVersionUID = 6L;
@@ -37,7 +37,7 @@ public class Product implements Serializable{
 		this.price = price;
 		this.quantity = quantity;
 		this.type = type;
-		this.features=features;
+		this.features = features;
 		this.department = department;
 	}
 	
@@ -77,7 +77,7 @@ public class Product implements Serializable{
 	}
 	
 	public void setGui() {
-		gui = new ProductGui(null, null, price);
+		gui = new EditorProdModifyGui(this,quantity);
 	}
 	
 	public ProductGui getGui() {

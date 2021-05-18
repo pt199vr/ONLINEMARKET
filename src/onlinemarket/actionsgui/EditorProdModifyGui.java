@@ -1,7 +1,5 @@
 package onlinemarket.actionsgui;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -11,13 +9,13 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Paint;
+
 import onlinemarket.Main;
 import onlinemarket.product.Product;
+import onlinemarket.product.ProductGui;
 import onlinemarket.product.TypeofQuantity;
-import onlinemarket.stages.EditorShopStageGui;
 
-public class EditorProdModifyGui {
+public class EditorProdModifyGui extends ProductGui {
 	@FXML
 	private TextField NameT,BrandT,priceT,QuantityT,quantityPerPieceT;
 	@FXML
@@ -29,35 +27,27 @@ public class EditorProdModifyGui {
 	@FXML
 	private ImageView ProdImg;
 	
-	public EditorProdModifyGui(EditorShopStageGui f,Product p) {
+	public EditorProdModifyGui(Product p,Double quantity) {
 		
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("productModify.fxml")); 
-		fxmlLoader.setRoot(this);
-		fxmlLoader.setController(this);
-		
-		try {
-			fxmlLoader.load();
-		}catch(IOException e) {
-			throw new RuntimeException(e);
-		}
+		super(new FXMLLoader(EditorProdModifyGui.class.getResource("productModify.fxml")), p, quantity);
 		
 		NameT.setText(p.getName());
 		BrandT.setText(p.getBrand());
 		priceT.setText(p.getPrice().toString());
-		QuantityT.setText(p.getQuantity().toString());
+		QuantityT.setText(quantity.toString());
 		
-		modifyB.setOnAction(e -> mod(f,p));
+		modifyB.setOnAction(e -> mod(p));
 		
 	}
 
-	private void mod(EditorShopStageGui f,Product p) {
+	private void mod(Product p) {
 		
 		Boolean check = true;
 		
-		Double quantity = 0.0, price = 0.0;
+		Double newquantity = 0.0, price = 0.0;
 		
 		try {
-			quantity = Double.parseDouble(QuantityT.getText());
+			newquantity = Double.parseDouble(QuantityT.getText());
 			price = Double.parseDouble(priceT.getText());
 			
 			if(quantity < 0.0 || price <= 0.0)
@@ -92,16 +82,18 @@ public class EditorProdModifyGui {
 		else
 			type = TypeofQuantity.PIECES;
 		
-		Product newProd = new Product(name, brand, price, quantity, type, p.getDepartment(), p.getFeatures());
-		EditorProdModifyGui gui = this;
+		Product newProd = new Product(name, brand, price,newquantity, type, p.getDepartment(), p.getFeatures());
+		EditorProdModifyGui gui;
 		if(newProd.equals(p)) {
+			newQuantity(newquantity);
+			gui = this;
 		}
 		else {
 			Main.product.remove(p);
 			Main.product.add(newProd);
 			
 			newProd.setGui();
-			gui = new EditorProdModifyGui(f, newProd);
+			gui = (EditorProdModifyGui)newProd.getGui();
 		}
 		
 	}

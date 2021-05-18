@@ -25,6 +25,7 @@
             <Menu mnemonicParsing="false" text="Products">
                <items>
                   <MenuItem fx:id="createProd" mnemonicParsing="false" text="Create a new Product" />
+                  <MenuItem fx:id="deleteProd" mnemonicParsing="false" text="Delete a Product" />
                </items></Menu>
             <Menu mnemonicParsing="false" text="Departments">
                <items>
