@@ -11,8 +11,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import onlinemarket.Main;
 import onlinemarket.account.Account;
+import onlinemarket.account.Address;
 import onlinemarket.account.Email;
-import onlinemarket.stages.EditorShopStageGui;
 
 
 public class CustomersTableGui extends AnchorPane{
@@ -27,9 +27,13 @@ public class CustomersTableGui extends AnchorPane{
 	private TableColumn<Account,Email> mailCol;
 	@FXML
 	private TableColumn<Account,Long> CelCol;
+	@FXML
+	private TableColumn<Account,Address> AddressCol;
 	
 	@FXML
-	private MenuItem DeleteEditor;
+	private Menu DeleteACC;
+	@FXML
+	private Label deleteL;
 	
 	public CustomersTableGui() {
 		

@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import onlinemarket.Main;
+import onlinemarket.account.Address;
 import onlinemarket.account.EditorAccount;
 import onlinemarket.account.Email;
 import onlinemarket.stages.ActionsStage;
@@ -29,9 +30,12 @@ public class EditorsTableGui extends AnchorPane{
 	private TableColumn<EditorAccount,Email> mailCol;
 	@FXML
 	private TableColumn<EditorAccount,Long> CelCol;
-	
 	@FXML
-	private MenuItem CreateEditor, ModifyEditor,DeleteEditor;
+	private TableColumn<EditorAccount,Address> AddressCol;
+	@FXML
+	private Menu CreateEditor, ModifyEditor,DeleteEditor;
+	@FXML
+	private Label createL,modifyL,deleteL;
 	
 	public EditorsTableGui(EditorShopStageGui f) {
 		
@@ -56,7 +60,7 @@ public class EditorsTableGui extends AnchorPane{
 		IDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 		
 		
-		CreateEditor.setOnMenuValidation(e-> openCreation(f));
+		createL.setOnMouseClicked(e-> openCreation(f));
 		
 		
 		editors.setItems(FXCollections.observableArrayList(Main.editoraccount));
@@ -78,7 +82,8 @@ public class EditorsTableGui extends AnchorPane{
 
 	private void openCreation(EditorShopStageGui f) {
 		Main.loadingstage.show();
-		Main.actionstage = new ActionsStage("EditorCreate",f);
+		Main.actionstage.hide();
+		Main.actionstage= new ActionsStage("EditorCreate",f);
 		Main.loadingstage.hide();
 	}
 }

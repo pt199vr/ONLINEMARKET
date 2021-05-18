@@ -18,6 +18,7 @@ import onlinemarket.account.EditorAccount;
 import onlinemarket.account.Email;
 import onlinemarket.account.Password;
 import onlinemarket.account.Role;
+import onlinemarket.stages.ActionsStage;
 import onlinemarket.stages.EditorShopStageGui;
 
 public class CreateEditorGui extends AnchorPane{
@@ -47,11 +48,14 @@ public class CreateEditorGui extends AnchorPane{
 		for(String s: roles) {
 			RoleCB.getItems().add(s);
 		}
-		CreateB.setOnAction(e ->create());
+		
+		String id = Main.createId();
+		IDL.setText(id);
+		CreateB.setOnAction(e ->create(f));
 		
 	}
 	
-	private void create() {
+	private void create(EditorShopStageGui f) {
 		String name = NameT.getText(), surname = SurnameT.getText(),address= AddressT.getText(),city = CityT.getText();
 		Email mail= new Email(MailT.getText());
 		Password pass= new Password(PasswordT.getText());
@@ -87,8 +91,8 @@ public class CreateEditorGui extends AnchorPane{
 		}
 		
 		Address addr= new Address(address, city, CAP);
-	
-		String id = Main.createId();
+		
+		String id= IDL.getText();
 		
 		EditorAccount acc = new EditorAccount(id, name, surname, mail, pass, cel, addr, r); 
 		
@@ -100,7 +104,12 @@ public class CreateEditorGui extends AnchorPane{
 			}
 		}
 		
+		Main.loadingstage.show();
 		Main.editoraccount.add(acc);
 		Main.editoraccount.write();
+		Main.actionstage.hide();
+		Main.actionstage = new ActionsStage("showeditors",f);
+		Main.actionstage.show();
+		Main.loadingstage.hide();
 		}
 }
