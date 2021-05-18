@@ -27,7 +27,6 @@ public class Main extends Application{
 	
 	public static HashMap<Department, DepartmentGui> depmap = new HashMap<>();
 	public static HashMap<Product, ProductGui> prodmap = new HashMap<>();
-	public static HashMap<Product, Department> prodepmap = new HashMap<>();
 	
 	public static final RnW_EditorAccount editoraccount = new RnW_EditorAccount(path + "/Editors.txt");
 	public static final RnW_Account account = new RnW_Account(path + "/Customers.txt");

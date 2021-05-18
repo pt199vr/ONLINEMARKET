@@ -14,6 +14,7 @@ import onlinemarket.Main;
 import onlinemarket.departments.*;
 import onlinemarket.stages.EditorShopStageGui;
 import onlinemarket.product.*;
+import java.util.TreeSet;
 
 public class ModifyDepGui extends AnchorPane {
 
@@ -79,6 +80,7 @@ public class ModifyDepGui extends AnchorPane {
 				return;
 				}
 		Department x = null;
+		TreeSet<Product> tmp = new TreeSet<>();
 		for(Department d : Main.department) 
 			if(DepChoiceB.getValue().equalsIgnoreCase(d.getName())) {
 				x = d;
@@ -86,12 +88,13 @@ public class ModifyDepGui extends AnchorPane {
 				Main.depmap.remove(x);
 				Main.depmap.put(d, new DepartmentGui(d));
 				for(Product p : Main.product) {
-					if(x.equals(Main.prodepmap.get(p))) {
-						Main.prodepmap.put(p, d);
+					if(p.getDepartment().equals(x.toString())) {
+						tmp.add(p);
 					}
 				}
-				
+				Main.product.removeAll(tmp);
 			}
+		
 		Main.department.write();	
 		f.checking();
 		Main.actionstage.hide();		

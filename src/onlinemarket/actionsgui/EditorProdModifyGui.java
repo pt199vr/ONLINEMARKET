@@ -92,7 +92,7 @@ public class EditorProdModifyGui {
 		else
 			type = TypeofQuantity.PIECES;
 		
-		Product newProd = new Product(name, brand, price, quantity, type,p.getFeatures());
+		Product newProd = new Product(name, brand, price, quantity, type, p.getDepartment(), p.getFeatures());
 		EditorProdModifyGui gui = this;
 		if(newProd.equals(p)) {
 		}

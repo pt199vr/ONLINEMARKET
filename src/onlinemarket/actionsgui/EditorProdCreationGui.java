@@ -4,6 +4,7 @@ package onlinemarket.actionsgui;
 import java.io.File;
 import java.io.IOException;
 import java.util.TreeSet;
+import javafx.scene.image.Image;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -120,16 +121,17 @@ public class EditorProdCreationGui extends AnchorPane {
 		else
 			type = TypeofQuantity.PIECES;
 		
-		Product p = new Product(ProdNameT.getText(), ProdBrandT.getText(), price, quantity, type, features);
+		Product p = new Product(ProdNameT.getText(), ProdBrandT.getText(), price, quantity, type, DepCB.getSelectionModel().getSelectedItem().toString(), features);
 		
 		p.setGui();
 		Main.product.add(p);
-		Main.prodepmap.put(p, DepCB.getSelectionModel().getSelectedItem());
+		Main.prodmap.put(p, p.getGui());
+		Main.product.write();
 		
 	}
 
 	private String getIMG() {
-		return String.format("%s/%s_%s.png",Main.mediapath, ProdNameT.getText(),ProdBrandT.getText());
+		return String.format("%s/%s.jpg",Main.mediapath, ProdNameT.getText());
 	}
 	
 	@FXML
@@ -137,15 +139,17 @@ public class EditorProdCreationGui extends AnchorPane {
 		
 		FileChooser filechooser = new FileChooser();
 		filechooser.setTitle("Open Resource File");
-		filechooser.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.png"));
+		filechooser.setInitialDirectory(new File(Main.mediapath));
+		filechooser.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.jpg"));
 		
 		selFile = filechooser.showOpenDialog(Main.firststage);
 		
 		if(selFile == null)
 			return;
 		
-		ProdImg.setImage(new Image("file" + selFile.toPath()));
+		ProdImg.setImage(new Image(selFile.getPath()));
+		
+		
 	}
 
-	
 }

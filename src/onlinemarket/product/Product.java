@@ -14,8 +14,10 @@ public class Product implements Serializable{
 	protected Double price, quantity;
 	protected TypeofQuantity type;
 	protected final TreeSet<String> features;
+	protected String department;
+	protected String path;
 	
-	public Product(String name, String brand, Double price, Double quantity, TypeofQuantity type, String... features) {
+	public Product(String name, String brand, Double price, Double quantity, TypeofQuantity type, String department, String... features) {
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
@@ -27,14 +29,28 @@ public class Product implements Serializable{
 				this.features.add(feature);
 		}else
 			this.features = null;
+		this.department = department;
 	}
-	public Product(String name,String brand,Double price,Double quantity,TypeofQuantity type, TreeSet<String> features) {
+	public Product(String name,String brand,Double price,Double quantity,TypeofQuantity type, String department, TreeSet<String> features) {
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
 		this.quantity = quantity;
 		this.type = type;
 		this.features=features;
+		this.department = department;
+	}
+	
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
+	public String getPath() {
+		return path;
+	}
+	
+	public String getDepartment() {
+		return department;
 	}
 	
 	public String getName() {
@@ -79,7 +95,7 @@ public class Product implements Serializable{
 	}
 	
 	public String toString() {
-		return String.format("%s %s %s %s %s", name, brand, price.toString(), quantity.toString(), type.toString());
+		return String.format("%s %s %s %s %s %s", name, brand, price.toString(), quantity.toString(), type.toString(), department);
 	}
 	
 }
