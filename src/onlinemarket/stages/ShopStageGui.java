@@ -26,6 +26,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
+import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.product.Product;
 import onlinemarket.readnwrite.RnW_Product;
 
@@ -137,7 +138,7 @@ public class ShopStageGui extends VBox{
 		//Purchases.setOnAction(e -> showPurchases());
 		//Cart.setOnAction(e -> showCart());
 		profile.setOnAction(e -> showAcc(this));
-		FDC.setOnAction(e -> showFC(this));
+		FDC.setOnAction(e -> FC(this));
 		//Orders.setOnAction(e -> showOrders());
 		payment.setOnAction(e -> setPayment(this));
 		logout.setOnAction(e -> logout());
@@ -215,10 +216,19 @@ public class ShopStageGui extends VBox{
 		Main.login();
 	}
 	
-	public void showFC(ShopStageGui f) {
+	public void FC(ShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		Main.actionstage = new ActionsStage("fidelity",f);
+		int i = Main.fidelitycard.size();
+		for(FidelityCard fc: Main.fidelitycard) {
+			i--;
+			if(f.getAccount().toString().equals(fc.getAccount())) {
+				Main.actionstage = new ActionsStage("fidelity",f);
+				break;
+			}
+			if(i == 0)
+				Main.actionstage = new ActionsStage("newFidelity",f);
+		}
 		Main.loadingstage.hide();
 	}
 	

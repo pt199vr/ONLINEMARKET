@@ -6,7 +6,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import onlinemarket.Main;
 import onlinemarket.actionsgui.*;
+import onlinemarket.fidelitycard.FDCCreationGui;
 import onlinemarket.fidelitycard.FDCViewGui;
+import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.payment.PaymentMethodGui;
 
 public class ActionsStage extends Stage{
@@ -24,7 +26,8 @@ public class ActionsStage extends Stage{
 	private CustomersTableGui customersAcc;
 	
 	private CustomerAccGui customer;
-	private FDCViewGui fdc;
+	private FDCCreationGui fdcc;
+	private FDCViewGui fdcv;
 	private PaymentMethodGui payment;
 	
 	
@@ -105,19 +108,23 @@ public class ActionsStage extends Stage{
 		Main.loadingstage.show();
 		System.gc();
 		
-		fdc = new FDCViewGui(f);
+		fdcc = new FDCCreationGui(f);
+		fdcv = new FDCViewGui(f);
 		payment = new PaymentMethodGui(f);
 		customer = new CustomerAccGui(f);
 		
 		new Thread(()->{
 			layout = new BorderPane();
-			if("fidelity".equals(s))
-				layout.setCenter(fdc);
+			
 			if("payment".equals(s))
 				layout.setCenter(payment);
 			if("showaccount".equals(s))
 				layout.setCenter(customer);
-		
+			if("fidelity".equals(s))
+				layout.setCenter(fdcv);
+			if("newFidelity".equals(s)) 
+				layout.setCenter(fdcc);
+			
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
 			setHeight(400);

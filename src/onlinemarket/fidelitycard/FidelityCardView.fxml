@@ -24,32 +24,33 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Points :">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <Label text="Emission Date :" GridPane.rowIndex="1">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label prefHeight="20.0" prefWidth="96.0" text="Card ID :" GridPane.rowIndex="2">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label GridPane.columnIndex="1" />
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="pointsL" GridPane.columnIndex="1" />
+            <Label fx:id="DateL" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <ImageView fitHeight="264.0" fitWidth="517.0" layoutX="42.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@fidelitycard.png" />
          </image></ImageView>
+      <Label fx:id="HolderL" layoutX="234.0" layoutY="140.0" prefHeight="30.0" prefWidth="276.0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font></Label>
+      <Label fx:id="IDL" alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="218.0" prefHeight="20.0" prefWidth="118.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
    </children>
 </fx:root>

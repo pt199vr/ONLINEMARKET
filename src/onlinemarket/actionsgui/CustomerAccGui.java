@@ -16,6 +16,7 @@ import onlinemarket.account.Account;
 import onlinemarket.account.Address;
 import onlinemarket.account.Email;
 import onlinemarket.account.Password;
+import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.stages.ShopStageGui;
 
 public class CustomerAccGui extends AnchorPane{
@@ -75,9 +76,15 @@ public class CustomerAccGui extends AnchorPane{
 			if(mail.equals(x.getEmail().toString()) && pass.equals(x.getPassword().toString()))
 				t = x;
 		}
-		Main.account.remove(t);
-		Main.account.write();
 		
+		for(FidelityCard x: Main.fidelitycard) {
+			if(x.getAccount().equals(t.toString()))
+				Main.fidelitycard.remove(x);
+		}
+		Main.account.remove(t);
+		
+		Main.account.write();
+		Main.fidelitycard.write();
 		Main.actionstage.close();
 		Main.login();
 		

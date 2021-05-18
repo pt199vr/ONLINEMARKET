@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 import onlinemarket.actionsgui.EditorProdModifyGui;
 
-public class Product implements Serializable{
+public class Product implements Serializable,Comparable<Product>{
 	private static final long serialVersionUID = 6L;
 	
 	transient ProductGui gui = null;
@@ -96,6 +96,10 @@ public class Product implements Serializable{
 	
 	public String toString() {
 		return String.format("%s %s %s %s %s %s", name, brand, price.toString(), quantity.toString(), type.toString(), department);
+	}
+	@Override
+	public int compareTo(Product o) {
+		return (name.hashCode()+brand.hashCode()) - (o.getName().hashCode()+o.getBrand().hashCode());
 	}
 	
 }

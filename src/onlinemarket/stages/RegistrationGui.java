@@ -113,6 +113,7 @@ public class RegistrationGui extends AnchorPane{
 				Main.loadingstage.hide();
 				c.showAndWait();
 				Main.registrationstage.show();
+				return;
 			}
 				
 		}catch(IllegalArgumentException e) {
