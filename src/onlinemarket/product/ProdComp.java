@@ -1,7 +1,6 @@
 package onlinemarket.product;
 
 import java.util.Comparator;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class ProdComp {
@@ -83,14 +82,10 @@ public class ProdComp {
 	}
 
 		
-	public Double TotalPrice() {
-		Double res = 0D;
-		/*for(Product prod : )
-			res += prod.getPrice();*/
-		return res;
-	}
 	public TreeSet<Product> get(Comparator<Product> comp, TreeSet<String> feature, String s) {
-		TreeSet<Product> sortProd= new TreeSet<>(comp);
+		TreeSet<Product> sortProd = new TreeSet<>(comp);
+		
+		
 		return sortProd;
 	}
 }

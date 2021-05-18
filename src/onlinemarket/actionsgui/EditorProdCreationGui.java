@@ -17,7 +17,6 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -46,7 +45,7 @@ public class EditorProdCreationGui extends AnchorPane {
 	@FXML
 	private ChoiceBox<String> TypeCB;
 	
-	private File selFile;
+	private File selFile = null;
 	
 	public EditorProdCreationGui(EditorShopStageGui f) {
 		
@@ -72,7 +71,7 @@ public class EditorProdCreationGui extends AnchorPane {
 			RadioMenuItem I = new RadioMenuItem(feat);
 			featuresMB.getItems().add(I);
 		}
-		String types[]= {TypeofQuantity.GRAMS.toString(),TypeofQuantity.LITERS.toString(),TypeofQuantity.PIECES.toString()};
+		String types[] = {TypeofQuantity.GRAMS.toString(),TypeofQuantity.LITERS.toString(),TypeofQuantity.PIECES.toString()};
 		for(String s: types) {
 			TypeCB.getItems().add(s);
 		}
@@ -95,7 +94,7 @@ public class EditorProdCreationGui extends AnchorPane {
 			return;
 		}
 		
-		Double quantity;
+		Double quantity = 0.0;
 		try {
 			quantity = Double.parseDouble(QuantityT.getText());
 		}catch(NumberFormatException e) {
@@ -126,6 +125,7 @@ public class EditorProdCreationGui extends AnchorPane {
 		p.setGui();
 		Main.product.add(p);
 		Main.prodmap.put(p, p.getGui());
+		
 		Main.product.write();
 		
 	}
@@ -138,17 +138,14 @@ public class EditorProdCreationGui extends AnchorPane {
 	private void modifyIMG() {
 		
 		FileChooser filechooser = new FileChooser();
-		filechooser.setTitle("Open Resource File");
+		filechooser.setTitle("Choose Product Image");
 		filechooser.setInitialDirectory(new File(Main.mediapath));
 		filechooser.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.jpg"));
 		
 		selFile = filechooser.showOpenDialog(Main.firststage);
 		
-		if(selFile == null)
-			return;
-		
-		ProdImg.setImage(new Image(selFile.getPath()));
-		
+		if(selFile != null)
+			ProdImg.setImage(new Image("file:" + selFile.getPath()));
 		
 	}
 

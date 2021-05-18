@@ -3,9 +3,9 @@ package onlinemarket.product;
 import java.io.Serializable;
 import java.util.TreeSet;
 
+import onlinemarket.actionsgui.EditorProdModifyGui;
 
-
-public class Product implements Serializable{
+public class Product implements Serializable,Comparable<Product>{
 	private static final long serialVersionUID = 6L;
 	
 	transient ProductGui gui = null;
@@ -37,7 +37,7 @@ public class Product implements Serializable{
 		this.price = price;
 		this.quantity = quantity;
 		this.type = type;
-		this.features=features;
+		this.features = features;
 		this.department = department;
 	}
 	
@@ -77,7 +77,7 @@ public class Product implements Serializable{
 	}
 	
 	public void setGui() {
-		gui = new ProductGui(null, null, price);
+		gui = new EditorProdModifyGui(this,quantity);
 	}
 	
 	public ProductGui getGui() {
@@ -96,6 +96,10 @@ public class Product implements Serializable{
 	
 	public String toString() {
 		return String.format("%s %s %s %s %s %s", name, brand, price.toString(), quantity.toString(), type.toString(), department);
+	}
+	@Override
+	public int compareTo(Product o) {
+		return (name.hashCode()+brand.hashCode()) - (o.getName().hashCode()+o.getBrand().hashCode());
 	}
 	
 }

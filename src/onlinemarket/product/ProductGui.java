@@ -9,16 +9,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import onlinemarket.Main;
 
 
-public class ProductGui {
+public class ProductGui extends GridPane {
 	@FXML
-	private ImageView ProdImg;
+	protected ImageView ProdImg;
 	
-	private Product product;
+	protected Product product;
 	
-	private Double quantity;
+	protected Double quantity;
+
 	public final static Image defaultIMG = new Image(ProductGui.class.getResourceAsStream("defaultIMG.png"));
 	
 	public ProductGui(FXMLLoader fxmlLoader, Product product, Double quantity) {
@@ -51,7 +53,12 @@ public class ProductGui {
 	private String getIMG() {
 		return String.format("%s/%s_%s.png",Main.mediapath,product.getName(),product.getBrand());
 	}
-	
+	public void newQuantity(Double quantity) {
+		this.quantity = quantity;
+		if(quantity == 0) {
+			EmptyShelf();
+		}
+	}
 }
 	
 	

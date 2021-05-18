@@ -34,6 +34,9 @@ public class FidelityCard implements Serializable, Comparable<FidelityCard>{
 	public String getCardId() {
 		return cardId;
 	}
+	public String getDate() {
+		return String.format("%02d/%02d/%d", day, month, year);
+	}
 	
 	public int compareTo(FidelityCard t) {
 		return cardId.hashCode() - t.getCardId().hashCode();
