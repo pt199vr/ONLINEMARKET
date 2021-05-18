@@ -39,7 +39,6 @@ public class FDCCreationGui extends AnchorPane {
 			}
 		}
 		Main.fidelitycard.add(new FidelityCard(f.getAccount()));
-		System.out.println(Main.fidelitycard.toString());
 		Main.fidelitycard.write();
 		
 		

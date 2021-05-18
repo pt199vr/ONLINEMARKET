@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.TreeSet;
 
 import onlinemarket.actionsgui.EditorProdModifyGui;
+import onlinemarket.departments.*;
 
 public class Product implements Serializable,Comparable<Product>{
 	private static final long serialVersionUID = 6L;
@@ -14,10 +15,10 @@ public class Product implements Serializable,Comparable<Product>{
 	protected Double price, quantity;
 	protected TypeofQuantity type;
 	protected final TreeSet<String> features;
-	protected String department;
+	protected Department department;
 	protected String path;
 	
-	public Product(String name, String brand, Double price, Double quantity, TypeofQuantity type, String department, String... features) {
+	public Product(String name, String brand, Double price, Double quantity, TypeofQuantity type, Department department, String... features) {
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
@@ -31,7 +32,7 @@ public class Product implements Serializable,Comparable<Product>{
 			this.features = null;
 		this.department = department;
 	}
-	public Product(String name,String brand,Double price,Double quantity,TypeofQuantity type, String department, TreeSet<String> features) {
+	public Product(String name,String brand,Double price,Double quantity,TypeofQuantity type, Department department, TreeSet<String> features) {
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
@@ -49,7 +50,7 @@ public class Product implements Serializable,Comparable<Product>{
 		return path;
 	}
 	
-	public String getDepartment() {
+	public Department getDepartment() {
 		return department;
 	}
 	
@@ -88,14 +89,14 @@ public class Product implements Serializable,Comparable<Product>{
 		if(other instanceof Product) {
 			Product tmp = (Product) other;
 			
-			if (this.name.equals(tmp.getName()) && this.brand.equals(tmp.getBrand()) &&	this.quantity.equals(tmp.getQuantity()) &&	this.price.equals(tmp.getPrice()) && this.type.equals(tmp.getType()))
+			if (this.name.equals(tmp.getName()) && this.brand.equals(tmp.getBrand()) &&	this.quantity.equals(tmp.getQuantity()) &&	this.price.equals(tmp.getPrice()) && this.type.equals(tmp.getType()) && this.department.equals(tmp.getDepartment()))
 				return true;
 		}
 		return false;
 	}
 	
 	public String toString() {
-		return String.format("%s %s %s %s %s %s", name, brand, price.toString(), quantity.toString(), type.toString(), department);
+		return String.format("%s %s %s %s %s %s", name, brand, price.toString(), quantity.toString(), type.toString(), department.toString());
 	}
 	@Override
 	public int compareTo(Product o) {

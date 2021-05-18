@@ -49,9 +49,8 @@ public class PaymentMethodGui extends AnchorPane {
 	}
 	
 	private void cash(ShopStageGui f) {
-		Payment tmp = new Payment(f.getAccount().toString());
-		if(Main.payment.add(tmp))	
-			System.out.println(Main.payment.toString());
+		Payment tmp = new Payment(f.getAccount());
+		Main.payment.add(tmp);		
 		Main.payment.write();
 		Main.actionstage.hide();
 		Main.shopstage.show();
@@ -71,7 +70,7 @@ public class PaymentMethodGui extends AnchorPane {
 			Main.actionstage.show();
 		}
 		
-		Payment tmp = new Payment( CardIdT.getText(), CreditHolderT.getText(), YearChoiceB.getSelectionModel().getSelectedIndex(), MonthChoiceB.getSelectionModel().getSelectedIndex(), CVVT.getText(),f.getAccount().toString());
+		Payment tmp = new Payment( CardIdT.getText(), CreditHolderT.getText(), YearChoiceB.getSelectionModel().getSelectedIndex(), MonthChoiceB.getSelectionModel().getSelectedIndex(), CVVT.getText(),f.getAccount());
 		Main.payment.add(tmp);
 		Main.payment.write();
 	}
@@ -79,7 +78,7 @@ public class PaymentMethodGui extends AnchorPane {
 	private void paypal(ShopStageGui f) {
 		
 		try {
-			Payment tmp = new Payment(PayPalMailT.getText(), PayPalPassT.getText(),f.getAccount().toString());
+			Payment tmp = new Payment(new Email(PayPalMailT.getText()), new Password(PayPalPassT.getText()),f.getAccount());
 			Main.payment.add(tmp);
 			Main.payment.write();
 		}catch(IllegalArgumentException e) {
