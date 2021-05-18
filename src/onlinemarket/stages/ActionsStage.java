@@ -47,6 +47,7 @@ public class ActionsStage extends Stage{
 			customersAcc = new CustomersTableGui();
 			
 			
+			
 			new Thread(() -> {
 				
 				layout = new BorderPane();

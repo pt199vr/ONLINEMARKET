@@ -219,16 +219,16 @@ public class ShopStageGui extends VBox{
 	public void FC(ShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		int i = Main.fidelitycard.size();
+		
 		for(FidelityCard fc: Main.fidelitycard) {
-			i--;
 			if(f.getAccount().toString().equals(fc.getAccount())) {
 				Main.actionstage = new ActionsStage("fidelity",f);
-				break;
-			}
-			if(i == 0)
-				Main.actionstage = new ActionsStage("newFidelity",f);
+				Main.loadingstage.hide();
+				return;
+			}			
+				
 		}
+		Main.actionstage = new ActionsStage("newFidelity",f);
 		Main.loadingstage.hide();
 	}
 	

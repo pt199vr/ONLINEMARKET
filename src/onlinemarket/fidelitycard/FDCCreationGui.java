@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import onlinemarket.Main;
+import onlinemarket.stages.ActionsStage;
 import onlinemarket.stages.ShopStageGui;
 
 public class FDCCreationGui extends AnchorPane {
@@ -40,6 +41,12 @@ public class FDCCreationGui extends AnchorPane {
 		Main.fidelitycard.add(new FidelityCard(f.getAccount()));
 		System.out.println(Main.fidelitycard.toString());
 		Main.fidelitycard.write();
+		
+		
+		Main.actionstage.hide();
+		
+		Main.actionstage = new ActionsStage("fidelity",f);
+		Main.actionstage.show();
 		
 	}
 

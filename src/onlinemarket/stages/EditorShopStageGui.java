@@ -79,6 +79,7 @@ public class EditorShopStageGui extends VBox{
 		bs = new ArrayList<>();
 		
 		tt();
+		System.out.println(Main.product.toString());
 		
 		FXMLLoader fxml = new FXMLLoader(getClass().getResource("EditorShopStage.fxml"));
 		fxml.setRoot(this);

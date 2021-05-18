@@ -121,7 +121,7 @@ public class EditorProdCreationGui extends AnchorPane {
 			type = TypeofQuantity.PIECES;
 		
 		Product p = new Product(ProdNameT.getText(), ProdBrandT.getText(), price, quantity, type, DepCB.getSelectionModel().getSelectedItem().toString(), features);
-		
+		p.setPath(selFile.getPath());
 		p.setGui();
 		Main.product.add(p);
 		Main.prodmap.put(p, p.getGui());
