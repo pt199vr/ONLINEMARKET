@@ -93,7 +93,7 @@ public class RegistrationGui extends AnchorPane{
 			
 			Address where = new Address(address, city, cap);
 			if(where.getNumber() == "" || where.getStreet() == "") {
-				Alert d=new Alert(Alert.AlertType.NONE,"Compilare il campo indirizzo con Via Nomedellavia Numcivico",ButtonType.CLOSE);
+				Alert d=new Alert(Alert.AlertType.NONE,"Address must be in format street name number",ButtonType.CLOSE);
 				d.showAndWait();
 				Main.registrationstage.show();
 				return;
