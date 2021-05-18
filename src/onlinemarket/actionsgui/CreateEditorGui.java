@@ -32,7 +32,6 @@ public class CreateEditorGui extends AnchorPane{
 	private ChoiceBox<String> RoleCB;
 	@FXML
 	private Button CreateB;
-	//ciao
 
 	public CreateEditorGui(EditorShopStageGui f) {
 		FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("CreateEditor.fxml"));
