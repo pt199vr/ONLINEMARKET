@@ -7,9 +7,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<<<<<<< HEAD
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="604.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+=======
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="687.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="604.0">
+      <MenuBar prefHeight="25.0" prefWidth="687.0">
         <menus>
           <Menu fx:id="DeleteACC" mnemonicParsing="false">
                <graphic>
@@ -17,7 +21,7 @@
                </graphic></Menu>
         </menus>
       </MenuBar>
-      <TableView fx:id="customers" layoutY="23.0" prefHeight="409.0" prefWidth="604.0">
+      <TableView fx:id="customers" layoutY="23.0" prefHeight="409.0" prefWidth="687.0">
         <columns>
           <TableColumn fx:id="nameCol" prefWidth="73.0" text="Nome" />
             <TableColumn fx:id="surnameCol" prefWidth="77.0" text="Cognome" />
@@ -26,7 +30,7 @@
             <TableColumn fx:id="DateCol" prefWidth="72.0" text="Card Date" />
             <TableColumn fx:id="pointsCol" prefWidth="65.0" text="Points" />
             <TableColumn fx:id="CelCol" prefWidth="130.0" text="Telephone" />
-            <TableColumn fx:id="AddressCol" prefWidth="75.0" text="Address" />
+            <TableColumn fx:id="AddressCol" prefWidth="81.0" text="Address" />
         </columns>
       </TableView>
    </children>

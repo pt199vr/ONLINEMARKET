@@ -20,7 +20,7 @@ import onlinemarket.Main;
 public class DepartmentGui extends TitledPane {
 	@FXML
 	protected VBox prodVB;
-	protected TreeSet<Product> sortProd;
+	protected TreeSet<Product> sortProd= new TreeSet<>();
 	private Department department;
 	
 	
@@ -40,13 +40,21 @@ public class DepartmentGui extends TitledPane {
 		setText(department.getName());
 		this.department = department;
 		
-	}
-	public boolean sort(Comparator<Product> comp, TreeSet<String> feature, String search) {
-		for(Product x : Main.product) {
-			if(x.getName().equalsIgnoreCase(search))
-				return true;
+		for(Product p: Main.product) {
+			if(p.getDepartment().equals(department)) {
+				p.setGui();
+				prodVB.getChildren().add(p.getGui());
+			}
 		}
 		
-		return false;		
+	}
+	
+	public boolean sort(Comparator<Product> comp, TreeSet<String> feature, String search) {
+		for(Product x : Main.product) {
+			if(x.getName().contains(search))
+				sortProd.add(x);
+		}
+		
+		return (sortProd.size() == 0)? false: true;		
 	}
 }
