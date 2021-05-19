@@ -37,7 +37,7 @@ public class ActionsStage extends Stage{
 			System.gc();
 			
 			create = new CreateDepGui(f);
-			//modify = new ModifyDepGui(f);
+			modify = new ModifyDepGui(f);
 			delete = new DeleteDepGui(f);
 			createProd = new EditorProdCreationGui(f);
 			deleteProd = new EditorProdDeleteGui(f); 
@@ -54,10 +54,10 @@ public class ActionsStage extends Stage{
 				
 				if("create".equals(s)) {					
 					layout.setCenter(create);
-				}/*
+				}
 				if("modify".equals(s)) {
 					layout.setCenter(modify);
-				}*/
+				}
 				if("delete".equals(s)) {
 					layout.setCenter(delete);
 				}
