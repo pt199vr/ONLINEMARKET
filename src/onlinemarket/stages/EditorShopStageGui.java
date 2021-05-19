@@ -118,7 +118,7 @@ public class EditorShopStageGui extends VBox{
 		AscendingBrandRB.setSelected(true);
 		
 		comp = ProductSorting.AscendingBrand();
-		
+
 		sortProd = new HashMap<>(4);
 		sortProd.put(AscendingBrandRB, ProductSorting.AscendingBrand());
 		sortProd.put(DescendingBrandRB, ProductSorting.DescendingBrand());
@@ -230,8 +230,6 @@ public class EditorShopStageGui extends VBox{
 			l.layoutXProperty().bind(p.widthProperty().subtract(l.widthProperty()).divide(2));
 			l.layoutYProperty().bind(p.heightProperty().subtract(l.heightProperty()).divide(2));
 			mainVB.getChildren().add(p);
-			
-			DepartmentsVB.getChildren().add(new Label("No department"));
 			
 		}
 		expand();

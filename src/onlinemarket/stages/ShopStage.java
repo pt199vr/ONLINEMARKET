@@ -1,6 +1,4 @@
 package onlinemarket.stages;
-import java.io.File;
-import java.nio.file.Files;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -10,8 +8,6 @@ import onlinemarket.Main;
 
 import onlinemarket.account.*;
 import onlinemarket.departments.*;
-import onlinemarket.fidelitycard.*;
-import onlinemarket.Main;
 
 public class ShopStage extends Stage {
 	
