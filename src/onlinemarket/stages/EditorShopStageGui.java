@@ -3,6 +3,7 @@ package onlinemarket.stages;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.TreeSet;
 
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
@@ -31,6 +33,7 @@ import onlinemarket.account.Role;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
+import onlinemarket.product.ProductSorting;
 import onlinemarket.readnwrite.RnW_Product;
 
 
@@ -57,6 +60,7 @@ public class EditorShopStageGui extends VBox{
 	private MenuItem create, modify, delete, createProd, deleteProd, profile, editorsAcc, customersAcc, logout;
 	
 	private ToggleGroup sort;
+	private final HashMap<RadioButton,Comparator<Product>> sortProd;
 	
 	protected Comparator<Product> comp;
 	protected String search;
@@ -112,6 +116,20 @@ public class EditorShopStageGui extends VBox{
 		AscendingPriceRB.setToggleGroup(sort);
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
+		
+		comp = ProductSorting.AscendingBrand();
+		
+		sortProd = new HashMap<>(4);
+		sortProd.put(AscendingBrandRB, ProductSorting.AscendingBrand());
+		sortProd.put(DescendingBrandRB, ProductSorting.DescendingBrand());
+		sortProd.put(AscendingPriceRB, ProductSorting.AscendingPrice());
+		sortProd.put(DescendingPriceRB, ProductSorting.DescendingPrice());
+		
+		sort.selectedToggleProperty().addListener((o,oT,nT)->{
+			comp = sortProd.get((RadioButton)sort.getSelectedToggle());
+			sort();
+		});
+		
 		
 		for(String f: RnW_Product.features) {
 			CheckBox cb= new CheckBox(f);
@@ -176,16 +194,17 @@ public class EditorShopStageGui extends VBox{
 	
 	
 	public void sort() {
-
-	
+		mainVB.getChildren().clear();
+		DepartmentsVB.getChildren().clear();
 		selD.clear();	
+		
 		boolean notFound = true, Found;
 		
 		for(Department d:Main.department) {
 			Found = Main.depmap.get(d).sort(comp, feat, search);
 			if(Found) {
-				bs.clear();
 				mainVB.getChildren().add(Main.depmap.get(d));
+				bs.clear();
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setOnMouseClicked(e->{
@@ -193,6 +212,7 @@ public class EditorShopStageGui extends VBox{
 					bs.forEach(b->b.setSelected(false));
 					depRB.setSelected(true);
 					selD.add(Main.depmap.get(d));
+					expand();
 				});
 				
 				
@@ -210,7 +230,11 @@ public class EditorShopStageGui extends VBox{
 			l.layoutXProperty().bind(p.widthProperty().subtract(l.widthProperty()).divide(2));
 			l.layoutYProperty().bind(p.heightProperty().subtract(l.heightProperty()).divide(2));
 			mainVB.getChildren().add(p);
+			
+			DepartmentsVB.getChildren().add(new Label("No department"));
+			
 		}
+		expand();
 	}
 	
 	
@@ -223,10 +247,21 @@ public class EditorShopStageGui extends VBox{
 		sort();
 	}
 	
+	public void expand() {
+		if(selD.size() < Main.department.size()) 
+			for(DepartmentGui depG: Main.depmap.values()) {
+				depG.setExpanded(false);
+			}
+		selD.forEach(depGui ->depGui.setExpanded(true));
+	}
+	
+	
 	public void rfct(Department dep) {
 		cancelFunction();
 		selD.clear();
 		selD.add(Main.depmap.get(dep));
+		
+		expand();
 	}
 	@FXML
 	public void logout() {

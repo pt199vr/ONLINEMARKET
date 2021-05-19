@@ -3,8 +3,6 @@ package onlinemarket.departments;
 import java.io.Serializable;
 import java.util.Comparator;
 
-import onlinemarket.Main;
-import onlinemarket.product.ProdComp;
 public class Department implements Comparable<Department>, Comparator<Department>, Serializable{
 	private static final long serialVersionUID = 7L;
 	

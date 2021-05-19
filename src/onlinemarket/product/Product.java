@@ -103,4 +103,16 @@ public class Product implements Serializable,Comparable<Product>{
 		return (name.hashCode()+brand.hashCode()) - (o.getName().hashCode()+o.getBrand().hashCode());
 	}
 	
+	//serve per sort prodotti tramite feature
+	public boolean Features(TreeSet<String> feat) {
+		if(feat.isEmpty()) return true;
+		if(features.isEmpty()) return false;
+		
+		for(String s: feat)
+			if(!features.contains(feat))
+				return false;
+		
+		return true;
+	}
+	
 }

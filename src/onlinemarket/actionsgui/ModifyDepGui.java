@@ -88,7 +88,7 @@ public class ModifyDepGui extends AnchorPane {
 				Main.depmap.remove(x);
 				Main.depmap.put(d, new DepartmentGui(d));
 				for(Product p : Main.product) {
-					if(p.getDepartment().equals(x.toString())) {
+					if(p.getDepartment().toString().equals(x.toString())) {
 						tmp.add(p);
 					}
 				}

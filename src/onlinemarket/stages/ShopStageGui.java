@@ -3,6 +3,7 @@ package onlinemarket.stages;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.TreeSet;
 
 import onlinemarket.Main;
@@ -28,6 +29,7 @@ import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.product.Product;
+import onlinemarket.product.ProductSorting;
 import onlinemarket.readnwrite.RnW_Product;
 
 public class ShopStageGui extends VBox{
@@ -53,6 +55,8 @@ public class ShopStageGui extends VBox{
 	private MenuItem profile,FDC,Orders,payment,logout;
 	
 	private ToggleGroup sort;
+	
+	private final HashMap<RadioButton,Comparator<Product>> sortProd;
 	
 	protected Comparator<Product> comp;
 	protected String search;
@@ -122,6 +126,18 @@ public class ShopStageGui extends VBox{
 		AscendingPriceRB.setToggleGroup(sort);
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
+		comp = ProductSorting.AscendingBrand();
+		
+		sortProd = new HashMap<>(4);
+		sortProd.put(AscendingBrandRB, ProductSorting.AscendingBrand());
+		sortProd.put(DescendingBrandRB, ProductSorting.DescendingBrand());
+		sortProd.put(AscendingPriceRB, ProductSorting.AscendingPrice());
+		sortProd.put(DescendingPriceRB, ProductSorting.DescendingPrice());
+		
+		sort.selectedToggleProperty().addListener((o,oT,nT)->{
+			comp = sortProd.get((RadioButton)sort.getSelectedToggle());
+			sort();
+		});
 		
 		for(String f: RnW_Product.features) {
 			CheckBox cb= new CheckBox(f);
@@ -155,8 +171,8 @@ public class ShopStageGui extends VBox{
 	
 	
 	public void sort() {
-
 		mainVB.getChildren().clear();
+		DepartmentsVB.getChildren().clear();
 		selD.clear();	
 		boolean notFound = true, Found;
 		
@@ -173,6 +189,7 @@ public class ShopStageGui extends VBox{
 					bs.forEach(b->b.setSelected(false));
 					depRB.setSelected(true);
 					selD.add(Main.depmap.get(d));
+					expand();
 				});
 				
 				
@@ -190,7 +207,10 @@ public class ShopStageGui extends VBox{
 			l.layoutXProperty().bind(p.widthProperty().subtract(l.widthProperty()).divide(2));
 			l.layoutYProperty().bind(p.heightProperty().subtract(l.heightProperty()).divide(2));
 			mainVB.getChildren().add(p);
+			
+			DepartmentsVB.getChildren().add(new Label("No department"));
 		}
+		expand();
 	}
 	
 	
@@ -201,6 +221,14 @@ public class ShopStageGui extends VBox{
 		featuresVB.getChildren().forEach(f ->((CheckBox)f).setSelected(false));
 		
 		sort();
+	}
+	
+	public void expand() {
+		if(selD.size() < Main.department.size()) 
+			for(DepartmentGui depG: Main.depmap.values()) {
+				depG.setExpanded(false);
+			}
+		selD.forEach(depGui ->depGui.setExpanded(true));
 	}
 	
 	public void rfct(Department d) {

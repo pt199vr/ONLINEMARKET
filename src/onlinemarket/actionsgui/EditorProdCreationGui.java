@@ -128,6 +128,10 @@ public class EditorProdCreationGui extends AnchorPane {
 		
 		Main.product.write();
 		
+		Main.loadingstage.show();
+		Main.actionstage.hide();
+		Main.shopstage.show(); 
+		Main.loadingstage.hide();
 	}
 
 	private String getIMG() {
