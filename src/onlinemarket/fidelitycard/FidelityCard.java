@@ -25,6 +25,15 @@ public class FidelityCard implements Serializable, Comparable<FidelityCard>{
 		
 	}
 	
+	public FidelityCard(String s) {
+		if(s.equals("MissingCard")) {
+			points = 0;
+			cardId = "Missing";
+			account = "";
+			date = new Date(0, 0, 0);
+		}
+	}
+	
 	public String getAccount() {
 		return account;
 	}

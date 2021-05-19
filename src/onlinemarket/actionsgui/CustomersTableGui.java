@@ -15,29 +15,30 @@ import onlinemarket.account.Address;
 import onlinemarket.account.Email;
 import onlinemarket.datentime.Date;
 import onlinemarket.fidelitycard.FidelityCard;
+import onlinemarket.actionsgui.AccountFidelity;
 
 
 public class CustomersTableGui extends AnchorPane{
 
-	private Account SelCustomer;
+	private AccountFidelity SelCustomer;
 	
 	@FXML
-	private TableView<Account> customers;
+	private TableView<AccountFidelity> customers;
 	@FXML
-	private TableColumn<Account,String> nameCol,surnameCol;
+	private TableColumn<AccountFidelity,String> nameCol,surnameCol;
 	
 	@FXML
-	private TableColumn<Account,Email> mailCol;
+	private TableColumn<AccountFidelity,Email> mailCol;
 	@FXML
-	private TableColumn<FidelityCard,Date> DateCol;
+	private TableColumn<AccountFidelity,Date> DateCol;
 	@FXML
-	private TableColumn<FidelityCard,Integer> pointsCol;
+	private TableColumn<AccountFidelity,Integer> pointsCol;
 	@FXML
-	private TableColumn<FidelityCard,String> IDCardCol;
+	private TableColumn<AccountFidelity,String> IDCardCol;
 	@FXML
-	private TableColumn<Account,Long> CelCol;
+	private TableColumn<AccountFidelity,Long> CelCol;
 	@FXML
-	private TableColumn<Account,Address> AddressCol;
+	private TableColumn<AccountFidelity,Address> AddressCol;
 	
 	@FXML
 	private Menu DeleteACC;
@@ -57,21 +58,32 @@ public class CustomersTableGui extends AnchorPane{
 			throw new RuntimeException(e);
 		}
 		
-		customers = new TableView<Account>();
-		Main.account.read();		
+		Main.account.read();
+		Main.fidelitycard.read();
 	
 		mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
 		nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-		surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
-		CelCol.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+		surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));		
+		AddressCol.setCellValueFactory(new PropertyValueFactory<>("address"));		
+		pointsCol.setCellValueFactory(new PropertyValueFactory<>("points"));		
+		CelCol.setCellValueFactory(new PropertyValueFactory<AccountFidelity, Long>("PhoneNumber"));
+		IDCardCol.setCellValueFactory(new PropertyValueFactory<AccountFidelity, String>("CardID"));
+		DateCol.setCellValueFactory(new PropertyValueFactory<AccountFidelity, Date>("CardDate"));
 		
 		
-		ObservableList<Account> data = FXCollections.observableArrayList();	
-		for(Account a : Main.account)
-			data.add(a);
+		
+		ObservableList<AccountFidelity> data = FXCollections.observableArrayList();	
+		
+		for(Account a : Main.account) {
+			for(FidelityCard b : Main.fidelitycard) {
+				if(a.toString().equals(b.getAccount())) {
+					data.add(new AccountFidelity(a.getName(), a.getSurname(), a.getEmail(), a.getPassword(), a.getPhoneNumber(), a.getAddress(), b));
+				}
+			}
+			
+		}
+			
 		customers.setItems(data);
-		
-		
 		
 		customers.getSelectionModel().getSelectedItems().addListener(
 				(ListChangeListener.Change<? extends Account> change)-> select(change.getList()));
@@ -83,8 +95,4 @@ public class CustomersTableGui extends AnchorPane{
 		
 	}
 
-	private void init() {
-		
-		
-	}
 }

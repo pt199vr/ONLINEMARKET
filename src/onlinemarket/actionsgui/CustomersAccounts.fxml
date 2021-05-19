@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="604.0" type="AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="604.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="604.0">
         <menus>
@@ -23,7 +23,7 @@
             <TableColumn fx:id="surnameCol" prefWidth="77.0" text="Cognome" />
             <TableColumn fx:id="mailCol" prefWidth="113.0" text="Email" />
             <TableColumn fx:id="IDCardCol" prefWidth="75.0" text="Card ID" />
-            <TableColumn fx:id="CardCol" prefWidth="72.0" text="Card Date" />
+            <TableColumn fx:id="DateCol" prefWidth="72.0" text="Card Date" />
             <TableColumn fx:id="pointsCol" prefWidth="65.0" text="Points" />
             <TableColumn fx:id="CelCol" prefWidth="130.0" text="Telephone" />
             <TableColumn fx:id="AddressCol" prefWidth="75.0" text="Address" />

@@ -21,9 +21,10 @@ public class Main extends Application{
 	public static String title = "Online Market";	
 	public static Stage loadingstage, firststage, loginstage, registrationstage, startingstage, shopstage, actionstage;
 	
-	public static final String path = System.getProperty("user.dir") + "/Accounts";
-	public static final String mediapath = System.getProperty("user.dir") + "/Media";
-	public static final String store = System.getProperty("user.dir")+"/Store";
+	public static final String onlinemarket = System.getProperty("user.dir") + "/OnlineMarket1.0";
+	public static final String path = onlinemarket + "/Accounts";
+	public static final String mediapath = onlinemarket + "/Media";
+	public static final String store = onlinemarket +"/Store";
 	
 	public static HashMap<Department, DepartmentGui> depmap = new HashMap<>();
 	public static HashMap<Product, ProductGui> prodmap = new HashMap<>();
