@@ -71,7 +71,7 @@ public class ShopStageGui extends VBox{
 		
 		this.t = t;
 		
-		search="";
+		search = "";
 		feat = new TreeSet<>();
 		selD = new ArrayList<>();
 		bs = new ArrayList<>();
@@ -126,6 +126,7 @@ public class ShopStageGui extends VBox{
 		AscendingPriceRB.setToggleGroup(sort);
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
+		
 		comp = ProductSorting.AscendingBrand();
 		
 		sortProd = new HashMap<>(4);
@@ -138,6 +139,8 @@ public class ShopStageGui extends VBox{
 			comp = sortProd.get((RadioButton)sort.getSelectedToggle());
 			sort();
 		});
+		
+		
 		
 		for(String f: RnW_Product.features) {
 			CheckBox cb= new CheckBox(f);
@@ -165,7 +168,8 @@ public class ShopStageGui extends VBox{
 		}catch(InterruptedException e) {
 			throw new RuntimeException(e);
 		}
-		
+			scrollP.setVvalue(0);
+			scrollR.setMinHeight(0);
 			sort();
 	}
 	
@@ -174,6 +178,7 @@ public class ShopStageGui extends VBox{
 		mainVB.getChildren().clear();
 		DepartmentsVB.getChildren().clear();
 		selD.clear();	
+		
 		boolean notFound = true, Found;
 		
 		for(Department d: Main.department) {
@@ -191,10 +196,7 @@ public class ShopStageGui extends VBox{
 					selD.add(Main.depmap.get(d));
 					expand();
 				});
-				
-				
-			}
-			if(Found) {
+				DepartmentsVB.getChildren().add(depRB);
 				selD.add(Main.depmap.get(d));
 				notFound = false;
 			}
@@ -207,9 +209,9 @@ public class ShopStageGui extends VBox{
 			l.layoutXProperty().bind(p.widthProperty().subtract(l.widthProperty()).divide(2));
 			l.layoutYProperty().bind(p.heightProperty().subtract(l.heightProperty()).divide(2));
 			mainVB.getChildren().add(p);
+			
 			DepartmentsVB.getChildren().add(new Label("No department"));
 		}
-		
 		expand();
 	}
 	
@@ -218,7 +220,7 @@ public class ShopStageGui extends VBox{
 		searchBar.setText("");
 		search = "";
 		
-		featuresVB.getChildren().forEach(f ->((CheckBox)f).setSelected(false));
+		featuresVB.getChildren().forEach(f -> ((CheckBox)f).setSelected(false));
 		
 		sort();
 	}
@@ -232,10 +234,11 @@ public class ShopStageGui extends VBox{
 	}
 	
 	public void rfct(Department d) {
-				
+		
 		cancelFunction();
 		selD.clear();
 		selD.add(Main.depmap.get(d));
+		expand();
 	}
 	
 	@FXML

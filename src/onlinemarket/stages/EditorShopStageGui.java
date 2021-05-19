@@ -75,8 +75,8 @@ public class EditorShopStageGui extends VBox{
 	public EditorShopStageGui(EditorAccount t) {
 		
 		this.t = t;
-		search="";
 		
+		search = "";
 		feat = new TreeSet<>();
 		selD = new ArrayList<>();
 		bs = new ArrayList<>();
@@ -129,7 +129,6 @@ public class EditorShopStageGui extends VBox{
 			sort();
 		});
 		
-		
 		for(String f: RnW_Product.features) {
 			CheckBox cb= new CheckBox(f);
 			cb.selectedProperty().addListener((o,ov,nv)->{
@@ -152,8 +151,6 @@ public class EditorShopStageGui extends VBox{
 		customersAcc.setOnAction(e->customers(this));
 		logout.setOnAction(e -> logout());
 		Orders.setOnAction(e -> showOrders(this));
-		
-		
 		
 		try {
 			for(Thread thread: threads)
@@ -186,6 +183,7 @@ public class EditorShopStageGui extends VBox{
 					bs.forEach(b->b.setSelected(false));
 					depRB.setSelected(true);
 					selD.add(Main.depmap.get(d));
+					expand();
 				});
 				DepartmentsVB.getChildren().add(depRB);	
 		}
