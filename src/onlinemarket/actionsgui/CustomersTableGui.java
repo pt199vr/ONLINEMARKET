@@ -43,7 +43,7 @@ public class CustomersTableGui extends AnchorPane{
 	@FXML
 	private Menu DeleteACC;
 	@FXML
-	private Label deleteL;
+	private Label DeleteL;
 	
 	public CustomersTableGui() {
 		
@@ -73,26 +73,38 @@ public class CustomersTableGui extends AnchorPane{
 		
 		
 		ObservableList<AccountFidelity> data = FXCollections.observableArrayList();	
-		
+		boolean check = true;
 		for(Account a : Main.account) {
 			for(FidelityCard b : Main.fidelitycard) {
 				if(a.toString().equals(b.getAccount())) {
+					check = false;
 					data.add(new AccountFidelity(a.getName(), a.getSurname(), a.getEmail(), a.getPassword(), a.getPhoneNumber(), a.getAddress(), b));
 				}
 			}
-			
+			if(check)
+				data.add(new AccountFidelity(a.getName(), a.getSurname(), a.getEmail(), a.getPassword(), a.getPhoneNumber(), a.getAddress(), new FidelityCard("MissingCard")));
+			check = true;
 		}
 			
 		customers.setItems(data);
-		
-		customers.getSelectionModel().getSelectedItems().addListener(
-				(ListChangeListener.Change<? extends Account> change)-> select(change.getList()));
+				
 		if(SelCustomer != null)
 			customers.getSelectionModel().select(SelCustomer);
+		
+		Thread t = new Thread(() -> {
+			DeleteL.setOnMouseClicked(e -> delete());
+			
+		});t.start();
 	}
 
-	private void select(ObservableList<? extends Account> list) {
-		
+	private void delete() {
+		SelCustomer = customers.getSelectionModel().getSelectedItem();
+		customers.getItems().remove(SelCustomer);
+		Main.account.remove(SelCustomer);
+		Main.account.write();
+				
 	}
+	
+	
 
 }

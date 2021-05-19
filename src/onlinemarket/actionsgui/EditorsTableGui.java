@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.*;
 import javafx.scene.layout.*;
+import javafx.stage.Modality;
 import onlinemarket.Main;
 import onlinemarket.account.Address;
 import onlinemarket.account.EditorAccount;
@@ -49,35 +50,51 @@ public class EditorsTableGui extends AnchorPane{
 			throw new RuntimeException(e);
 		}
 		
-		
-		editors = new TableView<EditorAccount>();
 		Main.editoraccount.read();
 		
 		mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
 		nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 		surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
-		CelCol.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+		CelCol.setCellValueFactory(new PropertyValueFactory<EditorAccount, Long>("PhoneNumber"));
 		IDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+		mailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+		RoleCol.setCellValueFactory(new PropertyValueFactory<>("role"));
+		AddressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
+		
+		ObservableList<EditorAccount> data = FXCollections.observableArrayList();	
+		
+		for(EditorAccount t : Main.editoraccount) {
+			data.add(t);
+		}
+		editors.setItems(data);
 		
 		
 		createL.setOnMouseClicked(e-> openCreation(f));
-		
-		
-		editors.setItems(FXCollections.observableArrayList(Main.editoraccount));
-		editors.getColumns().forEach(c ->{
-			c.setEditable(false);
-		});
+		deleteL.setOnMouseClicked(e -> delete());
 		editors.getSelectionModel().getSelectedItems().addListener(
-				(ListChangeListener.Change<? extends EditorAccount> change)-> select(change.getList()));
+				(ListChangeListener.Change<? extends EditorAccount> change)-> select());
 		if(SelEditor != null)
 			editors.getSelectionModel().select(SelEditor);
 	}
 
-	private void select(ObservableList<? extends EditorAccount> list) {
-		SelEditor = list.get(0);
+	private void delete() {
+		if(Main.editoraccount.size() > 1) {
+			SelEditor = editors.getSelectionModel().getSelectedItem();
+			editors.getItems().remove(SelEditor);
+			Main.editoraccount.remove(SelEditor);
+			Main.editoraccount.write();
+		}
+		else {
+			Alert a = new Alert(Alert.AlertType.NONE, "There must be at least 1 Editor" , ButtonType.CLOSE);
+			a.initModality(Modality.APPLICATION_MODAL);
+			a.showAndWait();
+		}
+		
+	}
+	
+	private void select() {		
 		ModifyEditor.setDisable(false);
-		if(Main.editoraccount.size() > 1)
-			DeleteEditor.setDisable(false);
+		DeleteEditor.setDisable(false);
 	}
 
 	private void openCreation(EditorShopStageGui f) {
