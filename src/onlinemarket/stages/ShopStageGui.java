@@ -207,9 +207,9 @@ public class ShopStageGui extends VBox{
 			l.layoutXProperty().bind(p.widthProperty().subtract(l.widthProperty()).divide(2));
 			l.layoutYProperty().bind(p.heightProperty().subtract(l.heightProperty()).divide(2));
 			mainVB.getChildren().add(p);
-			
 			DepartmentsVB.getChildren().add(new Label("No department"));
 		}
+		
 		expand();
 	}
 	

@@ -13,6 +13,8 @@ import onlinemarket.Main;
 import onlinemarket.account.Account;
 import onlinemarket.account.Address;
 import onlinemarket.account.Email;
+import onlinemarket.datentime.Date;
+import onlinemarket.fidelitycard.FidelityCard;
 
 
 public class CustomersTableGui extends AnchorPane{
@@ -23,8 +25,15 @@ public class CustomersTableGui extends AnchorPane{
 	private TableView<Account> customers;
 	@FXML
 	private TableColumn<Account,String> nameCol,surnameCol;
+	
 	@FXML
 	private TableColumn<Account,Email> mailCol;
+	@FXML
+	private TableColumn<FidelityCard,Date> DateCol;
+	@FXML
+	private TableColumn<FidelityCard,Integer> pointsCol;
+	@FXML
+	private TableColumn<FidelityCard,String> IDCardCol;
 	@FXML
 	private TableColumn<Account,Long> CelCol;
 	@FXML
@@ -55,6 +64,7 @@ public class CustomersTableGui extends AnchorPane{
 		nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 		surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
 		CelCol.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+		
 		
 		ObservableList<Account> data = FXCollections.observableArrayList();	
 		for(Account a : Main.account)
