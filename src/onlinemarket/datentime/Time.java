@@ -2,7 +2,7 @@ package onlinemarket.datentime;
 
 import java.io.Serializable;
 
-public class Time {
+public class Time implements Serializable{
 	private static final long serialVersionUID = 9L;
 	private final Integer hours, minutes;
 	

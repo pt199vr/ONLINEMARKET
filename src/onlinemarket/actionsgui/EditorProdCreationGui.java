@@ -94,9 +94,9 @@ public class EditorProdCreationGui extends AnchorPane {
 			return;
 		}
 		
-		Double quantity = 0.0;
+		Integer quantity = 0;
 		try {
-			quantity = Double.parseDouble(QuantityT.getText());
+			quantity = Integer.getInteger(QuantityT.getText());
 		}catch(NumberFormatException e) {
 			Alert c = new Alert(Alert.AlertType.NONE,"Invalid quantity",ButtonType.OK);
 			c.showAndWait();

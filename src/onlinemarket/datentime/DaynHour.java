@@ -2,7 +2,7 @@ package onlinemarket.datentime;
 
 import java.io.Serializable;
 
-public class DaynHour{
+public class DaynHour implements Serializable{
 	private static final long serialVersionUID = 11L;
 	private final Time time;
 	private final Date date;
@@ -11,6 +11,11 @@ public class DaynHour{
 	public DaynHour(Integer year, Integer month, Integer day, Integer hours, Integer minutes) {
 		time = new Time(hours, minutes);
 		date = new Date(year, month, day);
+	}
+	
+	public DaynHour(Date date, Time time) {
+		this.date = date;
+		this.time = time;
 	}
 	
 	public Integer getHours() {

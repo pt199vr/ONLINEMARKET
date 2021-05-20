@@ -12,13 +12,14 @@ public class Product implements Serializable,Comparable<Product>{
 	transient ProductGui gui = null;
 	
 	protected final String name, brand;
-	protected Double price, quantity;
+	protected Double price;
+	protected Integer quantity;
 	protected TypeofQuantity type;
 	protected final TreeSet<String> features;
 	protected Department department;
 	protected String path;
 	
-	public Product(String name, String brand, Double price, Double quantity, TypeofQuantity type, Department department, String... features) {
+	public Product(String name, String brand, Double price, Integer quantity, TypeofQuantity type, Department department, String... features) {
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
@@ -32,7 +33,7 @@ public class Product implements Serializable,Comparable<Product>{
 			this.features = null;
 		this.department = department;
 	}
-	public Product(String name,String brand,Double price,Double quantity,TypeofQuantity type, Department department, TreeSet<String> features) {
+	public Product(String name,String brand,Double price,Integer quantity,TypeofQuantity type, Department department, TreeSet<String> features) {
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
@@ -66,7 +67,7 @@ public class Product implements Serializable,Comparable<Product>{
 		return price;
 	}
 	
-	public Double getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 	
@@ -113,6 +114,10 @@ public class Product implements Serializable,Comparable<Product>{
 				return false;
 		
 		return true;
+	}
+	
+	public void setQuantity(Integer a) {
+		this.quantity = a;
 	}
 	
 }

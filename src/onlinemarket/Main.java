@@ -13,13 +13,14 @@ import onlinemarket.readnwrite.*;
 import onlinemarket.readnwrite.*;
 import onlinemarket.account.*;
 import onlinemarket.product.*;
-import onlinemarket.fidelitycard.*;;
+import onlinemarket.fidelitycard.*;
+import onlinemarket.order.*;
 
 
 public class Main extends Application{
 	public static final Image logo = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
 	public static String title = "Online Market";	
-	public static Stage loadingstage, firststage, loginstage, registrationstage, startingstage, shopstage, actionstage;
+	public static Stage loadingstage, firststage, loginstage, registrationstage, startingstage, shopstage, actionstage, cartstage;
 	
 	public static final String onlinemarket = System.getProperty("user.dir") + "/OnlineMarket1.0";
 	public static final String path = onlinemarket + "/Accounts";
@@ -35,6 +36,7 @@ public class Main extends Application{
 	public static final RnW_Product product = new RnW_Product(store + "/Products.txt");
 	public static final RnW_FidelityCard fidelitycard = new RnW_FidelityCard(store + "/FC.txt");
 	public static final RnW_Payment payment = new RnW_Payment(store + "/Payments.txt");
+	public static final RnW_Order order = new RnW_Order(store + "/Orders.txt");
 	public static final TreeSet<String> pictures = new TreeSet<>();
 
 	@Override
@@ -101,6 +103,28 @@ public class Main extends Application{
 				for(EditorAccount a : editoraccount) {
 					if(a.getId().equals(s)) {
 						s = "OM";
+						b = true;
+					}
+						
+				}
+			}
+		}
+		return s;
+	}
+	
+	public static String getIdOrder() {
+		boolean b = true;
+		String s = "ORDER n. ";
+		
+		if(editoraccount.read()) {
+			
+			while(b) {
+				b = false;
+				Double random = (double)(Math.random() * 1000000000000L);
+				s += random;
+				for(Order a : order) {
+					if(a.getId().equals(s)) {
+						s = "ORDER n. ";
 						b = true;
 					}
 						

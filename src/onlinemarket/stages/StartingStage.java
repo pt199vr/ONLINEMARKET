@@ -26,29 +26,28 @@ import onlinemarket.fidelitycard.FidelityCard;
 public class StartingStage extends Stage{
 
 	public StartingStage() {
+		checkPath();
 	     Main.account.read();
 		 Main.editoraccount.read();
 		 Main.department.read();
 		 Main.product.read();
 		 Main.fidelitycard.read();
 		 Main.payment.read();
-		 
-		 checkPath();
-		 Main.loadingstage.show();
-		 
+		 Main.order.read();
+		 Main.loadingstage.show();		 
 	}
 	
 	private void checkPath() {
 		File onlinemarket = new File(Main.onlinemarket),path = new File(Main.path), media = new File(Main.mediapath), store = new File(Main.store), editors = new File(Main.path + "/Editors.txt"),
 				customers = new File(Main.path + "/Customers.txt"), departments = new File(Main.store + "/Departments.txt"),
 				products = new File(Main.store + "/Products.txt"), FC = new File(Main.store + "/FC.txt"),
-				payments = new File(Main.store + "/Payments.txt");
+				payments = new File(Main.store + "/Payments.txt"), order = new File(Main.store + "/Orders.txt");
 		try {
 			if((!onlinemarket.exists() && !onlinemarket.mkdir()) || (!path.exists() && !path.mkdir()) || (!media.mkdir() && !media.exists()) || 
 					(!store.exists() && !store.mkdir()) || (!editors.exists() && !editors.createNewFile()) ||
 					(!customers.exists() && !customers.createNewFile()) || (!departments.exists() && !departments.createNewFile()) ||
 					(!products.exists() && !products.createNewFile()) || (!FC.exists() && !FC.createNewFile()) ||
-					(!payments.exists() && !payments.createNewFile())) {
+					(!payments.exists() && !payments.createNewFile()) || (!order.exists() && !order.createNewFile())) {
 				Alert a = new Alert(Alert.AlertType.NONE, "Path wrong" , ButtonType.CLOSE);
 				a.initModality(Modality.APPLICATION_MODAL);
 				a.initOwner(this);

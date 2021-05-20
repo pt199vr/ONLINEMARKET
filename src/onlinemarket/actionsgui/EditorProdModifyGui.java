@@ -27,7 +27,7 @@ public class EditorProdModifyGui extends ProductGui {
 	@FXML
 	private ImageView ProdImg;
 	
-	public EditorProdModifyGui(Product p,Double quantity) {
+	public EditorProdModifyGui(Product p,Integer quantity) {
 		
 		super(new FXMLLoader(EditorProdModifyGui.class.getResource("productModify.fxml")), p, quantity);
 		
@@ -44,10 +44,11 @@ public class EditorProdModifyGui extends ProductGui {
 		
 		Boolean check = true;
 		
-		Double newquantity = 0.0, price = 0.0;
+		Integer newquantity = 0;
+		Double price = 0.0;
 		
 		try {
-			newquantity = Double.parseDouble(QuantityT.getText());
+			newquantity = Integer.getInteger(QuantityT.getText());
 			price = Double.parseDouble(priceT.getText());
 			
 			if(quantity < 0.0 || price <= 0.0)

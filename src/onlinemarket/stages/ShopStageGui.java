@@ -105,6 +105,8 @@ public class ShopStageGui extends VBox{
 				DepartmentsVB.getChildren().add(depRB);	
 		}
 		
+		//(e -> cart()); qua fare pulsante cart
+		
 		searchButton.setOnAction(e ->{ 
 			search = searchBar.getText().toLowerCase();
 			sort();
@@ -280,6 +282,13 @@ public class ShopStageGui extends VBox{
 
 	public Account getAccount() {
 		return t ;
+	}
+	
+	private void cart() {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		Main.cartstage = new CartStage();
+		Main.loadingstage.hide();
 	}
 	
 }

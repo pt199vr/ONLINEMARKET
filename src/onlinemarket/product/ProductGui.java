@@ -19,11 +19,11 @@ public class ProductGui extends GridPane {
 	
 	protected Product product;
 	
-	protected Double quantity;
+	protected Integer quantity;
 
 	public final static Image defaultIMG = new Image(ProductGui.class.getResourceAsStream("defaultIMG.png"));
 	
-	public ProductGui(FXMLLoader fxmlLoader, Product product, Double quantity) {
+	public ProductGui(FXMLLoader fxmlLoader, Product product, Integer quantity) {
 		
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
@@ -50,7 +50,7 @@ public class ProductGui extends GridPane {
 		
 	}
 	
-	public void newQuantity(Double quantity) {
+	public void newQuantity(Integer quantity) {
 		this.quantity = quantity;
 		if(quantity == 0) {
 			EmptyShelf();
