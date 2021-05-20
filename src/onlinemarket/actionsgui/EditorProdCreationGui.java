@@ -75,10 +75,10 @@ public class EditorProdCreationGui extends AnchorPane {
 		for(String s: types) {
 			TypeCB.getItems().add(s);
 		}
-		addB.setOnAction(e -> addProd());
+		addB.setOnAction(e -> addProd(f));
 	}
 	
-	private void addProd() {
+	private void addProd(EditorShopStageGui f) {
 		if(ProdNameT.getText().equals("") || ProdBrandT.getText().equals("")|| QuantityT.getText().equals("") || QuantityPPieceT.getText().equals("")||PriceT.getText().equals("")) {
 			Alert a = new Alert(Alert.AlertType.NONE,"Fill all the fields",ButtonType.OK);
 			a.showAndWait();
@@ -129,6 +129,7 @@ public class EditorProdCreationGui extends AnchorPane {
 		Main.product.write();
 		
 		Main.loadingstage.show();
+		f.checking();
 		Main.actionstage.hide();
 		Main.shopstage.show(); 
 		Main.loadingstage.hide();

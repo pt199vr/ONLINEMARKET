@@ -34,10 +34,10 @@ public class EditorProdDeleteGui extends AnchorPane {
 			prodCB.getItems().add(p);
 		}
 		
-		deleteB.setOnAction(e -> delete());
+		deleteB.setOnAction(e -> delete(f));
 		
 	}
-	private void delete() {
+	private void delete(EditorShopStageGui f) {
 		Product p = prodCB.getSelectionModel().getSelectedItem();
 		if(new Alert(Alert.AlertType.NONE, "You are deleting this product\n\nContinue?",ButtonType.YES,ButtonType.NO).showAndWait().orElse(ButtonType.NO) == ButtonType.NO)
 			return;
@@ -45,6 +45,9 @@ public class EditorProdDeleteGui extends AnchorPane {
 		Main.prodmap.remove(p);
 		
 		Main.product.write();
+		f.checking();
+		Main.actionstage.hide();
+		Main.shopstage.show();
 	}
 
 }

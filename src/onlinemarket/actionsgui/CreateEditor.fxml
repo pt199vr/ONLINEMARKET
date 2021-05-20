@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root type="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="256.0" layoutY="12.0" text="New Editor">
          <font>
@@ -60,6 +60,30 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
+      <Label fx:id="IDL" layoutX="123.0" layoutY="271.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="316.0" layoutY="144.0" text="Address">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="81.0" layoutY="190.0" text="City">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="329.0" layoutY="190.0" text="CAP">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="RoleCB" layoutX="123.0" layoutY="140.0" prefHeight="25.0" prefWidth="116.0" />
+      <TextField fx:id="AddressT" layoutX="394.0" layoutY="142.0" promptText="Address" />
+      <TextField fx:id="CityT" layoutX="123.0" layoutY="188.0" promptText="City" />
+      <TextField fx:id="CAPT" layoutX="394.0" layoutY="188.0" promptText="CAP">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
       <TextField fx:id="MailT" layoutX="123.0" layoutY="227.0" promptText="Mail">
          <font>
             <Font name="System Italic" size="12.0" />
@@ -80,29 +104,5 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Label fx:id="IDL" layoutX="123.0" layoutY="271.0" prefHeight="25.0" prefWidth="149.0" />
-      <Label layoutX="316.0" layoutY="144.0" text="Address">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="81.0" layoutY="190.0" text="City">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="329.0" layoutY="190.0" text="CAP">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <ChoiceBox fx:id="RoleCB" layoutX="123.0" layoutY="140.0" prefHeight="25.0" prefWidth="116.0" />
-      <TextField fx:id="CityT" layoutX="123.0" layoutY="188.0" promptText="City" />
-      <TextField fx:id="AddressT" layoutX="394.0" layoutY="142.0" promptText="Address" />
-      <TextField fx:id="CAPT" layoutX="394.0" layoutY="188.0" promptText="CAP">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
    </children>
 </fx:root>

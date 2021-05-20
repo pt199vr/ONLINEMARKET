@@ -32,6 +32,7 @@ import onlinemarket.account.Role;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
+import onlinemarket.product.ProductGui;
 import onlinemarket.product.ProductSorting;
 import onlinemarket.readnwrite.RnW_Product;
 
@@ -141,11 +142,26 @@ public class EditorShopStageGui extends VBox{
 			featuresVB.getChildren().add(cb);
 		}
 		
-		create.setOnAction(e -> creation(this));
-		modify.setOnAction(e -> modification(this));
-		delete.setOnAction(e -> delete(this));
-		createProd.setOnAction(e -> createprod(this));
-		deleteProd.setOnAction(e -> deleteprod(this));
+		create.setOnAction(e -> {
+			creation(this);
+			sort();
+			});
+		modify.setOnAction(e -> {
+			modification(this);
+			sort();
+			});
+		delete.setOnAction(e -> {
+			delete(this);
+			sort();
+			});
+		createProd.setOnAction(e -> {
+			createprod(this);
+			sort();
+			});
+		deleteProd.setOnAction(e -> {
+			deleteprod(this);
+			sort();
+		});
 		profile.setOnAction(e -> showAcc(this));
 		editorsAcc.setOnAction(e -> showEd(this));
 		customersAcc.setOnAction(e->customers(this));
@@ -159,35 +175,10 @@ public class EditorShopStageGui extends VBox{
 			throw new RuntimeException(e);
 		}
 		
-			sort();
+		sort();
 	}
 	
-	private void tt() {
-		Main.department.read();
-		Main.department.forEach(d->{
-			Thread thread = new Thread(() -> Main.depmap.put(d, new DepartmentGui(d)));
-			thread.start();
-			threads.add(thread);
-		});
-	}
 	
-	private void tfxml() {
-		DepartmentsVB.getChildren().clear(); 
-		for(Department d: Main.department) {
-			mainVB.getChildren().add(Main.depmap.get(d));
-				RadioButton depRB= new RadioButton(d.getName());
-				bs.add(depRB);
-				depRB.setMinHeight(20);
-				depRB.setOnMouseClicked(e->{
-					selD.clear();
-					bs.forEach(b->b.setSelected(false));
-					depRB.setSelected(true);
-					selD.add(Main.depmap.get(d));
-					expand();
-				});
-				DepartmentsVB.getChildren().add(depRB);	
-		}
-	}
 	
 	
 	public void sort() {
@@ -202,11 +193,11 @@ public class EditorShopStageGui extends VBox{
 			if(Found) {
 				mainVB.getChildren().add(Main.depmap.get(d));
 				bs.clear();
-				RadioButton depRB= new RadioButton(d.getName());
+				RadioButton depRB = new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setOnMouseClicked(e->{
 					selD.clear();
-					bs.forEach(b->b.setSelected(false));
+					bs.forEach(b -> b.setSelected(false));
 					depRB.setSelected(true);
 					selD.add(Main.depmap.get(d));
 					expand();
@@ -336,6 +327,10 @@ public class EditorShopStageGui extends VBox{
 	
 	public void checking() {
 		tt();
+		for(Product p : Main.product) {
+			p.setGui();
+			Main.prodmap.put(p, p.getGui());
+		}
 		for(Department d : Main.department) {
 			Main.depmap.put(d, new DepartmentGui(d));	
 		}
@@ -343,6 +338,32 @@ public class EditorShopStageGui extends VBox{
 		tfxml();
 		
 		Main.shopstage.show();
+	}
+	private void tt() {
+		Main.department.read();
+		Main.department.forEach(d->{
+			Thread thread = new Thread(() -> Main.depmap.put(d, new DepartmentGui(d)));
+			thread.start();
+			threads.add(thread);
+		});
+	}
+	
+	private void tfxml() {
+		DepartmentsVB.getChildren().clear(); 
+		for(Department d: Main.department) {
+			mainVB.getChildren().add(Main.depmap.get(d));
+				RadioButton depRB= new RadioButton(d.getName());
+				bs.add(depRB);
+				depRB.setMinHeight(20);
+				depRB.setOnMouseClicked(e -> {
+					selD.clear();
+					bs.forEach(b -> b.setSelected(false));
+					depRB.setSelected(true);
+					selD.add(Main.depmap.get(d));
+					expand();
+				});
+				DepartmentsVB.getChildren().add(depRB);	
+		}
 	}
 
 	public EditorAccount getAccount() {

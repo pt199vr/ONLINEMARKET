@@ -3,8 +3,11 @@ package onlinemarket.product;
 import java.io.Serializable;
 import java.util.TreeSet;
 
+import onlinemarket.Main;
 import onlinemarket.actionsgui.EditorProdModifyGui;
 import onlinemarket.departments.*;
+import onlinemarket.stages.EditorShopStage;
+import onlinemarket.stages.ShopStage;
 
 public class Product implements Serializable,Comparable<Product>{
 	private static final long serialVersionUID = 6L;
@@ -79,7 +82,11 @@ public class Product implements Serializable,Comparable<Product>{
 	}
 	
 	public void setGui() {
-		gui = new EditorProdModifyGui(this,quantity);
+		if(Main.shopstage instanceof ShopStage) 
+			gui = new UserProdGui(this, quantity);
+		
+		else
+			gui= new EditorProdModifyGui(this,quantity);
 	}
 	
 	public ProductGui getGui() {
@@ -110,7 +117,7 @@ public class Product implements Serializable,Comparable<Product>{
 		if(features.isEmpty()) return false;
 		
 		for(String s: feat)
-			if(!features.contains(feat))
+			if(!features.contains(s))
 				return false;
 		
 		return true;

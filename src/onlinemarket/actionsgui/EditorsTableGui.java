@@ -1,4 +1,3 @@
-
 package onlinemarket.actionsgui;
 
 import java.io.IOException;
@@ -68,27 +67,43 @@ public class EditorsTableGui extends AnchorPane{
 		}
 		editors.setItems(data);
 		
-		
+		EditorShopStageGui t = new EditorShopStageGui(SelEditor);
 		createL.setOnMouseClicked(e-> openCreation(f));
-		deleteL.setOnMouseClicked(e -> delete());
+		deleteL.setOnMouseClicked(e -> delete(f));
+		modifyL.setOnMouseClicked(e -> mod(t));
 		editors.getSelectionModel().getSelectedItems().addListener(
-				(ListChangeListener.Change<? extends EditorAccount> change)-> select());
-		if(SelEditor != null)
+				(ListChangeListener.Change<? extends EditorAccount> change) -> select());
+		
+		if(SelEditor != null) {
 			editors.getSelectionModel().select(SelEditor);
+		}
 	}
 
-	private void delete() {
+	private void delete(EditorShopStageGui f) {
 		if(Main.editoraccount.size() > 1) {
 			SelEditor = editors.getSelectionModel().getSelectedItem();
 			editors.getItems().remove(SelEditor);
 			Main.editoraccount.remove(SelEditor);
 			Main.editoraccount.write();
+			if(SelEditor.equals(f.getAccount())) {
+				Main.loadingstage.show();
+				Main.actionstage.hide();
+				Main.loginstage.show();
+				Main.loadingstage.hide();
+				}
 		}
 		else {
 			Alert a = new Alert(Alert.AlertType.NONE, "There must be at least 1 Editor" , ButtonType.CLOSE);
 			a.initModality(Modality.APPLICATION_MODAL);
 			a.showAndWait();
 		}
+		
+	}
+	private void mod(EditorShopStageGui f) {
+		Main.loadingstage.show();
+		Main.actionstage.hide();
+		Main.actionstage = new ActionsStage("showaccount",f);
+		Main.loadingstage.hide();
 		
 	}
 	
@@ -100,7 +115,7 @@ public class EditorsTableGui extends AnchorPane{
 	private void openCreation(EditorShopStageGui f) {
 		Main.loadingstage.show();
 		Main.actionstage.hide();
-		Main.actionstage= new ActionsStage("EditorCreate",f);
+		Main.actionstage = new ActionsStage("EditorCreate",f);
 		Main.loadingstage.hide();
 	}
 }
