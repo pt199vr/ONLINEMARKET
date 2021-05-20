@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="256.0" layoutY="12.0" text="My Profile">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="74.0" layoutY="92.0" text="Nome">
+      <Label layoutX="74.0" layoutY="92.0" text="Name">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="315.0" layoutY="92.0" text="Cognome">
+      <Label layoutX="315.0" layoutY="92.0" text="Surname">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="142.0" text="Ruolo">
+      <Label layoutX="79.0" layoutY="142.0" text="Role">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="74.0" layoutY="191.0" prefHeight="21.0" prefWidth="41.0" text="Email">
+      <Label layoutX="74.0" layoutY="229.0" prefHeight="21.0" prefWidth="41.0" text="Email">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="336.0" layoutY="193.0" text="Tel.">
+      <Label layoutX="333.0" layoutY="229.0" text="Tel.">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="316.0" layoutY="241.0" text="Password">
+      <Label layoutX="305.0" layoutY="273.0" text="Password">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="IDL" layoutX="182.0" layoutY="239.0" text="ID">
+      <Label layoutX="87.0" layoutY="273.0" prefHeight="21.0" prefWidth="15.0" text="ID">
          <font>
             <Font size="15.0" />
          </font>
@@ -61,17 +60,41 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="MailT" layoutX="123.0" layoutY="189.0" promptText="Mail">
+      <Label fx:id="IDL" layoutX="123.0" layoutY="271.0" prefHeight="25.0" prefWidth="149.0" />
+      <Label layoutX="316.0" layoutY="144.0" text="Address">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="81.0" layoutY="190.0" text="City">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="329.0" layoutY="190.0" text="CAP">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="RoleCB" layoutX="123.0" layoutY="140.0" prefHeight="25.0" prefWidth="116.0" />
+      <TextField fx:id="AddressT" layoutX="394.0" layoutY="142.0" promptText="Address" />
+      <TextField fx:id="CityT" layoutX="123.0" layoutY="188.0" promptText="City" />
+      <TextField fx:id="CAPT" layoutX="394.0" layoutY="188.0" promptText="CAP">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="CelT" layoutX="394.0" layoutY="191.0" promptText="Telephone number">
+      <TextField fx:id="MailT" layoutX="123.0" layoutY="227.0" promptText="Mail">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="PasswordT" layoutX="394.0" layoutY="239.0" promptText="Password">
+      <TextField fx:id="CelT" layoutX="394.0" layoutY="227.0" promptText="Telephone number">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="PasswordT" layoutX="394.0" layoutY="271.0" promptText="Password">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
@@ -81,11 +104,5 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <MenuButton fx:id="RoleB" layoutX="123.0" layoutY="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
    </children>
 </fx:root>

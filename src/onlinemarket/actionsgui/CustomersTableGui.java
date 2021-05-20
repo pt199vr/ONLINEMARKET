@@ -98,13 +98,17 @@ public class CustomersTableGui extends AnchorPane{
 	}
 
 	private void delete() {
+		if(Main.account.size() > 0) {
 		SelCustomer = customers.getSelectionModel().getSelectedItem();
 		customers.getItems().remove(SelCustomer);
 		Main.account.remove(SelCustomer);
 		Main.account.write();
+		}
+		if(Main.account== null || Main.account.size() == 0){
+			Alert a = new Alert(Alert.AlertType.NONE,"There's no account to delete",ButtonType.OK);
+			a.showAndWait();
+			return;
+		}
 				
 	}
-	
-	
-
 }

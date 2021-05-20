@@ -5,10 +5,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import onlinemarket.Main;
+import onlinemarket.account.EditorAccount;
 import onlinemarket.actionsgui.*;
 import onlinemarket.fidelitycard.FDCCreationGui;
 import onlinemarket.fidelitycard.FDCViewGui;
-import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.payment.PaymentMethodGui;
 
 public class ActionsStage extends Stage{
@@ -24,11 +24,12 @@ public class ActionsStage extends Stage{
 	private CreateEditorGui EdCreation;
 	private EditorsTableGui editorsAcc;
 	private CustomersTableGui customersAcc;
-	
 	private CustomerAccGui customer;
 	private FDCCreationGui fdcc;
 	private FDCViewGui fdcv;
 	private PaymentMethodGui payment;
+	
+	private EditorAccount tmp;
 	
 	
 	public ActionsStage(String s, EditorShopStageGui f) {

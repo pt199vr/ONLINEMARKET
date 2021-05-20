@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 import onlinemarket.Main;
+import onlinemarket.account.Role;
 import onlinemarket.product.Product;
 import onlinemarket.product.ProductGui;
 import onlinemarket.product.TypeofQuantity;
@@ -30,13 +31,16 @@ public class EditorProdModifyGui extends ProductGui {
 	public EditorProdModifyGui(Product p,Double quantity) {
 		
 		super(new FXMLLoader(EditorProdModifyGui.class.getResource("productModify.fxml")), p, quantity);
-		
+
 		NameT.setText(p.getName());
 		BrandT.setText(p.getBrand());
 		priceT.setText(p.getPrice().toString());
 		QuantityT.setText(quantity.toString());
-		
 		modifyB.setOnAction(e -> mod(p));
+		
+		String s[]= {TypeofQuantity.GRAMS.toString(),TypeofQuantity.LITERS.toString(),TypeofQuantity.PIECES.toString()};
+		TypeCB.getItems().addAll(s);
+		TypeCB.getSelectionModel().select(p.getType().toString());
 		
 	}
 
