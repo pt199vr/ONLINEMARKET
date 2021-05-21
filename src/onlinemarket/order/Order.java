@@ -76,4 +76,9 @@ public class Order implements Serializable{
 	public String getId() {
 		return ID;
 	}
+	
+	public String toString() {
+		return ID + "||" + account.toString() + "||" + payment.toString() + "||" + price.toString() + "||" + points.toString()
+		+ "||" + date.toString() + "||" + time1.toString() + "->" + time2.toString() + "||" + products.toString();
+	}
 }
