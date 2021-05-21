@@ -18,6 +18,7 @@ public class Cart {
 		if(tmp > 0) {
 			tmp--;
 			price -= a.getPrice();
+			products.put(a, tmp);
 		}		
 		else {
 			products.remove(a);

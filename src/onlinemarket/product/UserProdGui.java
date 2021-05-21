@@ -11,7 +11,7 @@ public class UserProdGui extends ProductGui{
 	private Button AddCartB;
 	@FXML
 	private Label nameL,brandL,quantityWL,quantityL,priceQuantityL;
-	public UserProdGui(Product p, Double quantity) {
+	public UserProdGui(Product p, Integer quantity) {
 		super(new FXMLLoader(UserProdGui.class.getResource("productUser.fxml")), p, quantity);
 		
 		nameL.setText(p.getName());

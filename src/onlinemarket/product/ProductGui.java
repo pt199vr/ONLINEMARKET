@@ -43,6 +43,7 @@ public class ProductGui extends GridPane {
 			EmptyShelf();
 	}
 	
+
 	private void EmptyShelf(){
 		Alert a= new Alert(Alert.AlertType.NONE,"This product is out of stock right now",ButtonType.OK);
 		a.showAndWait();
