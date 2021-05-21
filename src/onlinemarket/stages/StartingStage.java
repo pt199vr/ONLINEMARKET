@@ -7,6 +7,8 @@ import onlinemarket.readnwrite.RnW_EditorAccount;
 import onlinemarket.readnwrite.RnW_FidelityCard;
 import onlinemarket.readnwrite.RnW_Payment;
 import onlinemarket.readnwrite.RnW_Product;
+import onlinemarket.departments.*;
+import onlinemarket.product.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +36,32 @@ public class StartingStage extends Stage{
 		 Main.fidelitycard.read();
 		 Main.payment.read();
 		 Main.order.read();
+		 if(Main.department.isEmpty())
+			 createDepartments();
+		 if(Main.product.isEmpty())
+		 	createProducts();
 		 Main.loadingstage.show();		 
+	}
+	
+	private void createProducts() {
+		Main.product.add(e);
+		
+		
+	}
+	
+	private void createDepartments() {
+		Main.department.add(new Department("Fruit"));
+		Main.department.add(new Department("Vegetables"));
+		Main.department.add(new Department("Sweets"));
+		Main.department.add(new Department("Meat"));
+		Main.department.add(new Department("Fish"));
+		Main.department.add(new Department("Alcohol"));
+		Main.department.add(new Department("Drinks"));
+		Main.department.add(new Department("Self Care"));
+		Main.department.add(new Department("Various Food"));
+		
+		for(Department f : Main.department)
+			Main.depmap.put(f, new DepartmentGui(f));
 	}
 	
 	private void checkPath() {
