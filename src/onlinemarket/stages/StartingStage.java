@@ -161,7 +161,6 @@ public class StartingStage extends Stage{
 				t.add(Main.product.getFeatures(3));
 				Main.product.add(new Product("Coke Cans", "C&C", 2.99, 6, 150,TypeofQuantity.PIECES, tmp, t));
 				
-				
 			}
 			
 			

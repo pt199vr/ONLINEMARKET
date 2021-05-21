@@ -78,7 +78,9 @@ public class ShopStageGui extends VBox{
 		
 		search = "";
 		
-		c = new Cart();
+		//Main.cartstage = new Car..t.
+		//gui = cartstage.getGu()
+		//gui.getCart();
 		
 		feat = new TreeSet<>();
 		selD = new ArrayList<>();
@@ -294,5 +296,12 @@ public class ShopStageGui extends VBox{
 		Main.cartstage = new CartStage(t,f,c);
 		Main.loadingstage.hide();
 	}
+	
+	/*
+	 * void toCart(gui){
+	 * gui.refresh();
+	 *
+	 * }
+	 * */
 	
 }
