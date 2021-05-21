@@ -16,6 +16,10 @@ public class RnW_Product extends RnW<Product>{
 		super(filepath);
 	}
 	
+	public String getFeatures(Integer i) {
+		return features[i];
+	}
+	
 	public String toString() {
 		String r = "Products:\n";
 		int j = 0;

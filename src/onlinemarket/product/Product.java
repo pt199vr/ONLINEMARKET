@@ -21,12 +21,14 @@ public class Product implements Serializable,Comparable<Product>{
 	protected final TreeSet<String> features;
 	protected Department department;
 	protected String path;
+	protected Integer number;
 	
-	public Product(String name, String brand, Double price, Integer quantity, TypeofQuantity type, Department department, String... features) {
+	public Product(String name, String brand, Double price, Integer quantity, Integer number,TypeofQuantity type, Department department, String... features) {
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
 		this.quantity = quantity;
+		this.number = number;
 		this.type = type;		
 		if(features != null && !features[0].equals("")) {
 			this.features = new TreeSet<>();
@@ -36,14 +38,23 @@ public class Product implements Serializable,Comparable<Product>{
 			this.features = null;
 		this.department = department;
 	}
-	public Product(String name,String brand,Double price,Integer quantity,TypeofQuantity type, Department department, TreeSet<String> features) {
+	public Product(String name,String brand,Double price,Integer quantity, Integer number, TypeofQuantity type, Department department, TreeSet<String> features) {
 		this.name = name;
 		this.brand = brand;
 		this.price = price;
 		this.quantity = quantity;
+		this.number = number;
 		this.type = type;
 		this.features = features;
 		this.department = department;
+	}
+	
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
+	
+	public Integer getNumber() {
+		return number;
 	}
 	
 	public void setPath(String path) {

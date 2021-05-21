@@ -31,7 +31,7 @@ public class Order implements Serializable{
 			for(Product a : Main.product) {
 				if(products.containsKey(a)) {
 					Product tmp = a;
-					tmp.setQuantity(products.get(tmp));
+					tmp.setNumber(products.get(tmp));
 					this.products.add(tmp);
 				}
 			}

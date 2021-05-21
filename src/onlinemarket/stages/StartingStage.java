@@ -23,6 +23,7 @@ import javafx.stage.StageStyle;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import onlinemarket.fidelitycard.FidelityCard;
+import java.util.TreeSet;
 
 
 public class StartingStage extends Stage{
@@ -44,7 +45,21 @@ public class StartingStage extends Stage{
 	}
 	
 	private void createProducts() {
-		Main.product.add(e);
+		
+		for(Department tmp : Main.department) {
+			if(tmp.getName().equals("Fruit")) {
+				TreeSet<String> t = new TreeSet<String>();
+				t.add(Main.product.getFeatures(0));
+				t.add(Main.product.getFeatures(2));
+				t.add(Main.product.getFeatures(3));
+				Main.product.add(new Product("Ananas", "FruitMania", 3.55, 1500, 50,TypeofQuantity.GRAMS, tmp, t));
+				Main.product.add(new Product("Apples", "FruitMania", 2.99, 8, 50,TypeofQuantity.PIECES, tmp, t));
+				Main.product.add(new Product("Apricots", "FruitMania", 4.00, 12, 50,TypeofQuantity.GRAMS, tmp, t));
+			}
+			if(tmp.getName().equals("Meat")) {
+				TreeSet<String> t = new TreeSet<String>();
+			}
+		}
 		
 		
 	}

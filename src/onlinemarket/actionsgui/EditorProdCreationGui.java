@@ -94,11 +94,12 @@ public class EditorProdCreationGui extends AnchorPane {
 			return;
 		}
 		
-		Integer quantity = 0;
+		Integer quantity = 0, number = 0;
 		try {
-			quantity = Integer.getInteger(QuantityT.getText());
+			number = Integer.getInteger(QuantityT.getText());
+			quantity = Integer.getInteger(QuantityPPieceT.getText());
 		}catch(NumberFormatException e) {
-			Alert c = new Alert(Alert.AlertType.NONE,"Invalid quantity",ButtonType.OK);
+			Alert c = new Alert(Alert.AlertType.NONE,"Invalid quantity or number of products",ButtonType.OK);
 			c.showAndWait();
 			return;
 		}
@@ -120,7 +121,7 @@ public class EditorProdCreationGui extends AnchorPane {
 		else
 			type = TypeofQuantity.PIECES;
 		
-		Product p = new Product(ProdNameT.getText(), ProdBrandT.getText(), price, quantity, type, DepCB.getSelectionModel().getSelectedItem(), features);
+		Product p = new Product(ProdNameT.getText(), ProdBrandT.getText(), price, quantity, number, type, DepCB.getSelectionModel().getSelectedItem(), features);
 		p.setPath(selFile.getPath());
 		p.setGui();
 		Main.product.add(p);
