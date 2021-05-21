@@ -25,6 +25,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+
+import onlinemarket.cart.*;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.fidelitycard.FidelityCard;
@@ -51,6 +53,8 @@ public class ShopStageGui extends VBox{
 	private VBox filterVB,mainVB, featuresVB, DepartmentsVB;
 	@FXML
 	private Menu Purchases, Cart;
+	@FXML 
+	private Label CartL,PurcasesL;
 	@FXML
 	private MenuItem profile,FDC,Orders,payment,logout;
 	
@@ -66,12 +70,16 @@ public class ShopStageGui extends VBox{
 	private ArrayList<RadioButton> bs = new ArrayList<>();
 	
 	private Account t;
+	private Cart c;
 	
 	public ShopStageGui(Account t) {
 		
 		this.t = t;
 		
 		search = "";
+		
+		c = new Cart();
+		
 		feat = new TreeSet<>();
 		selD = new ArrayList<>();
 		bs = new ArrayList<>();
@@ -104,9 +112,6 @@ public class ShopStageGui extends VBox{
 				});
 				DepartmentsVB.getChildren().add(depRB);	
 		}
-		
-		//(e -> cart()); qua fare pulsante cart
-		
 		searchButton.setOnAction(e ->{ 
 			search = searchBar.getText().toLowerCase();
 			sort();
@@ -157,7 +162,7 @@ public class ShopStageGui extends VBox{
 		}
 		
 		//Purchases.setOnAction(e -> showPurchases());
-		//Cart.setOnAction(e -> showCart());
+		CartL.setOnMouseClicked(e -> cart(this,c));
 		profile.setOnAction(e -> showAcc(this));
 		FDC.setOnAction(e -> FC(this));
 		//Orders.setOnAction(e -> showOrders());
@@ -174,8 +179,7 @@ public class ShopStageGui extends VBox{
 			scrollR.setMinHeight(0);
 			sort();
 	}
-	
-	
+
 	public void sort() {
 		mainVB.getChildren().clear();
 		DepartmentsVB.getChildren().clear();
@@ -284,14 +288,11 @@ public class ShopStageGui extends VBox{
 		return t ;
 	}
 	
-	private void cart() {
+	private void cart(ShopStageGui f,Cart c) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		Main.cartstage = new CartStage();
+		Main.cartstage = new CartStage(t,f,c);
 		Main.loadingstage.hide();
 	}
 	
 }
-
-
-

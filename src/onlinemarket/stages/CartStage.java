@@ -5,23 +5,25 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import onlinemarket.Main;
+import onlinemarket.account.Account;
+import onlinemarket.cart.Cart;
 import javafx.scene.layout.BorderPane;
 
 public class CartStage extends Stage{
 	private BorderPane layout;
-	//private CartStageGui gui;
+	private CartStageGui gui = null;
 	
-	public CartStage() {
+	public CartStage(Account t,ShopStageGui f,Cart c) {
 		Main.loadingstage.show();
 		System.gc();
 		
 		layout = new BorderPane();
 		
-		//gui = new CartStageGui();
+		gui = new CartStageGui(t,f,c);
 		
 		Thread tmp = new Thread(() -> {
 			
-			//layout.setCenter(gui);
+			layout.setCenter(gui);
 			
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
@@ -42,9 +44,9 @@ public class CartStage extends Stage{
 		
 	}
 	
-	/*
+	
 	public CartStageGui getCartGui(){
 		return gui;
 	}
-	 */
+	 
 }

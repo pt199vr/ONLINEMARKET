@@ -24,10 +24,13 @@ public class ActionsStage extends Stage{
 	private CreateEditorGui EdCreation;
 	private EditorsTableGui editorsAcc;
 	private CustomersTableGui customersAcc;
+	
 	private CustomerAccGui customer;
 	private FDCCreationGui fdcc;
 	private FDCViewGui fdcv;
 	private PaymentMethodGui payment;
+	
+	private OrderRecGui orderRec;
 	
 	private EditorAccount tmp;
 	
@@ -129,8 +132,8 @@ public class ActionsStage extends Stage{
 			
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
-			setHeight(400);
-			setWidth(600);
+			setHeight(600);
+			setWidth(800);
 			setResizable(true);
 			Platform.runLater(()->{
 				setScene(new Scene(layout));
@@ -144,5 +147,42 @@ public class ActionsStage extends Stage{
 		
 		}).start();
 	
+	}
+	
+	public ActionsStage(String s,CartStageGui t) {
+		Main.loadingstage.show();
+		System.gc();
+		
+		orderRec = new OrderRecGui(t);
+		
+		new Thread(() -> {
+			layout = new BorderPane();
+			if("orderrecap".equals(s))
+				layout.setCenter(orderRec);
+			if("payment".equals(s))
+				layout.setCenter(payment);
+			if("showaccount".equals(s))
+				layout.setCenter(customer);
+			if("fidelity".equals(s))
+				layout.setCenter(fdcv);
+			if("newFidelity".equals(s)) 
+				layout.setCenter(fdcc);
+			
+			setTitle(Main.title);
+			getIcons().add(Main.logo);
+			setHeight(600);
+			setWidth(800);
+			setResizable(true);
+			Platform.runLater(()->{
+				setScene(new Scene(layout));
+				show();
+				Main.loadingstage.hide();
+			});
+		
+			setOnCloseRequest(e -> {
+				Main.cartstage.show();					
+			});
+			
+		}).start();
 	}
 }

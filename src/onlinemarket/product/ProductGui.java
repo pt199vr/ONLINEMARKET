@@ -1,6 +1,5 @@
 package onlinemarket.product;
 
-import java.io.File;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
@@ -10,7 +9,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import onlinemarket.Main;
 
 
 public class ProductGui extends GridPane {
@@ -19,11 +17,11 @@ public class ProductGui extends GridPane {
 	
 	protected Product product;
 	
-	protected Integer quantity;
+	protected Integer number;
 
 	public final static Image defaultIMG = new Image(ProductGui.class.getResourceAsStream("defaultIMG.png"));
 	
-	public ProductGui(FXMLLoader fxmlLoader, Product product, Integer quantity) {
+	public ProductGui(FXMLLoader fxmlLoader, Product product, Integer number) {
 		
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
@@ -35,12 +33,23 @@ public class ProductGui extends GridPane {
 		}
 		
 		this.product = product;
+<<<<<<< HEAD
 		this.quantity = product.getNumber();
+=======
+		this.number = number;
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 		
+<<<<<<< HEAD
 		//ProdImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
 		
+=======
+		if(this.product.getPath() == null)
+			ProdImg.setImage(defaultIMG);
+		else
+			ProdImg.setImage(new Image("file:" + this.product.getPath()));
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 		
-		if(quantity == 0)
+		if(number == 0)
 			EmptyShelf();
 	}
 	
@@ -52,13 +61,12 @@ public class ProductGui extends GridPane {
 		
 	}
 	
-	public void newQuantity(Integer quantity) {
-		this.quantity = quantity;
-		if(quantity == 0) {
+	public void newQuantity(Integer number) {
+		this.number = number;
+		if(number == 0) {
 			EmptyShelf();
 		}
 	}
 }
-	
 	
 	

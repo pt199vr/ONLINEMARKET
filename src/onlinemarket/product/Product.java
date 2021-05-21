@@ -16,12 +16,14 @@ public class Product implements Serializable,Comparable<Product>{
 	
 	protected final String name, brand;
 	protected Double price;
-	protected Integer quantity;
+	//number -> numero di prodotti di questo tipo. quantity -> numero di pezzi per confezione o peso/litri per confezione
+	protected Integer quantity,number;
 	protected TypeofQuantity type;
 	protected final TreeSet<String> features;
 	protected Department department;
 	protected String path;
-	protected Integer number;
+	
+	
 	
 	public Product(String name, String brand, Double price, Integer quantity, Integer number,TypeofQuantity type, Department department, String... features) {
 		this.name = name;

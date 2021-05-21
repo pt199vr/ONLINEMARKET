@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<fx:root type="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="233.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="113.0" layoutY="14.0" text="Choose delivery date">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="58.0" text="Choose delivery day :" />
+      <Label layoutX="212.0" layoutY="108.0" />
+      <Label layoutX="56.0" layoutY="108.0" text="Choose delivery hour:" />
+      <ChoiceBox fx:id="DayCB" layoutX="199.0" layoutY="54.0" prefHeight="25.0" prefWidth="125.0" />
+      <ChoiceBox fx:id="HourCB" layoutX="199.0" layoutY="104.0" prefHeight="25.0" prefWidth="60.0" />
+      <ChoiceBox fx:id="MinuteCB" layoutX="264.0" layoutY="104.0" prefHeight="25.0" prefWidth="60.0" />
+   </children>
+</fx:root>
