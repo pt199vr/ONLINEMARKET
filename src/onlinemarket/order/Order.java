@@ -19,7 +19,7 @@ public class Order implements Serializable{
 	private Account account;
 	private Float price;
 	private Payment payment;
-	private Integer points;
+	private Integer points = 0;
 	
 	public Order(Date date, Time time1, Time time2, HashMap<Product, Integer> products, Account account, Float price, Payment payment) {
 		this.ID = Main.getIdOrder();
@@ -42,9 +42,7 @@ public class Order implements Serializable{
 		for(FidelityCard f : Main.fidelitycard) {
 			if(f.getAccount().equals(account))
 				this.points = price.intValue();		
-			else
-				this.points = 0;
-	}
+		}
 	}
 	
 	public Integer getPoints() {
