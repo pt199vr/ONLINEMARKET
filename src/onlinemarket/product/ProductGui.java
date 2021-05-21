@@ -35,9 +35,10 @@ public class ProductGui extends GridPane {
 		}
 		
 		this.product = product;
-		this.quantity = quantity;
+		this.quantity = product.getNumber();
 		
-		ProdImg.setImage(new Image("file:" + this.product.getPath()));
+		//ProdImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
+		
 		
 		if(quantity == 0)
 			EmptyShelf();

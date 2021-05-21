@@ -87,7 +87,7 @@ public class EditorProdModifyGui extends ProductGui {
 		else
 			type = TypeofQuantity.PIECES;
 		
-		Product newProd = new Product(name, brand, price,newquantity, type, p.getDepartment(), p.getFeatures());
+		Product newProd = new Product(name, brand, price, newquantity, 1, type, p.getDepartment(), p.getFeatures());
 		EditorProdModifyGui gui;
 		if(newProd.equals(p)) {
 			newQuantity(newquantity);
