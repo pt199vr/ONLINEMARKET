@@ -6,6 +6,7 @@ import onlinemarket.Main;
 import onlinemarket.datentime.*;
 import onlinemarket.account.*;
 import onlinemarket.payment.*;
+import onlinemarket.fidelitycard.*;
 import java.util.TreeSet;
 import java.util.HashMap;
 
@@ -38,7 +39,12 @@ public class Order implements Serializable{
 		this.account = account;
 		this.price = price;
 		this.payment = payment;
-		this.points = price.intValue();		
+		for(FidelityCard f : Main.fidelitycard) {
+			if(f.getAccount().equals(account))
+				this.points = price.intValue();		
+			else
+				this.points = 0;
+	}
 	}
 	
 	public Integer getPoints() {
