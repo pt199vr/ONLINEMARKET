@@ -35,7 +35,7 @@ public class EditorProdCreationGui extends AnchorPane {
 	@FXML
 	private ImageView ProdImg;
 	@FXML
-	private TextField ProdNameT, ProdBrandT,PriceT,QuantityT,QuantityPPieceT,TypeofQuantityT;
+	private TextField ProdNameT, ProdBrandT,PriceT,QuantityXPieceT,StockT,TypeofQuantityT;
 	@FXML
 	private Button addB,ImgB;
 	@FXML
@@ -79,7 +79,7 @@ public class EditorProdCreationGui extends AnchorPane {
 	}
 	
 	private void addProd(EditorShopStageGui f) {
-		if(ProdNameT.getText().equals("") || ProdBrandT.getText().equals("")|| QuantityT.getText().equals("") || QuantityPPieceT.getText().equals("")||PriceT.getText().equals("")) {
+		if(ProdNameT.getText().equals("") || ProdBrandT.getText().equals("")|| StockT.getText().equals("") || QuantityXPieceT.getText().equals("")||PriceT.getText().equals("")) {
 			Alert a = new Alert(Alert.AlertType.NONE,"Fill all the fields",ButtonType.OK);
 			a.showAndWait();
 			return;
@@ -96,8 +96,8 @@ public class EditorProdCreationGui extends AnchorPane {
 		
 		Integer quantity = 0, number = 0;
 		try {
-			number = Integer.getInteger(QuantityT.getText());
-			quantity = Integer.getInteger(QuantityPPieceT.getText());
+			number = Integer.getInteger(StockT.getText());
+			quantity = Integer.getInteger(QuantityXPieceT.getText());
 		}catch(NumberFormatException e) {
 			Alert c = new Alert(Alert.AlertType.NONE,"Invalid quantity or number of products",ButtonType.OK);
 			c.showAndWait();

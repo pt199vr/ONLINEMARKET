@@ -41,16 +41,16 @@
       </AnchorPane>
       <AnchorPane prefHeight="190.0" prefWidth="143.0" GridPane.columnIndex="2">
          <children>
+            <TextField fx:id="QuantityXPieceT" alignment="CENTER" layoutX="15.0" layoutY="42.0" prefHeight="25.0" prefWidth="59.0" />
+            <ChoiceBox fx:id="TypeCB" layoutX="74.0" layoutY="42.0" prefHeight="25.0" prefWidth="66.0" />
             <TextField fx:id="priceT" alignment="CENTER" layoutX="44.0" layoutY="74.0" prefHeight="25.0" prefWidth="59.0" text="0.00" />
-            <Label layoutX="20.0" layoutY="119.0" text="Quantity" />
-            <TextField fx:id="QuantityT" alignment="CENTER" layoutX="73.0" layoutY="115.0" prefHeight="25.0" prefWidth="59.0" />
-            <TextField fx:id="quantityPerPieceT" alignment="CENTER" layoutX="43.0" layoutY="42.0" prefHeight="25.0" prefWidth="30.0" text="1" />
             <Label layoutX="103.0" layoutY="77.0" text="€">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="TypeCB" layoutX="74.0" layoutY="42.0" prefHeight="25.0" prefWidth="66.0" />
+            <Label layoutX="20.0" layoutY="119.0" text="Stock" />
+            <TextField fx:id="StockT" alignment="CENTER" layoutX="54.0" layoutY="115.0" prefHeight="25.0" prefWidth="57.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">

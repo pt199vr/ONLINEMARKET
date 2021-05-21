@@ -18,7 +18,7 @@ import onlinemarket.product.TypeofQuantity;
 
 public class EditorProdModifyGui extends ProductGui {
 	@FXML
-	private TextField NameT,BrandT,priceT,QuantityT,quantityPerPieceT;
+	private TextField NameT,BrandT,priceT,QuantityXPieceT,StockT;
 	@FXML
 	private ChoiceBox<String> TypeCB;
 	@FXML
@@ -28,14 +28,15 @@ public class EditorProdModifyGui extends ProductGui {
 	@FXML
 	private ImageView ProdImg;
 	
-	public EditorProdModifyGui(Product p,Integer quantity) {
+	public EditorProdModifyGui(Product p,Integer number) {
 		
-		super(new FXMLLoader(EditorProdModifyGui.class.getResource("productModify.fxml")), p, quantity);
+		super(new FXMLLoader(EditorProdModifyGui.class.getResource("productModify.fxml")), p, number);
 
 		NameT.setText(p.getName());
 		BrandT.setText(p.getBrand());
 		priceT.setText(p.getPrice().toString());
-		QuantityT.setText(quantity.toString());
+		StockT.setText(p.getNumber().toString());
+		QuantityXPieceT.setText(p.getQuantity().toString());
 		modifyB.setOnAction(e -> mod(p));
 		
 		String s[]= {TypeofQuantity.GRAMS.toString(),TypeofQuantity.LITERS.toString(),TypeofQuantity.PIECES.toString()};
@@ -48,14 +49,15 @@ public class EditorProdModifyGui extends ProductGui {
 		
 		Boolean check = true;
 		
-		Integer newquantity = 0;
+		Integer newquantityXpiece = 0,number = 0;
 		Double price = 0.0;
 		
 		try {
-			newquantity = Integer.getInteger(QuantityT.getText());
+			number = Integer.parseInt(StockT.getText()); 
+			newquantityXpiece = Integer.parseInt(QuantityXPieceT.getText());
 			price = Double.parseDouble(priceT.getText());
 			
-			if(quantity < 0.0 || price <= 0.0)
+			if(number < 0 || price <= 0.0 ||newquantityXpiece < 0)
 				throw new NumberFormatException();
 		}catch(NumberFormatException e) {
 			check = false;
@@ -68,16 +70,17 @@ public class EditorProdModifyGui extends ProductGui {
 			b.showAndWait();
 			return;
 		}
-		if(Double.parseDouble(QuantityT.getText())== 0.0) {
+		if(Integer.parseInt(StockT.getText())== 0) {
 			quantityWL.setText("Out of Stock");
 			quantityWL.setVisible(true);
 			ProdImg.setOpacity(0.1);
 		}
-		if(Double.parseDouble(QuantityT.getText()) > 0.0) {
+		if(Double.parseDouble(StockT.getText()) > 0) {
 			quantityWL.setText("");
 			quantityWL.setVisible(false);
 			ProdImg.setOpacity(1);
 		}
+		
 		String t = TypeCB.getSelectionModel().getSelectedItem();
 		TypeofQuantity type;
 		if(t.equals(TypeofQuantity.GRAMS.toString()))
@@ -87,10 +90,10 @@ public class EditorProdModifyGui extends ProductGui {
 		else
 			type = TypeofQuantity.PIECES;
 		
-		Product newProd = new Product(name, brand, price,newquantity, type, p.getDepartment(), p.getFeatures());
+		Product newProd = new Product(name, brand, price,newquantityXpiece, number, type, p.getDepartment(), p.getFeatures());
 		EditorProdModifyGui gui;
 		if(newProd.equals(p)) {
-			newQuantity(newquantity);
+			newQuantity(number);
 			gui = this;
 		}
 		else {

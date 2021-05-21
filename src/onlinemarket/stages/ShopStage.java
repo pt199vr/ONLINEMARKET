@@ -50,5 +50,9 @@ public class ShopStage extends Stage {
 		}).start();
 	}
 	
+	private Account getAccount() {
+		return t;
+	}
+	
 	
 }

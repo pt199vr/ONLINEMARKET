@@ -4,6 +4,7 @@ import onlinemarket.product.*;
 import java.util.HashMap;
 
 public class Cart {
+	
 	HashMap<Product, Integer> products;
 	Double price;
 	
