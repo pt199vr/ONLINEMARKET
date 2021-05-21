@@ -33,21 +33,19 @@ public class ProductGui extends GridPane {
 		}
 		
 		this.product = product;
-<<<<<<< HEAD
-		this.quantity = product.getNumber();
-=======
+
+		this.number = product.getNumber();
+
 		this.number = number;
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
-		
-<<<<<<< HEAD
+
 		//ProdImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
 		
-=======
+
 		if(this.product.getPath() == null)
 			ProdImg.setImage(defaultIMG);
 		else
 			ProdImg.setImage(new Image("file:" + this.product.getPath()));
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
+
 		
 		if(number == 0)
 			EmptyShelf();

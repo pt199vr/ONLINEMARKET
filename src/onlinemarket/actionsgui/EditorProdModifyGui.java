@@ -89,12 +89,9 @@ public class EditorProdModifyGui extends ProductGui {
 			type = TypeofQuantity.LITERS;
 		else
 			type = TypeofQuantity.PIECES;
-		
-<<<<<<< HEAD
-		Product newProd = new Product(name, brand, price, newquantity, 1, type, p.getDepartment(), p.getFeatures());
-=======
+
 		Product newProd = new Product(name, brand, price,newquantityXpiece, number, type, p.getDepartment(), p.getFeatures());
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
+
 		EditorProdModifyGui gui;
 		if(newProd.equals(p)) {
 			newQuantity(number);
