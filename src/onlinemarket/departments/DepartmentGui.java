@@ -49,8 +49,8 @@ public class DepartmentGui extends TitledPane {
 	}
 	
 	public boolean sort(Comparator<Product> comp, TreeSet<String> feature, String search) {
-		if(department.getName().toLowerCase().contains(search))
-			search= null;
+		if(department.getName().toLowerCase().contains(search)||department.getName().toLowerCase().equals(search))
+			search = null;
 		sortProd = ProductSorting.sortedProds(comp, feature, search);
 		view();
 		
@@ -58,7 +58,7 @@ public class DepartmentGui extends TitledPane {
 	}
 	
 	public void view() {
-		if(sortProd==null)
+		if(sortProd == null)
 			sort(ProductSorting.AscendingBrand(), new TreeSet<>(), "");
 		prodVB.getChildren().clear();
 		sortProd.forEach(p ->{

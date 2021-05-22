@@ -126,8 +126,8 @@ public class Product implements Serializable,Comparable<Product>{
 	
 	//serve per sort prodotti tramite feature
 	public boolean Features(TreeSet<String> feat) {
-		if(feat.isEmpty()) return true;
-		if(features.isEmpty()) return false;
+		if(feat.isEmpty()|| feat == null) return true;
+		if(features.isEmpty()|| features == null) return false;
 		
 		for(String s: feat)
 			if(!features.contains(s))
