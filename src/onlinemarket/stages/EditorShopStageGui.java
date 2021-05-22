@@ -29,6 +29,7 @@ import javafx.stage.Modality;
 import onlinemarket.Main;
 import onlinemarket.account.EditorAccount;
 import onlinemarket.account.Role;
+import onlinemarket.actionsgui.EditorProdModifyGui;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.product.Product;
@@ -327,8 +328,8 @@ public class EditorShopStageGui extends VBox{
 	public void checking() {
 		tt();
 		for(Product p : Main.product) {
-			p.setGui();
-			Main.prodmap.put(p, p.getGui());
+			ProductGui g = new EditorProdModifyGui(p);
+			Main.prodmap.put(p, g);
 		}
 		for(Department d : Main.department) {
 			Main.depmap.put(d, new DepartmentGui(d));	

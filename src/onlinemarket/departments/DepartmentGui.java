@@ -18,13 +18,16 @@ import onlinemarket.product.Product;
 import onlinemarket.product.ProductGui;
 import onlinemarket.product.ProductSorting;
 import onlinemarket.product.UserProdGui;
+import onlinemarket.stages.ShopStage;
 import onlinemarket.Main;
+import onlinemarket.actionsgui.EditorProdModifyGui;
 
 public class DepartmentGui extends TitledPane {
 	@FXML
 	protected VBox prodVB;
 	protected TreeSet<Product> sortProd = new TreeSet<>();
 	private Department department;
+	private ProductGui g;
 
 
 		
@@ -42,11 +45,13 @@ public class DepartmentGui extends TitledPane {
 		
 		setText(department.getName());
 		this.department = department;
-		
 		for(Product p: Main.product) {
 			if(p.getDepartment().equals(department)) {
-				p.setGui();
-				prodVB.getChildren().add(p.getGui());
+				if(Main.shopstage instanceof ShopStage)
+					g= new UserProdGui(p);
+				else
+					g= new EditorProdModifyGui(p);
+				prodVB.getChildren().add(g);
 			}
 		}
 		
@@ -70,8 +75,11 @@ public class DepartmentGui extends TitledPane {
 		prodVB.getChildren().clear();
 		sortProd.forEach(p ->{
 			if(p.getDepartment().equals(department)) {
-				p.setGui();
-				prodVB.getChildren().add(p.getGui());
+				if(Main.shopstage instanceof ShopStage)
+					g = new UserProdGui(p);
+				else
+					g = new EditorProdModifyGui(p);
+				prodVB.getChildren().add(g);
 			}
 		});
 		

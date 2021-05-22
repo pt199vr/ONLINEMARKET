@@ -11,10 +11,6 @@ import onlinemarket.stages.ShopStage;
 
 public class Product implements Serializable,Comparable<Product>{
 	private static final long serialVersionUID = 6L;
-	
-	transient ProductGui gui = null;
-	transient CustomerProdCartGui cartgui = null;
-	
 	protected final String name, brand;
 	protected Double price;
 	//number -> numero di prodotti di questo tipo. quantity -> numero di pezzi per confezione o peso/litri per confezione
@@ -93,24 +89,6 @@ public class Product implements Serializable,Comparable<Product>{
 	}
 	public TreeSet<String> getFeatures() {
 		return features;
-	}
-	public void setCartProdGui() {
-		cartgui = new CustomerProdCartGui(this,quantity);
-	}
-	public CustomerProdCartGui getCartProdGui() {
-		return cartgui;
-	}
-	
-	public void setGui() {
-		if(Main.shopstage instanceof ShopStage) 
-			gui = new UserProdGui(this);
-		
-		else
-			gui= new EditorProdModifyGui(this,quantity);
-	}
-	
-	public ProductGui getGui() {
-		return gui;
 	}
 	
 	public boolean equals(Object other) {

@@ -146,7 +146,7 @@ public class ShopStageGui extends VBox{
 		DescendingPriceRB.setToggleGroup(sort);
 		
 		AscendingBrandRB.setSelected(true);
-		
+	
 		comp = ProductSorting.AscendingBrand();
 		
 		sortProd = new HashMap<>(4);
