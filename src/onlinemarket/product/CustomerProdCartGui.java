@@ -21,7 +21,7 @@ public class CustomerProdCartGui extends ProductGui{
 		singlePriceL.setText(product.getPrice().toString());
 		//totalPriceL.setText((product.getPrice()*product.getNumber()));
 		
-		removeB.setOnAction(e_->{
+		removeB.setOnAction(e -> {
 		});
 		
 		

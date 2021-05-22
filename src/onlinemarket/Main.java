@@ -58,7 +58,9 @@ public class Main extends Application{
 	
 	public static void shopping(Account t) {
 		loadingstage.hide();
+		cartstage = new CartStage(t);
 		shopstage = new ShopStage(t);
+		shopstage.hide();
 	}
 	public static void EditorShopping(EditorAccount t) {
 		loadingstage.hide();
@@ -69,6 +71,9 @@ public class Main extends Application{
 		launch(args);
 	}
 	
+	public static void createCartstage() {
+		cartstage = new CartStage(((ShopStage)shopstage).getAccount());
+	}
 	public static String createFidelityId() {
 		boolean b = true;
 		String s ="";

@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -15,15 +17,16 @@ import javafx.scene.layout.VBox;
 import onlinemarket.product.Product;
 import onlinemarket.product.ProductGui;
 import onlinemarket.product.ProductSorting;
+import onlinemarket.product.UserProdGui;
 import onlinemarket.Main;
 
 public class DepartmentGui extends TitledPane {
 	@FXML
 	protected VBox prodVB;
-	protected TreeSet<Product> sortProd= new TreeSet<>();
+	protected TreeSet<Product> sortProd = new TreeSet<>();
 	private Department department;
-	
-	
+
+
 		
 	public DepartmentGui(Department department) {
 		
@@ -46,6 +49,10 @@ public class DepartmentGui extends TitledPane {
 				prodVB.getChildren().add(p.getGui());
 			}
 		}
+		
+		
+		
+		
 	}
 	
 	public boolean sort(Comparator<Product> comp, TreeSet<String> feature, String search) {
@@ -67,6 +74,11 @@ public class DepartmentGui extends TitledPane {
 				prodVB.getChildren().add(p.getGui());
 			}
 		});
+		
+	}
+	
+	public ObservableList<Node> getProds() {
+		return prodVB.getChildren();
 		
 	}
 }

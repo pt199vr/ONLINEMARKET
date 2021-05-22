@@ -10,6 +10,7 @@ import onlinemarket.Main;
 import onlinemarket.account.Account;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -32,6 +33,7 @@ import onlinemarket.departments.DepartmentGui;
 import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.product.Product;
 import onlinemarket.product.ProductSorting;
+import onlinemarket.product.UserProdGui;
 import onlinemarket.readnwrite.RnW_Product;
 
 public class ShopStageGui extends VBox{
@@ -76,11 +78,10 @@ public class ShopStageGui extends VBox{
 		
 		this.t = t;
 		
-		search = "";
+		CartStageGui cartgui = ((CartStage)Main.cartstage).getCartGui();
+		c = cartgui.getCart();
 		
-		//Main.cartstage = new Car..t.
-		//gui = cartstage.getGu()
-		//gui.getCart();
+		search = "";
 		
 		feat = new TreeSet<>();
 		selD = new ArrayList<>();
@@ -114,6 +115,15 @@ public class ShopStageGui extends VBox{
 				});
 				DepartmentsVB.getChildren().add(depRB);	
 		}
+		
+		for(DepartmentGui dg: Main.depmap.values()) {
+			for(Node pg: dg.getProds()) {
+				if(pg instanceof UserProdGui) {
+					((UserProdGui)pg).getAdd().setOnAction(e -> c.add(((UserProdGui) pg).getProduct()));
+				}
+			}
+		}
+		
 		searchButton.setOnAction(e ->{ 
 			search = searchBar.getText().toLowerCase();
 			sort();
@@ -165,7 +175,7 @@ public class ShopStageGui extends VBox{
 		}
 		
 		//Purchases.setOnAction(e -> showPurchases());
-		CartL.setOnMouseClicked(e -> cart(this));
+		CartL.setOnMouseClicked(e -> cart(cartgui));
 		profile.setOnAction(e -> showAcc(this));
 		FDC.setOnAction(e -> FC(this));
 		//Orders.setOnAction(e -> showOrders());
@@ -290,13 +300,17 @@ public class ShopStageGui extends VBox{
 		return t ;
 	}
 	
-	private void cart(ShopStageGui f) {
+	private void cart(CartStageGui cartgui) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		Main.cartstage = new CartStage(t,f);
+		cartgui.refresh();
+		Main.cartstage.show();
 		Main.loadingstage.hide();
 	}
 	
+	public Cart getCart() {
+		return this.c;
+	}
 	/*
 	 * void toCart(gui){
 	 * gui.refresh();

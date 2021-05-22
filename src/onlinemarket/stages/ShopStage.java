@@ -7,12 +7,14 @@ import javafx.stage.Stage;
 import onlinemarket.Main;
 
 import onlinemarket.account.*;
+import onlinemarket.cart.Cart;
 import onlinemarket.departments.*;
 
 public class ShopStage extends Stage {
 	
 	private BorderPane layout;
 	private ShopStageGui shopgui;
+	
 	private Account t;
 	
 	public ShopStage(Account t) {
@@ -27,6 +29,7 @@ public class ShopStage extends Stage {
 		
 		
 		new Thread(() -> {
+			
 			layout = new BorderPane();
 			shopgui = new ShopStageGui(t);
 			layout.setCenter(shopgui);
@@ -50,9 +53,15 @@ public class ShopStage extends Stage {
 		}).start();
 	}
 	
-	private Account getAccount() {
+	public Account getAccount() {
 		return t;
 	}
+	
+	public ShopStageGui getGui() {
+		return shopgui;
+	}
+	
+	
 	
 	
 }

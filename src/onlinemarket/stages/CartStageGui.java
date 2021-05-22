@@ -1,6 +1,7 @@
 package onlinemarket.stages;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,7 @@ import onlinemarket.account.Account;
 import onlinemarket.cart.Cart;
 import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.product.Product;
+import onlinemarket.product.ProductGui;
 
 public class CartStageGui extends VBox{
 	
@@ -39,10 +41,12 @@ public class CartStageGui extends VBox{
 	
 	private ToggleGroup sort;
 	private Account t;
+	private Cart cart;
 	
-	public CartStageGui(Account t,ShopStageGui f) {
+	public CartStageGui(Account t) {
 		
 		this.t = t;
+		cart = new Cart();
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart.fxml"));
 		fxmlLoader.setRoot(this);
@@ -68,20 +72,25 @@ public class CartStageGui extends VBox{
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
 		
-		/*for(Product x: Main.product) {
-			if(c.getProducts().containsKey(x)) {
+		
+		for(Product x: Main.product) {
+			if(cart.getProducts().containsKey(x)) {
 				CartProdVB.getChildren().add(x.getGui());
 			}
-		}*/
+		}
 		
 		BuyB.setOnAction(e -> GoBuy(this));
 		
-		profile.setOnAction(e -> showAcc(f));
-		FDC.setOnAction(e -> FC(f));
+		//profile.setOnAction(e -> showAcc(f));
+		//FDC.setOnAction(e -> FC(f));
 		//Orders.setOnAction(e -> showOrders());
-		payment.setOnAction(e -> setPayment(f));
+		//payment.setOnAction(e -> setPayment(f));
 		logout.setOnAction(e -> logout());
 
+	}
+	
+	public Cart getCart() {
+		return cart;
 	}
 
 	private void GoBuy(CartStageGui f) {
@@ -101,7 +110,7 @@ public class CartStageGui extends VBox{
 		Main.login();
 	}
 	
-	public void FC(ShopStageGui f) {
+	/*public void FC(ShopStageGui f) {
 		Main.cartstage.hide();
 		Main.loadingstage.show();
 		
@@ -130,9 +139,31 @@ public class CartStageGui extends VBox{
 		Main.actionstage = new ActionsStage("showaccount",f);
 		Main.loadingstage.hide();
 	}
+	*/
 	
 	public Account getAccount() {
 		return t ;
 	}
+	
+	public void refresh() {
+		CartProdVB.getChildren().clear();
+		for(Product prod: Main.product) {
+			if(cart.getProducts().containsKey(prod)) {
+				Product tmp = prod;
+				tmp.setCartProdGui();
+				CartProdVB.getChildren().add(tmp.getCartProdGui());
+			}
+		}
+		
+		FinalPriceL.setText(cart.getPrice().toString());
+	}
+
+	
+	
+	
+	
+	
+	
+	
 
 }

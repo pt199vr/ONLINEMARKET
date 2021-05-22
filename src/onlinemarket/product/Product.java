@@ -13,6 +13,7 @@ public class Product implements Serializable,Comparable<Product>{
 	private static final long serialVersionUID = 6L;
 	
 	transient ProductGui gui = null;
+	transient CustomerProdCartGui cartgui = null;
 	
 	protected final String name, brand;
 	protected Double price;
@@ -93,10 +94,16 @@ public class Product implements Serializable,Comparable<Product>{
 	public TreeSet<String> getFeatures() {
 		return features;
 	}
+	public void setCartProdGui() {
+		cartgui = new CustomerProdCartGui(this,quantity);
+	}
+	public CustomerProdCartGui getCartProdGui() {
+		return cartgui;
+	}
 	
 	public void setGui() {
 		if(Main.shopstage instanceof ShopStage) 
-			gui = new UserProdGui(this, quantity);
+			gui = new UserProdGui(this);
 		
 		else
 			gui= new EditorProdModifyGui(this,quantity);

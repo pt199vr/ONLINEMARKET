@@ -44,17 +44,38 @@ public class LoginGui extends AnchorPane{
 			BackB.setOnAction(e -> backFunction());
 			EBackB.setOnAction(e ->backFunction());
 			
-			LogB.setOnAction(e -> login());
-			ELogB.setOnAction(e -> loginEditor());
 			
+			EmailF.setOnKeyPressed(e->{
+				if(e.getCode()==KeyCode.ENTER) 
+					login();
+			});
+			id.setOnKeyPressed(e->{
+				if(e.getCode()==KeyCode.ENTER) 
+					loginEditor();
+			});
+			PasswordF.setOnKeyPressed(e->{
+				if(e.getCode()==KeyCode.ENTER) 
+					login();
+			});
+			EPasswordF.setOnKeyPressed(e->{
+				if(e.getCode()==KeyCode.ENTER) 
+					loginEditor();
+			});
+			
+			
+			LogB.setOnAction(e -> login());
 			LogB.setOnKeyPressed(keyEvent->{
 				if(keyEvent.getCode() == KeyCode.ENTER)
 					login();
 			});
+			
+			ELogB.setOnAction(e -> loginEditor());
 			ELogB.setOnKeyPressed(keyEvent->{
 				if(keyEvent.getCode() == KeyCode.ENTER)
 					loginEditor();
 			});
+			
+			
 			
 		});buttons.start();
 		
