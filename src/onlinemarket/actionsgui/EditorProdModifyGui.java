@@ -1,5 +1,7 @@
 package onlinemarket.actionsgui;
 
+import java.io.File;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -8,8 +10,10 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import onlinemarket.Main;
 import onlinemarket.account.Role;
 import onlinemarket.product.Product;
@@ -28,6 +32,8 @@ public class EditorProdModifyGui extends ProductGui {
 	@FXML
 	private ImageView ProdImg;
 	
+	private File selFile;
+	
 	public EditorProdModifyGui(Product p,Integer number) {
 		
 		super(new FXMLLoader(EditorProdModifyGui.class.getResource("productModify.fxml")), p, number);
@@ -38,6 +44,8 @@ public class EditorProdModifyGui extends ProductGui {
 		StockT.setText(p.getNumber().toString());
 		QuantityXPieceT.setText(p.getQuantity().toString());
 		modifyB.setOnAction(e -> mod(p));
+		
+		newIMGB.setOnAction(e->modifyIMG());
 		
 		String s[]= {TypeofQuantity.GRAMS.toString(),TypeofQuantity.LITERS.toString(),TypeofQuantity.PIECES.toString()};
 		TypeCB.getItems().addAll(s);
@@ -75,7 +83,7 @@ public class EditorProdModifyGui extends ProductGui {
 			quantityWL.setVisible(true);
 			ProdImg.setOpacity(0.1);
 		}
-		if(Double.parseDouble(StockT.getText()) > 0) {
+		if(Integer.parseInt(StockT.getText()) > 0) {
 			quantityWL.setText("");
 			quantityWL.setVisible(false);
 			ProdImg.setOpacity(1);
@@ -104,6 +112,20 @@ public class EditorProdModifyGui extends ProductGui {
 			newProd.setGui();
 			gui = (EditorProdModifyGui)newProd.getGui();
 		}
+	}
+	
+	@FXML
+	private void modifyIMG() {
+		
+		FileChooser filechooser = new FileChooser();
+		filechooser.setTitle("Choose Product Image");
+		filechooser.setInitialDirectory(new File(Main.mediapath));
+		filechooser.getExtensionFilters().add(new ExtensionFilter("Image Files", "*.jpg"));
+		
+		selFile = filechooser.showOpenDialog(Main.firststage);
+		
+		if(selFile != null)
+			ProdImg.setImage(new Image("file:" + selFile.getPath()));
 		
 	}
 }

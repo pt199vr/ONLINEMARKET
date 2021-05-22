@@ -185,14 +185,13 @@ public class EditorShopStageGui extends VBox{
 		mainVB.getChildren().clear();
 		DepartmentsVB.getChildren().clear();
 		selD.clear();	
-		
+		bs.clear();
 		boolean notFound = true, Found;
 		
 		for(Department d:Main.department) {
 			Found = Main.depmap.get(d).sort(comp, feat, search);
 			if(Found) {
 				mainVB.getChildren().add(Main.depmap.get(d));
-				bs.clear();
 				RadioButton depRB = new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setOnMouseClicked(e->{

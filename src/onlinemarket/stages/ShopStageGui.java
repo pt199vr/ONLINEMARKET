@@ -134,6 +134,7 @@ public class ShopStageGui extends VBox{
 		DescendingBrandRB.setToggleGroup(sort);
 		AscendingPriceRB.setToggleGroup(sort);
 		DescendingPriceRB.setToggleGroup(sort);
+		
 		AscendingBrandRB.setSelected(true);
 		
 		comp = ProductSorting.AscendingBrand();
@@ -164,7 +165,7 @@ public class ShopStageGui extends VBox{
 		}
 		
 		//Purchases.setOnAction(e -> showPurchases());
-		CartL.setOnMouseClicked(e -> cart(this,c));
+		CartL.setOnMouseClicked(e -> cart(this));
 		profile.setOnAction(e -> showAcc(this));
 		FDC.setOnAction(e -> FC(this));
 		//Orders.setOnAction(e -> showOrders());
@@ -186,13 +187,12 @@ public class ShopStageGui extends VBox{
 		mainVB.getChildren().clear();
 		DepartmentsVB.getChildren().clear();
 		selD.clear();	
-		
+		bs.clear();
 		boolean notFound = true, Found;
 		
 		for(Department d: Main.department) {
 			Found = Main.depmap.get(d).sort(comp, feat, search);
 			if(Found) {
-				bs.clear();
 				mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
@@ -290,10 +290,10 @@ public class ShopStageGui extends VBox{
 		return t ;
 	}
 	
-	private void cart(ShopStageGui f,Cart c) {
+	private void cart(ShopStageGui f) {
 		Main.shopstage.hide();
 		Main.loadingstage.show();
-		Main.cartstage = new CartStage(t,f,c);
+		Main.cartstage = new CartStage(t,f);
 		Main.loadingstage.hide();
 	}
 	

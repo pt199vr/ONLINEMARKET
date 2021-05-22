@@ -46,15 +46,27 @@ public class DepartmentGui extends TitledPane {
 				prodVB.getChildren().add(p.getGui());
 			}
 		}
-		
 	}
 	
 	public boolean sort(Comparator<Product> comp, TreeSet<String> feature, String search) {
-		for(Product x : Main.product) {
-			if(x.getName().contains(search))
-				sortProd.add(x);
-		}
+		if(department.getName().toLowerCase().contains(search))
+			search= null;
+		sortProd = ProductSorting.sortedProds(comp, feature, search);
+		view();
 		
 		return (sortProd.size() == 0)? false: true;		
+	}
+	
+	public void view() {
+		if(sortProd==null)
+			sort(ProductSorting.AscendingBrand(), new TreeSet<>(), "");
+		prodVB.getChildren().clear();
+		sortProd.forEach(p ->{
+			if(p.getDepartment().equals(department)) {
+				p.setGui();
+				prodVB.getChildren().add(p.getGui());
+			}
+		});
+		
 	}
 }

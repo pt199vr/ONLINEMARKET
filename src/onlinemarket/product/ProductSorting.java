@@ -86,7 +86,7 @@ public class ProductSorting {
 		TreeSet<Product> ProdTree = new TreeSet<>(comp);
 		
 		for(Product p : Main.product)
-			if((p.getName().contains(s) || p.getBrand().contains(s)) && p.Features(features))
+			if((s == null || p.getName().contains(s) || p.getBrand().contains(s)) && p.Features(features))
 				ProdTree.add(p);
 		
 		return ProdTree;

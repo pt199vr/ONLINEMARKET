@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="192.0" prefWidth="600.0" type="GridPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="prodIMG" fitHeight="150.0" fitWidth="185.0" layoutX="8.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Label fx:id="NameL" layoutX="84.0" layoutY="34.0" text="Name" />
+            <Label fx:id="BrandL" layoutX="85.0" layoutY="88.0" text="Brand" />
+            <Label fx:id="quantityL" layoutX="78.0" layoutY="137.0" text="Quantity" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+         <children>
+            <Label layoutX="37.0" layoutY="33.0" text="Stock" />
+            <Label layoutX="21.0" layoutY="79.0" text="Single price" />
+            <Label layoutX="24.0" layoutY="115.0" text="Total Price" />
+            <Button fx:id="removeB" layoutX="74.0" layoutY="153.0" mnemonicParsing="false" text="Remove" />
+            <Label fx:id="totalPriceL" layoutX="119.0" layoutY="115.0" text="0.00" />
+            <Label fx:id="singlePriceL" layoutX="119.0" layoutY="79.0" text="0.00" />
+            <Label fx:id="NumberL" layoutX="119.0" layoutY="33.0" text="1" />
+         </children>
+      </AnchorPane>
+   </children>
+</fx:root>
+

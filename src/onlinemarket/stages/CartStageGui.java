@@ -40,7 +40,7 @@ public class CartStageGui extends VBox{
 	private ToggleGroup sort;
 	private Account t;
 	
-	public CartStageGui(Account t,ShopStageGui f,Cart c) {
+	public CartStageGui(Account t,ShopStageGui f) {
 		
 		this.t = t;
 		
@@ -68,11 +68,11 @@ public class CartStageGui extends VBox{
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
 		
-		for(Product x: Main.product) {
+		/*for(Product x: Main.product) {
 			if(c.getProducts().containsKey(x)) {
 				CartProdVB.getChildren().add(x.getGui());
 			}
-		}
+		}*/
 		
 		BuyB.setOnAction(e -> GoBuy(this));
 		

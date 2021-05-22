@@ -13,13 +13,13 @@ public class CartStage extends Stage{
 	private BorderPane layout;
 	private CartStageGui gui = null;
 	
-	public CartStage(Account t,ShopStageGui f,Cart c) {
+	public CartStage(Account t,ShopStageGui f) {
 		Main.loadingstage.show();
 		System.gc();
 		
 		layout = new BorderPane();
 		
-		gui = new CartStageGui(t,f,c);
+		gui = new CartStageGui(t,f);
 		
 		Thread tmp = new Thread(() -> {
 			
