@@ -86,7 +86,7 @@ public class CartStageGui extends VBox{
 		//Orders.setOnAction(e -> showOrders());
 		//payment.setOnAction(e -> setPayment(f));
 		logout.setOnAction(e -> logout());
-
+		
 	}
 	
 	public Cart getCart() {

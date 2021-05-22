@@ -28,6 +28,7 @@ public class ShopStage extends Stage {
 		this.t = t;
 		
 		
+		
 		new Thread(() -> {
 			
 			layout = new BorderPane();

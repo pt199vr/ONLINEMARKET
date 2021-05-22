@@ -32,8 +32,7 @@ public class CartStage extends Stage{
 			setResizable(true);
 			Platform.runLater(()->{
 				setScene(new Scene(layout));
-				show();
-				Main.loadingstage.hide();
+				Main.loadingstage.show();
 			});
 			
 			setOnCloseRequest(e -> {
