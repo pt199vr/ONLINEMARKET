@@ -60,7 +60,6 @@ public class Main extends Application{
 		loadingstage.hide();
 		cartstage = new CartStage(t);
 		shopstage = new ShopStage(t);
-		shopstage.hide();
 	}
 	public static void EditorShopping(EditorAccount t) {
 		loadingstage.hide();
