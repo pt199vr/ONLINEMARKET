@@ -80,11 +80,11 @@ public class Payment implements Serializable, Comparable<Payment>{
 	}
 	
 	public String toString() {
-		if(type.toString().equals(PaymentType.CASH))
+		if(type.toString().equals(PaymentType.CASH.toString()))
 			return PaymentType.CASH + " " +  account;
-		if(type.toString().equals(PaymentType.CREDITCARD))
+		if(type.toString().equals(PaymentType.CREDITCARD.toString()))
 			return PaymentType.CREDITCARD + " " + number + " " + owner + " " + cvv + " " + date + " "+ account;
-		if(type.toString().equals(PaymentType.CREDITCARD))
+		if(type.toString().equals(PaymentType.CREDITCARD.toString()))
 			return PaymentType.CREDITCARD + " " + email + " " + password + account;
 		
 		return account.toString();
@@ -95,12 +95,12 @@ public class Payment implements Serializable, Comparable<Payment>{
 			Payment tmp = (Payment) t;
 			
 			if(tmp.getType().equals(type.toString())) {
-				if(tmp.getType().equals(PaymentType.CASH))
+				if(tmp.getType().equals(PaymentType.CASH.toString()))
 					return true;
-				if(tmp.getType().equals(PaymentType.CREDITCARD) && tmp.getCVV().equals(cvv) && tmp.getDate().equals(this.date)&& tmp.getNumber().equals(number) && tmp.getOwner().equals(owner)) {
+				if(tmp.getType().equals(PaymentType.CREDITCARD.toString()) && tmp.getCVV().equals(cvv) && tmp.getDate().equals(this.date)&& tmp.getNumber().equals(number) && tmp.getOwner().equals(owner)) {
 					return true;
 				}
-				if(tmp.getType().equals(PaymentType.PAYPAL) && tmp.getEmail().equals(email) && tmp.getPassword().equals(password)) {
+				if(tmp.getType().equals(PaymentType.PAYPAL.toString()) && tmp.getEmail().equals(email) && tmp.getPassword().equals(password)) {
 					return true;
 				}
 			}

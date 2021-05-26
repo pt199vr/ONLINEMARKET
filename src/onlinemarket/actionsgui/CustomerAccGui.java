@@ -97,7 +97,7 @@ public class CustomerAccGui extends AnchorPane{
 		String name = NameT.getText(), surname = SurnameT.getText(),street= StreetT.getText();
 		Long cel = Long.parseLong(CelT.getText());
 		
-		if(mail.equals("") || pass.equals("") || name.equals("") || surname.equals("") || cel.equals("")) {
+		if(mail.toString().equals("") || pass.toString().equals("") || name.equals("") || surname.equals("") || cel== null) {
 			Alert a= new Alert(Alert.AlertType.NONE,"Fill all the fields",ButtonType.NO);
 			a.showAndWait();
 			return;

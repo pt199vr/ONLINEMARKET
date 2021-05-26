@@ -41,7 +41,7 @@ public class Order implements Serializable{
 		this.price = price;
 		this.payment = payment;
 		for(FidelityCard f : Main.fidelitycard) {
-			if(f.getAccount().equals(this.account))
+			if(f.getAccount().equals(this.account.toString()))
 				this.points = price.intValue();		
 		}
 	}

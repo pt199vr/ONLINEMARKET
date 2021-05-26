@@ -25,7 +25,7 @@ public class PaymentMethodGui extends AnchorPane {
 	@FXML
 	private Button PayPalConfirmB, CCConfirmB, ConfirmCashB;
 	@FXML
-	private ChoiceBox MonthChoiceB, YearChoiceB;
+	private ChoiceBox<String> MonthChoiceB, YearChoiceB;
 	
 	
 	public PaymentMethodGui(ShopStageGui f) {
@@ -39,6 +39,14 @@ public class PaymentMethodGui extends AnchorPane {
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+		String months[]= {"1","2","3","4","5","6","7","8","9","10","11","12"};
+		MonthChoiceB.getItems().addAll(months);	
+		Integer year = java.time.LocalDateTime.now().getYear();
+		Integer years[] = {year, year + 1, year + 2, year + 3, year + 4};
+		
+		for(int i=0; i< years.length; i++) {
+			YearChoiceB.getItems().add(years[i].toString());
+		} 
 		
 		Thread buttons = new Thread( () -> {
 			PayPalConfirmB.setOnAction(e ->paypal(f));
