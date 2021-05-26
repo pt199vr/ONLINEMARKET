@@ -2,6 +2,10 @@ package onlinemarket.stages;
 
 import java.io.IOException;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -109,6 +113,7 @@ public class CartStageGui extends VBox{
 			return;
 		}
 		Main.loadingstage.show();
+		Main.cartstage.hide();
 		Main.actionstage = new ActionsStage("orderRecap",f);
 		Main.loadingstage.hide();
 	}
@@ -130,6 +135,7 @@ public class CartStageGui extends VBox{
 	
 	public void refresh() {
 		CartProdVB.getChildren().clear();
+
 		for(Product prod: Main.product) {
 			if(cart.getProducts().containsKey(prod)) {
 				Product tmp = prod;
@@ -138,7 +144,6 @@ public class CartStageGui extends VBox{
 				
 			}
 		}
-		
 		FinalPriceL.setText(cart.getPrice().toString());
 	}
 }

@@ -155,16 +155,8 @@ public class ActionsStage extends Stage{
 		
 		new Thread(() -> {
 			layout = new BorderPane();
-			if("orderrecap".equals(s))
+			if("orderRecap".equals(s))
 				layout.setCenter(orderRec);
-			if("payment".equals(s))
-				layout.setCenter(payment);
-			if("showaccount".equals(s))
-				layout.setCenter(customer);
-			if("fidelity".equals(s))
-				layout.setCenter(fdcv);
-			if("newFidelity".equals(s)) 
-				layout.setCenter(fdcc);
 			
 			setTitle(Main.title);
 			getIcons().add(Main.logo);

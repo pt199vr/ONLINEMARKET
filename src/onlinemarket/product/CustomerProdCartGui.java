@@ -20,11 +20,12 @@ public class CustomerProdCartGui extends ProductGui{
 	private Label NameL,BrandL,quantityL,NumberL,singlePriceL,totalPriceL;
 	@FXML
 	private Button removeB;
+
 	
 	private Cart cart;
 	private CartStageGui cartgui;
 
-	public CustomerProdCartGui(Product product) {
+	public CustomerProdCartGui( Product product) {
 		
 		super(new FXMLLoader(CustomerProdCartGui.class.getResource("prodCartView.fxml")), product);
 		
@@ -42,6 +43,7 @@ public class CustomerProdCartGui extends ProductGui{
 		
 		Float stock = Integer.parseInt(NumberL.getText()) * Float.parseFloat(singlePriceL.getText());
 		totalPriceL.setText(stock.toString());
+		
 		
 		removeB.setOnAction(e -> {
 			cart.remove(product);
