@@ -32,8 +32,6 @@ public class ActionsStage extends Stage{
 	
 	private OrderRecGui orderRec;
 	
-	private EditorAccount tmp;
-	
 	
 	public ActionsStage(String s, EditorShopStageGui f) {
 			

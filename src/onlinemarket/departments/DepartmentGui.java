@@ -86,7 +86,6 @@ public class DepartmentGui extends TitledPane {
 	}
 	
 	public ObservableList<Node> getProds() {
-		return prodVB.getChildren();
-		
+		return prodVB.getChildren();	
 	}
 }

@@ -17,6 +17,7 @@ public class ShopStage extends Stage {
 	
 	private Account t;
 	
+	
 	public ShopStage(Account t) {
 		
 		for(Department s : Main.department) {

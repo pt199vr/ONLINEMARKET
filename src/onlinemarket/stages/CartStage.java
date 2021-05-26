@@ -10,20 +10,21 @@ import onlinemarket.cart.Cart;
 import javafx.scene.layout.BorderPane;
 
 public class CartStage extends Stage{
-	private BorderPane layout;
-	private CartStageGui gui = null;
 	
+	private BorderPane layout;
+	private CartStageGui cartgui = null;
+
 	public CartStage(Account t) {
+
 		Main.loadingstage.show();
 		System.gc();
 		
-		layout = new BorderPane();
 		
-		gui = new CartStageGui(t);
 		
 		Thread tmp = new Thread(() -> {
-			
-			layout.setCenter(gui);
+			layout = new BorderPane();
+			cartgui = new CartStageGui(t);
+			layout.setCenter(cartgui);
 			
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
@@ -45,7 +46,7 @@ public class CartStage extends Stage{
 	
 	
 	public CartStageGui getCartGui(){
-		return gui;
+		return cartgui;
 	}
 	
 	 

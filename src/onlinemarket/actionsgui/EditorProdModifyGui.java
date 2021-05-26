@@ -111,6 +111,7 @@ public class EditorProdModifyGui extends ProductGui {
 			Main.product.add(newProd);
 			g = new EditorProdModifyGui(newProd);
 		}
+		
 	}
 	
 	@FXML
@@ -125,8 +126,8 @@ public class EditorProdModifyGui extends ProductGui {
 		
 		if(selFile != null)
 			ProdImg.setImage(new Image("file:" + selFile.getPath()));
-		
 	}
+	
 }
 
 

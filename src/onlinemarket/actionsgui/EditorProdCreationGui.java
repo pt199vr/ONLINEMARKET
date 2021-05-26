@@ -96,8 +96,8 @@ public class EditorProdCreationGui extends AnchorPane {
 		
 		Integer quantity = 0, number = 0;
 		try {
-			number = Integer.getInteger(StockT.getText());
-			quantity = Integer.getInteger(QuantityXPieceT.getText());
+			number = Integer.parseInt(StockT.getText());
+			quantity = Integer.parseInt(QuantityXPieceT.getText());
 		}catch(NumberFormatException e) {
 			Alert c = new Alert(Alert.AlertType.NONE,"Invalid quantity or number of products",ButtonType.OK);
 			c.showAndWait();

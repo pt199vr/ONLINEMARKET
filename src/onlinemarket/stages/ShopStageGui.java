@@ -73,6 +73,7 @@ public class ShopStageGui extends VBox{
 	
 	private Account t;
 	private Cart c;
+
 	
 	public ShopStageGui(Account t) {
 		
@@ -116,13 +117,15 @@ public class ShopStageGui extends VBox{
 				DepartmentsVB.getChildren().add(depRB);	
 		}
 		
-		for(DepartmentGui dg: Main.depmap.values()) {
-			for(Node pg: dg.getProds()) {
+		/*for(DepartmentGui dg: Main.depmap.values()) {
+			for(Node pg : dg.getProds()) {
 				if(pg instanceof UserProdGui) {
-					((UserProdGui)pg).getAdd().setOnAction(e -> c.add(((UserProdGui) pg).getProduct()));
+					((UserProdGui)pg).getAdd().setOnAction(e -> {
+						c.add(((UserProdGui) pg).getProduct());
+						});
 				}
 			}
-		}
+		}*/
 		
 		searchButton.setOnAction(e ->{ 
 			search = searchBar.getText().toLowerCase();
@@ -309,7 +312,7 @@ public class ShopStageGui extends VBox{
 	}
 	
 	public Cart getCart() {
-		return this.c;
+		return c;
 	}
 	/*
 	 * void toCart(gui){

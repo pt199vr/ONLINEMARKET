@@ -15,7 +15,7 @@ public class Cart {
 		
 	public void remove(Product a) {
 		Integer tmp = products.get(a);
-		if(tmp > 0) {
+		if(tmp > 1) {
 			tmp--;
 			price -= a.getPrice();
 			products.put(a, tmp);

@@ -37,7 +37,6 @@ import onlinemarket.product.ProductGui;
 import onlinemarket.product.ProductSorting;
 import onlinemarket.readnwrite.RnW_Product;
 
-
 public class EditorShopStageGui extends VBox{
 	@FXML
 	private Button searchButton, cancelButton;
@@ -107,6 +106,7 @@ public class EditorShopStageGui extends VBox{
 				sort();
 				}
 		});
+		
 		searchBar.setOnKeyPressed(searchButton.getOnKeyPressed());
 		
 		cancelButton.setOnAction(e -> cancelFunction());
@@ -163,6 +163,7 @@ public class EditorShopStageGui extends VBox{
 			deleteprod(this);
 			sort();
 		});
+		
 		profile.setOnAction(e -> showAcc(this));
 		editorsAcc.setOnAction(e -> showEd(this));
 		customersAcc.setOnAction(e->customers(this));
@@ -195,6 +196,7 @@ public class EditorShopStageGui extends VBox{
 				mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB = new RadioButton(d.getName());
 				bs.add(depRB);
+				depRB.setMinHeight(20);
 				depRB.setOnMouseClicked(e->{
 					selD.clear();
 					bs.forEach(b -> b.setSelected(false));
@@ -202,10 +204,7 @@ public class EditorShopStageGui extends VBox{
 					selD.add(Main.depmap.get(d));
 					expand();
 				});
-				
-				
-			}
-			if(Found) {
+				DepartmentsVB.getChildren().add(depRB);	
 				selD.add(Main.depmap.get(d));
 				notFound = false;
 			}

@@ -81,14 +81,14 @@
                                                       <Font size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="FinalPriceL" layoutX="62.0" layoutY="52.0" text="0.00">
+                                                <Label fx:id="FinalPriceL" alignment="CENTER" layoutX="64.0" layoutY="55.0" text="0.00">
                                                    <font>
-                                                      <Font size="16.0" />
+                                                      <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="100.0" layoutY="51.0" text="€">
+                                                <Label layoutX="105.0" layoutY="55.0" text="€">
                                                    <font>
-                                                      <Font size="18.0" />
+                                                      <Font size="14.0" />
                                                    </font>
                                                 </Label>
                                                 <Button fx:id="BuyB" layoutX="28.0" layoutY="97.0" mnemonicParsing="false" text="Continue">
