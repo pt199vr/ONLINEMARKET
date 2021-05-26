@@ -40,7 +40,6 @@ public class ProductGui extends GridPane {
 
 		//ProdImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
 		
-
 		if(this.product.getPath() == null)
 			ProdImg.setImage(defaultIMG);
 		else

@@ -11,7 +11,7 @@ public class CustomerProdCartGui extends ProductGui{
 	@FXML
 	private Button removeB;
 
-	public CustomerProdCartGui( Product product, Integer number) {
+	public CustomerProdCartGui(Product product, Integer number) {
 		super(new FXMLLoader(CustomerProdCartGui.class.getResource("prodCartView.fxml")), product, number);
 		
 		NameL.setText(product.getName());
@@ -20,6 +20,7 @@ public class CustomerProdCartGui extends ProductGui{
 		NumberL.setText(product.getNumber().toString());
 		singlePriceL.setText(product.getPrice().toString());
 		//totalPriceL.setText((product.getPrice()*product.getNumber()));
+		
 		
 		removeB.setOnAction(e -> {
 		});
