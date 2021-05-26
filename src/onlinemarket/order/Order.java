@@ -20,6 +20,7 @@ public class Order implements Serializable{
 	private Float price;
 	private Payment payment;
 	private Integer points = 0;
+	private OrderStatus status = OrderStatus.CONFIRMED;
 	
 	public Order(Date date, Time time1, Time time2, HashMap<Product, Integer> products, Account account, Float price, Payment payment) {
 		this.ID = Main.getIdOrder();
@@ -43,6 +44,18 @@ public class Order implements Serializable{
 			if(f.getAccount().equals(this.account))
 				this.points = price.intValue();		
 		}
+	}
+	
+	public void setDELIVERED() {
+		this.status = OrderStatus.DELIVERED;
+	}
+	
+	public void setDELIVERING() {
+		this.status = OrderStatus.DELIVERING;
+	}
+	
+	public OrderStatus getStatus() {
+		return status;
 	}
 	
 	public Integer getPoints() {
