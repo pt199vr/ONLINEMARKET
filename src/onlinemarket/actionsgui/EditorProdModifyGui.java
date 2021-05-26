@@ -1,6 +1,7 @@
 package onlinemarket.actionsgui;
 
 import java.io.File;
+import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,10 +35,10 @@ public class EditorProdModifyGui extends ProductGui {
 	
 	private File selFile;
 	
-	public EditorProdModifyGui(Product p,Integer number) {
+	public EditorProdModifyGui(Product p) {
 		
-		super(new FXMLLoader(EditorProdModifyGui.class.getResource("productModify.fxml")), p, number);
-
+		super(new FXMLLoader(EditorProdModifyGui.class.getResource("productModify.fxml")),p);
+		
 		NameT.setText(p.getName());
 		BrandT.setText(p.getBrand());
 		priceT.setText(p.getPrice().toString());
@@ -99,18 +100,16 @@ public class EditorProdModifyGui extends ProductGui {
 			type = TypeofQuantity.PIECES;
 
 		Product newProd = new Product(name, brand, price,newquantityXpiece, number, type, p.getDepartment(), p.getFeatures());
-
-		EditorProdModifyGui gui;
+		ProductGui g = this;
+		
 		if(newProd.equals(p)) {
 			newQuantity(number);
-			gui = this;
+			g = this;
 		}
 		else {
 			Main.product.remove(p);
 			Main.product.add(newProd);
-			
-			newProd.setGui();
-			gui = (EditorProdModifyGui)newProd.getGui();
+			g = new EditorProdModifyGui(newProd);
 		}
 	}
 	

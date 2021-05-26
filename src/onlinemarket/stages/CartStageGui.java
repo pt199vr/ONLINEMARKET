@@ -21,10 +21,12 @@ import onlinemarket.Main;
 import onlinemarket.account.Account;
 import onlinemarket.cart.Cart;
 import onlinemarket.fidelitycard.FidelityCard;
+import onlinemarket.product.CustomerProdCartGui;
 import onlinemarket.product.Product;
 import onlinemarket.product.ProductGui;
 
 public class CartStageGui extends VBox{
+	
 	
 	@FXML
 	private Button BuyB;
@@ -74,12 +76,6 @@ public class CartStageGui extends VBox{
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
 		
-		
-		for(Product x: Main.product) {
-			if(cart.getProducts().containsKey(x)) {
-				CartProdVB.getChildren().add(x.getGui());
-			}
-		}
 		
 		BuyB.setOnAction(e -> GoBuy(this));
 		
@@ -149,6 +145,17 @@ public class CartStageGui extends VBox{
 	
 	public void refresh() {
 		CartProdVB.getChildren().clear();
+<<<<<<< HEAD
+=======
+		for(Product prod: Main.product) {
+			if(cart.getProducts().containsKey(prod)) {
+				Product tmp = prod;
+				ProductGui tmpGui = new CustomerProdCartGui(tmp);
+				CartProdVB.getChildren().add(tmpGui);
+			}
+		}
+		
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 		FinalPriceL.setText(cart.getPrice().toString());
 	}
 

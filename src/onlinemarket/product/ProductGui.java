@@ -9,11 +9,13 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import onlinemarket.Main;
+import onlinemarket.actionsgui.EditorProdModifyGui;
+import onlinemarket.stages.EditorShopStage;
+import onlinemarket.stages.ShopStage;
 
 
 public class ProductGui extends GridPane {
-	@FXML
-	protected ImageView ProdImg;
 	
 	protected Product product;
 	
@@ -21,8 +23,7 @@ public class ProductGui extends GridPane {
 
 	public final static Image defaultIMG = new Image(ProductGui.class.getResourceAsStream("defaultIMG.png"));
 	
-	public ProductGui(FXMLLoader fxmlLoader, Product product, Integer number) {
-		
+	public ProductGui(FXMLLoader fxmlLoader,Product product) {
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
@@ -34,22 +35,21 @@ public class ProductGui extends GridPane {
 		
 		this.product = product;
 
-		this.number = product.getNumber();
-
-		this.number = number;
 
 		//ProdImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
+<<<<<<< HEAD
 		
 		if(this.product.getPath() == null)
 			ProdImg.setImage(defaultIMG);
 		else
 			ProdImg.setImage(new Image("file:" + this.product.getPath()));
+=======
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 
 		
-		if(number == 0)
+		if(product.getNumber() == 0)
 			EmptyShelf();
 	}
-	
 
 	private void EmptyShelf(){
 		Alert a= new Alert(Alert.AlertType.NONE,"This product is out of stock right now",ButtonType.OK);
