@@ -17,14 +17,9 @@ public class CustomerProdCartGui extends ProductGui{
 	@FXML
 	private Button removeB;
 
-<<<<<<< HEAD
-	public CustomerProdCartGui(Product product, Integer number) {
-		super(new FXMLLoader(CustomerProdCartGui.class.getResource("prodCartView.fxml")), product, number);
-=======
 	public CustomerProdCartGui( Product product) {
 		super(new FXMLLoader(CustomerProdCartGui.class.getResource("prodCartView.fxml")), product);
 		prodIMG.setImage(defaultIMG);
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 		
 		NameL.setText(product.getName());
 		BrandL.setText(product.getBrand());

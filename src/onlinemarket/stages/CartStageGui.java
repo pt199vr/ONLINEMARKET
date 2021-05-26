@@ -145,8 +145,7 @@ public class CartStageGui extends VBox{
 	
 	public void refresh() {
 		CartProdVB.getChildren().clear();
-<<<<<<< HEAD
-=======
+
 		for(Product prod: Main.product) {
 			if(cart.getProducts().containsKey(prod)) {
 				Product tmp = prod;
@@ -154,17 +153,8 @@ public class CartStageGui extends VBox{
 				CartProdVB.getChildren().add(tmpGui);
 			}
 		}
-		
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 		FinalPriceL.setText(cart.getPrice().toString());
 	}
 
 	
-	
-	
-	
-	
-	
-	
-
 }

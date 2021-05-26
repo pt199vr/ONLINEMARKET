@@ -37,15 +37,6 @@ public class ProductGui extends GridPane {
 
 
 		//ProdImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
-<<<<<<< HEAD
-		
-		if(this.product.getPath() == null)
-			ProdImg.setImage(defaultIMG);
-		else
-			ProdImg.setImage(new Image("file:" + this.product.getPath()));
-=======
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
-
 		
 		if(product.getNumber() == 0)
 			EmptyShelf();
