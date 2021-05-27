@@ -12,13 +12,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import onlinemarket.Main;
-import onlinemarket.fidelitycard.FidelityCard;
-import onlinemarket.order.Order;
 import onlinemarket.order.OrderDateGui;
 import onlinemarket.order.OrderFidelityGui;
 import onlinemarket.order.OrderNewFidelityGui;
 import onlinemarket.order.OrderPaymentGui;
 import onlinemarket.stages.CartStageGui;
+import onlinemarket.stages.OrderStage;
 
 public class OrderRecGui extends BorderPane {
 	
@@ -62,6 +61,13 @@ public class OrderRecGui extends BorderPane {
 			}
 			else if(orderActions == 1)
 				Date();
+			else { 
+				
+				Main.actionstage.hide();
+				Main.orderstage = new OrderStage(f.getAccount());
+				Main.orderstage.show();
+				
+			}
 			
 		});
 		

@@ -10,7 +10,6 @@ import onlinemarket.stages.*;
 import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.readnwrite.*;
-import onlinemarket.readnwrite.*;
 import onlinemarket.account.*;
 import onlinemarket.product.*;
 import onlinemarket.fidelitycard.*;

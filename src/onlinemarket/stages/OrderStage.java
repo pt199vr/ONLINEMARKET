@@ -18,7 +18,7 @@ public class OrderStage extends Stage{
 		
 		Thread thread = new Thread(()->{
 			layout= new BorderPane();
-			orderGui= new OrderStageGui();
+			orderGui= new OrderStageGui(t);
 			layout.setCenter(orderGui);
 			
 			setTitle(Main.title);
@@ -34,6 +34,7 @@ public class OrderStage extends Stage{
 			setOnCloseRequest(e -> {
 				Main.shopstage.show();					
 			});
+			
 	}); thread.start();
 	}
 }
