@@ -3,12 +3,12 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 
-<fx:root type="TableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="TableView" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columns>
-    <TableColumn prefWidth="132.0" text="Name" />
-    <TableColumn prefWidth="170.0" text="Brand" />
-      <TableColumn prefWidth="105.0" text="Quantity" />
-      <TableColumn prefWidth="100.0" text="Single Price" />
-      <TableColumn prefWidth="92.0" text="Total Price" />
+    <TableColumn fx:id="NameProdCol" prefWidth="132.0" text="Name" />
+    <TableColumn fx:id="BrandProdCol" prefWidth="170.0" text="Brand" />
+      <TableColumn fx:id="QuantityInCartCol" prefWidth="105.0" text="Quantity" />
+      <TableColumn fx:id="SingleCol" prefWidth="100.0" text="Single Price" />
+      <TableColumn fx:id="TotalCol" prefWidth="92.0" text="Total Price" />
   </columns>
 </fx:root>

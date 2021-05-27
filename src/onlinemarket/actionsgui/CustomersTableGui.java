@@ -102,9 +102,11 @@ public class CustomersTableGui extends AnchorPane{
 		SelCustomer = customers.getSelectionModel().getSelectedItem();
 		customers.getItems().remove(SelCustomer);
 		Main.account.remove(SelCustomer);
+		Main.fidelitycard.remove(SelCustomer.getFidelityCard());
 		Main.account.write();
+		Main.fidelitycard.write();
 		}
-		if(Main.account== null || Main.account.size() == 0){
+		if(Main.account == null || Main.account.size() == 0){
 			Alert a = new Alert(Alert.AlertType.NONE,"There's no account to delete",ButtonType.OK);
 			a.showAndWait();
 			return;

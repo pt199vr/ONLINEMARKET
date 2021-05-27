@@ -16,8 +16,6 @@ public class OrderDateGui extends AnchorPane{
 	@FXML
 	private ChoiceBox<String> TimeCB,DayCB;
 	
-	
-	
 	public OrderDateGui() {
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderDate.fxml"));
@@ -29,7 +27,6 @@ public class OrderDateGui extends AnchorPane{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		
 		int hour = 9, minute = 0;
 		Time t;
@@ -51,10 +48,7 @@ public class OrderDateGui extends AnchorPane{
 			d = new Date(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
 			DayCB.getItems().add(d.toString());
 		}
-		
 		DayCB.getSelectionModel().selectFirst();
-		
-		
 	}
 
 }

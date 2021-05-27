@@ -77,6 +77,10 @@ public class OrderPaymentGui extends AnchorPane{
 		YearChoiceB.getSelectionModel().selectFirst();
 	}
 	
+	public Payment getPM() {
+		return tmp;
+	}
+	
 	public boolean check() {
 		if(CreditCardTab.isSelected()) {
 			String holder= CreditHolderT.getText(), month = MonthChoiceB.getSelectionModel().getSelectedItem(),
@@ -105,12 +109,7 @@ public class OrderPaymentGui extends AnchorPane{
 				c.showAndWait();
 				return false;
 			}
-			Long ID;
-			try {
-				if(id.length() != 16)
-					throw new NumberFormatException();
-				ID = Long.parseLong(id);
-			}catch(NumberFormatException e) {
+			if(id.length() != 16) {
 				Alert d= new Alert(Alert.AlertType.NONE,"Invalid id",ButtonType.OK);
 				d.showAndWait();
 				return false;
@@ -156,5 +155,5 @@ public class OrderPaymentGui extends AnchorPane{
 		return true;
 	}
 	
-
+	
 }

@@ -20,7 +20,7 @@ import onlinemarket.order.*;
 public class Main extends Application{
 	public static final Image logo = new Image(Main.class.getResourceAsStream("onlinemarketlogo.png"));
 	public static String title = "Online Market";	
-	public static Stage loadingstage, firststage, loginstage, registrationstage, startingstage, shopstage, actionstage, cartstage;
+	public static Stage loadingstage, firststage, loginstage, registrationstage, startingstage, shopstage, actionstage, cartstage,orderstage;
 	
 	public static final String onlinemarket = System.getProperty("user.dir") + "/OnlineMarket1.0";
 	public static final String path = onlinemarket + "/Accounts";

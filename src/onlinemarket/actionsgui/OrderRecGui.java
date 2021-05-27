@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 
 import onlinemarket.Main;
 import onlinemarket.fidelitycard.FidelityCard;
+import onlinemarket.order.Order;
 import onlinemarket.order.OrderDateGui;
 import onlinemarket.order.OrderFidelityGui;
 import onlinemarket.order.OrderNewFidelityGui;
@@ -49,7 +50,6 @@ public class OrderRecGui extends BorderPane {
 		
 		FinalPriceL.setText(f.getCart().getPrice().toString());
 		
-		newFC = new OrderNewFidelityGui(); 
 		FC = new OrderFidelityGui();
 		pay = new OrderPaymentGui();
 		date = new OrderDateGui();
@@ -62,8 +62,7 @@ public class OrderRecGui extends BorderPane {
 			}
 			else if(orderActions == 1)
 				Date();
-			//else
-				//check ordine
+			
 		});
 		
 		
@@ -85,14 +84,9 @@ public class OrderRecGui extends BorderPane {
 	private void Fidelity(CartStageGui f) {
 		orderActions = 0;
 		
-		for(FidelityCard x: Main.fidelitycard) {
-			if(x.getAccount().equals(f.getAccount().toString())) {
-				setCenter(FC);
-			}
-		}
-		if(getCenter() == null)
-			setCenter(newFC);
+		setCenter(FC);
 	}
+	
 	private void Pay() {
 		orderActions = 1;
 		setCenter(pay);
