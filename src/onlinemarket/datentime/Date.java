@@ -11,7 +11,6 @@ public class Date implements Serializable{
 		this.month = m;
 		this.day = d;		
 	}
-	
 	public Date() {
 		this.year = java.time.LocalDateTime.now().getYear();
 		this.month = java.time.LocalDateTime.now().getMonthValue();

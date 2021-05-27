@@ -1,12 +1,15 @@
 package onlinemarket.order;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Tab;
@@ -25,7 +28,9 @@ public class OrderPaymentGui extends AnchorPane{
 	@FXML
 	private PasswordField PayPalPassT;
 	@FXML
-	private Button PayPalConfirmB,CCConfirmB,ConfirmCashB;
+	private Button PayPalConfirmB,CCConfirmB;
+	@FXML
+	private CheckBox cashB;
 	@FXML
 	private ChoiceBox<String> MonthChoiceB, YearChoiceB;
 	@FXML
@@ -43,60 +48,112 @@ public class OrderPaymentGui extends AnchorPane{
 			fxmlLoader.load();
 		}catch(IOException e) {
 			throw new RuntimeException(e);
+		}		
+		Integer year = java.time.LocalDateTime.now().getYear();
+		Integer tmp = year;
+		ArrayList<String> ys = new ArrayList<>();
+		for(int i= 0;i<6;i++,tmp++) {
+			ys.add(tmp.toString());
 		}
-		
-		PayPalConfirmB.setOnAction(e -> {
-			if(checkPayPal()) {
-				Email m = new Email(PayPalMailT.getText());
-				Password p = new Password(PayPalPassT.getText());
-				tmp = new Payment(m, p, ((ShopStage)Main.shopstage).getAccount());
+		YearChoiceB.getItems().addAll(ys);
+		YearChoiceB.getSelectionModel().selectedItemProperty().addListener(
+			(ChangeListener<String>)(o,ov,nv)->{
+				ArrayList<String> months= new ArrayList<>();
+				if(YearChoiceB.getValue().equals(year.toString())) {
+					Integer month = 1+ java.time.LocalDateTime.now().getMonthValue();
+					for(Integer i = month; i<13;i++) {
+						months.add(i.toString());
+					}
+				}
+				else {
+					months.clear();
+					for(Integer i= 1;i<13;i++)
+						months.add(i.toString());
+				}
+				MonthChoiceB.getItems().addAll(months);
+				MonthChoiceB.getSelectionModel().selectFirst();
 			}
-		});
-		
-		CCConfirmB.setOnAction(e -> {
-			if(checkCC())
-				tmp = new Payment(CardIDT.getText(), CreditHolderT.getText(), Integer.parseInt(MonthChoiceB.getSelectionModel().getSelectedItem()),Integer.parseInt(YearChoiceB.getSelectionModel().getSelectedItem()), CVVT.getText(),((ShopStage)Main.shopstage).getAccount());
-		});
-		ConfirmCashB.setOnAction(e -> {
-			tmp = new Payment(((ShopStage)Main.shopstage).getAccount());
+		);
+		YearChoiceB.getSelectionModel().selectFirst();
+	}
+	
+	public boolean check() {
+		if(CreditCardTab.isSelected()) {
+			String holder= CreditHolderT.getText(), month = MonthChoiceB.getSelectionModel().getSelectedItem(),
+					year = YearChoiceB.getSelectionModel().getSelectedItem(), id = CardIDT.getText(),cvv= CVVT.getText();
+			if(holder.equals("") || month.equals("") || year.equals("") || id.equals("") || cvv.equals("")) {
+				Alert a= new Alert(Alert.AlertType.NONE,"Fill all the fields",ButtonType.OK);
+				a.showAndWait();
+				return false;
+			}
+			Integer CVV,m,y;
+			try {
+				if(cvv.length() != 3)
+					throw new NumberFormatException();
+				CVV = Integer.parseInt(cvv); 
+			}catch(NumberFormatException e) {
+				Alert b = new Alert(Alert.AlertType.NONE,"The cvv you inserted is invalid",ButtonType.OK);
+				b.showAndWait();
+				return false;
+			}
 			
-		});
-	}
-	
-	private boolean checkCC(){
-		
-		String holder = CreditHolderT.getText(), ID = CardIDT.getText();
-		if(holder.equals("") || ID.equals("")) {
-			Alert b= new Alert(Alert.AlertType.NONE,"Fill all the fields",ButtonType.OK);
-			b.showAndWait();
-			return false;
+			try {
+				m = Integer.parseInt(month);
+				y = Integer.parseInt(year);
+			}catch(NumberFormatException e) {
+				Alert c= new Alert(Alert.AlertType.NONE,"Invalid Date",ButtonType.OK);
+				c.showAndWait();
+				return false;
+			}
+			Long ID;
+			try {
+				if(id.length() != 16)
+					throw new NumberFormatException();
+				ID = Long.parseLong(id);
+			}catch(NumberFormatException e) {
+				Alert d= new Alert(Alert.AlertType.NONE,"Invalid id",ButtonType.OK);
+				d.showAndWait();
+				return false;
+			}
+			tmp = new Payment(id,holder, y, m, cvv, ((ShopStage)Main.shopstage).getAccount());
 		}
-		Integer cvv ;
-		try{
-			cvv = Integer.parseInt(CVVT.getText());
-			if(cvv.toString().length()>3)
-				throw new NumberFormatException();
-		}catch(NumberFormatException e) {
-			Alert b = new Alert(Alert.AlertType.NONE,"CVV must be 3 digits long",ButtonType.OK);
-			b.showAndWait();
+		else if(PayPalTab.isSelected()) {
+			String mail = PayPalMailT.getText(),pass = PayPalPassT.getText();
+			if(mail.equals("")|| pass.equals("")) {
+				Alert a = new Alert(Alert.AlertType.NONE,"Fill all the fields",ButtonType.OK);
+				a.showAndWait();
+				return false;
+			}
+			
+			Email email;
+			try {
+				email= new Email(mail);
+			}catch(IllegalArgumentException e) {
+				Alert b = new Alert(Alert.AlertType.NONE,"Invalid emails",ButtonType.OK);
+				b.showAndWait();
+				return false;
+			}
+			
+			Password password;
+			try {
+				password= new Password(pass);
+			}catch(IllegalArgumentException e) {
+				Alert c = new Alert(Alert.AlertType.NONE,"Invalid Password",ButtonType.OK);
+				c.showAndWait();
+				return false;
+			}
+			tmp = new Payment(email, password,((ShopStage)Main.shopstage).getAccount() );
+		}
+		else if(CashTab.isSelected()) {
+			cashB.setSelected(true);
+			tmp = new Payment(((ShopStage)Main.shopstage).getAccount());
+		}
+		else {
+			Alert d= new Alert(Alert.AlertType.NONE,"Choose a payment method",ButtonType.OK);
+			d.showAndWait();
 			return false;
 		}
 		return true;
-	}
-	
-	private boolean checkPayPal() {
-		String m = PayPalMailT.getText(), p = PayPalPassT.getText();
-		if(m.equals("") || p.equals("")) {
-			Alert a = new Alert(Alert.AlertType.NONE,"Fill all the fields",ButtonType.OK);
-			a.showAndWait();
-			return false;
-		}
-		
-		return true;
-	}
-	
-	private Payment getChoosenPayment() {
-		return tmp;
 	}
 	
 

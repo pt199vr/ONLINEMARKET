@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -97,6 +99,11 @@ public class OrderRecGui extends BorderPane {
 		
 	}
 	private void Date() {
+		if(!pay.check()) {
+			Alert a= new Alert(Alert.AlertType.NONE,"Please choose a payment method first",ButtonType.OK);
+			a.showAndWait();
+			return;
+		}
 		orderActions = 2;
 		setCenter(date);
 	}

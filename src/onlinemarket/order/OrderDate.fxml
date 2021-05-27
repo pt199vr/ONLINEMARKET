@@ -15,16 +15,11 @@
       <Label layoutX="57.0" layoutY="58.0" text="Choose delivery day :" />
       <Label layoutX="212.0" layoutY="108.0" />
       <ChoiceBox fx:id="DayCB" layoutX="199.0" layoutY="54.0" prefHeight="25.0" prefWidth="125.0" />
-      <Label layoutX="66.0" layoutY="96.0" text="Choose  time range for delivery:">
+      <Label layoutX="66.0" layoutY="104.0" text="Choose  time range for delivery:">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="136.0" text="Begin of range:" />
-      <ChoiceBox fx:id="FHourCB" layoutX="201.0" layoutY="132.0" prefHeight="25.0" prefWidth="60.0" />
-      <ChoiceBox fx:id="FMinuteCB" layoutX="266.0" layoutY="132.0" prefHeight="25.0" prefWidth="60.0" />
-      <Label layoutX="79.0" layoutY="174.0" text="End of range:" />
-      <ChoiceBox fx:id="SHourCB" layoutX="200.0" layoutY="170.0" prefHeight="25.0" prefWidth="60.0" />
-      <ChoiceBox fx:id="SMinuteCB" layoutX="265.0" layoutY="170.0" prefHeight="25.0" prefWidth="60.0" />
+      <ChoiceBox fx:id="TimeCB" layoutX="112.0" layoutY="141.0" prefWidth="150.0" />
    </children>
 </fx:root>
