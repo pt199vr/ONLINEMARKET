@@ -16,9 +16,11 @@ public class OrderStage extends Stage{
 		Main.loadingstage.show();
 		System.gc();
 		
+		layout= new BorderPane();
+		
+		orderGui= new OrderStageGui(t);
+		
 		Thread thread = new Thread(()->{
-			layout= new BorderPane();
-			orderGui= new OrderStageGui(t);
 			layout.setCenter(orderGui);
 			
 			setTitle(Main.title);

@@ -16,6 +16,8 @@ public class OrderDateGui extends AnchorPane{
 	@FXML
 	private ChoiceBox<String> TimeCB,DayCB;
 	
+	private Date d;
+	
 	public OrderDateGui() {
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderDate.fxml"));
@@ -40,7 +42,7 @@ public class OrderDateGui extends AnchorPane{
 		
 		Calendar cal= GregorianCalendar.getInstance();
 		long l = new java.util.Date().getTime()+(24 * 60 * 60000);
-		Date d;
+		
 		for(int i = 0; i < 6 ; i++ ,l = cal.getTimeInMillis()+(24*60*60000)) {
 			cal.setTime(new java.util.Date(l));
 			if(cal.get(Calendar.DAY_OF_WEEK)== Calendar.SUNDAY)
@@ -49,6 +51,10 @@ public class OrderDateGui extends AnchorPane{
 			DayCB.getItems().add(d.toString());
 		}
 		DayCB.getSelectionModel().selectFirst();
+	}
+	
+	public Date getDate() {
+		return d;
 	}
 
 }

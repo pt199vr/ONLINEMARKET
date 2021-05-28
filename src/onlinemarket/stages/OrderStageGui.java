@@ -4,23 +4,31 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import onlinemarket.Main;
 import onlinemarket.account.Account;
 import onlinemarket.order.OrderTableGui;
 import onlinemarket.order.ProductTableGui;
 
-public class OrderStageGui extends BorderPane{
+public class OrderStageGui extends GridPane{
 	
 	@FXML
-	private BorderPane orderBorder;
+	private GridPane TablesGridPane;
 	
 	private Account t;
+	
+	@FXML
+	private Button MenuB;
+	
 	private OrderTableGui orders;
 	private ProductTableGui prods;
+
+	
 	
 	public OrderStageGui(Account t) {
 		
-		this.t=t;
+		this.t = t;
 		
 		orders = new OrderTableGui();
 		prods = new ProductTableGui();
@@ -35,6 +43,15 @@ public class OrderStageGui extends BorderPane{
 			throw new RuntimeException(e);
 		}
 		
+		MenuB.setOnAction(e ->{
+			Main.loadingstage.show();
+			Main.orderstage.hide();
+			Main.shopstage.show();
+			Main.loadingstage.hide();
+		});
+		
+		TablesGridPane.add(orders, 0, 1);
+		TablesGridPane.add(prods, 1, 1);
 		
 	}
 	

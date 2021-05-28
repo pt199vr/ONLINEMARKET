@@ -17,12 +17,12 @@ public class Order implements Serializable{
 	private Time time1, time2;
 	private TreeSet<Product> products;
 	private Account account;
-	private Float price;
+	private Double price;
 	private Payment payment;
 	private Integer points = 0;
 	private OrderStatus status = OrderStatus.CONFIRMED;
 	
-	public Order(Date date, Time time1, Time time2, HashMap<Product, Integer> products, Account account, Float price, Payment payment) {
+	public Order(Date date, Time time1, Time time2, HashMap<Product, Integer> products, Account account, Double price, Payment payment) {
 		this.ID = Main.getIdOrder();
 		this.date = date;
 		this.time1 = time1;
@@ -66,7 +66,7 @@ public class Order implements Serializable{
 		return payment;
 	}
 	
-	public Float getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 	
