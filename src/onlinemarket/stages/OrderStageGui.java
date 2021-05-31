@@ -5,34 +5,41 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.Label;
+import javafx.scene.control.TitledPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import onlinemarket.Main;
 import onlinemarket.account.Account;
-import onlinemarket.order.OrderTableGui;
-import onlinemarket.order.ProductTableGui;
+import onlinemarket.order.Order;
+import onlinemarket.product.OrderProdGui;
+import onlinemarket.product.Product;
+import onlinemarket.product.ProductGui;
 
-public class OrderStageGui extends GridPane{
+
+public class OrderStageGui extends AnchorPane{
 	
-	@FXML
-	private GridPane TablesGridPane;
 	
 	private Account t;
+	private Order order;
 	
 	@FXML
 	private Button MenuB;
-	
-	private OrderTableGui orders;
-	private ProductTableGui prods;
-
-	
+	@FXML
+	private Label IDL,NameL,SurnameL,priceL,paymentL;
+	@FXML
+	private TitledPane OrderedProducts;
+	@FXML
+	private VBox orderProdVB;
 	
 	public OrderStageGui(Account t) {
 		
 		this.t = t;
-		
-		orders = new OrderTableGui();
-		prods = new ProductTableGui();
-		
+		for(Order o: Main.order) {
+			if(t.equals(o.getAccount())) {
+				order  = o;
+			}
+		}
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Order.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
@@ -43,16 +50,24 @@ public class OrderStageGui extends GridPane{
 			throw new RuntimeException(e);
 		}
 		
+		IDL.setText(order.getId());
+		NameL.setText(order.getAccount().getName());
+		SurnameL.setText(order.getAccount().getSurname());
+		priceL.setText(order.getPrice().toString());
+		paymentL.setText(order.getStatus().toString());
+		
+		
+		OrderedProducts.setExpanded(false);
+		for(Product p: order.getProducts()) {
+			ProductGui tmp = new OrderProdGui(p);
+			orderProdVB.getChildren().add(tmp);
+		}
 		MenuB.setOnAction(e ->{
 			Main.loadingstage.show();
 			Main.orderstage.hide();
 			Main.shopstage.show();
 			Main.loadingstage.hide();
 		});
-		
-		TablesGridPane.add(orders, 0, 1);
-		TablesGridPane.add(prods, 1, 1);
-		
 	}
 	
 	private Account getAccount() {

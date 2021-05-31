@@ -124,10 +124,6 @@ public class CartStageGui extends VBox{
 		Main.login();
 	}
 	
-	public VBox getProdVB() {
-		return CartProdVB;
-	}
-	
 	
 	public Account getAccount() {
 		return t ;

@@ -17,9 +17,10 @@ import onlinemarket.order.OrderDateGui;
 import onlinemarket.order.OrderFidelityGui;
 import onlinemarket.order.OrderNewFidelityGui;
 import onlinemarket.order.OrderPaymentGui;
-import onlinemarket.stages.CartStage;
+import onlinemarket.product.Product;
 import onlinemarket.stages.CartStageGui;
 import onlinemarket.stages.OrderStage;
+import onlinemarket.stages.ShopStage;
 
 public class OrderRecGui extends BorderPane {
 	
@@ -29,7 +30,7 @@ public class OrderRecGui extends BorderPane {
 	private Button BackB,ContinueB;
 	@FXML
 	private VBox recapVB;
-	
+	private Order o = null;
 	private int orderActions = 0;
 	
 	OrderNewFidelityGui newFC;
@@ -64,14 +65,32 @@ public class OrderRecGui extends BorderPane {
 			else if(orderActions == 1)
 				Date();
 			else { 
-				//controllo sulla quantità
-				Order o = new Order(date.getDate(), null, null, f.getCart().getProducts(), f.getAccount(),f.getCart().getPrice(), pay.getPM());
+				boolean check = true;
+				for(Product p: Main.product) {
+					if(f.getCart().getProducts().containsKey(p)) {
+						Integer NumberInCart = f.getCart().getProducts().get(p) ;
+						if(p.getNumber() >= NumberInCart) {
+							p.setNumber(p.getNumber() - NumberInCart);
+							Main.product.write();
+							((ShopStage)Main.shopstage).getGui().checking();
+						}
+						else {
+							Alert q = new Alert(Alert.AlertType.NONE,"The product "+p.getName().toString() +" "+" " + p.getBrand().toString()+ " Stock is insufficient!",ButtonType.OK);
+							q.showAndWait();
+							f.getCart().remove(p);
+							check = false;
+						}
+					}
+				}
+				if(check) {
+				o = new Order(date.getDate(), null, null, f.getCart().getProducts(), f.getAccount(),f.getCart().getPrice(), pay.getPM());
 				Main.order.add(o);
 				Main.order.write();
+				
 				Main.actionstage.hide();
 				Main.orderstage = new OrderStage(f.getAccount());
 				Main.orderstage.show();
-				
+				}
 			}
 			
 		});
@@ -111,6 +130,10 @@ public class OrderRecGui extends BorderPane {
 		}
 		orderActions = 2;
 		setCenter(date);
+	}
+	
+	private Order getOrder() {
+		return o;
 	}
 }
 

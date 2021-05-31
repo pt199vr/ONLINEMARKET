@@ -10,7 +10,7 @@ import onlinemarket.fidelitycard.*;
 import java.util.TreeSet;
 import java.util.HashMap;
 
-public class Order implements Serializable{
+public class Order implements Serializable,Comparable<Order>{
 	private static final long serialVersionUID = 20L;
 	private String ID;
 	private Date date;
@@ -98,4 +98,10 @@ public class Order implements Serializable{
 		return ID + "||" + account.toString() + "||" + payment.toString() + "||" + price.toString() + "||" + points.toString()
 		+ "||" + date.toString() + "||" + time1.toString() + "->" + time2.toString() + "||" + products.toString();
 	}
+
+	@Override
+	public int compareTo(Order o) {
+		return this.getId().hashCode() - o.getId().hashCode();
+	}
+	
 }

@@ -8,6 +8,7 @@ import java.util.TreeSet;
 
 import onlinemarket.Main;
 import onlinemarket.account.Account;
+import onlinemarket.actionsgui.EditorProdModifyGui;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -32,6 +33,7 @@ import onlinemarket.departments.Department;
 import onlinemarket.departments.DepartmentGui;
 import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.product.Product;
+import onlinemarket.product.ProductGui;
 import onlinemarket.product.ProductSorting;
 import onlinemarket.product.UserProdGui;
 import onlinemarket.readnwrite.RnW_Product;
@@ -70,6 +72,7 @@ public class ShopStageGui extends VBox{
 	private ArrayList<DepartmentGui> selD;
 	protected TreeSet<String> feat;
 	private ArrayList<RadioButton> bs = new ArrayList<>();
+	private ArrayList<Thread> threads = new ArrayList<Thread>();
 	
 	private Account t;
 	private Cart c;
@@ -302,6 +305,50 @@ public class ShopStageGui extends VBox{
 	public Account getAccount() {
 		return t ;
 	}
+	
+	//necessario per aggiornamento shopstage dopo conferma ordine
+	public void checking() {
+		tt();
+		for(Product p : Main.product) {
+			ProductGui g = new EditorProdModifyGui(p);
+			Main.prodmap.put(p, g);
+		}
+		for(Department d : Main.department) {
+			Main.depmap.put(d, new DepartmentGui(d));	
+		}
+		mainVB.getChildren().clear();
+		tfxml();
+		
+		Main.shopstage.show();
+	}
+	private void tt() {
+		Main.department.read();
+		Main.department.forEach(d->{
+			Thread thread = new Thread(() -> Main.depmap.put(d, new DepartmentGui(d)));
+			thread.start();
+			threads.add(thread);
+		});
+	}
+	
+	private void tfxml() {
+		DepartmentsVB.getChildren().clear(); 
+		for(Department d: Main.department) {
+			mainVB.getChildren().add(Main.depmap.get(d));
+				RadioButton depRB= new RadioButton(d.getName());
+				bs.add(depRB);
+				depRB.setMinHeight(20);
+				depRB.setOnMouseClicked(e -> {
+					selD.clear();
+					bs.forEach(b -> b.setSelected(false));
+					depRB.setSelected(true);
+					selD.add(Main.depmap.get(d));
+					expand();
+				});
+				DepartmentsVB.getChildren().add(depRB);	
+		}
+	}
+
+	
 	
 	private void cart(CartStageGui cartgui) {
 		Main.shopstage.hide();

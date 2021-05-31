@@ -60,7 +60,6 @@ public class EditorProdCreationGui extends AnchorPane {
 		}
 		
 		ProdImg.setImage((new File(getIMG()).exists())? new Image(getIMG()) : ProductGui.defaultIMG);
-		selFile = null;
 		
 		ImgB.setOnAction(e -> modifyIMG());
 		
@@ -122,7 +121,7 @@ public class EditorProdCreationGui extends AnchorPane {
 			type = TypeofQuantity.PIECES;
 		
 		Product p = new Product(ProdNameT.getText(), ProdBrandT.getText(), price, quantity, number, type, DepCB.getSelectionModel().getSelectedItem(), features);
-		p.setPath(selFile.getPath());
+		if(selFile!=null) p.setPath(selFile.getPath());
 		ProductGui gui = new EditorProdModifyGui(p); 
 		Main.product.add(p);
 		Main.prodmap.put(p, gui);

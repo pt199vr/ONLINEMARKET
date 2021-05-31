@@ -13,9 +13,9 @@ public class OrderStage extends Stage{
 	private OrderStageGui orderGui;
 	
 	public OrderStage(Account t) {
+		
 		Main.loadingstage.show();
 		System.gc();
-		
 		layout= new BorderPane();
 		
 		orderGui= new OrderStageGui(t);

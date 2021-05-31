@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import onlinemarket.Main;
@@ -31,15 +33,18 @@ public class UserProdGui extends ProductGui{
 		ProdImg.setImage(defaultIMG);
 		nameL.setText(p.getName());
 		brandL.setText(p.getBrand());
-		quantityL.setText("Reserves:  " + p.getQuantity().toString());
+		quantityL.setText("Reserves:  " + p.getNumber().toString());
 		priceQuantityL.setText(p.getPrice().toString()+ " €");
 		
 		AddCartB.setOnAction(e->{
 			((ShopStage) Main.shopstage).getGui().getCart().add(p);
 		});
 		
-		if(p.getNumber() == 0)
+		
+		if(p.getNumber() == 0) { 
 			AddCartB.setDisable(true);
+		}
+		
 	}
 
 	/*public Button getAdd() {

@@ -48,7 +48,7 @@ public class DepartmentGui extends TitledPane {
 		for(Product p: Main.product) {
 			if(p.getDepartment().equals(department)) {
 				if(Main.shopstage instanceof ShopStage)
-					g= new UserProdGui(p);
+					g = new UserProdGui(p);
 				else
 					g= new EditorProdModifyGui(p);
 				prodVB.getChildren().add(g);

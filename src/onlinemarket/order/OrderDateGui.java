@@ -45,7 +45,7 @@ public class OrderDateGui extends AnchorPane{
 		
 		for(int i = 0; i < 6 ; i++ ,l = cal.getTimeInMillis()+(24*60*60000)) {
 			cal.setTime(new java.util.Date(l));
-			if(cal.get(Calendar.DAY_OF_WEEK)== Calendar.SUNDAY)
+			if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY)
 				cal.setTime(new java.util.Date(l + (24 * 60 *60000)));
 			d = new Date(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
 			DayCB.getItems().add(d.toString());
