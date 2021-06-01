@@ -49,8 +49,12 @@ public class OrderRecGui extends BorderPane {
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
+		String s = ""; s += f.getCart().getPrice().intValue() + ".";
+		Double doub = f.getCart().getPrice() - f.getCart().getPrice().intValue();
+		doub *= 100;
+		s += doub.intValue();		
+		FinalPriceL.setText(s);
 		
-		FinalPriceL.setText(f.getCart().getPrice().toString());
 		
 		FC = new OrderFidelityGui();
 		pay = new OrderPaymentGui();
@@ -86,6 +90,8 @@ public class OrderRecGui extends BorderPane {
 				o = new Order(date.getDate(), null, null, f.getCart().getProducts(), f.getAccount(),f.getCart().getPrice(), pay.getPM());
 				Main.order.add(o);
 				Main.order.write();
+				f.getCart().getProducts().clear();
+				
 				
 				Main.actionstage.hide();
 				Main.orderstage = new OrderStage(f.getAccount());

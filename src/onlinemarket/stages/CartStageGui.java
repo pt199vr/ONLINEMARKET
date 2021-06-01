@@ -93,7 +93,11 @@ public class CartStageGui extends VBox{
 				}
 		}
 		
-		FinalPriceL.setText(cart.getPrice().toString());
+		String s = ""; s += cart.getPrice().intValue() + ".";
+		Double doub = cart.getPrice() - cart.getPrice().intValue();
+		doub *= 100;
+		s += doub.intValue();		
+		FinalPriceL.setText(s);
 		
 		sort = new ToggleGroup();
 		AscendingBrandRB.setToggleGroup(sort);
@@ -157,6 +161,10 @@ public class CartStageGui extends VBox{
 				
 			}
 		}
-		FinalPriceL.setText(cart.getPrice().toString());
+		String s = ""; s += cart.getPrice().intValue() + ".";
+		Double doub = cart.getPrice() - cart.getPrice().intValue();
+		doub *= 100;
+		s += doub.intValue();		
+		FinalPriceL.setText(s);
 	}
 }

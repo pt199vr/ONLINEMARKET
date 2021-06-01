@@ -34,7 +34,7 @@ public class OrderStage extends Stage{
 			});
 			
 			setOnCloseRequest(e -> {
-				Main.shopstage.show();					
+				Main.shopstage.show();
 			});
 			
 	}); thread.start();
