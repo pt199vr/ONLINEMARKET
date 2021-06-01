@@ -184,7 +184,7 @@ public class ShopStageGui extends VBox{
 		CartL.setOnMouseClicked(e -> cart(cartgui));
 		profile.setOnAction(e -> showAcc(this));
 		FDC.setOnAction(e -> FC(this));
-		//Orders.setOnAction(e -> showOrders());
+		Orders.setOnAction(e -> showOrders(this));
 		payment.setOnAction(e -> setPayment(this));
 		logout.setOnAction(e -> logout());
 		
@@ -299,6 +299,12 @@ public class ShopStageGui extends VBox{
 		Main.loadingstage.show();
 		Main.actionstage = new ActionsStage("showaccount",f);
 		Main.loadingstage.hide();
+	}
+	
+	public void showOrders(ShopStageGui f) {
+		Main.shopstage.hide();
+		Main.loadingstage.show();
+		Main.actionstage = new ActionsStage("showOrders",f); 
 	}
 
 

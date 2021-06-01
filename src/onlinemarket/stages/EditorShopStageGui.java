@@ -56,6 +56,8 @@ public class EditorShopStageGui extends VBox{
 	private VBox filterVB,mainVB, featuresVB, DepartmentsVB;
 	@FXML
 	private Menu Orders;
+	@FXML 
+	private Label OrderL;
 	@FXML
 	private MenuItem create, modify, delete, createProd, deleteProd, profile, editorsAcc, customersAcc, logout;
 	
@@ -168,7 +170,7 @@ public class EditorShopStageGui extends VBox{
 		editorsAcc.setOnAction(e -> showEd(this));
 		customersAcc.setOnAction(e->customers(this));
 		logout.setOnAction(e -> logout());
-		Orders.setOnAction(e -> showOrders(this));
+		OrderL.setOnMouseClicked(e->showOrders(this));
 		
 		try {
 			for(Thread thread: threads)

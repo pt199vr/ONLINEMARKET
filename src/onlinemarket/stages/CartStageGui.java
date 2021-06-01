@@ -3,9 +3,11 @@ package onlinemarket.stages;
 import java.io.IOException;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
+import java.util.SortedSet;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,11 +28,12 @@ import onlinemarket.cart.Cart;
 import onlinemarket.product.CustomerProdCartGui;
 import onlinemarket.product.Product;
 import onlinemarket.product.ProductGui;
+import onlinemarket.product.ProductSorting;
 
 
 
 public class CartStageGui extends VBox{
-	
+	private SortedSet<Product> sortedPrdos;
 	
 	@FXML
 	private Button BuyB;
@@ -49,6 +52,10 @@ public class CartStageGui extends VBox{
 	private GridPane depGrid,featuresGrid;
 	@FXML
 	private MenuItem profile,FDC,Orders,payment,logout;
+	
+	private final HashMap<RadioButton,Comparator<Product>> sortProd;
+	
+	protected Comparator<Product> comp;	
 
 	
 	private Account t;
@@ -95,6 +102,16 @@ public class CartStageGui extends VBox{
 		DescendingPriceRB.setToggleGroup(sort);
 		AscendingBrandRB.setSelected(true);
 		
+		sortProd = new HashMap<>(4);
+		sortProd.put(AscendingBrandRB, ProductSorting.AscendingBrand());
+		sortProd.put(DescendingBrandRB, ProductSorting.DescendingBrand());
+		sortProd.put(AscendingPriceRB, ProductSorting.AscendingPrice());
+		sortProd.put(DescendingPriceRB, ProductSorting.DescendingPrice());
+		
+		sort.selectedToggleProperty().addListener((o,oT,nT)->{
+			comp = sortProd.get((RadioButton)sort.getSelectedToggle());
+			//sort();
+		});
 		
 		BuyB.setOnAction(e -> GoBuy(this));
 		

@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -18,7 +19,15 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <VBox fx:id="orderProdVB" layoutX="-2.0" maxWidth="1.7976931348623157E308" />
+                  <ScrollPane prefHeight="181.0" prefWidth="572.0" vbarPolicy="ALWAYS">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <VBox fx:id="orderProdVB" maxWidth="1.7976931348623157E308" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
                </children>
             </AnchorPane>
         </content>

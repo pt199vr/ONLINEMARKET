@@ -9,6 +9,9 @@ import onlinemarket.account.EditorAccount;
 import onlinemarket.actionsgui.*;
 import onlinemarket.fidelitycard.FDCCreationGui;
 import onlinemarket.fidelitycard.FDCViewGui;
+import onlinemarket.order.CustomerOrderTable;
+import onlinemarket.order.EditorOrderTable;
+import onlinemarket.order.OrderTableGui;
 import onlinemarket.payment.PaymentMethodGui;
 
 public class ActionsStage extends Stage{
@@ -24,11 +27,14 @@ public class ActionsStage extends Stage{
 	private CreateEditorGui EdCreation;
 	private EditorsTableGui editorsAcc;
 	private CustomersTableGui customersAcc;
+	private EditorOrderTable EditorOrders;
+	
 	
 	private CustomerAccGui customer;
 	private FDCCreationGui fdcc;
 	private FDCViewGui fdcv;
 	private PaymentMethodGui payment;
+	private CustomerOrderTable CustomerOrders;
 	
 	private OrderRecGui orderRec;
 	
@@ -48,11 +54,15 @@ public class ActionsStage extends Stage{
 			editorsAcc = new EditorsTableGui(f);
 			customersAcc = new CustomersTableGui();
 			
+			EditorOrders = new EditorOrderTable(f);
+			
 			
 			
 			new Thread(() -> {
 				
 				layout = new BorderPane();
+				
+				
 				
 				if("create".equals(s)) {					
 					layout.setCenter(create);
@@ -82,9 +92,8 @@ public class ActionsStage extends Stage{
 					layout.setCenter(customersAcc);
 				}
 				if("showorders".equals(s)) {					
-					layout.setCenter(modify);
+					layout.setCenter(EditorOrders);
 				}
-				
 				
 				setTitle(Main.title);
 				getIcons().add(Main.logo);
@@ -115,6 +124,7 @@ public class ActionsStage extends Stage{
 		fdcv = new FDCViewGui(f);
 		payment = new PaymentMethodGui(f);
 		customer = new CustomerAccGui(f);
+		CustomerOrders = new CustomerOrderTable(f);
 		
 		new Thread(()->{
 			layout = new BorderPane();
@@ -127,6 +137,8 @@ public class ActionsStage extends Stage{
 				layout.setCenter(fdcv);
 			if("newFidelity".equals(s)) 
 				layout.setCenter(fdcc);
+			if("showOrders".equals(s)) 
+				layout.setCenter(CustomerOrders);
 			
 			setTitle(Main.title);
 			getIcons().add(Main.logo);

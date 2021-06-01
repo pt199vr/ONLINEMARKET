@@ -33,7 +33,10 @@
                   <MenuItem fx:id="modify" mnemonicParsing="false" text="Modify" />
                   <MenuItem fx:id="delete" mnemonicParsing="false" text="Delete" />
                </items></Menu>
-            <Menu fx:id="Orders" mnemonicParsing="false" text="Orders" />
+            <Menu fx:id="Orders" mnemonicParsing="false">
+               <graphic>
+                  <Label fx:id="OrderL" text="Orders" />
+               </graphic></Menu>
             <Menu mnemonicParsing="false" text="My Account">
                <items>
                   <MenuItem fx:id="profile" mnemonicParsing="false" text="My profile" />
