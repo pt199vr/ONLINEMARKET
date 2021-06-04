@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import onlinemarket.Main;
+import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.order.Order;
 import onlinemarket.order.OrderDateGui;
 import onlinemarket.order.OrderFidelityGui;
@@ -61,7 +62,6 @@ public class OrderRecGui extends BorderPane {
 		date = new OrderDateGui();
 		
 		Fidelity(f);
-		
 		ContinueB.setOnAction(e -> {
 			if(orderActions == 0) {
 				Pay();
@@ -73,15 +73,21 @@ public class OrderRecGui extends BorderPane {
 				boolean check = true;
 				for(Product p: Main.product) {
 					if(f.getCart().getProducts().containsKey(p)) {
-						Integer NumberInCart = f.getCart().getProducts().get(p) ;
+						Integer NumberInCart = f.getCart().getProducts().get(p);
 						if(p.getNumber() >= NumberInCart) {
+<<<<<<< HEAD
 							Integer r = p.getNumber() - NumberInCart;
 							p.setNumber(r);
+=======
+							Integer fp = p.getNumber() - NumberInCart;
+							p.setNumber(fp);
+>>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
 							Main.product.write();
 							((ShopStage)Main.shopstage).getGui().checking();
+							Main.shopstage.hide();
 						}
 						else {
-							Alert q = new Alert(Alert.AlertType.NONE,"The product "+p.getName().toString() +" "+" " + p.getBrand().toString()+ " Stock is insufficient!",ButtonType.OK);
+							Alert q = new Alert(Alert.AlertType.NONE,"The product "+p.getName().toString() + " " + p.getBrand().toString() + " Stock is insufficient!",ButtonType.OK);
 							q.showAndWait();
 							f.getCart().remove(p);
 							check = false;
@@ -89,7 +95,17 @@ public class OrderRecGui extends BorderPane {
 					}
 				}
 				if(check) {
+				for(FidelityCard fc : Main.fidelitycard) {
+					if(fc.getAccount().equals(f.getAccount().toString())) {
+						int p = fc.getPoints() + o.getPoints();
+						fc.setPoints(p);
+					}		
+				}
+				
+				Main.fidelitycard.write();
+
 				o = new Order(date.getDate(), date.getFirstTime(), date.getSecondTime(), f.getCart().getProducts(), f.getAccount(),f.getCart().getPrice(), pay.getPM());
+
 				Main.order.add(o);
 				Main.order.write();
 				

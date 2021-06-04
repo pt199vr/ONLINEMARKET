@@ -316,9 +316,10 @@ public class ShopStageGui extends VBox{
 	public void checking() {
 		tt();
 		for(Product p : Main.product) {
-			ProductGui g = new EditorProdModifyGui(p);
+			ProductGui g = new UserProdGui(p);
 			Main.prodmap.put(p, g);
 		}
+		
 		for(Department d : Main.department) {
 			Main.depmap.put(d, new DepartmentGui(d));	
 		}

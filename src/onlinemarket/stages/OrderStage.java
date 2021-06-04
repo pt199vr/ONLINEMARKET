@@ -16,6 +16,7 @@ public class OrderStage extends Stage{
 		
 		Main.loadingstage.show();
 		System.gc();
+		
 		layout= new BorderPane();
 		
 		orderGui= new OrderStageGui(t);

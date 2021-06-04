@@ -34,6 +34,7 @@ public class OrderFidelityGui extends AnchorPane{
 		}
 		GetCardB.setOnAction(e -> {
 			FidelityCard f = new FidelityCard(((ShopStage)Main.shopstage).getAccount());
+			
 			Main.fidelitycard.add(f);
 			Main.fidelitycard.write();
 			
@@ -59,10 +60,13 @@ public class OrderFidelityGui extends AnchorPane{
 				actualPoints = tmp.getPoints();
 				fidelitypoints.setText(actualPoints.toString());
 				addPoints = (int) Math.round(((ShopStage)Main.shopstage).getGui().getCart().getPrice());
+				if(addPoints > ((ShopStage)Main.shopstage).getGui().getCart().getPrice().intValue())
+					addPoints--;
 				pointsToAddL.setText(addPoints.toString());
 			}
 		}
-		if(tmp==null) {
+		if(tmp == null) {
+			
 			noFidelityL.setVisible(true);
 			GetCardB.setVisible(true);
 			GetCardB.setDisable(false);

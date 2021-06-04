@@ -26,7 +26,7 @@ public class OrderStageGui extends AnchorPane{
 	@FXML
 	private Button MenuB;
 	@FXML
-	private Label IDL,NameL,SurnameL,priceL,paymentL;
+	private Label IDL,NameL,SurnameL,priceL,paymentL,DeliveryDateL,DeliveryTimeL;
 	@FXML
 	private TitledPane OrderedProducts;
 	@FXML
@@ -55,14 +55,17 @@ public class OrderStageGui extends AnchorPane{
 		SurnameL.setText(order.getAccount().getSurname());
 		priceL.setText(order.getPrice().toString());
 		paymentL.setText(order.getStatus().toString());
-		
+		DeliveryDateL.setText("Delivery on: "+order.getDate().toString());
+		DeliveryTimeL.setText("At: "+order.getTime1().toString()+ "-" +order.getTime2().toString());
 		
 		OrderedProducts.setExpanded(false);
+		
 		for(Product p: order.getProducts()) {
 			ProductGui tmp = new OrderProdGui(p);
 			orderProdVB.getChildren().add(tmp);
 		}
-		MenuB.setOnAction(e ->{
+		
+		MenuB.setOnAction(e ->{	
 			Main.loadingstage.show();
 			Main.orderstage.hide();
 			Main.shopstage.show();

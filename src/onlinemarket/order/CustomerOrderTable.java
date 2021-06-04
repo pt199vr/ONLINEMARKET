@@ -5,21 +5,20 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import onlinemarket.Main;
 import onlinemarket.stages.ShopStageGui;
 
-public class CustomerOrderTable extends GridPane{
-	@FXML
-	private GridPane Tables;
+public class CustomerOrderTable extends AnchorPane{
+	
 	
 	@FXML
-	private Button BackB,ProdTableB;
-	
-	private OrderTableGui orders;
+	private Label showProds;
 	
 	public CustomerOrderTable(ShopStageGui f) {
-		FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("AllOrders.fxml"));
+		FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("CustomerOrders.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
@@ -29,17 +28,17 @@ public class CustomerOrderTable extends GridPane{
 			throw new RuntimeException(e);
 		}
 		
-		orders = new OrderTableGui();
+		showProds.setOnMouseClicked(e -> {
+			
+		});
 		
 		
-		BackB.setOnAction(e ->{
+		/*BackB.setOnAction(e ->{
 			Main.actionstage.hide();
 			Main.loadingstage.show();
 			Main.shopstage.show();
 			Main.loadingstage.hide();
-		});
-		
-		Tables.add(orders, 0, 1);
+		});*/
 	}
 
 }

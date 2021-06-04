@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import onlinemarket.Main;
 import onlinemarket.stages.CartStage;
-import onlinemarket.stages.OrderStage;
+
 
 public class OrderProdGui extends ProductGui{
 	
@@ -20,14 +20,15 @@ public class OrderProdGui extends ProductGui{
 		
 		NameL.setText(product.getName());
 		BrandL.setText(product.getBrand());
-		priceL.setText(product.getPrice().toString());
-		Integer num =((CartStage)Main.cartstage).getCartGui().getCart().getProducts().get(product);
-		NumberL.setText(num.toString());
+		priceL.setText(product.getPrice().toString() +" €");
+		
+		Integer num = ((CartStage)Main.cartstage).getCartGui().getCart().getProducts().get(product);
+		NumberL.setText("Orderd quantity: " + num.toString());
+		
 		Double totl = num * product.getPrice();
-		TotalPriceL.setText(totl.toString());
+		TotalPriceL.setText(totl.toString() + "€");
 		
 		prodImg.setImage(defaultIMG);
-		
 	}
 
 }
