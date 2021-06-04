@@ -75,13 +75,11 @@ public class OrderRecGui extends BorderPane {
 					if(f.getCart().getProducts().containsKey(p)) {
 						Integer NumberInCart = f.getCart().getProducts().get(p);
 						if(p.getNumber() >= NumberInCart) {
-<<<<<<< HEAD
 							Integer r = p.getNumber() - NumberInCart;
 							p.setNumber(r);
-=======
 							Integer fp = p.getNumber() - NumberInCart;
 							p.setNumber(fp);
->>>>>>> branch 'main' of https://github.com/pt199vr/ONLINEMARKET
+
 							Main.product.write();
 							((ShopStage)Main.shopstage).getGui().checking();
 							Main.shopstage.hide();
