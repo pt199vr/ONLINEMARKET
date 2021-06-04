@@ -4,25 +4,21 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
-import onlinemarket.Main;
-import onlinemarket.stages.ActionsStage;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.AnchorPane;
 import onlinemarket.stages.EditorShopStageGui;
 
-public class EditorOrderTable extends GridPane{
+public class EditorOrderTable extends AnchorPane{
 	
 	@FXML
-	private Button BackB,ProdTableB;
-	
-	private OrderTableGui orders;
-	
-	@FXML 
-	private GridPane Tables;
+	private Label showProds;
+	@FXML
+	private MenuItem setDelivering,setDelivered;
 	
 	public EditorOrderTable(EditorShopStageGui f) {
-		
-		FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("AllOrders.fxml"));
+		FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("EditorOrders.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
@@ -32,17 +28,15 @@ public class EditorOrderTable extends GridPane{
 			throw new RuntimeException(e);
 		}
 		
-		orders = new OrderTableGui();
-		
-		
-		BackB.setOnAction(e ->{
-			Main.actionstage.hide();
-			Main.loadingstage.show();
-			Main.shopstage.show();
-			Main.loadingstage.hide();
+		showProds.setOnMouseClicked(e -> {
+			
 		});
 		
-		Tables.add(orders, 0, 1);
-		
+		setDelivering.setOnAction(e ->{
+			System.out.println("Done");
+		});
+		setDelivered.setOnAction(e->{
+			System.out.println("Re-done");
+		});
 	}
 }

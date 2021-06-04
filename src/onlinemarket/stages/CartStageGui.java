@@ -77,7 +77,6 @@ public class CartStageGui extends VBox{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		PurchasesL.setOnMouseClicked(e ->{
 			Main.loadingstage.show();
 			Main.cartstage.hide();
@@ -167,6 +166,7 @@ public class CartStageGui extends VBox{
 		Double doub = cart.getPrice() - cart.getPrice().intValue();
 		doub *= 100;
 		s += doub.intValue();
+		FinalPriceL.setText(s);
 		
 	}
 }

@@ -5,13 +5,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import onlinemarket.Main;
-import onlinemarket.account.EditorAccount;
+
 import onlinemarket.actionsgui.*;
 import onlinemarket.fidelitycard.FDCCreationGui;
 import onlinemarket.fidelitycard.FDCViewGui;
 import onlinemarket.order.CustomerOrderTable;
 import onlinemarket.order.EditorOrderTable;
-import onlinemarket.order.OrderTableGui;
 import onlinemarket.payment.PaymentMethodGui;
 
 public class ActionsStage extends Stage{

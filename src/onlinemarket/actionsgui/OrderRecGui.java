@@ -69,6 +69,7 @@ public class OrderRecGui extends BorderPane {
 			else if(orderActions == 1)
 				Date();
 			else { 
+				date.getTime();
 				boolean check = true;
 				for(Product p: Main.product) {
 					if(f.getCart().getProducts().containsKey(p)) {
@@ -89,8 +90,6 @@ public class OrderRecGui extends BorderPane {
 					}
 				}
 				if(check) {
-				o = new Order(date.getDate(), null, null, f.getCart().getProducts(), f.getAccount(),f.getCart().getPrice(), pay.getPM());
-				
 				for(FidelityCard fc : Main.fidelitycard) {
 					if(fc.getAccount().equals(f.getAccount().toString())) {
 						int p = fc.getPoints() + o.getPoints();
@@ -99,6 +98,9 @@ public class OrderRecGui extends BorderPane {
 				}
 				
 				Main.fidelitycard.write();
+
+				o = new Order(date.getDate(), date.getFirstTime(), date.getSecondTime(), f.getCart().getProducts(), f.getAccount(),f.getCart().getPrice(), pay.getPM());
+
 				Main.order.add(o);
 				Main.order.write();
 				

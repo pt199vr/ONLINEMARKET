@@ -26,7 +26,7 @@ public class OrderProdGui extends ProductGui{
 		NumberL.setText("Orderd quantity: " + num.toString());
 		
 		Double totl = num * product.getPrice();
-		TotalPriceL.setText(totl.toString());
+		TotalPriceL.setText(totl.toString() + "€");
 		
 		prodImg.setImage(defaultIMG);
 	}

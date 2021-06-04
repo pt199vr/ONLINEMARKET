@@ -33,7 +33,7 @@
         </content>
       </TitledPane>
       <Button fx:id="MenuB" layoutX="534.0" layoutY="361.0" mnemonicParsing="false" text="To Menu" />
-      <Label fx:id="DeliveryDateL" layoutX="196.0" layoutY="31.0" text="Data" />
-      <Label fx:id="DeliveryTimeL" layoutX="336.0" layoutY="31.0" text="Intervallotempo" />
+      <Label fx:id="DeliveryDateL" layoutX="287.0" layoutY="31.0" text="Data" />
+      <Label fx:id="DeliveryTimeL" layoutX="434.0" layoutY="31.0" text="Intervallotempo" />
    </children>
 </fx:root>
