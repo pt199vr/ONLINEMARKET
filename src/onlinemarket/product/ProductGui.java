@@ -44,14 +44,16 @@ public class ProductGui extends GridPane {
 	}
 
 	private void EmptyShelf(){
+		
 	}
 	
-	public void newQuantity(Integer number) {
+	protected void newQuantity(Integer number) {
 		this.number = number;
-		if(number == 0) {
+		if(number == 0)
 			EmptyShelf();
-		}
-	}	
+	}
+	
+	
 }
 	
 	

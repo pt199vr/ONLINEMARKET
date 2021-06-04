@@ -37,6 +37,7 @@ public class OrderDateGui extends AnchorPane{
 			String s = t.toString() + "-" + new Time(i + 1, minute);
 			TimeCB.getItems().add(s);
 		}
+		
 		TimeCB.getSelectionModel().selectFirst();
 		
 		

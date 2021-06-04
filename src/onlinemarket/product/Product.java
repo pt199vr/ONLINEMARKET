@@ -48,8 +48,8 @@ public class Product implements Serializable,Comparable<Product>{
 		this.department = department;
 	}
 	
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setNumber(Integer newnumber) {
+		this.number = newnumber;
 	}
 	
 	public Integer getNumber() {

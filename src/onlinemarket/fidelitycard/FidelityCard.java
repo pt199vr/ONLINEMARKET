@@ -41,6 +41,9 @@ public class FidelityCard implements Serializable, Comparable<FidelityCard>{
 	public int getPoints() {
 		return points;
 	}
+	public void setPoints(int newpoints) {
+		this.points = newpoints;
+	}
 	
 	public String getCardId() {
 		return cardId;

@@ -96,7 +96,8 @@ public class CartStageGui extends VBox{
 		String s = ""; s += cart.getPrice().intValue() + ".";
 		Double doub = cart.getPrice() - cart.getPrice().intValue();
 		doub *= 100;
-		s += doub.intValue();		
+		s += doub.intValue();
+		
 		FinalPriceL.setText(s);
 		
 		sort = new ToggleGroup();
@@ -161,10 +162,11 @@ public class CartStageGui extends VBox{
 				
 			}
 		}
+		
 		String s = ""; s += cart.getPrice().intValue() + ".";
 		Double doub = cart.getPrice() - cart.getPrice().intValue();
 		doub *= 100;
-		s += doub.intValue();		
-		FinalPriceL.setText(s);
+		s += doub.intValue();
+		
 	}
 }
