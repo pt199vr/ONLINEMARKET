@@ -52,12 +52,9 @@ public class DepartmentGui extends TitledPane {
 				else
 					g= new EditorProdModifyGui(p);
 				prodVB.getChildren().add(g);
+				
 			}
-		}
-		
-		
-		
-		
+		}		
 	}
 	
 	public boolean sort(Comparator<Product> comp, TreeSet<String> feature, String search) {

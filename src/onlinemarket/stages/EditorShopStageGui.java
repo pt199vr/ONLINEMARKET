@@ -53,7 +53,7 @@ public class EditorShopStageGui extends VBox{
 	@FXML
 	private GridPane searchGridPane;
 	@FXML
-	private VBox filterVB,mainVB, featuresVB, DepartmentsVB;
+	private VBox filterVB, mainVB, featuresVB, DepartmentsVB;
 	@FXML
 	private Menu Orders;
 	@FXML 
@@ -350,9 +350,10 @@ public class EditorShopStageGui extends VBox{
 	}
 	
 	private void tfxml() {
+		
 		DepartmentsVB.getChildren().clear(); 
 		for(Department d: Main.department) {
-			mainVB.getChildren().add(Main.depmap.get(d));
+				mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setMinHeight(20);
@@ -364,7 +365,9 @@ public class EditorShopStageGui extends VBox{
 					expand();
 				});
 				DepartmentsVB.getChildren().add(depRB);	
+				
 		}
+		
 	}
 
 	public EditorAccount getAccount() {
