@@ -11,12 +11,14 @@ import javafx.scene.layout.AnchorPane;
 import onlinemarket.datentime.Date;
 import onlinemarket.datentime.Time;
 
+
 public class OrderDateGui extends AnchorPane{
 	
 	@FXML
 	private ChoiceBox<String> TimeCB,DayCB;
 	
 	private Date d;
+	private Time one, two;
 	
 	public OrderDateGui() {
 		
@@ -38,7 +40,7 @@ public class OrderDateGui extends AnchorPane{
 			TimeCB.getItems().add(s);
 		}
 		TimeCB.getSelectionModel().selectFirst();
-		
+				
 		
 		Calendar cal= GregorianCalendar.getInstance();
 		long l = new java.util.Date().getTime()+(24 * 60 * 60000);
@@ -57,4 +59,35 @@ public class OrderDateGui extends AnchorPane{
 		return d;
 	}
 
+	public Time getFirstTime() {
+		return one;
+	}
+	
+	public Time getSecondTime() {
+		return two;
+	}
+	
+	public void getTime() {
+		String s = TimeCB.getSelectionModel().getSelectedItem();
+		
+		int h = 0, m = 0;
+		
+		String g = ""; g = g + s.charAt(0); g = g + s.charAt(1);
+		h = Integer.parseInt(g);
+		g = "";
+		g = g + s.charAt(3); g = g + s.charAt(4);
+		m = Integer.parseInt(g);
+		one = new Time(h, m);
+		g = g + s.charAt(6); g = g + s.charAt(7);
+		h = Integer.parseInt(g);
+		g = "";
+		g = g + s.charAt(9); g = g + s.charAt(10);
+		m = Integer.parseInt(g);
+		two = new Time(h, m);	
+		
+		System.out.println(one + " " + two);
+	}
+	
+	
+	
 }

@@ -72,5 +72,9 @@ public class OrderFidelityGui extends AnchorPane{
 		}
 		
 	}
+	
+	public FidelityCard getCard(){
+		return tmp;
+	}
 
 }

@@ -77,7 +77,6 @@ public class CartStageGui extends VBox{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		PurchasesL.setOnMouseClicked(e ->{
 			Main.loadingstage.show();
 			Main.cartstage.hide();
