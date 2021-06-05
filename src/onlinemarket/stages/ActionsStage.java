@@ -9,8 +9,7 @@ import onlinemarket.Main;
 import onlinemarket.actionsgui.*;
 import onlinemarket.fidelitycard.FDCCreationGui;
 import onlinemarket.fidelitycard.FDCViewGui;
-import onlinemarket.order.CustomerOrderTable;
-import onlinemarket.order.EditorOrderTable;
+import onlinemarket.order.*;
 import onlinemarket.payment.PaymentMethodGui;
 
 public class ActionsStage extends Stage{
@@ -33,7 +32,7 @@ public class ActionsStage extends Stage{
 	private FDCCreationGui fdcc;
 	private FDCViewGui fdcv;
 	private PaymentMethodGui payment;
-	private CustomerOrderTable CustomerOrders;
+	private CustomerOrderTableGui CustomerOrders;
 	
 	private OrderRecGui orderRec;
 	
@@ -123,7 +122,7 @@ public class ActionsStage extends Stage{
 		fdcv = new FDCViewGui(f);
 		payment = new PaymentMethodGui(f);
 		customer = new CustomerAccGui(f);
-		CustomerOrders = new CustomerOrderTable(f);
+		CustomerOrders = new CustomerOrderTableGui(f);
 		
 		new Thread(()->{
 			layout = new BorderPane();
@@ -169,6 +168,35 @@ public class ActionsStage extends Stage{
 			if("orderRecap".equals(s))
 				layout.setCenter(orderRec);
 			
+			setTitle(Main.title);
+			getIcons().add(Main.logo);
+			setHeight(600);
+			setWidth(800);
+			setResizable(true);
+			Platform.runLater(()->{
+				setScene(new Scene(layout));
+				show();
+				Main.loadingstage.hide();
+			});
+		
+			setOnCloseRequest(e -> {
+				Main.cartstage.show();					
+			});
+			
+		}).start();
+	}
+	
+	public ShowProducts productS;
+	
+	public ActionsStage(Order order) {
+		Main.loadingstage.show();
+		System.gc();
+		
+		productS= new ShowProducts(order);
+		
+		new Thread(() -> {
+			layout = new BorderPane();
+			layout.setCenter(productS);
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
 			setHeight(600);

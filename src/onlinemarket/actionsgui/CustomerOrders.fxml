@@ -22,9 +22,8 @@
          <columns>
             <TableColumn fx:id="OrderID" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="OrderDate" prefWidth="94.0" text="Delivery Date" />
-            <TableColumn prefWidth="114.0" text="DeliveryTime" />
+            <TableColumn fx:id = "Time" prefWidth="114.0" text="DeliveryTime" />
             <TableColumn fx:id="OrderStatus" prefWidth="82.0" text="Status" />
-            <TableColumn fx:id="OrderMail" prefWidth="135.0" text="Email" />
             <TableColumn fx:id="OrderPayment" prefWidth="70.0" text="Payment" />
             <TableColumn fx:id="OrderPoints" prefWidth="76.0" text="Card Points" />
             <TableColumn fx:id="OrderPrice" prefWidth="86.0" text="Total Price" />

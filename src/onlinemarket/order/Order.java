@@ -78,6 +78,10 @@ public class Order implements Serializable,Comparable<Order>{
 		return products;
 	}
 	
+	public String getTimeInterval() {
+		return time1 + " - " + time2;
+	}
+	
 	public Time getTime2() {
 		return time2;
 	}
