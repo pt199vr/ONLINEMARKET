@@ -22,10 +22,9 @@ public class OrderProdGui extends ProductGui{
 		BrandL.setText(product.getBrand());
 		priceL.setText(product.getPrice().toString() +" €");
 		
-		Integer num = ((CartStage)Main.cartstage).getCartGui().getCart().getProducts().get(product);
-		NumberL.setText("Orderd quantity: " + num.toString());
+		NumberL.setText("Orderd quantity: " + product.getNumber());
 		
-		Double totl = num * product.getPrice();
+		Double totl = product.getNumber() * product.getPrice();
 		TotalPriceL.setText(totl.toString() + "€");
 		
 		prodImg.setImage(defaultIMG);
