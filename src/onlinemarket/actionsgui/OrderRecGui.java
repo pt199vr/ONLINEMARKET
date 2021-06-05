@@ -75,8 +75,11 @@ public class OrderRecGui extends BorderPane {
 					if(f.getCart().getProducts().containsKey(p)) {
 						Integer NumberInCart = f.getCart().getProducts().get(p);
 						if(p.getNumber() >= NumberInCart) {
+							Integer r = p.getNumber() - NumberInCart;
+							p.setNumber(r);
 							Integer fp = p.getNumber() - NumberInCart;
 							p.setNumber(fp);
+
 							Main.product.write();
 							((ShopStage)Main.shopstage).getGui().checking();
 							Main.shopstage.hide();

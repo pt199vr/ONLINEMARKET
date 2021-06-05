@@ -31,7 +31,7 @@ public class OrderStage extends Stage{
 			setResizable(true);
 			Platform.runLater(()->{
 				setScene(new Scene(layout));
-				Main.loadingstage.show();
+				Main.loadingstage.hide();
 			});
 			
 			setOnCloseRequest(e -> {
