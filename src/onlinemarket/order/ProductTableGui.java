@@ -6,23 +6,27 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.layout.AnchorPane;
 import onlinemarket.product.Product;
 
 
-public class ProductTableGui extends TableView<Product>{
+public class ProductTableGui extends AnchorPane{
 	
 	@FXML
-	private TableView<Product> productTable;
+	private Label MenuL,OrdersL;
+	
 	@FXML
-	private TableColumn<Product,String> NameProdCol, BrandProdCol;
+	private TableView<Product> prodTB;
+	@FXML
+	private TableColumn<Product,String> NameCol, BrandCol;
 	@FXML
 	private TableColumn<Product,Double> SingleCol,TotalCol;
 	@FXML
-	private TableColumn<Product,Integer> QuantityInCartCol;
+	private TableColumn<Product,Integer> QuantityCol;
 	
 
 	public ProductTableGui() {
@@ -37,6 +41,13 @@ public class ProductTableGui extends TableView<Product>{
 			throw new RuntimeException(e);
 		}
 		
+		MenuL.setOnMouseClicked(e ->{
+			
+		});
+		
+		OrdersL.setOnMouseClicked(e->{
+			
+		});
 		/*
 		NameProdCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
 		BrandProdCol.setCellValueFactory(new PropertyValueFactory<>("Brand"));

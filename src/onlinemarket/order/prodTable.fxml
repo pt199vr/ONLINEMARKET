@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<fx:root fx:id="productTable" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" type="TableView" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-  <columns>
-    <TableColumn fx:id="NameProdCol" prefWidth="132.0" text="Name" />
-    <TableColumn fx:id="BrandProdCol" prefWidth="170.0" text="Brand" />
-      <TableColumn fx:id="QuantityInCartCol" prefWidth="105.0" text="Quantity" />
-      <TableColumn fx:id="SingleCol" prefWidth="100.0" text="Single Price" />
-      <TableColumn fx:id="TotalCol" prefWidth="92.0" text="Total Price" />
-  </columns>
+
+<fx:root type="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false">
+               <graphic>
+                  <Label fx:id="MenuL" text="To Menu" />
+               </graphic>
+          </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <Label fx:id="OrdersL" text="To Orders" />
+               </graphic>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <TableView fx:id="prodTB" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0">
+         <columns>
+            <TableColumn fx:id="NameCol" prefWidth="132.0" text="Name" />
+            <TableColumn fx:id="BrandCol" prefWidth="148.0" text="Brand" />
+            <TableColumn fx:id="QuantityCol" prefWidth="69.0" text="Quantity" />
+            <TableColumn fx:id="SingleCol" prefWidth="119.0" text="Single Price" />
+            <TableColumn fx:id="TotalCol" prefWidth="131.0" text="Total Price" />
+         </columns>
+      </TableView>
+   </children>
 </fx:root>
