@@ -46,12 +46,12 @@ public class Main extends Application{
 	}
 		
 	public static void login() {
-		firststage.close();
+		firststage.hide();
 		loginstage = new LoginStage();
 	}
 	
 	public static void registration() {
-		firststage.close();
+		firststage.hide();
 		registrationstage = new RegistrationStage();
 	}
 	

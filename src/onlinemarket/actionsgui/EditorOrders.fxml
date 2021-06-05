@@ -28,16 +28,15 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TableView layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="676.0">
+      <TableView fx:id="ordersTable" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="676.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="ID" />
-            <TableColumn prefWidth="89.0" text="Delivery Date" />
-            <TableColumn prefWidth="90.0" text="Delivery Time" />
-            <TableColumn prefWidth="70.0" text="Status" />
-            <TableColumn prefWidth="118.0" text="Email" />
-            <TableColumn prefWidth="70.0" text="Pyment" />
-            <TableColumn prefWidth="76.0" text="Card Points" />
-            <TableColumn prefWidth="86.0" text="Total Price" />
+            <TableColumn fx:id="OrderID" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="OrderDate" prefWidth="94.0" text="Delivery Date" />
+            <TableColumn fx:id = "Time" prefWidth="114.0" text="DeliveryTime" />
+            <TableColumn fx:id="OrderStatus" prefWidth="82.0" text="Status" />
+            <TableColumn fx:id="OrderPayment" prefWidth="70.0" text="Payment" />
+            <TableColumn fx:id="OrderPoints" prefWidth="76.0" text="Card Points" />
+            <TableColumn fx:id="OrderPrice" prefWidth="86.0" text="Total Price" />
          </columns>
       </TableView>
    </children>

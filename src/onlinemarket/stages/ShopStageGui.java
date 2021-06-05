@@ -76,13 +76,14 @@ public class ShopStageGui extends VBox{
 	
 	private Account t;
 	private Cart c;
+	private CartStageGui cartgui;
 
 	
 	public ShopStageGui(Account t) {
 		
 		this.t = t;
-		
-		CartStageGui cartgui = ((CartStage)Main.cartstage).getCartGui();
+		Main.product.read();
+		cartgui = ((CartStage)Main.cartstage).getCartGui();
 		c = cartgui.getCart();
 		
 		search = "";
@@ -171,7 +172,7 @@ public class ShopStageGui extends VBox{
 			featuresVB.getChildren().add(cb);
 		}
 		
-		//Purchases.setOnAction(e -> showPurchases());
+		
 		CartL.setOnMouseClicked(e -> cart(cartgui));
 		profile.setOnAction(e -> showAcc(this));
 		FDC.setOnAction(e -> FC(this));
@@ -257,9 +258,14 @@ public class ShopStageGui extends VBox{
 	}
 	
 	@FXML
-	public void logout() {
+	public void logout() {	
+		Main.loadingstage.show();
+		mainVB.getChildren().clear();
 		Main.shopstage.close();
-		Main.login();
+		Main.shopstage = null;
+		Main.cartstage.close();
+		Main.cartstage = null;
+		Main.firststage.show();
 	}
 	
 	public void FC(ShopStageGui f) {
@@ -305,6 +311,7 @@ public class ShopStageGui extends VBox{
 	
 	//necessario per aggiornamento shopstage dopo conferma ordine
 	public void checking() {
+		Main.product.read();
 		tt();
 		for(Product p : Main.product) {
 			ProductGui g = new UserProdGui(p);
@@ -360,4 +367,9 @@ public class ShopStageGui extends VBox{
 		return c;
 	}
 		
+	public void setCart() {
+		c = null;
+		c = ((CartStage)Main.cartstage).getCartGui().getCart();
+	}
+	
 }

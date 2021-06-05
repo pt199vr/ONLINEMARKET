@@ -12,6 +12,10 @@ public class Cart {
 		products = new HashMap<>();
 		price = 0.0;
 	}
+	
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 		
 	public void remove(Product a) {
 		Integer tmp = products.get(a);

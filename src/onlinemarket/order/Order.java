@@ -1,5 +1,6 @@
 package onlinemarket.order;
 
+import java.math.*;
 import java.io.Serializable;
 import onlinemarket.product.*;
 import onlinemarket.Main;
@@ -22,23 +23,14 @@ public class Order implements Serializable,Comparable<Order>{
 	private Integer points = 0;
 	private OrderStatus status = OrderStatus.CONFIRMED;
 	
-	public Order(Date date, Time time1, Time time2, HashMap<Product, Integer> products, Account account, Double price, Payment payment) {
+	public Order(Date date, Time time1, Time time2, TreeSet<Product> products, Account account, Double price, Payment payment) {
 		this.ID = Main.getIdOrder();
 		this.date = date;
 		this.time1 = time1;
 		this.time2 = time2;
-		this.products = new TreeSet<>();
-		if(!products.isEmpty()) {
-			for(Product a : Main.product) {
-				if(products.containsKey(a)) {
-					Product tmp = a;
-					tmp.setNumber(products.get(tmp));
-					this.products.add(tmp);
-				}
-			}
-		}
+		this.products = products;				
 		this.account = account;
-		this.price = price;
+		this.price = Math.round(price * 100.0) / 100.0;
 		this.payment = payment;
 		for(FidelityCard f : Main.fidelitycard) {
 			if(f.getAccount().equals(this.account.toString()))

@@ -20,7 +20,7 @@ import onlinemarket.product.ProductGui;
 public class OrderStageGui extends AnchorPane{
 	
 	
-	private Account t;
+	private Account account;
 	private Order order;
 	
 	@FXML
@@ -32,11 +32,11 @@ public class OrderStageGui extends AnchorPane{
 	@FXML
 	private VBox orderProdVB;
 	
-	public OrderStageGui(Account t) {
+	public OrderStageGui(Account t, String id) {
 		
-		this.t = t;
+		this.account = t;
 		for(Order o: Main.order) {
-			if(t.equals(o.getAccount())) {
+			if(t.equals(o.getAccount()) && id.equals(o.getId())) {
 				order  = o;
 			}
 		}
@@ -67,13 +67,14 @@ public class OrderStageGui extends AnchorPane{
 		
 		MenuB.setOnAction(e ->{	
 			Main.loadingstage.show();
-			Main.orderstage.hide();
 			Main.shopstage.show();
 			Main.loadingstage.hide();
+			((CartStage) Main.cartstage).getCartGui().newCart();
+			Main.orderstage.close();
 		});
 	}
 	
 	private Account getAccount() {
-		return t;
+		return account;
 	}
 }

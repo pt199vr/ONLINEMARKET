@@ -150,6 +150,18 @@ public class CartStageGui extends VBox{
 		return t ;
 	}
 	
+	public void newCart() {
+		CartProdVB.getChildren().clear();
+		cart.setPrice(0.0);
+		for(Product prod: Main.product) {
+			if(cart.getProducts().containsKey(prod)) {
+				cart.getProducts().remove(prod);
+			}
+		}
+		FinalPriceL.setText("0.0");
+	}
+	
+	
 	public void refresh() {
 		CartProdVB.getChildren().clear();
 

@@ -34,7 +34,7 @@ public class UserProdGui extends ProductGui{
 		priceQuantityL.setText(p.getPrice().toString()+ " €");
 		
 		AddCartB.setOnAction(e->{
-			((ShopStage) Main.shopstage).getGui().getCart().add(p);
+			((ShopStage) Main.shopstage).shopgui.getCart().add(p);
 		});
 		
 		
@@ -44,10 +44,6 @@ public class UserProdGui extends ProductGui{
 		
 	}
 
-	/*public Button getAdd() {
-		return AddCartB;
-	}*/
-	
 	public Product getProduct() {
 		return product;
 	}
