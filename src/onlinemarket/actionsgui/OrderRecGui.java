@@ -95,7 +95,8 @@ public class OrderRecGui extends BorderPane {
 				if(check) {
 				for(FidelityCard fc : Main.fidelitycard) {
 					if(fc.getAccount().equals(f.getAccount().toString())) {
-						int p = fc.getPoints() + o.getPoints();
+						int p = f.getCart().getPrice().intValue();
+						p += fc.getPoints();
 						fc.setPoints(p);
 					}		
 				}

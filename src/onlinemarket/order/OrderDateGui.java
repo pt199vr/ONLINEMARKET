@@ -86,7 +86,6 @@ public class OrderDateGui extends AnchorPane{
 		m = Integer.parseInt(g);
 		two = new Time(h, m);	
 		
-		System.out.println(one + " " + two);
 	}
 	
 	
