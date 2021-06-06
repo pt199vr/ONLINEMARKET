@@ -2,6 +2,7 @@ package onlinemarket.product;
 
 import java.io.Serializable;
 import java.util.TreeSet;
+import java.lang.Object;
 
 import onlinemarket.Main;
 import onlinemarket.actionsgui.EditorProdModifyGui;
@@ -9,14 +10,14 @@ import onlinemarket.departments.*;
 import onlinemarket.stages.EditorShopStage;
 import onlinemarket.stages.ShopStage;
 
-public class Product implements Serializable,Comparable<Product>{
+public class Product implements Serializable,Comparable<Product>, Cloneable{
 	private static final long serialVersionUID = 6L;
-	protected final String name, brand;
+	protected String name, brand;
 	protected Double price;
 	//number -> numero di prodotti di questo tipo. quantity -> numero di pezzi per confezione o peso/litri per confezione
 	protected Integer quantity,number;
 	protected TypeofQuantity type;
-	protected final TreeSet<String> features;
+	protected TreeSet<String> features;
 	protected Department department;
 	protected String path;
 	
@@ -124,5 +125,6 @@ public class Product implements Serializable,Comparable<Product>{
 	public void setQuantity(Integer a) {
 		this.quantity = a;
 	}
+
 	
 }

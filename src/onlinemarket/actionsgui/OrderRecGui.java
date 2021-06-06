@@ -10,6 +10,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import java.util.TreeSet;
 
 import onlinemarket.Main;
 import onlinemarket.fidelitycard.FidelityCard;
@@ -40,7 +41,7 @@ public class OrderRecGui extends BorderPane {
 	OrderDateGui date;
 	
 	public OrderRecGui(CartStageGui f) {
-		
+		Main.shopstage.hide();
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("orderRecap.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
@@ -58,15 +59,17 @@ public class OrderRecGui extends BorderPane {
 		
 		
 		FC = new OrderFidelityGui();
-		pay = new OrderPaymentGui();
+		pay = new OrderPaymentGui(f.getAccount());
 		date = new OrderDateGui();
 		
 		Fidelity(f);
 		ContinueB.setOnAction(e -> {
-			if(orderActions == 0) {
+			if(orderActions == 0 && !pay.checkPNull()) {
 				Pay();
 			}
-			else if(orderActions == 1)
+			if(orderActions == 0)
+				orderActions = 1;
+			 if(orderActions == 1)
 				Date();
 			else { 
 				date.getTime();
@@ -77,12 +80,7 @@ public class OrderRecGui extends BorderPane {
 						if(p.getNumber() >= NumberInCart) {
 							Integer r = p.getNumber() - NumberInCart;
 							p.setNumber(r);
-							Integer fp = p.getNumber() - NumberInCart;
-							p.setNumber(fp);
-
-							Main.product.write();
-							((ShopStage)Main.shopstage).getGui().checking();
-							Main.shopstage.hide();
+							Main.product.write();					
 						}
 						else {
 							Alert q = new Alert(Alert.AlertType.NONE,"The product "+p.getName().toString() + " " + p.getBrand().toString() + " Stock is insufficient!",ButtonType.OK);
@@ -95,21 +93,32 @@ public class OrderRecGui extends BorderPane {
 				if(check) {
 				for(FidelityCard fc : Main.fidelitycard) {
 					if(fc.getAccount().equals(f.getAccount().toString())) {
-						int p = fc.getPoints() + o.getPoints();
+						int p = f.getCart().getPrice().intValue();
+						p += fc.getPoints();
 						fc.setPoints(p);
 					}		
 				}
 				
+				((ShopStage)Main.shopstage).shopgui.checking();
 				Main.fidelitycard.write();
-
-				o = new Order(date.getDate(), date.getFirstTime(), date.getSecondTime(), f.getCart().getProducts(), f.getAccount(),f.getCart().getPrice(), pay.getPM());
-
+				Main.payment.write();
+				
+				TreeSet<Product> tree = new TreeSet<>();
+				for(Product p : Main.product) {
+					if(f.getCart().getProducts().containsKey(p)) {
+						Product prod = new Product(p.getName(), p.getBrand(), p.getPrice(), p.getQuantity(), f.getCart().getProducts().get(p), p.getType(), p.getDepartment(), p.getFeatures());
+						tree.add(prod);
+					}
+				}
+				
+				o = new Order(date.getDate(), date.getFirstTime(), date.getSecondTime(), tree, f.getAccount(),f.getCart().getPrice(), pay.getPM());
+				
+				
 				Main.order.add(o);
 				Main.order.write();
 				
-				
 				Main.actionstage.hide();
-				Main.orderstage = new OrderStage(f.getAccount());
+				Main.orderstage = new OrderStage(f, o.getId());
 				Main.orderstage.show();
 				}
 			}
@@ -144,11 +153,6 @@ public class OrderRecGui extends BorderPane {
 		
 	}
 	private void Date() {
-		if(!pay.check()) {
-			Alert a= new Alert(Alert.AlertType.NONE,"Please choose a payment method first",ButtonType.OK);
-			a.showAndWait();
-			return;
-		}
 		orderActions = 2;
 		setCenter(date);
 	}

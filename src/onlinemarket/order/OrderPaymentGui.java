@@ -16,8 +16,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import onlinemarket.Main;
-import onlinemarket.account.Email;
-import onlinemarket.account.Password;
+import onlinemarket.account.*;
 import onlinemarket.payment.Payment;
 import onlinemarket.stages.ShopStage;
 
@@ -36,9 +35,15 @@ public class OrderPaymentGui extends AnchorPane{
 	@FXML
 	private Tab PayPalTab,CreditCardTab,CashTab;
 	
-	private Payment tmp;
+	private Payment tmp = null;
 	
-	public OrderPaymentGui() {
+	public OrderPaymentGui(Account account) {
+		
+		for(Payment p : Main.payment) {
+			if(p.getAccount().equals(account)) {
+				tmp = p;
+			}
+		}
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("OrderPayment.fxml"));
 		fxmlLoader.setRoot(this);
@@ -49,6 +54,7 @@ public class OrderPaymentGui extends AnchorPane{
 		}catch(IOException e) {
 			throw new RuntimeException(e);
 		}		
+		
 		Integer year = java.time.LocalDateTime.now().getYear();
 		Integer tmp = year;
 		ArrayList<String> ys = new ArrayList<>();
@@ -155,5 +161,11 @@ public class OrderPaymentGui extends AnchorPane{
 		return true;
 	}
 	
+	public boolean checkPNull() {
+		if(tmp == null)
+			return true;
+		else 
+			return false;
+	}
 	
 }

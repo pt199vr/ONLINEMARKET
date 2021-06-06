@@ -47,7 +47,7 @@ public class OrderFidelityGui extends AnchorPane{
 			
 			actualPoints = f.getPoints();
 			fidelitypoints.setText(actualPoints.toString());
-			addPoints = (int) Math.round(((ShopStage)Main.shopstage).getGui().getCart().getPrice());
+			addPoints = (int) Math.round(((ShopStage)Main.shopstage).shopgui.getCart().getPrice());
 			pointsToAddL.setText(addPoints.toString());
 		});
 		
@@ -59,8 +59,8 @@ public class OrderFidelityGui extends AnchorPane{
 				
 				actualPoints = tmp.getPoints();
 				fidelitypoints.setText(actualPoints.toString());
-				addPoints = (int) Math.round(((ShopStage)Main.shopstage).getGui().getCart().getPrice());
-				if(addPoints > ((ShopStage)Main.shopstage).getGui().getCart().getPrice().intValue())
+				addPoints = (int) Math.round(((ShopStage)Main.shopstage).shopgui.getCart().getPrice());
+				if(addPoints > ((ShopStage)Main.shopstage).shopgui.getCart().getPrice().intValue())
 					addPoints--;
 				pointsToAddL.setText(addPoints.toString());
 			}

@@ -13,7 +13,7 @@ import onlinemarket.departments.*;
 public class ShopStage extends Stage {
 	
 	private BorderPane layout;
-	private ShopStageGui shopgui;
+	public ShopStageGui shopgui;
 	
 	private Account t;
 	
@@ -59,9 +59,7 @@ public class ShopStage extends Stage {
 		return t;
 	}
 	
-	public ShopStageGui getGui() {
-		return shopgui;
-	}
+	
 	
 	
 	

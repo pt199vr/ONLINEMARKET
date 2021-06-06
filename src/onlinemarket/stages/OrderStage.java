@@ -12,14 +12,14 @@ public class OrderStage extends Stage{
 	private BorderPane layout;
 	private OrderStageGui orderGui;
 	
-	public OrderStage(Account t) {
+	public OrderStage(CartStageGui t, String id) {
 		
 		Main.loadingstage.show();
 		System.gc();
 		
 		layout= new BorderPane();
 		
-		orderGui= new OrderStageGui(t);
+		orderGui= new OrderStageGui(t.getAccount(), id);
 		
 		Thread thread = new Thread(()->{
 			layout.setCenter(orderGui);
@@ -35,9 +35,10 @@ public class OrderStage extends Stage{
 			});
 			
 			setOnCloseRequest(e -> {
+				t.newCart();
 				Main.shopstage.show();
 			});
 			
-	}); thread.start();
+		}); thread.start();
 	}
 }
