@@ -7,24 +7,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<fx:root type="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="600.0">
+      <MenuBar maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="600.0">
         <menus>
           <Menu mnemonicParsing="false">
                <graphic>
                   <Label fx:id="MenuL" text="To Menu" />
                </graphic>
           </Menu>
-            <Menu mnemonicParsing="false">
-               <graphic>
-                  <Label fx:id="OrdersL" text="To Orders" />
-               </graphic>
-            </Menu>
         </menus>
       </MenuBar>
-      <TableView fx:id="prodTB" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="600.0">
+      <TableView fx:id="prodTB" layoutY="25.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
          <columns>
             <TableColumn fx:id="NameCol" prefWidth="132.0" text="Name" />
             <TableColumn fx:id="BrandCol" prefWidth="148.0" text="Brand" />

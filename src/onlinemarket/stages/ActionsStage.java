@@ -192,7 +192,7 @@ public class ActionsStage extends Stage{
 		Main.loadingstage.show();
 		System.gc();
 		
-		productS= new ShowProducts(order);
+		productS = new ShowProducts(order);
 		
 		new Thread(() -> {
 			layout = new BorderPane();
@@ -209,9 +209,12 @@ public class ActionsStage extends Stage{
 			});
 		
 			setOnCloseRequest(e -> {
-				Main.cartstage.show();					
+				Main.actionstage.hide();
+				hide();
+				Main.shopstage.show();					
 			});
 			
 		}).start();
 	}
+	
 }

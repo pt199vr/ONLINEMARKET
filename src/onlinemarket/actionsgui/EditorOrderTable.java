@@ -99,7 +99,7 @@ public class EditorOrderTable extends AnchorPane{
 			}
 			Main.order.remove(delete);
 			Main.order.add(tmp);
-			Main.order.write();			
+			Main.order.write();
 		}
 	}
 	

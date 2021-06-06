@@ -337,6 +337,7 @@ public class EditorShopStageGui extends VBox{
 		}
 		mainVB.getChildren().clear();
 		tfxml();
+		sort();
 		
 		Main.shopstage.show();
 	}
@@ -353,7 +354,7 @@ public class EditorShopStageGui extends VBox{
 		
 		DepartmentsVB.getChildren().clear(); 
 		for(Department d: Main.department) {
-				mainVB.getChildren().add(Main.depmap.get(d));
+				//mainVB.getChildren().add(Main.depmap.get(d));
 				RadioButton depRB= new RadioButton(d.getName());
 				bs.add(depRB);
 				depRB.setMinHeight(20);

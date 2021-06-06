@@ -323,6 +323,7 @@ public class ShopStageGui extends VBox{
 		}
 		mainVB.getChildren().clear();
 		tfxml();
+		sort();
 		
 		Main.shopstage.show();
 	}
