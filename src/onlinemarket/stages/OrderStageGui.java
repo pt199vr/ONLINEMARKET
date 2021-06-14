@@ -55,7 +55,7 @@ public class OrderStageGui extends AnchorPane{
 		SurnameL.setText(order.getAccount().getSurname());
 		priceL.setText(order.getPrice().toString());
 		paymentL.setText(order.getStatus().toString());
-		DeliveryDateL.setText("Delivery on: "+order.getDate().toString());
+		DeliveryDateL.setText("Delivery on: " + order.getDate().toString());
 		DeliveryTimeL.setText("At: "+ order.getTime1().toString()+ "-" +order.getTime2().toString());
 		
 		OrderedProducts.setExpanded(false);

@@ -72,7 +72,7 @@ public class EditorProdModifyGui extends ProductGui {
 			check = false;
 		}
 		
-		String name= NameT.getText(), brand= BrandT.getText();
+		String name= NameT.getText(), brand = BrandT.getText();
 		
 		if(!check || name.equals("") || brand.equals("")) {
 			Alert b = new Alert(Alert.AlertType.NONE,"Error",ButtonType.OK);

@@ -34,6 +34,7 @@ public class ShowProducts extends AnchorPane{
 	
 	
 	public ShowProducts(Order order) {
+		
 		this.order = order;
 		
 		FXMLLoader fxmlLoader= new FXMLLoader(Order.class.getResource("prodTable.fxml"));
@@ -53,8 +54,8 @@ public class ShowProducts extends AnchorPane{
 		QuantityCol.setCellValueFactory(new PropertyValueFactory<>("Number"));
 		
 		
-		ObservableList<Product> data= FXCollections.observableArrayList();
-		order.getProducts().forEach(p ->data.add(p));
+		ObservableList<Product> data = FXCollections.observableArrayList();
+		order.getProducts().forEach(p -> data.add(p));
 		prodTB.setItems(data);
 		
 		MenuL.setOnMouseClicked(e ->{

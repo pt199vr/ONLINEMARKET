@@ -50,7 +50,7 @@ public class DepartmentGui extends TitledPane {
 				if(Main.shopstage instanceof ShopStage)
 					g = new UserProdGui(p);
 				else
-					g= new EditorProdModifyGui(p);
+					g = new EditorProdModifyGui(p);
 				prodVB.getChildren().add(g);
 				
 			}

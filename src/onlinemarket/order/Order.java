@@ -1,6 +1,6 @@
 package onlinemarket.order;
 
-import java.math.*;
+
 import java.io.Serializable;
 import onlinemarket.product.*;
 import onlinemarket.Main;
@@ -9,7 +9,7 @@ import onlinemarket.account.*;
 import onlinemarket.payment.*;
 import onlinemarket.fidelitycard.*;
 import java.util.TreeSet;
-import java.util.HashMap;
+
 
 public class Order implements Serializable,Comparable<Order>{
 	private static final long serialVersionUID = 20L;
