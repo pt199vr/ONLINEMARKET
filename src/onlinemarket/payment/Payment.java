@@ -81,11 +81,11 @@ public class Payment implements Serializable, Comparable<Payment>{
 	
 	public String toString() {
 		if(type.toString().equals(PaymentType.CASH.toString()))
-			return PaymentType.CASH + " " +  account;
+			return PaymentType.CASH.toString();
 		if(type.toString().equals(PaymentType.CREDITCARD.toString()))
-			return PaymentType.CREDITCARD + " " + number + " " + owner + " " + cvv + " " + date + " "+ account;
+			return PaymentType.CREDITCARD.toString();
 		if(type.toString().equals(PaymentType.PAYPAL.toString()))
-			return PaymentType.PAYPAL + " " + email + " " + password + account;
+			return PaymentType.PAYPAL.toString();
 		
 		return account.toString();
 	}
