@@ -64,19 +64,22 @@ public class OrderPaymentGui extends AnchorPane{
 		YearChoiceB.getItems().addAll(ys);
 		YearChoiceB.getSelectionModel().selectedItemProperty().addListener(
 			(ChangeListener<String>)(o,ov,nv)->{
+				MonthChoiceB.getItems().clear();
 				ArrayList<String> months= new ArrayList<>();
 				if(YearChoiceB.getValue().equals(year.toString())) {
-					Integer month = 1+ java.time.LocalDateTime.now().getMonthValue();
-					for(Integer i = month; i<13;i++) {
+					Integer month = 1 + java.time.LocalDateTime.now().getMonthValue();
+					for(Integer i = month; i<13; i++) {
 						months.add(i.toString());
 					}
+					MonthChoiceB.getItems().addAll(months);
 				}
 				else {
 					months.clear();
-					for(Integer i= 1;i<13;i++)
+					for(Integer i = 1 ; i < 13 ;i++)
 						months.add(i.toString());
+					MonthChoiceB.getItems().addAll(months);
 				}
-				MonthChoiceB.getItems().addAll(months);
+				
 				MonthChoiceB.getSelectionModel().selectFirst();
 			}
 		);
@@ -89,7 +92,7 @@ public class OrderPaymentGui extends AnchorPane{
 	
 	public boolean check() {
 		if(CreditCardTab.isSelected()) {
-			String holder= CreditHolderT.getText(), month = MonthChoiceB.getSelectionModel().getSelectedItem(),
+			String holder = CreditHolderT.getText(), month = MonthChoiceB.getSelectionModel().getSelectedItem(),
 					year = YearChoiceB.getSelectionModel().getSelectedItem(), id = CardIDT.getText(),cvv= CVVT.getText();
 			if(holder.equals("") || month.equals("") || year.equals("") || id.equals("") || cvv.equals("")) {
 				Alert a= new Alert(Alert.AlertType.NONE,"Fill all the fields",ButtonType.OK);

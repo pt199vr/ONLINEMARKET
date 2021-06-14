@@ -1,8 +1,11 @@
 package onlinemarket.product;
 
+import java.io.File;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import onlinemarket.Main;
 import onlinemarket.stages.CartStage;
@@ -27,7 +30,12 @@ public class OrderProdGui extends ProductGui{
 		Double totl = product.getNumber() * product.getPrice();
 		TotalPriceL.setText(totl.toString() + "€");
 		
-		prodImg.setImage(defaultIMG);
+		if((new File("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()).exists()))
+			prodImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
+		else if((new File("file:" + Main.mediapath + "/" + product.getName()).exists()))
+			prodImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()));		
+		else 	
+			prodImg.setImage(defaultIMG);
 	}
 
 }

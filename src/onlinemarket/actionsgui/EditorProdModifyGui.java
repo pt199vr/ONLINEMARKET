@@ -46,7 +46,7 @@ public class EditorProdModifyGui extends ProductGui {
 		QuantityXPieceT.setText(p.getQuantity().toString());
 		modifyB.setOnAction(e -> mod(p));
 		
-		newIMGB.setOnAction(e->modifyIMG());
+		newIMGB.setOnAction(e -> modifyIMG());
 		
 		String s[]= {TypeofQuantity.GRAMS.toString(),TypeofQuantity.LITERS.toString(),TypeofQuantity.PIECES.toString()};
 		TypeCB.getItems().addAll(s);

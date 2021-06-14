@@ -73,6 +73,7 @@ public class OrderRecGui extends BorderPane {
 				Date();
 			else { 
 				date.getTime();
+				date.getChosenDate();
 				boolean check = true;
 				for(Product p: Main.product) {
 					if(f.getCart().getProducts().containsKey(p)) {

@@ -28,6 +28,7 @@ import onlinemarket.product.ProductGui;
 import onlinemarket.product.TypeofQuantity;
 import onlinemarket.readnwrite.RnW_Product;
 import onlinemarket.stages.EditorShopStageGui;
+import onlinemarket.product.*;
 
 public class EditorProdCreationGui extends AnchorPane {
 	@FXML
@@ -59,7 +60,7 @@ public class EditorProdCreationGui extends AnchorPane {
 			throw new RuntimeException(e);
 		}
 		
-		ProdImg.setImage((new File(getIMG()).exists())? new Image(getIMG()) : ProductGui.defaultIMG);
+		ProdImg.setImage((new File(getIMG()).exists())? new Image(getIMG()) : ProductGui.getImage());
 		
 		ImgB.setOnAction(e -> modifyIMG());
 		

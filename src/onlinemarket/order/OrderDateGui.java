@@ -17,7 +17,7 @@ public class OrderDateGui extends AnchorPane{
 	@FXML
 	private ChoiceBox<String> TimeCB,DayCB;
 	
-	private Date d;
+	private Date d,tmp;
 	private Time one, two;
 	
 	public OrderDateGui() {
@@ -44,12 +44,12 @@ public class OrderDateGui extends AnchorPane{
 				
 		
 		Calendar cal= GregorianCalendar.getInstance();
-		long l = new java.util.Date().getTime()+(24 * 60 * 60000);
+		long l = new java.util.Date().getTime() + (24 * 60 * 60000);
 		
-		for(int i = 0; i < 6 ; i++ ,l = cal.getTimeInMillis()+(24*60*60000)) {
+		for(int i = 0; i < 6 ; i++ ,l += (24 * 60 * 60000)) {
 			cal.setTime(new java.util.Date(l));
 			if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY)
-				cal.setTime(new java.util.Date(l + (24 * 60 *60000)));
+				cal.setTime(new java.util.Date(l + (24 * 60 * 60000)));
 			d = new Date(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
 			DayCB.getItems().add(d.toString());
 		}
@@ -57,7 +57,7 @@ public class OrderDateGui extends AnchorPane{
 	}
 	
 	public Date getDate() {
-		return d;
+		return tmp;
 	}
 
 	public Time getFirstTime() {
@@ -85,9 +85,35 @@ public class OrderDateGui extends AnchorPane{
 		g = g + s.charAt(9); g = g + s.charAt(10);
 		m = Integer.parseInt(g);
 		two = new Time(h, m);	
-		
 	}
-	
-	
-	
+	public void getChosenDate() {
+		String s = DayCB.getSelectionModel().getSelectedItem();
+		int day = 0, month = 0, year = 0;
+		String z = "0";
+		String g = ""; g+=s.charAt(0);
+		if(s.charAt(1)=='/') {
+			day = Integer.parseInt(g);
+			g="" + s.charAt(2)+s.charAt(3);
+			
+			month= Integer.parseInt(g);
+			g = "" + s.charAt(5) + s.charAt(6)+ s.charAt(7)+ s.charAt(8);
+			year = Integer.parseInt(g);
+			tmp = new Date(year,month,day);
+		}
+		else {
+			g+=s.charAt(1);
+			day= Integer.parseInt(g);
+			
+			g = "" +s.charAt(3) + s.charAt(4);
+			month= Integer.parseInt(g);
+				
+			g = "" + s.charAt(6) + s.charAt(7)+ s.charAt(8)+ s.charAt(9);
+			year=Integer.parseInt(g);
+			tmp = new Date(year,month,day);
+		}
+			
+	}
+		
+		
+		
 }

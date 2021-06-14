@@ -1,7 +1,7 @@
 package onlinemarket.product;
 
 import java.io.IOException;
-
+import java.io.File;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -35,10 +35,6 @@ public class ProductGui extends GridPane {
 		
 		this.product = product;
 
-
-		//ProdImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
-
-		
 		if(product.getNumber() == 0)
 			EmptyShelf();
 	}
@@ -53,7 +49,10 @@ public class ProductGui extends GridPane {
 			EmptyShelf();
 	}
 	
-	
+
+	public static Image getImage() {
+		return defaultIMG;
+	}
 }
 	
 	

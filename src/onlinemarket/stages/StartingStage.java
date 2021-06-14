@@ -59,6 +59,7 @@ public class StartingStage extends Stage{
 				Main.product.add(new Product("Bananas", "FruitMania", 2.00, 6, 50,TypeofQuantity.PIECES, tmp, t));
 				Main.product.add(new Product("Cherries", "Old Farmer", 4.00, 300, 50,TypeofQuantity.GRAMS, tmp, t));
 				Main.product.add(new Product("Lemons", "Old Farmer", 2.00, 8, 50,TypeofQuantity.PIECES, tmp, t));
+				Main.product.add(new Product("Strawberries","Old Farmer", 2.50,20,50,TypeofQuantity.PIECES,tmp,t));
 			}
 			if(tmp.getName().equals("Fish")) {
 				TreeSet<String> t = new TreeSet<String>();
@@ -69,6 +70,15 @@ public class StartingStage extends Stage{
 				Main.product.add(new Product("Cuttle Fish", "SeaFood Lovers", 8.00, 200, 50,TypeofQuantity.GRAMS, tmp, t));
 				Main.product.add(new Product("Lobster", "SeaFood Lovers", 12.00, 2500, 50,TypeofQuantity.GRAMS, tmp, t));
 				Main.product.add(new Product("Mackerel", "CAPTAIN'S FISH", 5.00, 500, 50,TypeofQuantity.GRAMS, tmp, t));
+				Main.product.add(new Product("Tuna","Rio Mare",2.00,200,200,TypeofQuantity.GRAMS,tmp,t));
+				Main.product.add(new Product("Salmon","CAPTAIN'S FISH",5.00,300,75,TypeofQuantity.GRAMS,tmp,t));
+				Main.product.add(new Product("Trout","CAPTAIN'S FISH", 4.50, 250, 80, TypeofQuantity.GRAMS,tmp,t));
+				Main.product.add(new Product("Shrimps","SeaFood Lovers", 3.00, 200, 100, TypeofQuantity.GRAMS,tmp,t));
+				Main.product.add(new Product("Squid", "SeaFood Lovers", 4.00, 400, 120, TypeofQuantity.GRAMS,tmp,t));
+				Main.product.add(new Product("Octopus", "CAPTAIN'S FISH",10.00, 3000, 40,TypeofQuantity.GRAMS,tmp,t));
+				
+				
+				
 				
 			}			
 			if(tmp.getName().equals("Meat")) {
@@ -91,6 +101,8 @@ public class StartingStage extends Stage{
 				t.clear();
 				Main.product.add(new Product("Cream Cheese", "DnDairy", 2.50, 300, 50,TypeofQuantity.GRAMS, tmp, t));
 				Main.product.add(new Product("Milk bottle", "DnDairy", 1.10, 1, 50,TypeofQuantity.LITERS, tmp, t));
+				Main.product.add(new Product("Ricotta cheese","DnDairy",2.00, 250, 50, TypeofQuantity.GRAMS,tmp,t));
+				
 				
 			}
 			if(tmp.getName().equals("Sweets")) {
@@ -101,6 +113,8 @@ public class StartingStage extends Stage{
 				Main.product.add(new Product("Chocolate Cornetto", "Gold Oven", 2.99, 4, 150,TypeofQuantity.PIECES, tmp, t));
 				Main.product.add(new Product("Chocolate Egg", "Saints Sweets", 3.39, 300, 150,TypeofQuantity.GRAMS, tmp, t));
 				Main.product.add(new Product("Classic Cornetto", "Gold Oven", 2.50, 5, 150,TypeofQuantity.PIECES, tmp, t));
+				Main.product.add(new Product("Reese's","Reese", 1.00, 2, 200,TypeofQuantity.PIECES,tmp,t));
+
 			}		
 			
 			if(tmp.getName().equals("Various Food")) {
@@ -118,6 +132,7 @@ public class StartingStage extends Stage{
 				t.add(Main.product.getFeatures(0));				
 				Main.product.add(new Product("Beans", "TEXASGRILL", 2.00, 500, 150,TypeofQuantity.GRAMS, tmp, t));
 				t.add(Main.product.getFeatures(1));
+				Main.product.add(new Product("Red Berries Jam","Granny's Jam",3.00, 1, 300,TypeofQuantity.PIECES,tmp,t));
 				Main.product.add(new Product("Black Olives", "Terre Sicialiane", 4.00, 500, 150,TypeofQuantity.GRAMS, tmp, t));
 				Main.product.add(new Product("Boleto Mushrooms", "MNM",5.00, 250, 150,TypeofQuantity.GRAMS, tmp, t));
 				Main.product.add(new Product("Chilli Peppers", "MNM", 4.00, 100, 150,TypeofQuantity.GRAMS, tmp, t));
@@ -129,18 +144,25 @@ public class StartingStage extends Stage{
 				TreeSet<String> t = new TreeSet<String>();
 				t.clear();
 				Main.product.add(new Product("Ice Cream Cone", "Saints Sweets", 2.99, 4, 150,TypeofQuantity.PIECES, tmp, t));
-				Main.product.add(new Product("Chocolate Ice Cream", "Saints Sweets", 2.99, 4, 150,TypeofQuantity.PIECES, tmp, t));
+				Main.product.add(new Product("Chocolate Ice Cream Bowl", "Saints Sweets", 3.99, 4, 150,TypeofQuantity.PIECES, tmp, t));
+				Main.product.add(new Product("Peperoni Pizza","Frozen Joy", 5.50, 1, 50, TypeofQuantity.PIECES,tmp,t));
+				Main.product.add(new Product("Pizza Margherita","Frozen Joy", 5.00, 1, 50,TypeofQuantity.PIECES,tmp,t));
 			}			
-			if(tmp.getName().equals("Selfcare")) {
+			if(tmp.getName().equals("Self Care")) {
 				TreeSet<String> t = new TreeSet<String>();
 				t.clear();
 				Main.product.add(new Product("Beard Foam", "MNM", 3.14, 1, 150,TypeofQuantity.PIECES, tmp, t));
 				Main.product.add(new Product("Liquid Soap", "Prada", 2.67, 1, 150,TypeofQuantity.PIECES, tmp, t));
+				Main.product.add(new Product("Soap","Marsiglia", 2.80, 1, 200,TypeofQuantity.PIECES,tmp,t));
 			}
 			if(tmp.getName().equals("Alcohol")) {
 				TreeSet<String> t = new TreeSet<String>();
 				t.add(Main.product.getFeatures(2));
 				Main.product.add(new Product("Beer bottles", "Bayern B", 4.44, 6, 150,TypeofQuantity.PIECES, tmp, t));
+				Main.product.add(new Product("Vodka Bottle","Smirnoff",4.00,1,150,TypeofQuantity.LITERS,tmp,t));
+				Main.product.add(new Product("Wine Bottle","Rosso Succoso", 20.00,1,200,TypeofQuantity.LITERS,tmp,t));
+				Main.product.add(new Product("Whiskey Bottle","Jack Daniels",15.00,1,200,TypeofQuantity.LITERS,tmp,t));
+				
 			}
 			if(tmp.getName().equals("Vegetables")) {
 				TreeSet<String> t = new TreeSet<String>();
@@ -160,6 +182,8 @@ public class StartingStage extends Stage{
 				t.add(Main.product.getFeatures(2));
 				t.add(Main.product.getFeatures(3));
 				Main.product.add(new Product("Coke Cans", "C&C", 2.99, 6, 150,TypeofQuantity.PIECES, tmp, t));
+				Main.product.add(new Product("Water Bottle","Sorgiva",1.00,6,200,TypeofQuantity.PIECES,tmp,t));
+				
 				
 			}
 			
