@@ -71,8 +71,8 @@ public class Payment implements Serializable, Comparable<Payment>{
 		return cvv;
 	}
 	
-	public String getType() {
-		return type.toString();
+	public PaymentType getType() {
+		return type;
 	}
 	
 	public Account getAccount() {
@@ -84,8 +84,8 @@ public class Payment implements Serializable, Comparable<Payment>{
 			return PaymentType.CASH + " " +  account;
 		if(type.toString().equals(PaymentType.CREDITCARD.toString()))
 			return PaymentType.CREDITCARD + " " + number + " " + owner + " " + cvv + " " + date + " "+ account;
-		if(type.toString().equals(PaymentType.CREDITCARD.toString()))
-			return PaymentType.CREDITCARD + " " + email + " " + password + account;
+		if(type.toString().equals(PaymentType.PAYPAL.toString()))
+			return PaymentType.PAYPAL + " " + email + " " + password + account;
 		
 		return account.toString();
 	}

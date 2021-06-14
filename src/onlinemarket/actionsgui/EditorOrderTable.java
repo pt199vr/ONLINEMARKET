@@ -15,7 +15,7 @@ import onlinemarket.Main;
 import onlinemarket.datentime.Date;
 import onlinemarket.order.Order;
 import onlinemarket.order.OrderStatus;
-import onlinemarket.payment.Payment;
+import onlinemarket.payment.*;
 import onlinemarket.stages.ActionsStage;
 import onlinemarket.stages.EditorShopStageGui;
 

@@ -19,6 +19,7 @@ import onlinemarket.order.OrderDateGui;
 import onlinemarket.order.OrderFidelityGui;
 import onlinemarket.order.OrderNewFidelityGui;
 import onlinemarket.order.OrderPaymentGui;
+import onlinemarket.payment.Payment;
 import onlinemarket.product.Product;
 import onlinemarket.stages.CartStageGui;
 import onlinemarket.stages.OrderStage;
@@ -64,12 +65,10 @@ public class OrderRecGui extends BorderPane {
 		
 		Fidelity(f);
 		ContinueB.setOnAction(e -> {
-			if(orderActions == 0 && !pay.checkPNull()) {
+			if(orderActions == 0) {
 				Pay();
 			}
-			if(orderActions == 0)
-				orderActions = 1;
-			 if(orderActions == 1)
+			else if(orderActions == 1)
 				Date();
 			else { 
 				date.getTime();
@@ -153,6 +152,7 @@ public class OrderRecGui extends BorderPane {
 		
 	}
 	private void Date() {
+		pay.check();
 		orderActions = 2;
 		setCenter(date);
 	}

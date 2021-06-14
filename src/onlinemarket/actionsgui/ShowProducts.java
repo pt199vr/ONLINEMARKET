@@ -26,7 +26,7 @@ public class ShowProducts extends AnchorPane{
 	@FXML
 	private TableColumn<Product,Double> SingleCol;
 	@FXML
-	private TableColumn<Order,Double> TotalCol;
+	private TableColumn<Product,Double> TotalCol;
 	@FXML
 	private TableColumn<Product,Integer> QuantityCol;
 
@@ -49,7 +49,7 @@ public class ShowProducts extends AnchorPane{
 		NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
 		BrandCol.setCellValueFactory(new PropertyValueFactory<>("Brand"));
 		SingleCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
-		TotalCol.setCellValueFactory(new PropertyValueFactory<Order,Double>("Price"));
+		TotalCol.setCellValueFactory(new PropertyValueFactory<Product,Double>("TotalPrice"));
 		QuantityCol.setCellValueFactory(new PropertyValueFactory<>("Number"));
 		
 		
