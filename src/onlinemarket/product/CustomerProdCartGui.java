@@ -26,7 +26,15 @@ public class CustomerProdCartGui extends ProductGui{
 	
 	private Cart cart;
 	private CartStageGui cartgui;
+	
+	private String getBetterPath() {
+		return String.format("%s/%s_%s.jpg", Main.mediapath, product.getName(), product.getBrand());
+	}
 
+	private String getPathImg() {
+		return String.format("%s/%s.jpg", Main.mediapath, product.getName());
+	}
+	
 	public CustomerProdCartGui( Product product) {
 		
 		super(new FXMLLoader(CustomerProdCartGui.class.getResource("prodCartView.fxml")), product);
@@ -34,12 +42,14 @@ public class CustomerProdCartGui extends ProductGui{
 		cart = ((CartStage)Main.cartstage).getCartGui().getCart();
 		cartgui = ((CartStage)Main.cartstage).getCartGui();
 		
-		if((new File("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()).exists()))
-			prodIMG.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
-		else if((new File("file:" + Main.mediapath + "/" + product.getName()).exists()))
-			prodIMG.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()));		
-		else 	
-			prodIMG.setImage(defaultIMG);
+		if((new File(getBetterPath()).exists())) {
+			prodIMG.setImage(new Image("file:" + getBetterPath()));
+		}
+		else if((new File(getPathImg()).exists())) {
+			prodIMG.setImage(new Image("file:" + getPathImg()));
+		}
+		else 
+			prodIMG.setImage(ProductGui.defaultIMG);
 		
 		NameL.setText(product.getName());
 		BrandL.setText(product.getBrand());

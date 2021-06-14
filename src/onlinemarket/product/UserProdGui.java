@@ -25,6 +25,10 @@ public class UserProdGui extends ProductGui{
 	private Product product;
 	
 
+	private String getBetterPath() {
+		return String.format("%s/%s_%s.jpg", Main.mediapath, product.getName(), product.getBrand());
+	}
+	
 	private String getPathImg() {
 		return String.format("%s/%s.jpg", Main.mediapath, product.getName());
 	}
@@ -35,7 +39,7 @@ public class UserProdGui extends ProductGui{
 		product = p;
 		
 		if((new File(Main.mediapath + "/" + product.getName()+ "_" + product.getBrand() + ".jpg").exists())) {
-			ProdImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
+			ProdImg.setImage(new Image("file:" + getBetterPath()));
 		}
 		else if((new File(getPathImg()).exists())) {
 			ProdImg.setImage(new Image("file:" + getPathImg()));
