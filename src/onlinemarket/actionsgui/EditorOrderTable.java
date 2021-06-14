@@ -15,7 +15,7 @@ import onlinemarket.Main;
 import onlinemarket.datentime.Date;
 import onlinemarket.order.Order;
 import onlinemarket.order.OrderStatus;
-import onlinemarket.payment.Payment;
+import onlinemarket.payment.*;
 import onlinemarket.stages.ActionsStage;
 import onlinemarket.stages.EditorShopStageGui;
 
@@ -41,6 +41,7 @@ public class EditorOrderTable extends AnchorPane{
 	private TableColumn<Order, Integer> OrderPoints;
 	@FXML
 	private TableColumn<Order, String> OrderPrice;
+	private ObservableList<Order> data = FXCollections.observableArrayList();
 	
 	public EditorOrderTable(EditorShopStageGui shop) {
 		FXMLLoader fxmlLoader= new FXMLLoader(getClass().getResource("EditorOrders.fxml"));
@@ -63,7 +64,7 @@ public class EditorOrderTable extends AnchorPane{
 		OrderPoints.setCellValueFactory(new PropertyValueFactory<Order, Integer>("Points"));
 		OrderPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
 		
-		ObservableList<Order> data = FXCollections.observableArrayList();
+		
 		for(Order tmp : Main.order) {
 			data.add(tmp);
 		}
@@ -76,10 +77,27 @@ public class EditorOrderTable extends AnchorPane{
 		
 		setDelivering.setOnAction(e ->{
 			changeStatus(OrderStatus.DELIVERING);
+			refresh();
 		});
 		setDelivered.setOnAction(e->{
 			changeStatus(OrderStatus.DELIVERED);
+			refresh();
 		});
+	}
+	
+	public void refresh() {
+		Main.actionstage.hide();
+		Main.loadingstage.show();
+		data.clear();
+		
+		for(Order tmp : Main.order) {
+			data.add(tmp);
+		}
+		ordersTable.setItems(data);
+		
+		Main.actionstage.show();
+		Main.loadingstage.hide();
+	
 	}
 	
 	private void changeStatus(OrderStatus status) {

@@ -70,7 +70,6 @@ public class CustomerOrderTableGui extends AnchorPane{
 			}
 		}
 		ordersTable.setItems(data);
-		
 		new Thread(() -> {
 			showProds.setOnMouseClicked(e -> showProducts());
 		}).start();

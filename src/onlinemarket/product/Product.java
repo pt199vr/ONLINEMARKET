@@ -126,5 +126,8 @@ public class Product implements Serializable,Comparable<Product>, Cloneable{
 		this.quantity = a;
 	}
 
+	public Double getTotalPrice() {
+		return this.price * this.number;
+	}
 	
 }

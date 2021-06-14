@@ -38,6 +38,10 @@ public class Order implements Serializable,Comparable<Order>{
 		}
 	}
 	
+	public String getPaymentType() {
+		return this.payment.getType().toString();
+	}
+	
 	public void setDELIVERED() {
 		this.status = OrderStatus.DELIVERED;
 	}

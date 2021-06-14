@@ -35,6 +35,15 @@ public class EditorProdModifyGui extends ProductGui {
 	
 	private File selFile;
 	
+	private String getBetterPath() {
+		return String.format("%s/%s_%s.jpg", Main.mediapath, product.getName(), product.getBrand());
+	}
+
+	
+	private String getPathImg() {
+		return String.format("%s/%s.jpg", Main.mediapath, product.getName());
+	}
+	
 	public EditorProdModifyGui(Product p) {
 		
 		super(new FXMLLoader(EditorProdModifyGui.class.getResource("productModify.fxml")),p);
@@ -46,7 +55,19 @@ public class EditorProdModifyGui extends ProductGui {
 		QuantityXPieceT.setText(p.getQuantity().toString());
 		modifyB.setOnAction(e -> mod(p));
 		
+
 		newIMGB.setOnAction(e -> modifyIMG());
+
+		if((new File(Main.mediapath + "/" + product.getName()+ "_" + product.getBrand() + ".jpg").exists())) {
+			ProdImg.setImage(new Image("file:" + getBetterPath()));
+		}
+		else if((new File(getPathImg()).exists())) {
+			ProdImg.setImage(new Image("file:" + getPathImg()));
+		}
+		else 
+			ProdImg.setImage(ProductGui.defaultIMG);
+		
+		newIMGB.setOnAction(e->modifyIMG());
 		
 		String s[]= {TypeofQuantity.GRAMS.toString(),TypeofQuantity.LITERS.toString(),TypeofQuantity.PIECES.toString()};
 		TypeCB.getItems().addAll(s);

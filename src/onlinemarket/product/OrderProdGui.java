@@ -18,6 +18,14 @@ public class OrderProdGui extends ProductGui{
 	@FXML
 	private Label NameL,BrandL,priceL,NumberL,TotalPriceL;
 
+	private String getBetterPath() {
+		return String.format("%s/%s_%s.jpg", Main.mediapath, product.getName(), product.getBrand());
+	}
+	
+	private String getPathImg() {
+		return String.format("%s/%s.jpg", Main.mediapath, product.getName());
+	}
+	
 	public OrderProdGui(Product product) {
 		super(new FXMLLoader(OrderProdGui.class.getResource("orderProdGui.fxml")), product);
 		
@@ -30,12 +38,14 @@ public class OrderProdGui extends ProductGui{
 		Double totl = product.getNumber() * product.getPrice();
 		TotalPriceL.setText(totl.toString() + "€");
 		
-		if((new File("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()).exists()))
-			prodImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
-		else if((new File("file:" + Main.mediapath + "/" + product.getName()).exists()))
-			prodImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()));		
-		else 	
-			prodImg.setImage(defaultIMG);
+		if((new File(Main.mediapath + "/" + product.getName()+ "_" + product.getBrand() + ".jpg").exists())) {
+			prodImg.setImage(new Image("file:" + getBetterPath()));
+		}
+		else if((new File(getPathImg()).exists())) {
+			prodImg.setImage(new Image("file:" + getPathImg()));
+		}
+		else 
+			prodImg.setImage(ProductGui.defaultIMG);
 	}
 
 }
