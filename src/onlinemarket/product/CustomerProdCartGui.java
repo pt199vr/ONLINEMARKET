@@ -1,11 +1,13 @@
 package onlinemarket.product;
 
+import java.io.File;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import onlinemarket.Main;
 import onlinemarket.cart.Cart;
@@ -32,7 +34,12 @@ public class CustomerProdCartGui extends ProductGui{
 		cart = ((CartStage)Main.cartstage).getCartGui().getCart();
 		cartgui = ((CartStage)Main.cartstage).getCartGui();
 		
-		prodIMG.setImage(defaultIMG);
+		if((new File("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()).exists()))
+			prodIMG.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
+		else if((new File("file:" + Main.mediapath + "/" + product.getName()).exists()))
+			prodIMG.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()));		
+		else 	
+			prodIMG.setImage(defaultIMG);
 		
 		NameL.setText(product.getName());
 		BrandL.setText(product.getBrand());

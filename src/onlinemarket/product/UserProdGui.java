@@ -2,10 +2,13 @@ package onlinemarket.product;
 
 
 
+import java.io.File;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import onlinemarket.Main;
 import onlinemarket.stages.ShopStage;
@@ -22,12 +25,26 @@ public class UserProdGui extends ProductGui{
 	private Product product;
 	
 
+	private String getPathImg() {
+		return String.format("%s/%s.jpg", Main.mediapath, product.getName());
+	}
+		
 	public UserProdGui(Product p) {
 		super(new FXMLLoader(UserProdGui.class.getResource("productUser.fxml")),p);
 	
 		product = p;
 		
-		ProdImg.setImage(defaultIMG);
+		if((new File(Main.mediapath + "/" + product.getName()+ "_" + product.getBrand() + ".jpg").exists())) {
+			ProdImg.setImage(new Image("file:" + Main.mediapath + "/" + product.getName()+ "_" + product.getBrand()));
+		}
+		else if((new File(getPathImg()).exists())) {
+			ProdImg.setImage(new Image("file:" + getPathImg()));
+		}
+		else 
+			ProdImg.setImage(ProductGui.defaultIMG);
+		
+		
+			
 		nameL.setText(p.getName());
 		brandL.setText(p.getBrand());
 		quantityL.setText("Reserves:  " + p.getNumber().toString());
@@ -47,5 +64,6 @@ public class UserProdGui extends ProductGui{
 	public Product getProduct() {
 		return product;
 	}
+	
 	
 }
