@@ -21,7 +21,6 @@ public class RnW_Payment extends RnW<Payment>{
 	}
 	
 	public void Object() {
-		System.out.println("Payment");
 	}
 		
 

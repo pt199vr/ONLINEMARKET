@@ -1,8 +1,8 @@
 package onlinemarket.account;
 import java.io.Serializable;
 
-public class EditorAccount extends Account{
-	private static final long serialVerisonUID = 21L;
+public class EditorAccount extends Account implements Serializable{
+	private static final long serialVersionUID = 21L;
 	private String id;
 	private Role role;
 	

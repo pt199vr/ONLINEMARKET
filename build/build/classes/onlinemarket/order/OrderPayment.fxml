@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Separator layoutX="3.0" layoutY="26.0" prefHeight="4.0" prefWidth="600.0" />
+      <TabPane fx:id="PaymentTab" layoutX="2.0" layoutY="30.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab fx:id="PayPalTab" text="PayPal">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="202.0" layoutY="97.0" text="Email" />
+                        <TextField fx:id="PayPalMailT" layoutX="261.0" layoutY="93.0" />
+                        <Label layoutX="191.0" layoutY="163.0" text="Password" />
+                        <PasswordField fx:id="PayPalPassT" layoutX="261.0" layoutY="159.0" />
+                        <Button fx:id="PayPalConfirmB" layoutX="301.0" layoutY="227.0" mnemonicParsing="false" text="Confirm" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="CreditCardTab" text="Credit Card">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="199.0" layoutY="78.0" text="Card Holder" />
+                        <TextField fx:id="CreditHolderT" layoutX="274.0" layoutY="74.0" prefHeight="25.0" prefWidth="138.0" />
+                        <Label layoutX="212.0" layoutY="117.0" text="Card ID" />
+                        <TextField fx:id="CardIDT" layoutX="274.0" layoutY="113.0" prefHeight="25.0" prefWidth="138.0" />
+                        <Label layoutX="188.0" layoutY="147.0" prefHeight="17.0" prefWidth="87.0" text="Expiration date" />
+                        <Label layoutX="232.0" layoutY="180.0" text="CVV" />
+                        <TextField fx:id="CVVT" layoutX="276.0" layoutY="176.0" prefHeight="25.0" prefWidth="43.0" />
+                        <Button fx:id="CCConfirmB" layoutX="293.0" layoutY="218.0" mnemonicParsing="false" text="Confirm" />
+                        <ChoiceBox fx:id="MonthChoiceB" layoutX="274.0" layoutY="143.0" prefHeight="25.0" prefWidth="48.0" />
+                        <ChoiceBox fx:id="YearChoiceB" layoutX="322.0" layoutY="143.0" prefHeight="25.0" prefWidth="61.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="CashTab" text="Cash at Delivery">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="cashB" layoutX="264.0" layoutY="177.0" mnemonicParsing="false" text="Confirm" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Label layoutX="188.0" layoutY="2.0" text="Choose your payment method">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

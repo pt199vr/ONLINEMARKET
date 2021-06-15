@@ -22,6 +22,5 @@ public class RnW_Department extends RnW<Department>{
 	}
 	
 	public void Object() {
-		System.out.println("Department");
 	}
 }
