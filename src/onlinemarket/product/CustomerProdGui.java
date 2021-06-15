@@ -23,7 +23,7 @@ public class CustomerProdGui extends ProductGui{
 	private ImageView ProdImg;
 	
 	private Product product;
-	
+	private Integer quantityToCart = 0;
 
 	private String getBetterPath() {
 		return String.format("%s/%s_%s.jpg", Main.mediapath, product.getName(), product.getBrand());
@@ -34,7 +34,7 @@ public class CustomerProdGui extends ProductGui{
 	}
 		
 	public CustomerProdGui(Product p) {
-		super(new FXMLLoader(CustomerProdGui.class.getResource("productUser.fxml")),p);
+		super(new FXMLLoader(CustomerProdGui.class.getResource("productCustomer.fxml")),p);
 	
 		product = p;
 		
@@ -48,23 +48,24 @@ public class CustomerProdGui extends ProductGui{
 			ProdImg.setImage(ProductGui.defaultIMG);
 		
 		
-			
 		nameL.setText(p.getName());
 		brandL.setText(p.getBrand());
 		quantityL.setText("Reserves:  " + p.getNumber().toString());
 		priceQuantityL.setText(p.getPrice().toString()+ " €");
-		
 		AddCartB.setOnAction(e->{
+			if(quantityToCart.equals(p.getNumber())) { 
+				AddCartB.setDisable(true);
+			}
+			else {
+			quantityToCart++;
+			quantityWL.setText(" + " + quantityToCart);
 			((ShopStage) Main.shopstage).shopgui.getCart().add(p);
+			}
 		});
-		
-		
-		if(p.getNumber() == 0) { 
-			AddCartB.setDisable(true);
-		}
-		
 	}
-
+	public void changeCartQuantity(Integer cartStock) {
+		quantityToCart = cartStock;
+	}
 	public Product getProduct() {
 		return product;
 	}

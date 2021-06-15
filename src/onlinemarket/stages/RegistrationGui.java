@@ -134,7 +134,7 @@ public class RegistrationGui extends AnchorPane{
 		if(checkSurname(surname))
 			throw new IllegalArgumentException("Surname field can be filled only by letters from a to z (low and high case)");
 		if(checkPhoneNumber(phonenumber))
-			throw new IllegalArgumentException("Phone number field can be filled only by numbers from 0 to 9");
+			throw new IllegalArgumentException("Phone number field must contain 10 digits. The digits must be in the range [0-9]");
 		if(checkCap(cap))
 			throw new IllegalArgumentException("CAP field can be filled only by numbers from 0 to 9");
 		if(checkCity(city))
@@ -169,6 +169,9 @@ public class RegistrationGui extends AnchorPane{
 	
 	private boolean checkPhoneNumber(Long phonenumber) {
 		String s = phonenumber.toString();
+		
+		if(s.length()!=10)
+			return false;
 		
 		for(int i = 0; i < s.length(); i++) {
 			if(!((char) s.charAt(i) >= '0' && (char) s.charAt(i) <= '9'))

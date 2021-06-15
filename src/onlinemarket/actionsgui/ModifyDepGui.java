@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,8 +20,6 @@ import java.util.TreeSet;
 
 public class ModifyDepGui extends AnchorPane {
 
-	@FXML
-	private Label wL;
 	@FXML 
 	private Button modifyDepB;
 	@FXML
@@ -65,36 +65,41 @@ public class ModifyDepGui extends AnchorPane {
 	private void modify(EditorShopStageGui f) {
 		String name = NewDepNameT.getText();
 		if(name.isEmpty()) {
-			wL.setText("Fill the new name field");
+			Alert a = new Alert(Alert.AlertType.NONE,"Fill the new name field",ButtonType.OK);
+			a.showAndWait();
 			return;
 		}
 		
 		if(name.equalsIgnoreCase(DepChoiceB.getValue())) {
-			wL.setText("This name is already the department name");
+			Alert a= new Alert(Alert.AlertType.NONE,"This name is already the department name",ButtonType.OK);
+			a.showAndWait();
 			return;
 		}
 		
 		for(Department d: Main.department) 
 			if(name.equalsIgnoreCase(d.getName())) {
-				wL.setText("This name has been given to another department already");
+				Alert a= new Alert(Alert.AlertType.NONE,"This name has been given to another department already",ButtonType.OK);
+				a.showAndWait();
 				return;
 				}
-		Department x = null;
+		Department x = null,temp=null;
 		TreeSet<Product> tmp = new TreeSet<>();
 		for(Department d : Main.department) 
 			if(DepChoiceB.getValue().equalsIgnoreCase(d.getName())) {
 				x = d;
-				d.setName(name);
-				Main.depmap.remove(x);
-				Main.depmap.put(d, new DepartmentGui(d));
+				temp = d;
+				x.setName(name);
+				Main.depmap.remove(d);
+				Main.depmap.put(x, new DepartmentGui(x));
 				for(Product p : Main.product) {
-					if(p.getDepartment().toString().equals(x.toString())) {
+					if(p.getDepartment().toString().equals(temp.toString())) {
 						tmp.add(p);
 					}
 				}
 				Main.product.removeAll(tmp);
 			}
-		
+		Main.department.remove(temp);
+		Main.department.add(x);
 		Main.department.write();	
 		f.checking();
 		Main.actionstage.hide();		

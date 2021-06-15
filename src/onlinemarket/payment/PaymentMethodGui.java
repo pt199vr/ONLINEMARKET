@@ -59,6 +59,8 @@ public class PaymentMethodGui extends AnchorPane {
 		Payment tmp = new Payment(f.getAccount());
 		Main.payment.add(tmp);		
 		Main.payment.write();
+		Alert a= new Alert(Alert.AlertType.NONE,"Payment Method has been recorded",ButtonType.OK);
+		a.showAndWait();
 		Main.actionstage.hide();
 		Main.shopstage.show();
 	}
@@ -80,6 +82,8 @@ public class PaymentMethodGui extends AnchorPane {
 		Payment tmp = new Payment( CardIdT.getText(), CreditHolderT.getText(), YearChoiceB.getSelectionModel().getSelectedIndex(), MonthChoiceB.getSelectionModel().getSelectedIndex(), CVVT.getText(),f.getAccount());
 		Main.payment.add(tmp);
 		Main.payment.write();
+		Alert a= new Alert(Alert.AlertType.NONE,"Payment Method has been recorded",ButtonType.OK);
+		a.showAndWait();
 	}
 	
 	private void paypal(ShopStageGui f) {
@@ -88,6 +92,8 @@ public class PaymentMethodGui extends AnchorPane {
 			Payment tmp = new Payment(new Email(PayPalMailT.getText()), new Password(PayPalPassT.getText()),f.getAccount());
 			Main.payment.add(tmp);
 			Main.payment.write();
+			Alert a= new Alert(Alert.AlertType.NONE,"Payment Method has been recorded",ButtonType.OK);
+			a.showAndWait();
 		}catch(IllegalArgumentException e) {
 			Main.actionstage.hide();
 			Main.loadingstage.show();

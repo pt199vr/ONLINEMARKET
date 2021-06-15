@@ -19,6 +19,7 @@ import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import onlinemarket.Main;
@@ -33,6 +34,8 @@ import onlinemarket.product.*;
 public class EditorProdCreationGui extends AnchorPane {
 	@FXML
 	private Label wL;
+	@FXML
+	private Pane featPane;
 	@FXML
 	private ImageView ProdImg;
 	@FXML
@@ -111,7 +114,6 @@ public class EditorProdCreationGui extends AnchorPane {
 			}
 			
 		}
-		
 		
 		String t = TypeCB.getSelectionModel().getSelectedItem();
 		TypeofQuantity type;

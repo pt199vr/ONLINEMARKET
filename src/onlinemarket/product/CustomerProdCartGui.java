@@ -65,6 +65,7 @@ public class CustomerProdCartGui extends ProductGui{
 		removeB.setOnAction(e -> {
 			cart.remove(product);
 			cartgui.refresh();
+			
 		});
 		
 		
