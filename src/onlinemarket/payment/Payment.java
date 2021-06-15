@@ -5,7 +5,7 @@ import onlinemarket.datentime.*;
 import java.io.Serializable;
 
 public class Payment implements Serializable, Comparable<Payment>{
-	private static final long serialVerisonUID = 18L;
+	private static final long serialVersionUID = 18L;
 	private PaymentType type;
 	private Email email;
 	private Password password;
