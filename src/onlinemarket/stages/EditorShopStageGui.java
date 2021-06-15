@@ -309,7 +309,9 @@ public class EditorShopStageGui extends VBox{
 			a.initModality(Modality.APPLICATION_MODAL);
 			a.showAndWait();		
 		}
+		Main.shopstage.show();
 		Main.loadingstage.hide();
+		
 	}
 	
 	private void customers(EditorShopStageGui f) {
