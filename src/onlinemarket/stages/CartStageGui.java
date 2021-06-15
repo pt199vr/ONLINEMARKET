@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +34,7 @@ import onlinemarket.product.ProductSorting;
 
 
 public class CartStageGui extends VBox{
-	private SortedSet<Product> sortedPrdos;
+	private SortedSet<Product> sortedProds;
 	
 	@FXML
 	private Button BuyB;
@@ -67,7 +68,7 @@ public class CartStageGui extends VBox{
 		this.t = t;
 		
 		cart = new Cart();
-		
+		sortedProds = new TreeSet<>();
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
@@ -98,7 +99,7 @@ public class CartStageGui extends VBox{
 		s += doub.intValue();
 		
 		FinalPriceL.setText(s);
-		
+	
 		sort = new ToggleGroup();
 		AscendingBrandRB.setToggleGroup(sort);
 		DescendingBrandRB.setToggleGroup(sort);
@@ -114,7 +115,7 @@ public class CartStageGui extends VBox{
 		
 		sort.selectedToggleProperty().addListener((o,oT,nT)->{
 			comp = sortProd.get((RadioButton)sort.getSelectedToggle());
-			//sort();
+			sort(comp);
 		});
 		
 		BuyB.setOnAction(e -> GoBuy(this));
@@ -122,6 +123,26 @@ public class CartStageGui extends VBox{
 		logout.setOnAction(e -> logout());
 		
 	}
+	
+	
+	
+	public void sort(Comparator<Product> comp) {
+		sortedProds= ProductSorting.sortedProds(comp, new TreeSet<>(), "");
+		view();
+	}
+	
+	public void view() {
+		if (sortedProds == null) {
+			sort(ProductSorting.AscendingBrand());
+		}
+		CartProdVB.getChildren().clear();
+		sortedProds.forEach(p->{
+			if(getCart().getProducts().containsKey(p)) {
+				CartProdVB.getChildren().add(new CustomerProdCartGui(p));
+			}
+		});
+	}
+	
 	
 	public Cart getCart() {
 		return cart;
