@@ -28,11 +28,10 @@ public class EditorAccGui extends AnchorPane{
 	@FXML
 	protected PasswordField PasswordT;
 	@FXML
-	protected Label IDL;
+	protected Label IDL, RoleL;
 	@FXML
 	protected Button ConfirmB;
-	@FXML
-	protected ChoiceBox<String> RoleCB;
+	
 	
 	public EditorAccGui(EditorShopStageGui f) {
 		
@@ -55,24 +54,47 @@ public class EditorAccGui extends AnchorPane{
 		CAPT.setText(f.getAccount().getAddress().getCap().toString());
 		CityT.setText(f.getAccount().getAddress().getCity());
 		IDL.setText(f.getAccount().getId());
+		RoleL.setText(f.getAccount().getRole().toString());
 		
 		
-		
-		ConfirmB.setOnAction(e -> mod());
+		ConfirmB.setOnAction(e -> mod(f.getAccount()));
 		ConfirmB.setOnKeyPressed(e->{
 			if(e.getCode() == KeyCode.ENTER)
-				mod();
-		});
-		
-		String[] roles = {Role.ADMIN.toString(), Role.EDITOR.toString()};
-		for(String s: roles) {
-			RoleCB.getItems().add(s);
-		}
-		
+				mod(f.getAccount());
+		});	
 	}
 	
+	public EditorAccGui(EditorAccount t) {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditorAccountView.fxml"));
+		fxmlLoader.setRoot(this);
+		fxmlLoader.setController(this);
+		
+		try {
+			fxmlLoader.load();
+		}catch(IOException e) {
+			throw new RuntimeException(e);
+		}
+		
+		NameT.setText(t.getName());
+		SurnameT.setText(t.getSurname());
+		MailT.setText(t.getEmail().toString());
+		PasswordT.setText(t.getPassword().toString());
+		CelT.setText(t.getPhoneNumber().toString());
+		AddressT.setText(t.getAddress().getStreet()+ " "+ t.getAddress().getNumber());
+		CAPT.setText(t.getAddress().getCap().toString());
+		CityT.setText(t.getAddress().getCity());
+		IDL.setText(t.getId());
+		RoleL.setText(t.getRole().toString());
+		
+		
+		ConfirmB.setOnAction(e -> mod(t));
+		ConfirmB.setOnKeyPressed(e->{
+			if(e.getCode() == KeyCode.ENTER)
+				mod(t);
+		});	
+	}
 	@FXML
-	private void mod() {
+	private void mod(EditorAccount t) {
 		
 		Email mail= new Email(MailT.getText());
 		Password pass= new Password(PasswordT.getText());
@@ -86,25 +108,11 @@ public class EditorAccGui extends AnchorPane{
 			return;
 		}
 		
-		String s = RoleCB.getSelectionModel().getSelectedItem();
-		Role r = null;
-		if(s == null) {
-			Alert a = new Alert(Alert.AlertType.NONE,"Choose at least one role",ButtonType.OK);
-			a.showAndWait();
-			return;
-		}
-		if(s.equals(Role.ADMIN.toString()))
-			r = Role.ADMIN;
-		if(s.equals(Role.EDITOR.toString()))
-			r = Role.EDITOR;
-		
 		Address addr= new Address(street, city, CAP);
-		EditorAccount newAcc = new EditorAccount(id,name,surname,mail,pass,cel,addr,r);
+		EditorAccount newAcc = new EditorAccount(id,name,surname,mail,pass,cel,addr,t.getRole());
 		
-		for(EditorAccount x :Main.editoraccount) {
-			if(newAcc.equals(x))
-				x = newAcc;
-		}
+		Main.editoraccount.remove(t);
+		Main.editoraccount.add(newAcc);
 		
 		Main.editoraccount.write();
 		Main.actionstage.hide();

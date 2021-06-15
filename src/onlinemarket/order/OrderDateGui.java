@@ -48,9 +48,11 @@ public class OrderDateGui extends AnchorPane{
 		
 		for(int i = 0; i < 6 ; i++ ,l += (24 * 60 * 60000)) {
 			cal.setTime(new java.util.Date(l));
-			if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY)
+			if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
 				cal.setTime(new java.util.Date(l + (24 * 60 * 60000)));
-			d = new Date(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH),cal.get(Calendar.DAY_OF_MONTH));
+				l+=24*60*60000;
+			}
+			d = new Date(cal.get(Calendar.YEAR),cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH));
 			DayCB.getItems().add(d.toString());
 		}
 		DayCB.getSelectionModel().selectFirst();
@@ -89,7 +91,6 @@ public class OrderDateGui extends AnchorPane{
 	public void getChosenDate() {
 		String s = DayCB.getSelectionModel().getSelectedItem();
 		int day = 0, month = 0, year = 0;
-		String z = "0";
 		String g = ""; g+=s.charAt(0);
 		if(s.charAt(1)=='/') {
 			day = Integer.parseInt(g);

@@ -22,6 +22,5 @@ public class RnW_EditorAccount extends RnW<EditorAccount>{
 	}
 	
 	public void Object() {
-		System.out.println("Editor");
 	}
 }

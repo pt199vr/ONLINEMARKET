@@ -35,7 +35,7 @@ import onlinemarket.fidelitycard.FidelityCard;
 import onlinemarket.product.Product;
 import onlinemarket.product.ProductGui;
 import onlinemarket.product.ProductSorting;
-import onlinemarket.product.UserProdGui;
+import onlinemarket.product.CustomerProdGui;
 import onlinemarket.readnwrite.RnW_Product;
 
 public class ShopStageGui extends VBox{
@@ -314,7 +314,7 @@ public class ShopStageGui extends VBox{
 		Main.product.read();
 		tt();
 		for(Product p : Main.product) {
-			ProductGui g = new UserProdGui(p);
+			ProductGui g = new CustomerProdGui(p);
 			Main.prodmap.put(p, g);
 		}
 		

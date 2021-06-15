@@ -37,6 +37,8 @@ public class EditorsTableGui extends AnchorPane{
 	@FXML
 	private Label createL,modifyL,deleteL;
 	
+	private ObservableList<EditorAccount> data = FXCollections.observableArrayList();
+	
 	public EditorsTableGui(EditorShopStageGui f) {
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditorsAccounts.fxml"));
@@ -60,17 +62,24 @@ public class EditorsTableGui extends AnchorPane{
 		RoleCol.setCellValueFactory(new PropertyValueFactory<>("role"));
 		AddressCol.setCellValueFactory(new PropertyValueFactory<>("address"));
 		
-		ObservableList<EditorAccount> data = FXCollections.observableArrayList();	
+		
 		
 		for(EditorAccount t : Main.editoraccount) {
 			data.add(t);
 		}
 		editors.setItems(data);
 		
-		EditorShopStageGui t = new EditorShopStageGui(SelEditor);
 		createL.setOnMouseClicked(e-> openCreation(f));
-		deleteL.setOnMouseClicked(e -> delete(f));
-		modifyL.setOnMouseClicked(e -> mod(t));
+		deleteL.setOnMouseClicked(e -> {
+			delete(f);
+			refresh();
+		});
+		
+		modifyL.setOnMouseClicked(e -> {
+			mod(SelEditor);
+			refresh();
+		});
+		
 		editors.getSelectionModel().getSelectedItems().addListener(
 				(ListChangeListener.Change<? extends EditorAccount> change) -> select());
 		
@@ -78,11 +87,20 @@ public class EditorsTableGui extends AnchorPane{
 			editors.getSelectionModel().select(SelEditor);
 		}
 	}
-
+	private void refresh() {
+		Main.actionstage.hide();
+		Main.loadingstage.show();
+		data.clear();
+		for(EditorAccount t : Main.editoraccount) {
+			data.add(t);
+		}
+		editors.setItems(data);
+		Main.actionstage.show();
+		Main.loadingstage.hide();
+	}
 	private void delete(EditorShopStageGui f) {
+		SelEditor = editors.getSelectionModel().getSelectedItem();
 		if(Main.editoraccount.size() > 1) {
-			SelEditor = editors.getSelectionModel().getSelectedItem();
-			editors.getItems().remove(SelEditor);
 			Main.editoraccount.remove(SelEditor);
 			Main.editoraccount.write();
 			if(SelEditor.equals(f.getAccount())) {
@@ -99,10 +117,10 @@ public class EditorsTableGui extends AnchorPane{
 		}
 		
 	}
-	private void mod(EditorShopStageGui f) {
+	private void mod(EditorAccount f) {
 		Main.loadingstage.show();
 		Main.actionstage.hide();
-		Main.actionstage = new ActionsStage("showaccount",f);
+		Main.actionstage = new ActionsStage("showOtherAccount",f);
 		Main.loadingstage.hide();
 		
 	}
@@ -110,6 +128,7 @@ public class EditorsTableGui extends AnchorPane{
 	private void select() {		
 		ModifyEditor.setDisable(false);
 		DeleteEditor.setDisable(false);
+		SelEditor = editors.getSelectionModel().getSelectedItem();
 	}
 
 	private void openCreation(EditorShopStageGui f) {

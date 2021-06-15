@@ -17,7 +17,7 @@ import javafx.scene.layout.VBox;
 import onlinemarket.product.Product;
 import onlinemarket.product.ProductGui;
 import onlinemarket.product.ProductSorting;
-import onlinemarket.product.UserProdGui;
+import onlinemarket.product.CustomerProdGui;
 import onlinemarket.stages.ShopStage;
 import onlinemarket.Main;
 import onlinemarket.actionsgui.EditorProdModifyGui;
@@ -48,7 +48,7 @@ public class DepartmentGui extends TitledPane {
 		for(Product p: Main.product) {
 			if(p.getDepartment().equals(department)) {
 				if(Main.shopstage instanceof ShopStage)
-					g = new UserProdGui(p);
+					g = new CustomerProdGui(p);
 				else
 					g = new EditorProdModifyGui(p);
 				prodVB.getChildren().add(g);
@@ -58,8 +58,8 @@ public class DepartmentGui extends TitledPane {
 	}
 	
 	public boolean sort(Comparator<Product> comp, TreeSet<String> feature, String search) {
-		if(department.getName().toLowerCase().contains(search)||department.getName().toLowerCase().equals(search))
-			search = null;
+		/*if(department.getName().toLowerCase().contains(search)||department.getName().toLowerCase().equals(search))
+			search = null;*/
 		sortProd = ProductSorting.sortedProds(comp, feature, search);
 		view();
 		
@@ -73,7 +73,7 @@ public class DepartmentGui extends TitledPane {
 		sortProd.forEach(p ->{
 			if(p.getDepartment().equals(department)) {
 				if(Main.shopstage instanceof ShopStage)
-					g = new UserProdGui(p);
+					g = new CustomerProdGui(p);
 				else
 					g = new EditorProdModifyGui(p);
 				prodVB.getChildren().add(g);

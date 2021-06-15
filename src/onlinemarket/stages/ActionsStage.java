@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import onlinemarket.Main;
-
+import onlinemarket.account.EditorAccount;
 import onlinemarket.actionsgui.*;
 import onlinemarket.fidelitycard.FDCCreationGui;
 import onlinemarket.fidelitycard.FDCViewGui;
@@ -21,7 +21,7 @@ public class ActionsStage extends Stage{
 	private DeleteDepGui delete;
 	private EditorProdCreationGui createProd;
 	private EditorProdDeleteGui deleteProd;
-	private EditorAccGui editor;
+	private EditorAccGui editor, othereditor;
 	private CreateEditorGui EdCreation;
 	private EditorsTableGui editorsAcc;
 	private CustomersTableGui customersAcc;
@@ -80,6 +80,7 @@ public class ActionsStage extends Stage{
 				if("showaccount".equals(s)) {					
 					layout.setCenter(editor);
 				}
+				
 				if("EditorCreate".equals(s)) {
 					layout.setCenter(EdCreation);
 				}
@@ -109,10 +110,35 @@ public class ActionsStage extends Stage{
 				});
 				
 			}).start();
-			
-
 	}
-	
+	public ActionsStage(String s, EditorAccount t) {
+		Main.loadingstage.show();
+		System.gc();
+		
+		othereditor= new EditorAccGui(t);
+		new Thread(()->{
+			
+			layout= new BorderPane();
+			
+			if("showOtherAccount".equals(s)) {
+				layout.setCenter(othereditor);
+			}
+			setTitle(Main.title);
+			getIcons().add(Main.logo);
+			setHeight(600);
+			setWidth(800);
+			setResizable(true);
+			Platform.runLater(()->{
+				setScene(new Scene(layout));
+				show();
+				Main.loadingstage.hide();
+			});
+			
+			setOnCloseRequest(e -> {
+				Main.shopstage.show();					
+			});
+		}).start();
+	}
 	public ActionsStage(String s, ShopStageGui f) {
 		
 		Main.loadingstage.show();

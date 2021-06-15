@@ -22,7 +22,6 @@ public class RnW_Order extends RnW<Order>{
 	}
 	
 	public void Object() {
-		System.out.println("Order");
 	}
 	
 	

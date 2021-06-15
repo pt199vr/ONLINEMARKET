@@ -22,7 +22,6 @@ public class RnW_FidelityCard extends RnW<FidelityCard>{
 	}
 	
 	public void Object() {
-		System.out.println("FidelityCard");
 	}
 }
 

@@ -32,7 +32,6 @@ public class RnW_Product extends RnW<Product>{
 	}
 	
 	public void Object() {
-		System.out.println("Product");
 	}
 	
 }
