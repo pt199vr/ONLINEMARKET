@@ -39,6 +39,11 @@ public class EditorProdDeleteGui extends AnchorPane {
 	}
 	private void delete(EditorShopStageGui f) {
 		Product p = prodCB.getSelectionModel().getSelectedItem();
+		if (p==null) {
+			Alert b= new Alert(Alert.AlertType.NONE,"You have to choose a product first!",ButtonType.OK);
+			b.showAndWait();
+			return;
+		}
 		if(new Alert(Alert.AlertType.NONE, "You are deleting this product\n\nContinue?",ButtonType.YES,ButtonType.NO).showAndWait().orElse(ButtonType.NO) == ButtonType.NO)
 			return;
 		Main.product.remove(p);

@@ -61,17 +61,17 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <Label fx:id="NameL" alignment="CENTER" layoutX="56.0" layoutY="87.0" text="Nome">
+      <Label fx:id="NameL" alignment="CENTER" layoutX="56.0" layoutY="87.0" text="Name">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="CityL" alignment="CENTER" layoutX="349.0" layoutY="208.0" text="Città">
+      <Label fx:id="CityL" alignment="CENTER" layoutX="349.0" layoutY="208.0" text="City">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="SurnameL" alignment="CENTER" layoutX="332.0" layoutY="87.0" text="Cognome">
+      <Label fx:id="SurnameL" alignment="CENTER" layoutX="332.0" layoutY="87.0" text="Surname">
          <font>
             <Font size="15.0" />
          </font>
@@ -81,7 +81,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Label fx:id="CAPL" alignment="CENTER" layoutX="63.0" layoutY="208.0" text="CAP">
+      <Label fx:id="CAPL" alignment="CENTER" layoutX="58.0" layoutY="209.0" text="CAP">
          <font>
             <Font size="15.0" />
          </font>
@@ -115,7 +115,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Label fx:id="AddrL" alignment="CENTER" layoutX="336.0" layoutY="171.0" text="Indirizzo">
+      <Label fx:id="AddrL" alignment="CENTER" layoutX="336.0" layoutY="171.0" text="Address">
          <font>
             <Font size="15.0" />
          </font>

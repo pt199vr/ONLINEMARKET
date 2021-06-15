@@ -38,8 +38,8 @@ public class ShopStage extends Stage {
 			
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
-			setHeight(768);
-			setWidth(1024);
+			setMinHeight(768);
+			setMinWidth(1024);
 			setResizable(true);
 			Platform.runLater(()->{
 				setScene(new Scene(layout));

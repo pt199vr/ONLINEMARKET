@@ -103,13 +103,15 @@ public class EditorProdCreationGui extends AnchorPane {
 			c.showAndWait();
 			return;
 		}
-		
 		TreeSet<String> features = new TreeSet<>();
 		for(MenuItem mi :featuresMB.getItems()) {
 			RadioMenuItem rmi = (RadioMenuItem) mi;
-			if(rmi.isSelected())
+			if(rmi.isSelected()) {
 				features.add(rmi.getText());
+			}
+			
 		}
+		
 		
 		String t = TypeCB.getSelectionModel().getSelectedItem();
 		TypeofQuantity type;

@@ -28,8 +28,8 @@ public class CartStage extends Stage{
 			
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
-			setHeight(600);
-			setWidth(800);
+			setHeight(768);
+			setWidth(1024);
 			setResizable(true);
 			Platform.runLater(()->{
 				setScene(new Scene(layout));

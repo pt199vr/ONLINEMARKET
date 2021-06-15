@@ -11,10 +11,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Separator layoutX="3.0" layoutY="26.0" prefHeight="4.0" prefWidth="600.0" />
-      <TabPane fx:id="PaymentTab" layoutX="2.0" layoutY="30.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+      <Separator layoutX="3.0" layoutY="26.0" maxWidth="1.7976931348623157E308" prefHeight="4.0" prefWidth="600.0" />
+      <TabPane fx:id="PaymentTab" layoutX="2.0" layoutY="30.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="PayPalTab" text="PayPal">
             <content>
@@ -58,7 +58,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Label layoutX="158.0" layoutY="2.0" text="Choose your payment method">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="188.0" layoutY="2.0" text="Choose your payment method">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

@@ -60,27 +60,44 @@ public class ActionsStage extends Stage{
 				
 				layout = new BorderPane();
 				
+				setHeight(600);
+				setWidth(800);
+				setResizable(true);
 				
-				
-				if("create".equals(s)) {					
+				if("create".equals(s)) {
+					setHeight(300);
+					setWidth(260);
+					setResizable(false);
 					layout.setCenter(create);
 				}
 				if("modify".equals(s)) {
+					setHeight(300);
+					setWidth(260);
+					setResizable(false);
 					layout.setCenter(modify);
 				}
 				if("delete".equals(s)) {
+					setHeight(300);
+					setWidth(260);
+					setResizable(false);
 					layout.setCenter(delete);
 				}
+				
 				if("prodCreation".equals(s)) {
+					setHeight(480);
+					setWidth(720);
+					setResizable(false);
 					layout.setCenter(createProd);
 				}
 				if("prodElimination".equals(s)) {
+					setHeight(300);
+					setWidth(260);
+					setResizable(false);
 					layout.setCenter(deleteProd);
 				}
 				if("showaccount".equals(s)) {					
 					layout.setCenter(editor);
 				}
-				
 				if("EditorCreate".equals(s)) {
 					layout.setCenter(EdCreation);
 				}
@@ -96,9 +113,8 @@ public class ActionsStage extends Stage{
 				
 				setTitle(Main.title);
 				getIcons().add(Main.logo);
-				setHeight(600);
-				setWidth(800);
-				setResizable(true);
+				
+				
 				Platform.runLater(()->{
 					setScene(new Scene(layout));
 					show();
@@ -152,23 +168,36 @@ public class ActionsStage extends Stage{
 		
 		new Thread(()->{
 			layout = new BorderPane();
-			
-			if("payment".equals(s))
-				layout.setCenter(payment);
-			if("showaccount".equals(s))
-				layout.setCenter(customer);
-			if("fidelity".equals(s))
-				layout.setCenter(fdcv);
-			if("newFidelity".equals(s)) 
-				layout.setCenter(fdcc);
-			if("showOrders".equals(s)) 
-				layout.setCenter(CustomerOrders);
-			
-			setTitle(Main.title);
-			getIcons().add(Main.logo);
 			setHeight(600);
 			setWidth(800);
-			setResizable(true);
+			setResizable(false);
+			
+			if("payment".equals(s)) {
+				setHeight(425);
+				setWidth(620);
+				
+				layout.setCenter(payment);
+			}
+			if("showaccount".equals(s)) {
+				layout.setCenter(customer);	
+			}
+			if("fidelity".equals(s)) {
+				setHeight(500);
+				setWidth(650);
+				layout.setCenter(fdcv);
+				}
+			if("newFidelity".equals(s)) {
+				setHeight(500);
+				setWidth(650);
+				layout.setCenter(fdcc);
+				}
+			if("showOrders".equals(s)) {
+				setResizable(false);
+				layout.setCenter(CustomerOrders);
+			}
+			setTitle(Main.title);
+			getIcons().add(Main.logo);
+			
 			Platform.runLater(()->{
 				setScene(new Scene(layout));
 				show();
@@ -225,9 +254,9 @@ public class ActionsStage extends Stage{
 			layout.setCenter(productS);
 			setTitle(Main.title);
 			getIcons().add(Main.logo);
-			setHeight(600);
-			setWidth(800);
-			setResizable(true);
+			setHeight(450);
+			setWidth(615);
+			setResizable(false);
 			Platform.runLater(()->{
 				setScene(new Scene(layout));
 				show();
