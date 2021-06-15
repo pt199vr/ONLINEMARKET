@@ -65,7 +65,7 @@ public class DeleteDepGui extends AnchorPane {
 		
 		TreeSet<Product> tree = new TreeSet<Product>();
 		for(Product p : Main.product) {
-			if(x.equals(Main.prodmap.get(p))) {
+			if(x.equals(p.getDepartment())) {
 				Main.prodmap.remove(p);
 				tree.add(p);
 			}

@@ -7,7 +7,7 @@ import onlinemarket.datentime.Date;
 
 
 public class AccountFidelity extends Account implements Serializable{
-	private static final long serialVerisonUID = 18L;
+	private static final long serialVersionUID = 18L;
 	private FidelityCard card;
 	
 	public AccountFidelity(String name, String surname, Email email, Password password, Long phonenumber, Address address, FidelityCard card) {

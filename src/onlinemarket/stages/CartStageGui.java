@@ -124,8 +124,6 @@ public class CartStageGui extends VBox{
 		
 	}
 	
-	
-	
 	public void sort(Comparator<Product> comp) {
 		sortedProds= ProductSorting.sortedProds(comp, new TreeSet<>(), "");
 		view();

@@ -3,17 +3,14 @@ package onlinemarket.actionsgui;
 import java.io.IOException;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
-import java.util.TreeSet;
 import javafx.stage.Stage;
 
 import onlinemarket.Main;
-import onlinemarket.account.*;
 import onlinemarket.order.*;
 import onlinemarket.stages.*;
 import onlinemarket.datentime.*;

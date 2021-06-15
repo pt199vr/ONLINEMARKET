@@ -3,7 +3,8 @@ package onlinemarket.account;
 import java.io.Serializable;
 
 public class Account implements Serializable, Comparable<Account>{
-	private static final long serialVerisonUID = 1L;
+	
+	private static final long serialVersionUID = 1L;
 	
 	protected String name, surname, city;
 	protected Address address;
