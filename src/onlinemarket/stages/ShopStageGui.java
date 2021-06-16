@@ -316,6 +316,7 @@ public class ShopStageGui extends VBox{
 		for(Product p : Main.product) {
 			ProductGui g = new CustomerProdGui(p);
 			Main.prodmap.put(p, g);
+			//((CustomerProdGui)g).refresh(p);
 		}
 		
 		for(Department d : Main.department) {

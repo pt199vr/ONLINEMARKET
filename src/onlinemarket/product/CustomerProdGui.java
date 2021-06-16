@@ -6,7 +6,9 @@ import java.io.File;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,7 +25,8 @@ public class CustomerProdGui extends ProductGui{
 	private ImageView ProdImg;
 	
 	private Product product;
-	private Integer quantityToCart = 0;
+	private Integer quantityToCart=0;
+
 
 	private String getBetterPath() {
 		return String.format("%s/%s_%s.jpg", Main.mediapath, product.getName(), product.getBrand());
@@ -37,7 +40,7 @@ public class CustomerProdGui extends ProductGui{
 		super(new FXMLLoader(CustomerProdGui.class.getResource("productCustomer.fxml")),p);
 	
 		product = p;
-		
+		quantityWL.setText("");
 		if((new File(Main.mediapath + "/" + product.getName()+ "_" + product.getBrand() + ".jpg").exists())) {
 			ProdImg.setImage(new Image("file:" + getBetterPath()));
 		}
@@ -47,25 +50,26 @@ public class CustomerProdGui extends ProductGui{
 		else 
 			ProdImg.setImage(ProductGui.defaultIMG);
 		
-		
 		nameL.setText(p.getName());
 		brandL.setText(p.getBrand());
 		quantityL.setText("Reserves:  " + p.getNumber().toString());
 		priceQuantityL.setText(p.getPrice().toString()+ " €");
 		AddCartB.setOnAction(e->{
-			if(quantityToCart.equals(p.getNumber())) { 
-				AddCartB.setDisable(true);
-			}
-			else {
-			quantityToCart++;
-			quantityWL.setText(" + " + quantityToCart);
+			if(((ShopStage)Main.shopstage).shopgui.getCart().getProducts().containsKey(p))
+				if(p.getNumber()==0 || ((ShopStage)Main.shopstage).shopgui.getCart().getProducts().get(p).equals(p.getNumber())){ 
+					AddCartB.setDisable(true);
+				}
 			((ShopStage) Main.shopstage).shopgui.getCart().add(p);
-			}
-		});
-	}
-	public void changeCartQuantity(Integer cartStock) {
-		quantityToCart = cartStock;
-	}
+			quantityWL.setText("Added " +((ShopStage)Main.shopstage).shopgui.getCart().getProducts().get(p));
+		}); 
+	}/*
+	public void refresh(Product p) {
+		if(((ShopStage)Main.shopstage).shopgui.getCart().getProducts().containsKey(p))
+			quantityWL.setText("Added " +((ShopStage)Main.shopstage).shopgui.getCart().getProducts().get(p));
+		else
+			quantityWL.setText("");
+	}*/
+	
 	public Product getProduct() {
 		return product;
 	}

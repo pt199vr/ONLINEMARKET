@@ -13,6 +13,7 @@ import onlinemarket.Main;
 import onlinemarket.cart.Cart;
 import onlinemarket.stages.CartStage;
 import onlinemarket.stages.CartStageGui;
+import onlinemarket.stages.ShopStage;
 
 public class CustomerProdCartGui extends ProductGui{
 	
@@ -65,7 +66,6 @@ public class CustomerProdCartGui extends ProductGui{
 		removeB.setOnAction(e -> {
 			cart.remove(product);
 			cartgui.refresh();
-			
 		});
 		
 		
