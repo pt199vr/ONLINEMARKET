@@ -81,7 +81,7 @@ public class CartStageGui extends VBox{
 		PurchasesL.setOnMouseClicked(e ->{
 			Main.loadingstage.show();
 			Main.cartstage.hide();
-			Main.shopstage.show();
+			((ShopStage)Main.shopstage).shopgui.checking();
 			Main.loadingstage.hide();
 		});
 		

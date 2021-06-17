@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import onlinemarket.Main;
+import onlinemarket.stages.CartStage;
 import onlinemarket.stages.ShopStage;
 
 public class CustomerProdGui extends ProductGui{
@@ -25,9 +26,8 @@ public class CustomerProdGui extends ProductGui{
 	private ImageView ProdImg;
 	
 	private Product product;
-	private Integer quantityToCart=0;
-
-
+	public Integer quantityToCart;
+	
 	private String getBetterPath() {
 		return String.format("%s/%s_%s.jpg", Main.mediapath, product.getName(), product.getBrand());
 	}
@@ -49,27 +49,26 @@ public class CustomerProdGui extends ProductGui{
 		}
 		else 
 			ProdImg.setImage(ProductGui.defaultIMG);
-		
 		nameL.setText(p.getName());
 		brandL.setText(p.getBrand());
 		quantityL.setText("Reserves:  " + p.getNumber().toString());
 		priceQuantityL.setText(p.getPrice().toString()+ " €");
+		if(p.getNumber() == 0){ 
+			AddCartB.setDisable(true);
+		}
 		AddCartB.setOnAction(e->{
-			if(((ShopStage)Main.shopstage).shopgui.getCart().getProducts().containsKey(p))
-				if(p.getNumber()==0 || ((ShopStage)Main.shopstage).shopgui.getCart().getProducts().get(p).equals(p.getNumber())){ 
+			if(((CartStage)Main.cartstage).getCartGui().getCart().getProducts().containsKey(p))
+				if(((CartStage)Main.cartstage).getCartGui().getCart().getProducts().get(p).equals(p.getNumber()-1))
 					AddCartB.setDisable(true);
-				}
 			((ShopStage) Main.shopstage).shopgui.getCart().add(p);
-			quantityWL.setText("Added " +((ShopStage)Main.shopstage).shopgui.getCart().getProducts().get(p));
-		}); 
-	}/*
-	public void refresh(Product p) {
-		if(((ShopStage)Main.shopstage).shopgui.getCart().getProducts().containsKey(p))
-			quantityWL.setText("Added " +((ShopStage)Main.shopstage).shopgui.getCart().getProducts().get(p));
+			quantityWL.setText("Added "+((CartStage)Main.cartstage).getCartGui().getCart().getProducts().get(p));
+		});
+		
+		if(((CartStage)Main.cartstage).getCartGui().getCart().getProducts().containsKey(p))
+			quantityWL.setText("Added "+((CartStage)Main.cartstage).getCartGui().getCart().getProducts().get(p));
 		else
 			quantityWL.setText("");
-	}*/
-	
+	}
 	public Product getProduct() {
 		return product;
 	}

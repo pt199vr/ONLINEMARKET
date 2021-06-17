@@ -8,10 +8,8 @@ import java.util.TreeSet;
 
 import onlinemarket.Main;
 import onlinemarket.account.Account;
-import onlinemarket.actionsgui.EditorProdModifyGui;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -316,7 +314,6 @@ public class ShopStageGui extends VBox{
 		for(Product p : Main.product) {
 			ProductGui g = new CustomerProdGui(p);
 			Main.prodmap.put(p, g);
-			//((CustomerProdGui)g).refresh(p);
 		}
 		
 		for(Department d : Main.department) {

@@ -1,8 +1,9 @@
 package onlinemarket.cart;
 
-import onlinemarket.Main;
+
+
 import onlinemarket.product.*;
-import onlinemarket.stages.ShopStage;
+
 
 import java.util.HashMap;
 
@@ -26,9 +27,7 @@ public class Cart {
 			tmp--;
 			price -= a.getPrice();
 			products.put(a, tmp);
-			((ShopStage)Main.shopstage).shopgui.checking();
-			Main.shopstage.hide();
-		}		
+			}		
 		else {
 			products.remove(a);
 			price -= a.getPrice();
