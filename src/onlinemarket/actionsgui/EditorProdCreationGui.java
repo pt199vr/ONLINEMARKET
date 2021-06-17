@@ -5,7 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.TreeSet;
 import javafx.scene.image.Image;
-
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -19,9 +20,10 @@ import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+
 import onlinemarket.Main;
 import onlinemarket.departments.Department;
 import onlinemarket.product.Product;
@@ -29,13 +31,12 @@ import onlinemarket.product.ProductGui;
 import onlinemarket.product.TypeofQuantity;
 import onlinemarket.readnwrite.RnW_Product;
 import onlinemarket.stages.EditorShopStageGui;
-import onlinemarket.product.*;
 
 public class EditorProdCreationGui extends AnchorPane {
 	@FXML
 	private Label wL;
 	@FXML
-	private Pane featPane;
+	private VBox featVB;
 	@FXML
 	private ImageView ProdImg;
 	@FXML
@@ -72,6 +73,12 @@ public class EditorProdCreationGui extends AnchorPane {
 		
 		for(String feat: RnW_Product.features) {
 			RadioMenuItem I = new RadioMenuItem(feat);
+			I.setOnAction(new EventHandler<ActionEvent>(){
+				@Override
+				public void handle(ActionEvent e) {
+					showFeatures();
+					
+				}});
 			featuresMB.getItems().add(I);
 		}
 		String types[] = {TypeofQuantity.GRAMS.toString(),TypeofQuantity.LITERS.toString(),TypeofQuantity.PIECES.toString()};
@@ -112,7 +119,6 @@ public class EditorProdCreationGui extends AnchorPane {
 			if(rmi.isSelected()) {
 				features.add(rmi.getText());
 			}
-			
 		}
 		
 		String t = TypeCB.getSelectionModel().getSelectedItem();
@@ -156,7 +162,21 @@ public class EditorProdCreationGui extends AnchorPane {
 		
 		if(selFile != null)
 			ProdImg.setImage(new Image("file:" + selFile.getPath()));
-		
+	}
+	
+	@FXML
+	private void showFeatures() {
+		String selFeat=null;
+		featVB.getChildren().clear();
+		for(MenuItem mi:featuresMB.getItems()) {
+			RadioMenuItem frmi=(RadioMenuItem) mi;
+			
+			if(frmi.isSelected()) {
+				selFeat = frmi.getText();
+				featVB.getChildren().add(new Label(selFeat));
+			}
+		}
+	
 	}
 
 }
