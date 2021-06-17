@@ -36,7 +36,7 @@ public class OrderStage extends Stage{
 			
 			setOnCloseRequest(e -> {
 				t.newCart();
-				Main.shopstage.show();
+				((ShopStage)Main.shopstage).shopgui.checking();
 			});
 			
 		}); thread.start();

@@ -100,6 +100,7 @@ public class OrderRecGui extends BorderPane {
 				}
 				
 				((ShopStage)Main.shopstage).shopgui.checking();
+				Main.shopstage.hide();
 				Main.fidelitycard.write();
 				Main.payment.write();
 				

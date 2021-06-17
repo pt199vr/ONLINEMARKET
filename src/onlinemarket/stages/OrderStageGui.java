@@ -67,9 +67,9 @@ public class OrderStageGui extends AnchorPane{
 		
 		MenuB.setOnAction(e ->{	
 			Main.loadingstage.show();
-			Main.shopstage.show();
-			Main.loadingstage.hide();
 			((CartStage) Main.cartstage).getCartGui().newCart();
+			((ShopStage)Main.shopstage).shopgui.checking();
+			Main.loadingstage.hide();
 			Main.orderstage.close();
 		});
 	}

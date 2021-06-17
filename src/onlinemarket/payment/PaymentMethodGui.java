@@ -20,7 +20,7 @@ public class PaymentMethodGui extends AnchorPane {
 	@FXML
 	private Tab PayPalTab, CreditCardTab, CashTab;
 	@FXML
-	private TextField PayPalMailT, PayPalPassT, CreditHolderT, CardIdT, CVVT;
+	private TextField PayPalMailT, PayPalPassT, CreditHolderT, CardIDT, CVVT;
 	@FXML
 	private Button PayPalConfirmB, CCConfirmB, ConfirmCashB;
 	@FXML
@@ -57,6 +57,13 @@ public class PaymentMethodGui extends AnchorPane {
 	
 	private void cash(ShopStageGui f) {
 		Payment tmp = new Payment(f.getAccount());
+		Payment x=null;
+		for(Payment t: Main.payment) {
+			if(tmp.getAccount().equals(t.getAccount()))
+				x = t;
+		}
+		if(x!=null)
+			Main.payment.remove(x);
 		Main.payment.add(tmp);		
 		Main.payment.write();
 		Alert a= new Alert(Alert.AlertType.NONE,"Payment Method has been recorded",ButtonType.OK);
@@ -66,34 +73,57 @@ public class PaymentMethodGui extends AnchorPane {
 	}
 	
 	private void CreditCard(ShopStageGui f) {
-		
-		if(CVVT.getText().length() != 3 || CardIdT.getText().length() != 16 ||
+		String cvv = CVVT.getText(), cardId = CardIDT.getText();
+		if(cvv==null|| cardId==null) {
+			Alert a= new Alert(Alert.AlertType.NONE,"Please fill all the fields",ButtonType.OK);
+			a.showAndWait();
+			return;
+			}
+		if(cvv.length() != 3 || cardId.length() != 16 ||
 					java.time.LocalDateTime.now().getYear() < YearChoiceB.getSelectionModel().getSelectedIndex() || 
 					(java.time.LocalDateTime.now().getYear() == YearChoiceB.getSelectionModel().getSelectedIndex() 
 					&& java.time.LocalDateTime.now().getMonth().getValue() < MonthChoiceB.getSelectionModel().getSelectedIndex())) {
 			Main.actionstage.hide();
 			Main.loadingstage.show();
-			Alert a = new Alert(Alert.AlertType.NONE, "CVV must be 3 characters\nCardNumber 16\nyou have to type a valide date", ButtonType.OK);
+			Alert a = new Alert(Alert.AlertType.NONE, "CVV must be 3 characters\nCardNumber 16\nYou have to type a valide date", ButtonType.OK);
 			Main.loadingstage.hide();
 			a.showAndWait();
 			Main.actionstage.show();
 		}
 		
-		Payment tmp = new Payment( CardIdT.getText(), CreditHolderT.getText(), YearChoiceB.getSelectionModel().getSelectedIndex(), MonthChoiceB.getSelectionModel().getSelectedIndex(), CVVT.getText(),f.getAccount());
+		Payment tmp = new Payment( CardIDT.getText(), CreditHolderT.getText(), YearChoiceB.getSelectionModel().getSelectedIndex(), MonthChoiceB.getSelectionModel().getSelectedIndex(), CVVT.getText(),f.getAccount());
+		Payment x=null;
+		for(Payment t: Main.payment) {
+			if(tmp.getAccount().equals(t.getAccount()))
+				x = t;
+		}
+		if(x!=null)
+			Main.payment.remove(x);
 		Main.payment.add(tmp);
 		Main.payment.write();
 		Alert a= new Alert(Alert.AlertType.NONE,"Payment Method has been recorded",ButtonType.OK);
 		a.showAndWait();
+		Main.actionstage.hide();
+		Main.shopstage.show();
 	}
 	
 	private void paypal(ShopStageGui f) {
 		
 		try {
 			Payment tmp = new Payment(new Email(PayPalMailT.getText()), new Password(PayPalPassT.getText()),f.getAccount());
+			Payment x=null;
+			for(Payment t: Main.payment) {
+				if(tmp.getAccount().equals(t.getAccount()))
+					x = t;
+			}
+			if(x!=null)
+				Main.payment.remove(x);
 			Main.payment.add(tmp);
 			Main.payment.write();
 			Alert a= new Alert(Alert.AlertType.NONE,"Payment Method has been recorded",ButtonType.OK);
 			a.showAndWait();
+			Main.actionstage.hide();
+			Main.shopstage.show();
 		}catch(IllegalArgumentException e) {
 			Main.actionstage.hide();
 			Main.loadingstage.show();

@@ -18,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import onlinemarket.Main;
 import onlinemarket.account.*;
 import onlinemarket.payment.Payment;
+import onlinemarket.payment.PaymentType;
 import onlinemarket.stages.ShopStage;
 
 public class OrderPaymentGui extends AnchorPane{
@@ -53,13 +54,26 @@ public class OrderPaymentGui extends AnchorPane{
 			fxmlLoader.load();
 		}catch(IOException e) {
 			throw new RuntimeException(e);
-		}		
+		}
+		if(tmp!=null) {
+			if(tmp.getType().equals(PaymentType.CREDITCARD)){
+				
+				CardIDT.setText(tmp.getNumber());	
+			}
+			else if(tmp.getType().equals(PaymentType.PAYPAL)) {
+				PayPalMailT.setText(tmp.getEmail().toString());
+			}
+			else {
+				cashB.setSelected(true);
+			}
+		}	
+			
 		
 		Integer year = java.time.LocalDateTime.now().getYear();
-		Integer tmp = year;
+		Integer temp = year;
 		ArrayList<String> ys = new ArrayList<>();
-		for(int i= 0;i<6;i++,tmp++) {
-			ys.add(tmp.toString());
+		for(int i= 0;i<6;i++,temp++) {
+			ys.add(temp.toString());
 		}
 		YearChoiceB.getItems().addAll(ys);
 		YearChoiceB.getSelectionModel().selectedItemProperty().addListener(
