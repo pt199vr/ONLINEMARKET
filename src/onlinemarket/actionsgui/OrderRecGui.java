@@ -19,7 +19,6 @@ import onlinemarket.order.OrderDateGui;
 import onlinemarket.order.OrderFidelityGui;
 import onlinemarket.order.OrderNewFidelityGui;
 import onlinemarket.order.OrderPaymentGui;
-import onlinemarket.payment.Payment;
 import onlinemarket.product.Product;
 import onlinemarket.stages.CartStageGui;
 import onlinemarket.stages.OrderStage;

@@ -8,7 +8,6 @@ import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import onlinemarket.Main;
 import onlinemarket.departments.Department;
-import onlinemarket.stages.EditorShopStage;
 import onlinemarket.stages.EditorShopStageGui;
 
 

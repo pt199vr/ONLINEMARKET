@@ -1,7 +1,7 @@
 package onlinemarket.actionsgui;
 
 import java.io.File;
-import java.io.IOException;
+
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import onlinemarket.Main;
-import onlinemarket.account.Role;
 import onlinemarket.product.Product;
 import onlinemarket.product.ProductGui;
 import onlinemarket.product.TypeofQuantity;

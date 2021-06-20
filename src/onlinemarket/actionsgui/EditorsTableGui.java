@@ -8,7 +8,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import onlinemarket.Main;
