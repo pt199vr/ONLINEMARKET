@@ -34,8 +34,6 @@ import onlinemarket.stages.EditorShopStageGui;
 
 public class EditorProdCreationGui extends AnchorPane {
 	@FXML
-	private Label wL;
-	@FXML
 	private VBox featVB;
 	@FXML
 	private ImageView ProdImg;

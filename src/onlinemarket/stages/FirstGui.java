@@ -18,8 +18,6 @@ import onlinemarket.Main;
 
 public class FirstGui extends AnchorPane{
 	@FXML
-	private Label Login, Register;
-	@FXML
 	private Button toLogin, CreateAccount;
 	
 	public FirstGui() {

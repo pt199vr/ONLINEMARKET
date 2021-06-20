@@ -16,8 +16,7 @@ public class DeleteDepGui extends AnchorPane {
 	
 	@FXML
 	private ChoiceBox<String> DepChoice;
-	@FXML
-	private Label wL;
+
 	
 	@FXML
 	private Button DepDelete;

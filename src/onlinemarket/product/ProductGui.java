@@ -34,19 +34,11 @@ public class ProductGui extends GridPane {
 		}
 		
 		this.product = product;
-
-		if(product.getNumber() == 0)
-			EmptyShelf();
 	}
 
-	private void EmptyShelf(){
-		
-	}
 	
 	protected void newQuantity(Integer number) {
 		this.number = number;
-		if(number == 0)
-			EmptyShelf();
 	}
 	
 

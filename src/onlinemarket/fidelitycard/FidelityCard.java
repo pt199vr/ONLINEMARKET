@@ -7,7 +7,7 @@ import java.io.Serializable;
 import onlinemarket.datentime.*;
 
 public class FidelityCard implements Serializable, Comparable<FidelityCard>{
-	private static final long serialVerisonUID = 16L;
+	private static final long serialVersionUID = 16L;
 	
 	private int points;
 	private String cardId;

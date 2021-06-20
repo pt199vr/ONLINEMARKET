@@ -18,8 +18,7 @@ public class LoginGui extends AnchorPane{
 	private TextField EmailF, id;
 	@FXML
 	private PasswordField PasswordF, EPasswordF;
-	@FXML
-	private Label LogL,MailL,PasswordL, ELogL, Matricola, EPasswordL;
+	
 	@FXML
 	private Tab EditorTab, CustomerTab;
 

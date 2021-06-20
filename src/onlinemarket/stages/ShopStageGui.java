@@ -45,12 +45,10 @@ public class ShopStageGui extends VBox{
 	private RadioButton AscendingBrandRB,DescendingBrandRB, AscendingPriceRB,DescendingPriceRB;
 	@FXML
 	private ScrollPane scrollP;
-	@FXML
-	private SplitPane splitP;
+	
 	@FXML
 	private Region scrollR;
-	@FXML
-	private GridPane searchGridPane;
+	
 	@FXML
 	private VBox filterVB,mainVB, featuresVB, DepartmentsVB;
 	@FXML

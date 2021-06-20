@@ -50,8 +50,6 @@ public class CartStageGui extends VBox{
 	@FXML
 	private Menu Purchases;
 	@FXML
-	private GridPane depGrid,featuresGrid;
-	@FXML
 	private MenuItem profile,FDC,Orders,payment,logout;
 	
 	private final HashMap<RadioButton,Comparator<Product>> sortProd;

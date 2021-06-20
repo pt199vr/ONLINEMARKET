@@ -26,8 +26,6 @@ public class RegistrationGui extends AnchorPane{
 	private PasswordField PasswordF;
 	@FXML
 	private Button BackB, RegB;
-	@FXML
-	private Label NameL, SurnameL, CityL, MailL, CAPL, CelL, PasswordL, AddrL;
 	
 	
 	public RegistrationGui() {

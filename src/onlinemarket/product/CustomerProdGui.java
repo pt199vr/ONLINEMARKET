@@ -26,7 +26,6 @@ public class CustomerProdGui extends ProductGui{
 	private ImageView ProdImg;
 	
 	private Product product;
-	public Integer quantityToCart;
 	
 	private String getBetterPath() {
 		return String.format("%s/%s_%s.jpg", Main.mediapath, product.getName(), product.getBrand());
