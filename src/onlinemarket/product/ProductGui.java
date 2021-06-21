@@ -1,19 +1,9 @@
 package onlinemarket.product;
 
 import java.io.IOException;
-import java.io.File;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import onlinemarket.Main;
-import onlinemarket.actionsgui.EditorProdModifyGui;
-import onlinemarket.stages.EditorShopStage;
-import onlinemarket.stages.ShopStage;
-
 
 public class ProductGui extends GridPane {
 	

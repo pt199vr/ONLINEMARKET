@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import onlinemarket.Main;
-import onlinemarket.stages.CartStage;
 
 
 public class OrderProdGui extends ProductGui{

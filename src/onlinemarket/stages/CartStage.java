@@ -6,8 +6,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import onlinemarket.Main;
 import onlinemarket.account.Account;
-import onlinemarket.cart.Cart;
-import javafx.scene.layout.BorderPane;
+
 
 public class CartStage extends Stage{
 	

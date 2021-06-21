@@ -1,7 +1,7 @@
 package onlinemarket.product;
 
 import java.io.File;
-import java.io.IOException;
+
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,6 @@ import onlinemarket.Main;
 import onlinemarket.cart.Cart;
 import onlinemarket.stages.CartStage;
 import onlinemarket.stages.CartStageGui;
-import onlinemarket.stages.ShopStage;
 
 public class CustomerProdCartGui extends ProductGui{
 	

@@ -4,11 +4,8 @@ import java.io.Serializable;
 import java.util.TreeSet;
 import java.lang.Object;
 
-import onlinemarket.Main;
-import onlinemarket.actionsgui.EditorProdModifyGui;
+
 import onlinemarket.departments.*;
-import onlinemarket.stages.EditorShopStage;
-import onlinemarket.stages.ShopStage;
 
 public class Product implements Serializable,Comparable<Product>, Cloneable{
 	private static final long serialVersionUID = 6L;

@@ -1,20 +1,10 @@
 package onlinemarket.stages;
 
-import java.io.File;
-import java.io.IOException;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import onlinemarket.Main;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import onlinemarket.account.*;
 
 public class RegistrationStage extends Stage{
 	

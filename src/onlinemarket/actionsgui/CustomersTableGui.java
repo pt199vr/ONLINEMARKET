@@ -3,7 +3,6 @@ package onlinemarket.actionsgui;
 import java.io.IOException;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.*;
 import javafx.scene.control.*;
@@ -15,7 +14,6 @@ import onlinemarket.account.Address;
 import onlinemarket.account.Email;
 import onlinemarket.datentime.Date;
 import onlinemarket.fidelitycard.FidelityCard;
-import onlinemarket.actionsgui.AccountFidelity;
 
 
 public class CustomersTableGui extends AnchorPane{

@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import onlinemarket.Main;
 
 import onlinemarket.account.*;
-import onlinemarket.cart.Cart;
 import onlinemarket.departments.*;
 
 public class ShopStage extends Stage {

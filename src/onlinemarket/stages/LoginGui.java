@@ -1,7 +1,6 @@
 package onlinemarket.stages;
 
 import java.io.IOException;
-import java.util.Iterator;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.input.*;

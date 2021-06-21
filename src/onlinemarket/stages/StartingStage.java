@@ -1,28 +1,16 @@
 package onlinemarket.stages;
 
 import onlinemarket.*;
-import onlinemarket.readnwrite.RnW_Account;
-import onlinemarket.readnwrite.RnW_Department;
-import onlinemarket.readnwrite.RnW_EditorAccount;
-import onlinemarket.readnwrite.RnW_FidelityCard;
-import onlinemarket.readnwrite.RnW_Payment;
-import onlinemarket.readnwrite.RnW_Product;
 import onlinemarket.departments.*;
 import onlinemarket.product.*;
 
 import java.io.File;
 import java.io.IOException;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-import onlinemarket.fidelitycard.FidelityCard;
 import java.util.TreeSet;
 
 

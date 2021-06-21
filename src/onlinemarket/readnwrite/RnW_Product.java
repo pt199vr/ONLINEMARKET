@@ -1,6 +1,5 @@
 package onlinemarket.readnwrite;
 
-import onlinemarket.account.Account;
 import onlinemarket.product.Product;
 import onlinemarket.product.ProductGui;
 
